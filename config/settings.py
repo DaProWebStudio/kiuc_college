@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 
     'apps.news.apps.NewsConfig',
+    'apps.specialty.apps.SpecialtyConfig',
 
 ]
 

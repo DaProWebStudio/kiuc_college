@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from apps.specialty.models import Specialty
+
+
+@admin.register(Specialty)
+class AdminSpecialty(admin.ModelAdmin):
+    pass

@@ -11,11 +11,10 @@ from common.managers import ActiveManager
 
 
 class News(models.Model):
-    name = models.CharField('Тема', max_length=1550)
+    title = models.CharField(_('Название'), max_length=1550)
     slug = models.SlugField("URL", max_length=2750, null=True, blank=True)
-    body = RichTextField(_('Описание'))
+    description = RichTextField(_('Описание'))
     youtube = models.URLField(_('Ссылка на видео'), null=True, blank=True)
-    instagram = models.URLField(_('Ссылка на instagram'), null=True, blank=True)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=news_main_img, format='webp',
                                 processors=[ResizeToFill(756, 425)], options={'quality': 90})
     is_active = models.BooleanField(_('Статус'), default=True)
@@ -23,14 +22,14 @@ class News(models.Model):
     objects = models.Manager()
     active = ActiveManager()
 
-    created = models.DateTimeField("Создано")
+    created = models.DateTimeField(_("Создано"))
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = get_english_translit(self.name)
+        self.slug = get_english_translit(self.title)
         super(News, self).save(*args, **kwargs)
 
     class Meta:
@@ -40,7 +39,7 @@ class News(models.Model):
 
 
 class NewsImages(models.Model):
-    _("""Фотографии Новостях""")
+    """Фотографии Новостях"""
     news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='images')
     image = ProcessedImageField(verbose_name=_('Фотография'), upload_to=news_news_img, format='webp',
                                 options={'quality': 65})
@@ -49,7 +48,7 @@ class NewsImages(models.Model):
     updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.news.name
+        return self.news.title
 
     class Meta:
         ordering = ('created',)

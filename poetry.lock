@@ -196,6 +196,22 @@ Django = ">=2.2"
 tests = ["coverage"]
 
 [[package]]
+name = "django-modeltranslation"
+version = "0.18.9"
+description = "Translates Django models using a registration approach."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-modeltranslation-0.18.9.tar.gz", hash = "sha256:d92bcd004e48946ae3824289ee76d36faa670f6e3da4a0412cdaeb4fc2526627"},
+    {file = "django_modeltranslation-0.18.9-py3-none-any.whl", hash = "sha256:f79ec5548053ffa2153b7b5ca646f59da1bf9e4c2c62085e21ead662a9c2faf8"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+typing-extensions = "*"
+
+[[package]]
 name = "environs"
 version = "9.5.0"
 description = "simplified environment variable parsing"
@@ -463,4 +479,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "09ead11b5c3cd17156fe9dde0c405b58cc4f246e3625b028092507a3ef0805ad"
+content-hash = "f2cb9b79f3a774305b7bca5bbe478614e56d6d3699e7630e4c2bf04758d2942f"

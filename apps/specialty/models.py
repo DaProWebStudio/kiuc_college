@@ -22,9 +22,9 @@ class Specialty(models.Model):
         (cons.CONTRACT, _('Контракт')),
         (cons.CONTRACT_BUDGET, _('Контракт/Бюджет'))
     )
-    name = models.CharField(_('Наименование'), max_length=350)
+    title = models.CharField(_('Наименование'), max_length=350)
     slug = models.SlugField("URL", max_length=450, null=True, blank=True)
-    body = RichTextField(_('Описание'))
+    description = RichTextField(_('Описание'))
     contract = models.CharField(_('Сумма контракта'), max_length=50)
     form_of_training = models.CharField(_('Форма обучение'), max_length=20, choices=TRAINING, default=cons.FULL_TIME)
     basis_learning = models.CharField(_('Основа обучения'), max_length=100, choices=LEARNING, default=cons.CONTRACT)
@@ -45,11 +45,11 @@ class Specialty(models.Model):
         return dict(Specialty.LEARNING)[self.basis_learning]
 
     def save(self, *args, **kwargs):
-        self.slug = get_slug(self.name)
+        self.slug = get_slug(self.title)
         super(Specialty, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        return self.title
 
     class Meta:
         ordering = ('-created',)

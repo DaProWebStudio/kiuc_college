@@ -12,3 +12,5 @@ class AdminNewsImages(admin.TabularInline):
 class AdminNews(admin.ModelAdmin):
     model = News
     inlines = [AdminNewsImages]
+
+    exclude = ('slug', )

@@ -218,7 +218,7 @@ class Group(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = get_slug(self.title)
-        super().save(*args, **kwargs)
+        super(Group, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ('course',)

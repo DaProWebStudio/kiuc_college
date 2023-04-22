@@ -5,4 +5,4 @@ from apps.specialty.models import Specialty
 
 @admin.register(Specialty)
 class AdminSpecialty(admin.ModelAdmin):
-    pass
+    exclude = ('slug',)

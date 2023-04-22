@@ -77,7 +77,3 @@ class AdminGroup(admin.ModelAdmin):
     list_display = ('title', 'course', 'specialty', 'created', 'updated')
     list_filter = ('course', 'specialty')
     exclude = ('slug',)
-
-    def save_model(self, request, obj, form, change):
-        obj.slug = get_slug(obj.name)
-        super().save_model(request, obj, form, change)

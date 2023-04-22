@@ -216,6 +216,10 @@ class Group(models.Model):
     def __str__(self):
         return str(self.title)
 
+    def save(self, *args, **kwargs):
+        self.slug = get_slug(self.title)
+        super().save(*args, **kwargs)
+
     class Meta:
         ordering = ('course',)
         verbose_name = _('Группа')

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'apps.news.apps.NewsConfig',
     'apps.specialty.apps.SpecialtyConfig',
     'apps.employee.apps.EmployeeConfig',
+    'apps.feedback.apps.FeedbackConfig',
 
 ]
 

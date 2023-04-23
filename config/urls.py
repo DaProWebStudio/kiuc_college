@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+
+from config import settings
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
@@ -26,3 +29,9 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
 )
+
+if settings.DEBUG:
+    urlpatterns += (
+            static(settings.STATIC_URL, document_root=settings.STATIC_DIR) +
+            static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    )

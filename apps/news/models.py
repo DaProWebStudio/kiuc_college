@@ -13,7 +13,7 @@ from common.managers import ActiveManager
 class News(models.Model):
     title = models.CharField(_('Название'), max_length=1550)
     slug = models.SlugField("URL", max_length=2750, null=True, blank=True)
-    description = RichTextField(_('Описание'))
+    description = RichTextField(_('Описание'), blank=True, null=True)
     youtube = models.URLField(_('Ссылка на видео'), null=True, blank=True)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=news_main_img, format='webp',
                                 processors=[ResizeToFill(756, 425)], options={'quality': 90})

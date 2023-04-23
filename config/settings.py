@@ -28,8 +28,11 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
+    'apps.core.apps.CoreConfig',
     'apps.news.apps.NewsConfig',
     'apps.specialty.apps.SpecialtyConfig',
+    'apps.employee.apps.EmployeeConfig',
+    'apps.feedback.apps.FeedbackConfig',
 
 ]
 

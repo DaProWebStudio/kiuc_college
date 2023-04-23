@@ -185,7 +185,7 @@ class EmployeeSkillUp(models.Model):
     """ Повышение квалификации """
     employee = models.ForeignKey(Employee, verbose_name=_('Сотрудник'), on_delete=models.CASCADE)
     year = models.PositiveSmallIntegerField(_('Год'))
-    description = models.TextField(_('Описание по повышению квалификации'))
+    description = models.TextField(_('Описание по повышению квалификации'), blank=True, null=True)
 
     def __str__(self) -> str:
         return f'{self.employee} - {self.description}'

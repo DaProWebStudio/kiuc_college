@@ -14,6 +14,9 @@ django-imagekit = "^4.1.0"
 django-ckeditor = "^6.5.1"
 pillow = "^9.5.0"
 django-environs = "^0.1.1"
+django-modeltranslation = "^0.18.9"
+gunicorn = "^20.1.0"
+psycopg2-binary = "^2.9.6"
 
 
 [build-system]

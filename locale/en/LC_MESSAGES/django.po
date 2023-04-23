@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-21 19:56+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: apps/news/models.py:14
+msgid "Название"
+msgstr "Title"
+
+#: apps/news/models.py:16 apps/specialty/models.py:27
+msgid "Описание"
+msgstr "Description"
+
+#: apps/news/models.py:17
+msgid "Ссылка на видео"
+msgstr "Link to the video"
+
+#: apps/news/models.py:18 apps/specialty/models.py:31
+msgid "Фото"
+msgstr "Photo"
+
+#: apps/news/models.py:20 apps/specialty/models.py:33
+msgid "Статус"
+msgstr "Status"
+
+#: apps/news/models.py:25
+msgid "Создано"
+msgstr "Created"
+
+#: apps/news/models.py:37
+msgid "Новость"
+msgstr "News"
+
+#: apps/news/models.py:38
+msgid "Новости"
+msgstr "News"
+
+#: apps/news/models.py:44 apps/news/models.py:55
+msgid "Фотография"
+msgstr "Photo"
+
+#: apps/news/models.py:56
+msgid "Фотографии"
+msgstr "Photo"
+
+#: apps/specialty/models.py:17
+msgid "Очный"
+msgstr "Full-time"
+
+#: apps/specialty/models.py:18
+msgid "Очный/Заочный"
+msgstr "Full-time/Part-time"
+
+#: apps/specialty/models.py:19
+msgid "Заочный"
+msgstr "Correspondence"
+
+#: apps/specialty/models.py:22
+msgid "Контракт"
+msgstr "Contract"
+
+#: apps/specialty/models.py:23
+msgid "Контракт/Бюджет"
+msgstr "Contract/Budget"
+
+#: apps/specialty/models.py:25
+msgid "Наименование"
+msgstr "Name"
+
+#: apps/specialty/models.py:28
+msgid "Сумма контракта"
+msgstr "Contract amount"
+
+#: apps/specialty/models.py:29
+msgid "Форма обучение"
+msgstr "Form of training"
+
+#: apps/specialty/models.py:30
+msgid "Основа обучения"
+msgstr "The basis of training"
+
+#: apps/specialty/models.py:56
+msgid "Специальность"
+msgstr "Specialization"
+
+#: apps/specialty/models.py:57
+msgid "Специальности"
+msgstr "Specialties"
+
+#: config/settings.py:112
+msgid "Russia"
+msgstr ""
+
+#: config/settings.py:113
+msgid "English"
+msgstr ""
+
+#: config/settings.py:114
+msgid "Kyrgyz"
+msgstr ""

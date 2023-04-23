@@ -1,8 +1,14 @@
 from django.contrib import admin
 
+from modeltranslation.admin import TabbedTranslationAdmin
+
+
 from apps.specialty.models import Specialty
 
 
 @admin.register(Specialty)
-class AdminSpecialty(admin.ModelAdmin):
-    exclude = ('slug',)
+class AdminSpecialty(TabbedTranslationAdmin):
+    model = Specialty
+
+
+

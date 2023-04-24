@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from apps.core.views import index
 from config import settings
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
+    path('', index)
 )
 
 if settings.DEBUG:

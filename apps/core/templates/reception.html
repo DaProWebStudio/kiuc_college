@@ -1,342 +1,161 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Информация для обитурента в наш колледж | Кыргызский международный универсальный колледж</title>
-    <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha-2.min.css">
-    <link rel="stylesheet" href="assets/css/core.min.css">
-    <link rel="stylesheet" href="assets/css/responsive.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
-    <link rel="stylesheet" href="assets/libs/slick-1.8.1/slick.css">
-    <link rel="stylesheet" href="assets/libs/glightbox/glightbox.min.css">
-    <!-- Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/android-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/android-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/android-icon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-</head>
-<body>
-    <div class="main-wrapper">
-        <header class="toolbar">
-            <div class="toolbar__area">
-                <div class="container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="toolbar__area-contacts">
-                            <a href="#"><i class="fa fa-address-book"></i> Контакты</a>
-                        </div>
-                        <div class="toolbar__area-languages">
-                            <select name="languages" id="languages" class="form-select">
-                                <option value="ru">🇷🇺 Русский</option>
-                                <option value="kg">🇰🇬 Кыргызча</option>
-                                <option value="en">🇺🇸 English</option>
-                            </select>
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    История создания и развития учебного заведения
+{% endblock %}
+
+{% block content %}
+    <section class="section reception">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8 col-md-8">
+                    <div class="title">
+                        <span>Абитуриентам</span>
+                        <h3>Уважаемые абитуриенты!</h3>
+                    </div>
+                    <p class="reception__description">
+                        Бишкекский технический колледж предоставляет широкую возможность выбора специальностей,
+                        приносящих успех и стабильный доход в различных сферах деятельности! Наши специальности
+                        были, есть и будут перспективными, высокооплачиваемыми и интересными!
+                    </p>
+                    <p class="reception__description">
+                        В настоящее время колледж ведет подготовку по специальностям сферы машиностроения, энергетики,
+                        горного дела, IT-отрасли и экономики.
+                    </p>
+                    <p class="reception__description">
+                        Образовательный процесс в колледже организуют квалифицированные преподаватели. Колледж
+                        распологает оборудованными кабинетами, лабораториями и компьютерными классами, позволяющими
+                        осуществлять подготовку специалистов на высоком уровне. Мы поддерживаем тесные контакты с
+                        нашими партнерами – ведущими предприятиями страны: ОАО “НЭСК”, ОАО “Электрические станции”
+                        ТЭЦ города Бишкека, ОАО “Северэлектро”, ОсОО КАZ Minerals Bozymchak, ОсОО «Интергласс»,
+                        ОсОО «Скайнет Телеком» и многими другими предприятиями города Бишкек и КР.
+                    </p>
+                    <p class="reception__description">
+                        Учебными заведениями: Академией машиностроения имени Ж.Я. Котина (Санкт-Петербург),
+                        КГУСТА, Международной академией управления, права, финансмов и бизнеса, КГТУ им. И.
+                        Раззакова.
+                    </p>
+                    <p class="reception__description">
+                        Годы учебы в колледже запомняться Вам яркими впечатлениями об
+                        интересной и насыщенной жизни.
+                    </p>
+                    <p class="reception__description">
+                        Каждый для себя найдет специальность, профессию по своему характеру, стилю жизни,
+                        темпераменту, складу ума.
+                    </p>
+                    <div class="title">
+                        <br>
+                        <span>Абитуриентам</span>
+                        <h3>Как поступить в наш колледж</h3>
+                    </div>
+                    <h5 class="reception__title">Условия приема</h5>
+                    <p class="reception__description">
+                        Колледж принимают выпускников 9, 10 и 11 классов. Чтобы поступить в наш колледж,
+                        абитуриентам достаточно оставить заявку на сайте www.2020.edu.gov.kg и предоставить
+                        аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится
+                        по среднему баллу аттестата. Чем лучше школьник учился последний год в школе
+                        (9 или 11 класс), тем выше его шансы быть зачисленным
+                    </p>
+                    <div class="my-3">
+                        <h4 class="reception__title">1. Определитесь с направлением обучения</h4>
+                        <div class="ml-4">
+                            <h5 class="reception__title">Наш колледж осуществляем набор по следующим направлениям:</h5>
+                            <ul class="ml-4 mb-3 pl-0 mb-0">
+                                <li class="mt-2"><a class="reception__link" href="#">- Электроснабжение (по
+                                    отраслям)</a></li>
+                            </ul>
+                            <p class="reception__description">
+                                Если Вам необходима помощь в выборе, специалисты приемной комиссии всегда готовы
+                                проконсультировать и дать ответы на все интересующие вопросы. Позвоните по телефону <br>
+                                <a class="reception__phone" href="#">+996 (705) 68 30 12</a>
+                                <a class="reception__phone" href="#">+996 (703) 99 90 16</a>
+                                или напишите на e-mail
+                                <a class="reception__phone" href="#">btk.kg@bk.ru</a>.
+                            </p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <nav class="nav">
-                <div class="container">
-                    <div class="nav__menu">
-                        <div class="nav__menu-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo-min.webp" alt="logo"></a>
-                        </div>
-                        <div class="nav__menu-icon"><span></span></div>
-                        <div class="nav__menu-body">
-                            <ul class="nav__menu-list">
-                                <li><a href="index.html" class="nav__menu-link">Главная</a></li>
-                                <li>
-                                    <a href="#" class="nav__menu-link">
-                                        О колледже
-                                        <span class="nav__menu-arrow"></span>
-                                    </a>
-                                    <ul class="nav__menu__sub-list">
-                                        <li><a href="#" class="nav__menu__sub-link">История</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Паспорт колледжа</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Структура</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Новости</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Нормативные документы</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Библиотека</a></li>
-                                        <li><a href="#" class="nav__menu__sub-link">Сотрудничество</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" class="nav__menu-link">Учебный процесс</a></li>
-                                <li>
-                                    <a href="#" class="nav__menu-link">
-                                        Абитуриентам
-                                        <span class="nav__menu-arrow"></span>
-                                    </a>
-                                    <ul class="nav__menu__sub-list">
-                                        <li>
-                                            <a href="reception.html" class="nav__menu__sub-link">Приемная комиссия</a>
-                                        </li>
-                                        <li>
-                                            <a href="../../specialty/templates/specialization.html" class="nav__menu__sub-link">Наши Специальности</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav__menu-link">
-                                        Студентам
-                                        <span class="nav__menu-arrow"></span>
-                                    </a>
-                                    <ul class="nav__menu__sub-list">
-                                        <li>
-                                            <a href="#" class="nav__menu__sub-link">Дистанционное обучение «AVN»</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav__menu__sub-link">Студенческий совет</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav__menu-link">Контакты</a>
-                                </li>
+                    <div class="my-3">
+                        <h4 class="reception__title">2. Подготовьте комплект документов</h4>
+                        <div class="ml-4">
+                            <h5 class="reception__title">Основной список документов для поступающих в колледж:</h5>
+                            <ul class="reception__list">
+                                <li class="my-3">- Оригинал Аттестата и Оригинал Свидетельство об образовании;</li>
+                                <li class="my-3">- Медицинская справка №086-У;</li>
+                                <li class="my-3">- Свидетельства о рождении или паспорт (копия);</li>
+                                <li class="my-3">- Фотографии 3х4 (6 штук);</li>
+                                <li>- Скоросшиватель и конверт</li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </header>
-
-        <section class="reception">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-8 col-md-8">
-                        <h2 class="text-center font-weight-bold reception__title">Уважаемые абитуриенты!</h2>
-                        <p class="reception__description">
-                            Бишкекский технический колледж предоставляет широкую возможность выбора специальностей,
-                            приносящих успех и стабильный доход в различных сферах деятельности! Наши специальности
-                            были, есть и будут перспективными, высокооплачиваемыми и интересными!</p>
-
-                        <p class="reception__description">В настоящее время колледж ведет подготовку по специальностям сферы машиностроения, энергетики,
-                        горного дела, IT-отрасли и экономики.</p>
-
-                        <p class="reception__description">Образовательный процесс в колледже организуют квалифицированные преподаватели. Колледж
-                            распологает оборудованными кабинетами, лабораториями и компьютерными классами, позволяющими
-                            осуществлять подготовку специалистов на высоком уровне. Мы поддерживаем тесные контакты с
-                            нашими партнерами – ведущими предприятиями страны: ОАО “НЭСК”, ОАО “Электрические станции”
-                            ТЭЦ города Бишкека, ОАО “Северэлектро”, ОсОО КАZ Minerals Bozymchak, ОсОО «Интергласс»,
-                            ОсОО «Скайнет Телеком» и многими другими предприятиями города Бишкек и КР.</p>
-
-                        <p class="reception__description">Учебными заведениями: Академией машиностроения имени Ж.Я. Котина (Санкт-Петербург),
-                            КГУСТА, Международной академией управления, права, финансмов и бизнеса, КГТУ им. И. Раззакова.</p>
-
-                            <p class="reception__description">Годы учебы в колледже запомняться Вам яркими впечатлениями об интересной и насыщенной жизни.</p>
-
-                            <p class="reception__description">Каждый для себя найдет специальность, профессию по своему характеру, стилю жизни, темпераменту, складу ума.</p>
-                        <h2 class="font-weight-bold reception__title">Как поступить в наш колледж</h2>
-                        <div class="my-3 ml-4">
-                            <h4 class="reception__title">Условия приема</h4>
-                            <p class="reception__description">Колледж принимают выпускников 9, 10 и 11 классов. Чтобы поступить в наш колледж,
-                               абитуриентам достаточно оставить заявку на сайте www.2020.edu.gov.kg и предоставить
-                               аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится
-                               по среднему баллу аттестата. Чем лучше школьник учился последний год в школе
-                               (9 или 11 класс), тем выше его шансы быть зачисленным</p>
-                        </div>
-                        <div class="my-3">
-                            <h4 class="reception__title">1. Определитесь с направлением обучения</h4>
-                            <div class="ml-4">
-                                <h5 class="reception__title">Наш колледж осуществляем набор по следующим направлениям:</h5>
-                                <ul class="ml-4 mb-3 pl-0 mb-0">
-                                    <li class="mt-2"><a class="reception__link" href="#">- Электроснабжение (по отраслям)</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Тепловые электрические станции</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Технология машиностроения</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Электрические станции, сети и системы</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Техническое обслуживание средств вычислительной техники и компьютерных сетей</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Программное обеспечение вычислительной техники и автоматизированных систем</a></li>
-                                    <li class="mt-2"><a class="reception__link" href="#">- Открытые горные работы</a></li>
-                                </ul>
-                                <p class="reception__description">
-                                    Если Вам необходима помощь в выборе, специалисты приемной комиссии всегда готовы
-                                    проконсультировать и дать ответы на все интересующие вопросы. Позвоните по телефону <br>
-                                    <a class="reception__phone" href="#">+996 (705) 68 30 12</a> <a class="reception__phone" href="#">+996 (703) 99 90 16</a>
-                                    или напишите на e-mail <a class="reception__phone" href="#">btk.kg@bk.ru</a> .
-                                </p>
-                            </div>
-                        </div>
-                        <div class="my-3">
-                            <h4 class="reception__title">2. Подготовьте комплект документов</h4>
-                            <div class="ml-4">
-                                <h5 class="reception__title">Основной список документов для поступающих в колледж:</h5>
-                                <ul class="reception__list">
-                                    <li class="my-3">- Оригинал Аттестата и Оригинал Свидетельство об образовании;</li>
-                                    <li class="my-3">- Медицинская справка №086-У;</li>
-                                    <li class="my-3">- Свидетельства о рождении или паспорт (копия);</li>
-                                    <li class="my-3">- Фотографии 3х4 (6 штук);</li>
-                                    <li>- Скоросшиватель и конверт</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="my-3 reception__indent">
-                            <h4 class="reception__title">3. Подайте документы в колледж</h4>
-                            <div class="ml-4 mt-3">
-                                <h5 class="reception__title">Прием документов в БТК производиться с 25 июня по 18 августа 2023 года.</h5>
-                                <ul class="reception__list">
-                                    <li class="mb-3">- 1 тур с 12 июля до 19 июля</li>
-                                    <li class="mb-3">- 2 тур с 26 июля до 02 августа</li>
-                                    <li class="mt-3">- 3 тур с 09 августа до 18 августа</li>
-                                </ul>
-                                <p class="reception__description">Подайте документы онлайн через информационную систему колледжа по <br> <a class="reception__phone" href="#">ссылке (сайт: 2020.edu.gov.kg)</a>
-                                 . Или посетите лично приемную комиссию для подачи заявления и документов. Адрес: г. Бишкек, проспект Чуй 215.</p>
-                                <p class="reception__description">Последний день тура формируются списки рекомендованных к зачислению в колледж, поэтому будьте на связи.</p>
-                                <p class="reception__description">Списки рекомендованных к зачислению составляются по убыванию среднего балла аттестата.</p>
-                                <h5 class="my-4 reception__title">Как считается средний балл аттестата</h5>
-                                <p class="mt-2 reception__description">
-                                    Вам нужно подсчитать общее количество оценок, сложить все оценки вместе
-                                    (найти сумму всех оценок) и разделить эту сумму на общее количество оценок.
-                                    Полученное число и будет средним баллом Вашего аттестата. Средний балл ведется с
-                                    точностью до сотых долей.
-                                </p>
-                                <p class="p-3 reception__description" style="border: 2px dotted red; text-indent: 0">
-                                    <b>Например:</b>
-                                    В Вашем аттестате стоят оценки по 12 предметам. Из них 5 пятерок,
-                                    3 четверки и 4 тройки. Найдем сумму всех оценок : 5*5 + 4*3 + 3*4 = 25 + 12 + 12= 49.
-                                    Разделим сумму всех оценок на количество предметов: 49 : 12 = 4.08. Средний балл
-                                    рассчитывается с точностью до сотых долей. Таким образом, средний балл
-                                    Вашего аттестата – 4.08
-                                </p>
-                            </div>
+                    <div class="my-3 reception__indent">
+                        <h4 class="reception__title">3. Подайте документы в колледж</h4>
+                        <div class="ml-4 mt-3">
+                            <h5 class="reception__title">Прием документов в БТК производиться с 25 июня по 18 августа
+                                2023 года.</h5>
+                            <ul class="reception__list">
+                                <li class="mb-3">- 1 тур с 12 июля до 19 июля</li>
+                                <li class="mb-3">- 2 тур с 26 июля до 02 августа</li>
+                                <li class="mt-3">- 3 тур с 09 августа до 18 августа</li>
+                            </ul>
+                            <p class="reception__description">Подайте документы онлайн через информационную систему
+                                колледжа по <br> <a class="reception__phone" href="#">ссылке (сайт: 2020.edu.gov.kg)</a>
+                                . Или посетите лично приемную комиссию для подачи заявления и документов. Адрес: г.
+                                Бишкек, проспект Чуй 215.</p>
+                            <p class="reception__description">Последний день тура формируются списки рекомендованных к
+                                зачислению в колледж, поэтому будьте на связи.</p>
+                            <p class="reception__description">Списки рекомендованных к зачислению составляются по
+                                убыванию среднего балла аттестата.</p>
+                            <h5 class="my-4 reception__title">Как считается средний балл аттестата</h5>
+                            <p class="mt-2 reception__description">
+                                Вам нужно подсчитать общее количество оценок, сложить все оценки вместе
+                                (найти сумму всех оценок) и разделить эту сумму на общее количество оценок.
+                                Полученное число и будет средним баллом Вашего аттестата. Средний балл ведется с
+                                точностью до сотых долей.
+                            </p>
+                            <p class="p-3 reception__description" style="border: 2px dotted red; text-indent: 0">
+                                <b>Например:</b>
+                                В Вашем аттестате стоят оценки по 12 предметам. Из них 5 пятерок,
+                                3 четверки и 4 тройки. Найдем сумму всех оценок : 5*5 + 4*3 + 3*4 = 25 + 12 + 12= 49.
+                                Разделим сумму всех оценок на количество предметов: 49 : 12 = 4.08. Средний балл
+                                рассчитывается с точностью до сотых долей. Таким образом, средний балл
+                                Вашего аттестата – 4.08
+                            </p>
                         </div>
                     </div>
-                    <aside class="col-12 col-lg-4 col-md-4">
-                        <div class="reception__carousel">
-                            <h4 class="reception__title">Наши специальности</h4>
-                            <div class="header__slider">
-                                <div class="header__slider-item" style="overflow: unset">
-                                    <img src="assets/images/college/MY6H7718.webp" alt="">
-                                </div>
-                                <div class="header__slider-item" style="overflow: unset">
-                                    <img src="assets/images/college/MY6H7749.webp" alt="">
-                                </div>
-                                <div class="header__slider-item" style="overflow: unset">
-                                    <img src="assets/images/college/MY6H7772.webp" alt="">
-                                </div>
-                                <div class="header__slider-item" style="overflow: unset">
-                                    <img src="assets/images/college/MY6H7926.webp" alt="">
-                                </div>
-                                <div class="header__slider-item" style="overflow: unset">
-                                    <img src="assets/images/college/MY6H8076.webp" alt="">
-                                </div>
-                            </div>
-                            <h4 class="reception__border mt-5">Срок обучение</h4>
+                </div>
+                <aside class="col-12 col-lg-4 col-md-4">
+                    <div class="reception__carousel">
+                        <div class="mt-4">
+                            <h4 class="reception__border">Срок обучение</h4>
                             <ul class="p-4 mb-0 reception__info">
                                 <li><span>На базе 9 класса:</span> 2 года 10 месяцев</li>
                                 <li><span>На базе 11 класса:</span> 1 год 10 месяцев</li>
                                 <li><span>Заочная:</span> 2 года 6 месяцев</li>
                             </ul>
                         </div>
-                    </aside>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="footer__info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 col-md-12">
-                            <h3 class="footer-title">
-                                Кыргызский международный универсальный колледж
-                            </h3>
-                            <p class="footer-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequuntur cupiditate error praesentium quis ratione similique. Aliquam, deleniti, sint? Dolore!
-                            </p>
-                            <h3 class="footer-title">Наши социальные сети</h3>
-                            <div class="footer__social">
-                                <a href="https://www.instagram.com/kilc_university/?igshid=YmMyMTA2M2Y%3D" target="_blank" class="footer__social-instagram">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                                <a href="https://www.facebook.com/kiuckg" target="_blank" class="footer__social-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="#" target="_blank" class="footer__social-youtube">
-                                    <i class="fa fa-youtube-play"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <h3 class="footer-title">Быстрая меню</h3>
-                            <ul class="footer__fast-menu">
-                                <li class="footer__fast-menu-item"><a href="#">О Нас</a></li>
-                                <li class="footer__fast-menu-item"><a href="#">Новости</a></li>
-                                <li class="footer__fast-menu-item"><a href="#">Наши специальности</a></li>
-                                <li class="footer__fast-menu-item"><a href="#">Наши достижении</a></li>
-                                <li class="footer__fast-menu-item"><a href="#">Сотрудничество</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-6">
-                            <h3 class="footer-title">Контакты</h3>
-                            <ul class="footer__contacts">
-                                <li class="footer__contacts-item">
-                                    <a href="tel:+996555106886" target="_blank">
-                                        <i class="fa fa-phone mr-2"></i>
-                                        +996 (555) 10-68-86
-                                    </a>
-                                </li>
-                                <li class="footer__contacts-item">
+                        <div class="mt-2">
+                            <h4 class="reception__border">Контакты</h4>
+                            <ul class="p-4 mb-0 reception__info">
+                                <li><span>Телефон:</span> <a href="tel:+996555106886" target="_blank">+996 (555) 10-68-86</a></li>
+                                <li>
+                                    <span>WhatsApp:</span>
                                     <a href="https://api.whatsapp.com/send/?phone=996555106886&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0" target="_blank">
-                                        <i class="fa fa-whatsapp mr-2"></i>
                                         +996 (555) 10-68-86
                                     </a>
                                 </li>
-                                <li class="footer__contacts-item">
+                                <li><span>Сайт:</span> <a href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank">2020.edu.gov.kg</a></li>
+                                <li>
+                                    <span>Email:</span>
                                     <a href="mailto:info@college.kiuc.kg" target="_blank">
-                                        <i class="fa fa-envelope mr-2"></i>
                                         info@college.kiuc.kg
                                     </a>
                                 </li>
-                                <li class="footer__contacts-item">
-                                    <a href="https://go.2gis.com/heri6" target="_blank">
-                                        <i class="fa fa-map mr-2"></i>
-                                        Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
-                </div>
+                </aside>
             </div>
-            <div class="footer__inner">
-                <div class="container">
-                    <div class="d-flex justify-content-between">
-                        <div class="footer__inner-copyright">
-                            Copyright © 2015 - <span class="current-year">2023</span> «КМУК» - Все права защищены.
-                        </div>
-                        <div class="footer__inner-dev">
-                            Наш институт <a href="https://kiuc.kg/" target="_blank">www.kiuc.kg</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script src="assets/libs/jquery/jquery.js"></script>
-    <script src="assets/js/bootstrap.5.0.0.alpha-2-min.js"></script>
-    <script src="assets/js/font-awesome.min.js"></script>
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/imagesloaded.min.js"></script>
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/libs/slick-1.8.1/slick.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/core-slider.js"></script>
-    <script src="assets/libs/glightbox/glightbox.min.js"></script>
-</body>
-</html>
+        </div>
+    </section>
+{% endblock %}

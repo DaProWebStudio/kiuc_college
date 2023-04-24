@@ -43,3 +43,7 @@ class CooperationView(ListView):
     queryset = model.objects.all()
     context_object_name = 'cooperation'
     template_name = 'cooperation.html'
+
+
+class ReceptionApplicantsView(TemplateView):
+    template_name = 'reception.html'

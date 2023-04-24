@@ -28,7 +28,8 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', include('apps.core.urls'))
+    path('', include('apps.core.urls')),
+    path('contacts/', include('apps.feedback.urls')),
 )
 
 if settings.DEBUG:

@@ -14,3 +14,7 @@ class IndexView(TemplateView):
         context["specialties"] = Specialty.active.all()
         context["news"] = News.active.all()[:9]
         return context
+
+
+class HistoryView(TemplateView):
+    template_name = 'history.html'

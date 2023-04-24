@@ -135,6 +135,18 @@ Django = ">=3.2"
 django-js-asset = ">=2.0"
 
 [[package]]
+name = "django-cleanup"
+version = "7.0.0"
+description = "Deletes old files."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-cleanup-7.0.0.tar.gz", hash = "sha256:28a969f889c661eba0d9438978693980f09482c97983bd08ee52955dae8d71e4"},
+    {file = "django_cleanup-7.0.0-py2.py3-none-any.whl", hash = "sha256:f50d54de48527d66ff05d74d2c3aafcdadc6c94ba280ece14a7e4c5b2c591447"},
+]
+
+[[package]]
 name = "django-environs"
 version = "0.1.1"
 description = "A cli tool for bootstraping django projects with environs settings"
@@ -589,4 +601,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "ab10bb0e250a28e19683b4c51e214ad6941f2a380601c1033c78962f133ce810"
+content-hash = "bbc79bbd7ba424527843c5472eaad7d64207b17d02189ae50ef7c96cdec28612"

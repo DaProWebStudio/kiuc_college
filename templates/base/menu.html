@@ -1,0 +1,95 @@
+{% load static i18n %}
+<header class="toolbar">
+    <div class="toolbar__area">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="toolbar__area-contacts">
+                    <a href="#"><i class="fa fa-address-book"></i> Контакты</a>
+                </div>
+                <form action="{% url 'set_language' %}" method="post" class="toolbar__area-languages">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="languages" id="languages" class="form-select">
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"
+                                    {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                {% if language.code == 'ru' %}
+                                    🇷🇺 {{ language.name_local }}
+                                {% elif language.code == 'ky' %}
+                                    🇰🇬 {{ language.name_local }}
+                                {% elif language.code == 'en' %}
+                                    🇺🇸 {{ language.name_local }}
+                                {% endif %}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav__menu">
+                <div class="nav__menu-logo">
+                    <a href="#"><img src="assets/images/logo/logo-min.webp" alt="logo"></a>
+                </div>
+                <div class="nav__menu-icon"><span></span></div>
+                <div class="nav__menu-body">
+                    <ul class="nav__menu-list">
+                        <li><a href="#" class="nav__menu-link">Главная</a></li>
+                        <li>
+                            <a href="#" class="nav__menu-link">
+                                О колледже
+                                <span class="nav__menu-arrow"></span>
+                            </a>
+                            <ul class="nav__menu__sub-list">
+                                <li><a href="#" class="nav__menu__sub-link">История</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">Паспорт колледжа</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">Структура</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">Новости</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">Нормативные документы</a>
+                                </li>
+                                <li><a href="#" class="nav__menu__sub-link">Библиотека</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">Сотрудничество</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="nav__menu-link">Учебный процесс</a></li>
+                        <li>
+                            <a href="#" class="nav__menu-link">
+                                Абитуриентам
+                                <span class="nav__menu-arrow"></span>
+                            </a>
+                            <ul class="nav__menu__sub-list">
+                                <li>
+                                    <a href="#" class="nav__menu__sub-link">Приемная комиссия</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="nav__menu__sub-link">Наши Специальности</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__menu-link">
+                                Студентам
+                                <span class="nav__menu-arrow"></span>
+                            </a>
+                            <ul class="nav__menu__sub-list">
+                                <li>
+                                    <a href="#" class="nav__menu__sub-link">Дистанционное обучение «AVN»</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav__menu__sub-link">Студенческий совет</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__menu-link">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

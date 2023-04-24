@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from apps.core.views import index
 from config import settings
 
 urlpatterns = [
@@ -29,11 +28,11 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', index)
+    path('', include('apps.core.urls'))
 )
 
 if settings.DEBUG:
     urlpatterns += (
-            static(settings.STATIC_URL, document_root=settings.STATIC_DIR) +
-            static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        static(settings.STATIC_URL, document_root=settings.STATIC_DIR) +
+        static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     )

@@ -1,3 +1,10 @@
+{% extends 'base/base.html' %}
+{% load static imagekit %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'libs/glightbox/glightbox.min.css' %}">
+{% endblock %}
+
 {% block content %}
     <section class="section header">
         <div class="container">
@@ -17,19 +24,19 @@
                 <div class="col-12 col-lg-6 col-md-6">
                     <div class="header__slider">
                         <div class="header__slider-item">
-                            <img src="assets/images/college/MY6H7718.webp" alt="">
+                            <img src="{% static 'images/college/MY6H7718.webp' %}" alt="">
                         </div>
                         <div class="header__slider-item">
-                            <img src="assets/images/college/MY6H7776.webp" alt="">
+                            <img src="{% static 'images/college/MY6H7776.webp' %}" alt="">
                         </div>
                         <div class="header__slider-item">
-                            <img src="assets/images/college/MY6H7772.webp" alt="">
+                            <img src="{% static 'images/college/MY6H7772.webp' %}" alt="">
                         </div>
                         <div class="header__slider-item">
-                            <img src="assets/images/college/MY6H7726.webp" alt="">
+                            <img src="{% static 'images/college/MY6H7726.webp' %}" alt="">
                         </div>
                         <div class="header__slider-item">
-                            <img src="assets/images/college/MY6H8076.webp" alt="">
+                            <img src="{% static 'images/college/MY6H8076.webp' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -57,8 +64,8 @@
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 mb-3">
                     <div class="video-banner">
-                        <img src="assets/images/bg/univer-front.webp" alt="">
-                        <a class="glightbox video" href="https://www.youtube.com/watch?v=NCoQVB2FZlg">
+                        <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
+                        <a class="glightbox video" href="https://youtu.be/cJZGLJF3iPM">
                             <i class="fa fa-play"></i>
                         </a>
                     </div>
@@ -75,7 +82,7 @@
                         Школьники, успешно завершившие курсы, стали победителями программы FLEX.
                         На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.
                     </p>
-                    <a href="" class="btn btn-primary">Подробно</a>
+                    <a href="#" class="btn btn-primary">Подробно</a>
                 </div>
             </div>
         </div>
@@ -88,47 +95,18 @@
                 <h3><a href="">Новости</a></h3>
             </div>
             <div class="slider_tree slider">
-                <div class="slider-item">
-                    <a href="" class="slider-link">
-                        <div class="slider__image">
-                            <img src="assets/images/news/news-2.png" alt="">
-                            <div class="slider__image-info-right">1 апрель</div>
-                        </div>
-                        <h4 class="slider-title">TED Talks at UCF College of Education</h4>
-                        <hr>
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <a href="" class="slider-link">
-                        <div class="slider__image">
-                            <img src="assets/images/news/news-3.png" alt="">
-                            <div class="slider__image-info-right">1 апрель</div>
-                        </div>
-                        <h4 class="slider-title">TED Talks at UCF College of Education</h4>
-                        <hr>
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <a href="" class="slider-link">
-                        <div class="slider__image">
-                            <img src="assets/images/news/news-1.png" alt="">
-                            <div class="slider__image-info-right">1 апрель</div>
-                        </div>
-                        <h4 class="slider-title">TED Talks at UCF College of Education</h4>
-                        <hr>
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <a href="" class="slider-link">
-                        <div class="slider__image">
-                            <img src="assets/images/news/news-2.png" alt="">
-                            <div class="slider__image-info-right">1 апрель</div>
-                        </div>
-                        <h4 class="slider-title">TED Talks at UCF College of Education</h4>
-                        <hr>
-                        <hr>
-                    </a>
-                </div>
+                {% for item in news %}
+                    <div class="slider-item">
+                        <a href="" class="slider-link">
+                            <div class="slider__image">
+                                {% generateimage 'news:thumbnail' source=item.image -- class="mypicture" %}
+                                <div class="slider__image-info-right">{{ item.created }}</div>
+                            </div>
+                            <h4 class="slider-title">{{ item.title|truncatechars:63 }}</h4>
+                            <hr>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -137,210 +115,41 @@
         <div class="container">
             <div class="title">
                 <span>Наши специальности</span>
-                <h3><a href="">Специальности</a></h3>
+                <h3><a href="#">Специальности</a></h3>
             </div>
             <div class="specialties__wrap">
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-1.png" alt="">
+                {% for specialty in specialties %}
+                    <div class="card">
+                        <div class="card__front">
+                            <div class="card__front-images">
+                                {% generateimage 'news:thumbnail' source=specialty.image -- class="mypicture" %}
+                            </div>
+                            <h4>{{ specialty.title|truncatechars:63 }}</h4>
+                            <div class="card__front-info">
+                                <span class="shape">{{ specialty.form_of_training }}</span>
+                                <span class="price">{{ specialty.contract }} сом</span>
+                            </div>
                         </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <hr>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <hr>
-                            <li>обслуживание сети;</li>
-                            <hr>
-                            <li>расчет потребления энергии;</li>
-                            <hr>
-                            <li>разработку новых технологий;</li>
-                            <hr>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <hr>
-                            <li>Зачем нужна профессия электрик</li>
-                            <hr>
-                        </ul>
-                        <a href="https://btk.kg/specialty/elektrosnabzhenie-po-otrasljam/">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-2.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
+                        <div class="card__back">
+                            {% autoescape off %}{{ specialty.description }}{% endautoescape %}
+                            <a href="https://btk.kg/specialty/elektrosnabzhenie-po-otrasljam/">Подробнее</a>
                         </div>
                     </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-3.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-2.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-1.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="https://btk.kg/specialty/elektrosnabzhenie-po-otrasljam/">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-2.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-3.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
-                            <img src="assets/images/news/news-2.png" alt="">
-                        </div>
-                        <h4>Электроснабжение (по отраслям)</h4>
-                        <div class="card__front-info">
-                            <span class="shape">Очный/Заочный</span>
-                            <span class="price">27000 сом</span>
-                        </div>
-                    </div>
-                    <div class="card__back">
-                        <ul class="card__back-list">
-                            <h5>Специальность электроснабжение: кем работать</h5>
-                            <li>поставку электричества в жилые и нежилые помещения;</li>
-                            <li>обслуживание сети;</li>
-                            <li>расчет потребления энергии;</li>
-                            <li>разработку новых технологий;</li>
-                            <li>обслуживание оборудования, ремонт, устранение аварий.</li>
-                            <li>Зачем нужна профессия электрик</li>
-                        </ul>
-                        <a href="#">Подробнее</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 {% endblock %}
 
+{% block scripts %}
+    <script src="{% static 'libs/glightbox/glightbox.min.js' %}"></script>
+    <script type="text/javascript">
+        GLightbox({
+            'href': 'https://youtu.be/cJZGLJF3iPM',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+{% endblock %}

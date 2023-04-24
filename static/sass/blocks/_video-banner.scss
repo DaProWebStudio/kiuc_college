@@ -1,0 +1,48 @@
+.video-banner {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 23%;
+    height: 30%;
+    border-top: 3px solid $--bs-orange;
+    border-right: 3px solid $--bs-orange;
+    border-top-right-radius: 20px;
+    z-index: 2;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: 23%;
+    height: 30%;
+    border-bottom: 3px solid $--bs-blue;
+    border-left: 3px solid $--bs-blue;
+    border-bottom-left-radius: 20px;
+    z-index: 2;
+  }
+  & img {
+    width: 100%;
+  }
+  & a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    padding: 15px 40px;
+    background-color: $--bs-blue;
+    color: $--bs-white;
+    border-radius: 20px;
+    transition: .3s linear;
+    &:hover {
+      background-color: $--bs-dark-blue;
+      color: $--bs-white;
+    }
+  }
+}

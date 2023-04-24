@@ -1,0 +1,23 @@
+.fast_menu {
+  &-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background-color: $--bs-blue;
+    border-radius: $--bs-radius-small;
+    text-decoration: none;
+    color: $--bs-white;
+    &:hover {
+      background-image: url("../images/bg/pattern.png");
+      background-color: $--bs-dark-blue;
+      color: $--bs-white;
+    }
+  }
+}

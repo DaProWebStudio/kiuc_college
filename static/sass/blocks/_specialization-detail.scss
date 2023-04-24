@@ -1,0 +1,46 @@
+.detail {
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    img {
+      max-width: 100%;
+      border-radius: inherit;
+    }
+  }
+  &__title {
+    p {
+      text-align: justify;
+    }
+  }
+  &__info {
+    position: sticky;
+    top: 30px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    h4 {
+      border-radius: 0.5rem;
+      padding: 16px 20px;
+      background: $--bs-blue;
+      color: $--bs-white;
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 23px;
+    }
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(54,54,54,0.05);
+        span {
+          display: inline-block;
+          color: #222;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

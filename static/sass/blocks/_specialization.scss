@@ -1,0 +1,54 @@
+.specialization {
+  h3 {
+    color: $--bs-title;
+  }
+  p {
+    color: $--bs-text;
+  }
+  &__link {
+    width: 100%;
+    padding: 10px 0;
+    &:hover .specialization__link__card {
+      background: #AFE3C0;
+    }
+    &__card {
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 17px -6px rgba(34,60,80,.2);
+      transition: all .5s;
+      position: relative;
+      &-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        & img {
+          border-radius: inherit;
+          width: 100%;
+        }
+      }
+      &-name {
+        h5 {
+          color: $--bs-title;
+        }
+      }
+      ul {
+        li {
+          background: $--bs-blue;
+          border-radius: 100px;
+          color: $--bs-white;
+          padding: 2px 8px;
+          font-weight: normal;
+          &:hover {
+            background: $--bs-dark-blue;
+          }
+          &:last-child {
+            background: $--bs-orange;
+            color: $--bs-white;
+            &:hover {
+              background: $--bs-orange-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.specialties {
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    .card {
+      border: none;
+      width: 300px;
+      height: 300px;
+      position: relative;
+      perspective: 1000px;
+      &__front, &__back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transition: all 1s;
+        border-radius: $--bs-radius-small;
+        backface-visibility: hidden;
+      }
+      /* FRONT */
+      &__front {
+        background: $--bs-white;
+        box-shadow: 0 5px 17px -6px rgb(34 60 80 / 80%);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        &-images {
+          & img {
+            width: 100%;
+            height: 100%;
+            border-radius: $--bs-radius-small;
+          }
+        }
+        & h4 {
+          font-size: 18px;
+          font-weight: 600;
+          color: $--bs-title;
+          margin-top: 10px;
+        }
+        &-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 30px;
+          .shape {
+            background: $--bs-blue;
+            border-radius: $--bs-radius-small;
+            color: $--bs-white;
+            padding: 3px 10px;
+          }
+          .price {
+            background: #EDECFE;
+            border: 1px solid $--bs-blue;
+            border-radius: $--bs-radius-small;
+            color: $--bs-blue;
+            padding: 3px 10px;
+          }
+        }
+      }
+      /* BACK */
+      &__back {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: $--bs-white;
+        box-shadow: 0 5px 17px -6px rgb(34 60 80 / 80%);
+        transform: rotateY(-180deg);
+        &-list {
+          padding: 0 30px;
+          hr {
+            margin: 0;
+            padding: 0;
+            color: $--bs-blue;
+          }
+          & h5 {
+            color: $--bs-title;
+            font-size: 14px;
+          }
+          li {
+            position: relative;
+            list-style-type: none;
+            color: $--bs-text;
+            font-size: 14px;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 8px;
+              left: -10px;
+              width: 5px;
+              height: 5px;
+              background: $--bs-blue ;
+              border-radius: $--bs-radius-small;
+            }
+          }
+        }
+      }
+      &:hover .card__front {transform: rotateY(-180deg)}
+      &:hover .card__back {transform: rotateY(-360deg)}
+    }
+  }
+}

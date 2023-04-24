@@ -1,0 +1,58 @@
+.toolbar {
+  &__area {
+    background-color: $--bs-blue;
+    padding: 5px 0;
+    &-contacts a {
+      font-size: 18px;
+      text-decoration: none;
+      color: $--bs-white;
+      &:hover {
+        color: $--bs-disabled;
+      }
+    }
+    &-languages {
+      & select {
+        background-color: $--bs-white-transparent;
+        background-image: none;
+        border: transparent;
+        color: $--bs-white;
+        height: calc(1.2em + 0.75rem + 2px);
+        padding: 0.175rem .75rem .175rem .75rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &:hover {
+          cursor: pointer;
+        }
+        & option {
+          background-color: $--bs-blue;
+        }
+      }
+    }
+  }
+  &__main {
+    padding: 12px 0;
+    &-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    &-logo {
+      & img {
+        width: 100px;
+        height: 100px;
+      }
+      &.logo-left {text-align: left}
+      &.logo-right {text-align: right}
+    }
+    &-title {
+      padding: 0 15px;
+      & h1 {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        color: $--bs-blue;
+      }
+    }
+  }
+}

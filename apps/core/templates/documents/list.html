@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Нормативные документы
+{% endblock %}
+
+{% block content %}
+    <section class="section documents">
+        <div class="container">
+            <div class="title">
+                <span>О Колледже</span>
+                <h3>Нормативные документы</h3>
+            </div>
+            <div class="documents__card">
+                {% for document in documents %}
+                    <div class="documents__card-item">
+                        <a href="{% url 'documents_detail' document.pk %}">{{ document}}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

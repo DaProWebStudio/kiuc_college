@@ -1,8 +1,9 @@
+from django.db.models import Prefetch
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, FormView, ListView
+from django.views.generic import TemplateView, FormView, ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 
-from apps.core.models import Cooperation
+from apps.core.models import Cooperation, Document, DocumentFile
 from apps.news.models import News
 from apps.specialty.models import Specialty
 
@@ -19,6 +20,22 @@ class IndexView(TemplateView):
 
 class HistoryView(TemplateView):
     template_name = 'history.html'
+
+
+class DocumentListView(ListView):
+    model = Document
+    queryset = model.objects.all()
+    context_object_name = 'documents'
+    template_name = 'documents/list.html'
+
+
+class DocumentDetailView(DetailView):
+    model = Document
+    queryset = model.objects.prefetch_related(
+        Prefetch('files', DocumentFile.objects.all())
+    )
+    context_object_name = 'document'
+    template_name = 'documents/detail.html'
 
 
 class CooperationView(ListView):

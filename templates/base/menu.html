@@ -4,7 +4,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="toolbar__area-contacts">
-                    <a href="#"><i class="fa fa-address-book"></i> Контакты</a>
+                    <a href="{% url 'contacts' %}"><i class="fa fa-address-book"></i> Контакты</a>
                 </div>
                 <form action="{% url 'set_language' %}" method="post" class="toolbar__area-languages">{% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -84,7 +84,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="nav__menu-link">Контакты</a>
+                            <a href="{% url 'contacts' %}" class="nav__menu-link">Контакты</a>
                         </li>
                     </ul>
                 </div>

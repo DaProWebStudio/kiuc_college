@@ -1,0 +1,28 @@
+<!doctype html>
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %} | КМУК</title>
+    {% include 'base/links.html' %}
+    {% block links %}{% endblock %}
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="main-wrapper">
+        {% include 'base/menu.html' %}
+        {% block content %}{% endblock %}
+        {% include 'base/footer.html' %}
+    </div>
+    <button id="button_up" class="upShow upShow__hide">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    {% include 'base/scripts.html' %}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

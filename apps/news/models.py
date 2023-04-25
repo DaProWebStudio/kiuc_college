@@ -5,7 +5,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
-from common.utils import get_english_translit
+from common.utils import get_english_translit as get_slug
 from common.upload_to_files import news_main_img, news_news_img
 from common.managers import ActiveManager
 
@@ -13,7 +13,7 @@ from common.managers import ActiveManager
 class News(models.Model):
     title = models.CharField(_('Название'), max_length=1550)
     slug = models.SlugField("URL", max_length=2750, null=True, blank=True)
-    description = RichTextField(_('Описание'))
+    description = RichTextField(_('Описание'), blank=True, null=True)
     youtube = models.URLField(_('Ссылка на видео'), null=True, blank=True)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=news_main_img, format='webp',
                                 processors=[ResizeToFill(756, 425)], options={'quality': 90})
@@ -29,7 +29,7 @@ class News(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = get_english_translit(self.title)
+        self.slug = get_slug(self.title)
         super(News, self).save(*args, **kwargs)
 
     class Meta:

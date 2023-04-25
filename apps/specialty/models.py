@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
@@ -24,7 +25,7 @@ class Specialty(models.Model):
     )
     title = models.CharField(_('Наименование'), max_length=350)
     slug = models.SlugField("URL", max_length=450, null=True, blank=True)
-    description = RichTextField(_('Описание'))
+    description = RichTextField(_('Описание'), blank=True, null=True)
     contract = models.CharField(_('Сумма контракта'), max_length=50)
     form_of_training = models.CharField(_('Форма обучение'), max_length=20, choices=TRAINING, default=cons.FULL_TIME)
     basis_learning = models.CharField(_('Основа обучения'), max_length=100, choices=LEARNING, default=cons.CONTRACT)
@@ -50,6 +51,9 @@ class Specialty(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self, **kwargs):
+        return reverse('specialties_detail', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ('-created',)

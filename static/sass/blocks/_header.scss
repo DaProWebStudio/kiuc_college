@@ -1,0 +1,22 @@
+.header {
+  background-image: url("../images/bg/pattern.png");
+  background-color: $--bs-blue;
+  margin-top: 0 !important;
+  &__title {
+    & h2 {
+      font-size: 50px;
+      font-weight: bold;
+      color: $--bs-white;
+    }
+    & .desc-body {
+      color: $--bs-white;
+    }
+    & .btn {
+      background-color: $--bs-white;
+      color: $--bs-blue;
+      &:hover {
+        color: $--bs-white;
+      }
+    }
+  }
+}

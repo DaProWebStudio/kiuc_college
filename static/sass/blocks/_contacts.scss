@@ -1,0 +1,125 @@
+.contacts {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  &__link {
+    margin-top: 30px;
+    padding: 0 50px 0 0 ;
+    & ul {
+      padding: 0;
+      & li {
+        list-style-type: none;
+        & b {
+          font-size: 17px;
+          font-weight: 600;
+        }
+        & span {
+          display: block;
+          & a {
+            display: inline-block;
+            color: #333;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 15px;
+            text-decoration: none;
+          }
+        }
+      }
+      & hr {
+        background: #ccc;
+      }
+    }
+
+  }
+  &-feedback {
+    margin-top: 30px;
+    & .contacts__form {
+      display: grid;
+      grid-template: 45px 190px 45px / repeat(2, 1fr);
+      justify-content: space-between;
+      gap: 30px;
+
+      &-field {
+        position: relative;
+        &.field-full {grid-column: 1/3}
+        & input {
+          width: 100%;
+          min-height: 100%;
+          padding: 14px 20px;
+          font-size: 14px;
+          border: 2px solid #9999996b;
+          border-radius: $--bs-radius-small;
+          &::placeholder {color: transparent}
+          &:not(:placeholder-shown) ~ label {
+            background-color: $--bs-white;
+            top: -10px;
+          }
+          &:focus ~ label {
+            background-color: $--bs-white;
+            top: -10px;
+          }
+        }
+        & textarea {
+          width: 100%;
+          height: 100%;
+          padding: 15px 20px 0 20px;
+          resize: none;
+          font-size: 12px;
+          border: 2px solid #9999996b;
+          border-radius: $--bs-radius-small;
+          &::placeholder {color: transparent}
+          &:not(:placeholder-shown) ~ label {
+            background-color: $--bs-white;
+            top: -10px;
+          }
+          &:focus ~ label {
+            background-color: $--bs-white;
+            top: -10px;
+          }
+        }
+        & label {
+          position: absolute;
+          top: 15px;
+          left: 12px;
+          height: 18px;
+          padding: 0 8px;
+          background-color: #fff;
+          font-size: 16px;
+          margin-bottom: 0;
+          color: $--bs-text;
+          cursor: text;
+          transition: top .1s linear;
+        }
+        & img {
+          border: .1px solid #dedcdc;
+          width: 100%;
+          min-height: 100%;
+          font-size: 12px;
+        }
+        &.field__agree {
+          font-size: 12px;
+          line-height: 14px;
+          display: flex;
+          align-items: center;
+          input {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+          }
+          label {
+            all: unset;
+            color: $--bs-text;
+            font-size: 18px;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+        }
+      }
+    }
+  }
+}
+

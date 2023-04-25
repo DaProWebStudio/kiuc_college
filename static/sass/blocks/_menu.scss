@@ -1,0 +1,110 @@
+.nav {
+  padding: 10px 0;
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-logo img {width: 80px}
+    &-list {
+      margin-bottom: 0;
+      & li {
+        position: relative;
+        margin:  0 4px;
+        list-style: none;
+        z-index: 2000;
+      }
+    }
+    &-link {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $--bs-silver;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    &-arrow {
+      display: block;
+      width: 0;
+      height: 0;
+      margin: 0 0 0 5px;
+      transition: transform 0.3s ease 0s;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-top: 10px solid $--bs-silver;
+    }
+    &__sub {
+      &-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0 0 0;
+        background: $--bs-white;
+        min-width: 300px;
+        & li {
+          margin:0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+      &-link {
+        display: inline-block;
+        width: 100%;
+        font-size: 17px;
+        color: $--bs-silver;
+        text-decoration: none;
+        padding: 10px;
+        border-bottom: 1px dashed $--bs-disabled;
+        &:hover {
+          background-color: $--bs-blue;
+          color: $--bs-white;
+        }
+      }
+    }
+  }
+}
+
+body._ps {
+  & .nav__menu-list {
+    & li:hover {
+      & .nav__menu__sub-list {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0px, 0px);
+        pointer-events: all;
+      }
+    }
+  }
+}
+
+body._touch {
+  & .nav__menu {
+    &-list {
+      & li {
+        display: flex;
+        align-items: center;
+        &._active {
+          & .nav__menu-arrow {
+            transform: rotate(-180deg);
+          }
+          & .menu__sub-list {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0px, 0px);
+            pointer-events: all;
+          }
+        }
+      }
+    }
+    &-link {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+body._lock {
+  overflow: hidden;
+}

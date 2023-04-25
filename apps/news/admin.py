@@ -13,5 +13,6 @@ class AdminNewsImages(admin.TabularInline):
 @admin.register(News)
 class AdminNews(TabbedTranslationAdmin):
     model = News
-    # prepopulated_fields = {'slug': ('title',)}
     inlines = [AdminNewsImages]
+
+    exclude = ('slug', )

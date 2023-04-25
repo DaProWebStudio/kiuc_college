@@ -3,7 +3,7 @@ from common.utils import get_english_translit as get_slug
 
 def specialty_main_img(instance, filename):
     list_file = filename.split('.')
-    return f'specialty/{get_slug(instance.name)}.{list_file[-1]}/'
+    return f'specialty/{instance.slug[:25]}.{list_file[-1]}'
 
 
 def news_main_img(instance, filename):

@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static imagekit %}
+
+{% block title %}
+    История создания и развития учебного заведения
+{% endblock %}
+
+{% block content %}
+    <section class="section specialization">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title mb-3">
+                        <span>Что Мы Вам Предлагаем</span>
+                        <h3>Наши Специальности</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="specialties__wrap">
+            {% for specialty in specialties %}
+                <div class="card">
+                    <div class="card__front">
+                        <div class="card__front-images">
+                            {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
+                        </div>
+                        <h4>{{ specialty.title|truncatechars:63 }}</h4>
+                        <div class="card__front-info">
+                            <span class="shape">{{ specialty.form_verbose }}</span>
+                            <span class="price">{{ specialty.contract }} сом</span>
+                        </div>
+                    </div>
+                    <div class="card__back">
+                        {% autoescape off %}{{ specialty.description }}{% endautoescape %}
+                        <a href="{{ specialty.get_absolute_url }}">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

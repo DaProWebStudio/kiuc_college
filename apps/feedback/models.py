@@ -2,7 +2,7 @@ from django.db import models
 
 from django.utils.translation import gettext_lazy as _
 
-from common.upload_to_files import upload_to_recaptcha
+from common.upload_to_files import recaptcha
 
 
 class FeedBack(models.Model):
@@ -23,7 +23,7 @@ class FeedBack(models.Model):
 
 class Recaptcha(models.Model):
     """ ReCaptcha """
-    image = models.ImageField(_('Изображение в Формате JPG 60X350'), upload_to=upload_to_recaptcha)
+    image = models.ImageField(_('Изображение в Формате JPG 60X350'), upload_to=recaptcha)
     answer = models.IntegerField(_('Ответ'))
 
     created = models.DateTimeField(auto_now_add=True)

@@ -29,11 +29,11 @@
                 <div class="col-12 col-lg-3 col-md-6">
                     <h3 class="footer-title">{% trans 'Быстрая меню' %}</h3>
                     <ul class="footer__fast-menu">
-                        <li class="footer__fast-menu-item"><a href="#">{% trans 'О Нас' %}</a></li>
+                        <li class="footer__fast-menu-item"><a href="{% url 'history' %}">{% trans 'О Нас' %}</a></li>
                         <li class="footer__fast-menu-item"><a href="#">{% trans 'Новости' %}</a></li>
-                        <li class="footer__fast-menu-item"><a href="#">{% trans 'Наши специальности' %}</a></li>
+                        <li class="footer__fast-menu-item"><a href="{% url 'specialties_list' %}">{% trans 'Наши специальности' %}</a></li>
                         <li class="footer__fast-menu-item"><a href="#">{% trans 'Наши достижении' %}</a></li>
-                        <li class="footer__fast-menu-item"><a href="#">{% trans 'Сотрудничество' %}</a></li>
+                        <li class="footer__fast-menu-item"><a href="{% url 'cooperation' %}">{% trans 'Сотрудничество' %}</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-3 col-md-6">
@@ -76,7 +76,7 @@
                     Copyright © 2015 - <span class="current-year">2023</span>{% trans '«КМУК» - Все права защищены.' %}
                 </div>
                 <div class="footer__inner-dev">
-                    {% trans 'Наш институт' %}<a href="https://kiuc.kg/" target="_blank">www.kiuc.kg</a>
+                    {% trans 'Наш институт' %}<a href="https://kiuc.kg/" target="_blank"> www.kiuc.kg</a>
                 </div>
             </div>
         </div>

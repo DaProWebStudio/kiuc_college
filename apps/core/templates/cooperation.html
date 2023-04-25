@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-    Сотрудничество
+    {% trans 'Сотрудничество' %}
 {% endblock %}
 
 {% block content %}
@@ -10,8 +10,8 @@
         <div class="container">
             <div class="row">
                 <div class="title col-lg-10 col-12 m-auto">
-                    <span>О Колледже</span>
-                    <h3>Сотрудничество</h3>
+                    <span>{% trans 'О Колледже' %}</span>
+                    <h3>{% trans 'Сотрудничество' %}</h3>
                 </div>
                 <ul class="cooperation-list col-lg-10 col-12 m-auto">
                     {% for item in cooperation %}
@@ -21,8 +21,8 @@
                     {% endfor %}
                 </ul>
                 <div class="title col-lg-10 col-12 m-auto pt-4">
-                    <span>О Колледже</span>
-                    <h3>Международное сотрудничество</h3>
+                    <span>{% trans 'О Колледже' %}</span>
+                    <h3>{% trans 'Международное сотрудничество' %}</h3>
                 </div>
                 <ul class="cooperation-list col-lg-10 col-12 m-auto">
                     {% for item in cooperation %}

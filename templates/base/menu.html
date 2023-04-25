@@ -4,7 +4,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="toolbar__area-contacts">
-                    <a href="{% url 'contacts' %}"><i class="fa fa-address-book"></i> Контакты</a>
+                    <a href="{% url 'contacts' %}"><i class="fa fa-address-book"></i> {% trans 'Контакты' %}</a>
                 </div>
                 <form action="{% url 'set_language' %}" method="post" class="toolbar__area-languages">{% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -37,23 +37,23 @@
                 <div class="nav__menu-icon"><span></span></div>
                 <div class="nav__menu-body">
                     <ul class="nav__menu-list">
-                        <li><a href="#" class="nav__menu-link">Главная</a></li>
+                        <li><a href="#" class="nav__menu-link">{% trans 'Главная' %}</a></li>
                         <li>
                             <a href="#" class="nav__menu-link">
                                 О колледже
                                 <span class="nav__menu-arrow"></span>
                             </a>
                             <ul class="nav__menu__sub-list">
-                                <li><a href="{% url 'history' %}" class="nav__menu__sub-link">История</a></li>
-                                <li><a href="#" class="nav__menu__sub-link">Паспорт колледжа</a></li>
-                                <li><a href="#" class="nav__menu__sub-link">Структура</a></li>
-                                <li><a href="#" class="nav__menu__sub-link">Новости</a></li>
-                                <li><a href="{% url 'documents_list' %}" class="nav__menu__sub-link">Нормативные документы</a></li>
-                                <li><a href="#" class="nav__menu__sub-link">Библиотека</a></li>
-                                <li><a href="{% url 'cooperation' %}" class="nav__menu__sub-link">Сотрудничество</a></li>
+                                <li><a href="{% url 'history' %}" class="nav__menu__sub-link">{% trans 'История' %}</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">{% trans 'Паспорт колледжа' %}</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">{% trans 'Структура' %}</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">{% trans 'Новости' %}</a></li>
+                                <li><a href="{% url 'documents_list' %}" class="nav__menu__sub-link">{% trans 'Нормативные документы' %}</a></li>
+                                <li><a href="#" class="nav__menu__sub-link">{% trans 'Библиотека' %}</a></li>
+                                <li><a href="{% url 'cooperation' %}" class="nav__menu__sub-link">{% trans 'Сотрудничество' %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" class="nav__menu-link">Учебный процесс</a></li>
+                        <li><a href="#" class="nav__menu-link">{% trans 'Учебный процесс' %}</a></li>
                         <li>
                             <a href="#" class="nav__menu-link">
                                 Абитуриентам
@@ -61,11 +61,11 @@
                             </a>
                             <ul class="nav__menu__sub-list">
                                 <li>
-                                    <a href="{% url 'reception' %}" class="nav__menu__sub-link">Приемная комиссия</a>
+                                    <a href="{% url 'reception' %}" class="nav__menu__sub-link">{% trans 'Приемная комиссия' %}</a>
                                 </li>
                                 <li>
                                     <a href="{% url 'specialties_list' %}"
-                                       class="nav__menu__sub-link">Наши Специальности</a>
+                                       class="nav__menu__sub-link">{% trans 'Наши Специальности' %}</a>
                                 </li>
                             </ul>
                         </li>
@@ -76,15 +76,15 @@
                             </a>
                             <ul class="nav__menu__sub-list">
                                 <li>
-                                    <a href="#" class="nav__menu__sub-link">Дистанционное обучение «AVN»</a>
+                                    <a href="#" class="nav__menu__sub-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav__menu__sub-link">Студенческий совет</a>
+                                    <a href="#" class="nav__menu__sub-link">{% trans 'Студенческий совет' %}</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{% url 'contacts' %}" class="nav__menu-link">Контакты</a>
+                            <a href="{% url 'contacts' %}" class="nav__menu-link">{% trans 'Контакты' %}</a>
                         </li>
                     </ul>
                 </div>

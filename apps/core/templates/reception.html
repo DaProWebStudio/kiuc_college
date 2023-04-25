@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
-{% load static %}
+{% load static i18n%}
 
 {% block title %}
-    История создания и развития учебного заведения
+    {% trans 'История создания и развития учебного заведения' %}
 {% endblock %}
 
 {% block content %}
@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-12 col-lg-8 col-md-8">
                     <div class="title">
-                        <span>Абитуриентам</span>
-                        <h3>Уважаемые абитуриенты!</h3>
+                        <span>{% trans 'Абитуриентам' %}</span>
+                        <h3>{% trans 'Уважаемые абитуриенты!' %}</h3>
                     </div>
                     <p class="reception__description">
                         Бишкекский технический колледж предоставляет широкую возможность выбора специальностей,

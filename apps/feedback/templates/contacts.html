@@ -45,16 +45,17 @@
                     </div>
                     <div class="contacts-feedback">
                         <form action="#" method="post" class="contacts__form">
+                            {% csrf_token %}
                             <div class="contacts__form-field">
-                                <input required name="name" id="name" type="text" placeholder="{% trans 'Ваше имя' %}">
+                                {{ form.name }}
                                 <label for="name">{% trans 'Ваше имя' %}</label>
                             </div>
                             <div class="contacts__form-field">
-                                <input required name="email" id="email" type="email" placeholder="{% trans 'Ваша почта' %}">
+                                {{ form.email }}
                                 <label for="email">{% trans 'Ваша почта' %}</label>
                             </div>
                             <div class="contacts__form-field field-full">
-                                <textarea name="text" id="text" placeholder="{% trans 'Ваше сообщение' %}"></textarea>
+                                {{ form.message }}
                                 <label for="text">{% trans 'Ваше сообщение' %}</label>
                             </div>
                             <div class="contacts__form-field field-full field__agree">
@@ -68,8 +69,9 @@
                                 <input required="required" name="answer" id="answer" type="number" placeholder="Напишите ответ">
                                 <label for="answer">{% trans 'Напишите ответ' %}</label>
                             </div>
+                            <button type="submit" class="contacts__form-btn btn btn-primary">{% trans 'Отправить сообщение' %}</button>
                         </form>
-                        <button class="contacts__form-btn btn btn-primary">{% trans 'Отправить сообщение' %}</button>
+
                     </div>
                 </div>
             </div>

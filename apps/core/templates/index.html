@@ -1,0 +1,155 @@
+{% extends 'base/base.html' %}
+{% load static imagekit %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'libs/glightbox/glightbox.min.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="section header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6 col-md-6 header__title">
+                    <h2>Кыргызский международный универсальный колледж</h2>
+                    <p class="desc-body">
+                        Мисия колледжа: Подготовка специалистов, имеющих международный уровень теоретических и
+                        практических
+                        навыков, обладающих высокими личностными качествами и способных повысить уровень
+                        производственного потенциала и экономики Кыргызстана
+                    </p>
+                    <a href="" class="btn btn-primary">
+                        Связатся с нами
+                    </a>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6">
+                    <div class="header__slider">
+                        <div class="header__slider-item">
+                            <img src="{% static 'images/college/MY6H7718.webp' %}" alt="">
+                        </div>
+                        <div class="header__slider-item">
+                            <img src="{% static 'images/college/MY6H7776.webp' %}" alt="">
+                        </div>
+                        <div class="header__slider-item">
+                            <img src="{% static 'images/college/MY6H7772.webp' %}" alt="">
+                        </div>
+                        <div class="header__slider-item">
+                            <img src="{% static 'images/college/MY6H7726.webp' %}" alt="">
+                        </div>
+                        <div class="header__slider-item">
+                            <img src="{% static 'images/college/MY6H8076.webp' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fast_menu">
+        <div class="container">
+            <div class="fast_menu-row">
+                <a href="#" class="fast_menu-link">Учебный процесс колледжа</a>
+                <a href="#" class="fast_menu-link">Международная деятельность</a>
+                <a href="#" class="fast_menu-link">Воспитательная деятельность</a>
+                <a href="#" class="fast_menu-link">Цифровая трансформация</a>
+                <a href="#" class="fast_menu-link">Наши специальности</a>
+                <a href="#" class="fast_menu-link">Нормативные документы</a>
+                <a href="#" class="fast_menu-link">Дистанционное обучение «AVN»</a>
+                <a href="#" class="fast_menu-link">Новости</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section history">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 mb-3">
+                    <div class="video-banner">
+                        <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
+                        <a class="glightbox video" href="https://youtu.be/cJZGLJF3iPM">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 pl-lg-5">
+                    <div class="title mb-3">
+                        <span>История колледжа</span>
+                        <h3>История развития учебного заведения</h3>
+                    </div>
+                    <p class="desc-body">
+                        История колледжа зародилась в 2013 году – в г.Шопоков были открыты языковые курсы для
+                        школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали
+                        популярными в Сокулукском районе, благодаря эффективному обучению и результативности.
+                        Школьники, успешно завершившие курсы, стали победителями программы FLEX.
+                        На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.
+                    </p>
+                    <a href="#" class="btn btn-primary">Подробно</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section news">
+        <div class="container">
+            <div class="title">
+                <span>Новости колледжа</span>
+                <h3><a href="">Новости</a></h3>
+            </div>
+            <div class="slider_tree slider">
+                {% for item in news %}
+                    <div class="slider-item">
+                        <a href="" class="slider-link">
+                            <div class="slider__image">
+                                {% generateimage 'news:thumbnail' source=item.image -- class="mypicture" %}
+                                <div class="slider__image-info-right">{{ item.created }}</div>
+                            </div>
+                            <h4 class="slider-title">{{ item.title|truncatechars:63 }}</h4>
+                            <hr>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="section specialties">
+        <div class="container">
+            <div class="title">
+                <span>Наши специальности</span>
+                <h3><a href="#">Специальности</a></h3>
+            </div>
+            <div class="specialties__wrap">
+                {% for specialty in specialties %}
+                    <div class="card">
+                        <div class="card__front">
+                            <div class="card__front-images">
+                                {% generateimage 'news:thumbnail' source=specialty.image -- class="mypicture" %}
+                            </div>
+                            <h4>{{ specialty.title|truncatechars:63 }}</h4>
+                            <div class="card__front-info">
+                                <span class="shape">{{ specialty.form_of_training }}</span>
+                                <span class="price">{{ specialty.contract }} сом</span>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            {% autoescape off %}{{ specialty.description }}{% endautoescape %}
+                            <a href="https://btk.kg/specialty/elektrosnabzhenie-po-otrasljam/">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'libs/glightbox/glightbox.min.js' %}"></script>
+    <script type="text/javascript">
+        GLightbox({
+            'href': 'https://youtu.be/cJZGLJF3iPM',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+{% endblock %}

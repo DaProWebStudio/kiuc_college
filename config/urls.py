@@ -28,10 +28,12 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
+    path('', include('apps.core.urls')),
+    path('contacts/', include('apps.feedback.urls')),
 )
 
 if settings.DEBUG:
     urlpatterns += (
-            static(settings.STATIC_URL, document_root=settings.STATIC_DIR) +
-            static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        static(settings.STATIC_URL, document_root=settings.STATIC_DIR) +
+        static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     )

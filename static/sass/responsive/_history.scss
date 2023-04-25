@@ -1,0 +1,55 @@
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 998px) {
+  .history {
+    .title {
+      & h3 {
+        font-size: 25px;
+      }
+    }
+    &-text {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .history {
+    .title {
+      & h3 {
+        font-size: 20px;
+      }
+    }
+    &-text {
+      p {
+        padding-top: 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: 578px) {
+  .history {
+    padding-top: 10px;
+    .title {
+      & h3 {
+        font-size: 18px;
+      }
+    }
+    &-text {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .history {
+    padding-top: 10px;
+  }
+}

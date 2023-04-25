@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ document.title }}
+{% endblock %}
+
+{% block content %}
+    <section class="section documents">
+        <div class="container">
+            <div class="row">
+                <div class="title col-12 m-auto">
+                    <span>О Колледже</span>
+                    <h3>{{ document.title }}</h3>
+                </div>
+                <ul class="cooperation-list col-12 m-auto">
+                    {% for item in document.files.all %}
+                        <li>
+                            <a href="{{ item.file.url }}">
+                                <i class="fa fa-file mr-2"></i>
+                                {{ item.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}

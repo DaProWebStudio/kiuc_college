@@ -1,0 +1,25 @@
+.btn {
+  background-color: $--bs-blue;
+  border-radius: $--bs-radius-small;
+  padding: 12px 24px;
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $--bs-white;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background-color: $--bs-dark-blue;
+  }
+}
+
+.contacts__form {
+  &-btn {
+    font-size: 20px;
+    margin: 20px 0 0 0;
+    padding: 20px 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+@media (max-width: 1200px) {
+  .documents {
+    &__card {
+      &-item {
+        & a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .documents {
+     &__card {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       align-items: center;
+       gap: 20px 30px;
+     }
+  }
+}
+
+@media (max-width: 768px) {
+  .documents {
+    &__card {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+    &__title {
+      font-size: 12px;
+    }
+  }
+}

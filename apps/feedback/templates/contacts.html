@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Контакты
+{% endblock %}
+
+{% block content %}
+    <section class="section contacts">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-4 col-12">
+                    <div class="title">
+                        <span>Позвоните Нам</span>
+                        <h3>Контактные данные</h3>
+                    </div>
+                    <div class="contacts__link">
+                        <ul>
+                            <li>
+                                <b>Наш адрес: </b>
+                                Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а
+                            </li>
+                            <hr>
+                            <li>
+                                <b>Директор</b>
+                                <span>...... - <a href="#">.....</a></span>
+                            </li>
+                            <hr>
+                            <li>
+                                <b>Заместитель директора по УР</b>
+                                <span>...... - <a href="#">.....</a></span>
+                            </li>
+                            <hr>
+                            <li>
+                                <b>Приемная</b>
+                                <span>...... - <a href="#">.....</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-8 col-12">
+                    <div class="title">
+                        <span>Система Обратной Связи</span>
+                        <h3>Есть идея</h3>
+                    </div>
+                    <div class="contacts-feedback">
+                        <form action="#" method="post" class="contacts__form">
+                            <div class="contacts__form-field">
+                                <input required name="name" id="name" type="text" placeholder="Ваше имя">
+                                <label for="name">Ваше имя</label>
+                            </div>
+                            <div class="contacts__form-field">
+                                <input required name="email" id="email" type="email" placeholder="Ваша почта">
+                                <label for="email">Ваша почта</label>
+                            </div>
+                            <div class="contacts__form-field field-full">
+                                <textarea name="text" id="text" placeholder="Ваше сообщение"></textarea>
+                                <label for="text">Ваше сообщение</label>
+                            </div>
+                            <div class="contacts__form-field field-full field__agree">
+                                <input id="agree" required type="checkbox">
+                                <label for="agree" class="field__agree-label">Согласен на обработку персональных данных</label>
+                            </div>
+                            <div class="contacts__form-field">
+                                <img src="https://btk.kg/media/reCaptcha/task-06.jpg" alt="">
+                            </div>
+                            <div class="contacts__form-field">
+                                <input required="required" name="answer" id="answer" type="number" placeholder="Напишите ответ">
+                                <label for="answer">Напишите ответ</label>
+                            </div>
+                        </form>
+                        <button class="contacts__form-btn btn btn-primary">Отправить сообщение</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="contacts-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.5517421664722!2d74.33675432651926!3d42.86404867698774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ed965acdeec3b%3A0xa3d3a2bafb4618e1!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0KPQvdC40LLQtdGA0YHQsNC70YzQvdGL0Lkg0JrQvtC70LvQtdC00LYgKNCa0JzQo9CaKQ!5e1!3m2!1sru!2skg!4v1682148536639!5m2!1sru!2skg" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+{% endblock %}

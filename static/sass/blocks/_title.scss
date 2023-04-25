@@ -1,0 +1,49 @@
+.section .title {
+  & span {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: $--bs-orange;
+    margin-bottom: .5rem;
+    position: relative;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1px;
+      background-color: $--bs-orange;
+      position: absolute;
+      top: 50%;
+      left: -1.7rem;
+    }
+  }
+  & h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-style: normal;
+    text-align: left;
+    color: $--bs-title;
+    & a {
+      text-decoration: none;
+      color: $--bs-title;
+    }
+  }
+}
+
+.header__title {
+  & h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: $--bs-white;
+  }
+}
+
+.contacts {
+    &-title {
+      font-weight: 700;
+      font-size: 32px;
+      color: $--bs-title;
+      padding-top: 15px;
+    }
+}
+

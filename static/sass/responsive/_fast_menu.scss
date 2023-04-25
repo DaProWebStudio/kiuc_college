@@ -1,0 +1,23 @@
+@media (max-width: 1200px) {
+  .fast_menu {
+    &-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 998px) {
+  .fast_menu {
+    &-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 578px) {
+  .fast_menu {
+    &-row {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+
+.history {
+  padding-top: 30px;
+  &-text {
+    & p {
+      padding-top: 20px;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 30px;
+      color: $--bs-text;
+      margin: 0;
+    }
+  }
+}

@@ -2,7 +2,7 @@ from imagekit import ImageSpec, register
 from imagekit.processors import ResizeToFill
 
 
-@register.generator('news:thumbnail')
+@register.generator('main:thumbnail')
 class Thumbnail(ImageSpec):
     processors = [ResizeToFill(394, 257)]
     format = 'webp'

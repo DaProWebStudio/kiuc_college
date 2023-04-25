@@ -99,7 +99,7 @@
                     <div class="slider-item">
                         <a href="" class="slider-link">
                             <div class="slider__image">
-                                {% generateimage 'news:thumbnail' source=item.image -- class="mypicture" %}
+                                {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
                                 <div class="slider__image-info-right">{{ item.created }}</div>
                             </div>
                             <h4 class="slider-title">{{ item.title|truncatechars:63 }}</h4>
@@ -122,7 +122,7 @@
                     <div class="card">
                         <div class="card__front">
                             <div class="card__front-images">
-                                {% generateimage 'news:thumbnail' source=specialty.image -- class="mypicture" %}
+                                {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
                             </div>
                             <h4>{{ specialty.title|truncatechars:63 }}</h4>
                             <div class="card__front-info">

@@ -1,3 +1,7 @@
+$('.select_send_language').on('change', function() {
+  $(this.form).submit();
+});
+
 // скролл топ
 const scrollBtn = document.querySelector('.upShow');
 

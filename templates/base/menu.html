@@ -6,14 +6,13 @@
                 <div class="toolbar__area-contacts">
                     <a href="{% url 'contacts' %}"><i class="fa fa-address-book"></i> {% trans 'Контакты' %}</a>
                 </div>
-                <form action="{% url 'set_language' %}" method="post" class="toolbar__area-languages">{% csrf_token %}
+                <form action="{% url 'set_language' %}" method="post" class="toolbar__area-languages ">{% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="languages" id="languages" class="form-select">
+                    <select name="language" class="form-select select_send_language">
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
-                            <option value="{{ language.code }}"
-                                    {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
                                 {% if language.code == 'ru' %}
                                     🇷🇺 {{ language.name_local }}
                                 {% elif language.code == 'ky' %}

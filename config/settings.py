@@ -14,6 +14,8 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
 
+CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS').split(' ')
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -134,7 +136,6 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_DIR = MEDIA_ROOT
 MEDIA_DIRS = [MEDIA_DIR]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -44,11 +44,11 @@
         <div class="container">
             <div class="fast_menu-row">
                 <a href="#" class="fast_menu-link">{% trans 'Учебный процесс колледжа' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Международная деятельность' %}</a>
+                <a href="{% url 'cooperation' %}" class="fast_menu-link">{% trans 'Международная деятельность' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Воспитательная деятельность' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Цифровая трансформация' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
+                <a href="{% url 'specialties_list' %}" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
+                <a href="{% url 'documents_list' %}" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Новости' %}</a>
             </div>
@@ -74,7 +74,7 @@
                     <p class="desc-body">
                         {% blocktranslate %}История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали популярными в Сокулукском районе, благодаря эффективному обучению и результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.{% endblocktranslate %}
                     </p>
-                    <a href="#" class="btn btn-primary">{% trans 'Подробно' %}</a>
+                    <a href="#" class="btn btn-primary">Подробно</a>
                 </div>
             </div>
         </div>

@@ -23,6 +23,8 @@ local_settings.py
 !*backend/*/migrations
 !*backend/*/migrations/__init__.py
 **/node_modules/**
+# Translations
+*.mo
 
 __pycache__/
 **/__pycache__/**

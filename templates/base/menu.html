@@ -31,12 +31,12 @@
         <div class="container">
             <div class="nav__menu">
                 <div class="nav__menu-logo">
-                    <a href="#"><img src="{% static 'images/logo/logo-min.webp' %}" alt="logo"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'images/logo/logo-min.webp' %}" alt="logo"></a>
                 </div>
                 <div class="nav__menu-icon"><span></span></div>
                 <div class="nav__menu-body">
                     <ul class="nav__menu-list">
-                        <li><a href="#" class="nav__menu-link">{% trans 'Главная' %}</a></li>
+                        <li><a href="{% url 'index' %}" class="nav__menu-link">{% trans 'Главная' %}</a></li>
                         <li>
                             <a href="#" class="nav__menu-link">
                                 О колледже

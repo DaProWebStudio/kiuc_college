@@ -23,7 +23,6 @@ from config import settings
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('i18n/', include('django.conf.urls.i18n'))
 ]
 
 urlpatterns += i18n_patterns(
@@ -31,6 +30,8 @@ urlpatterns += i18n_patterns(
     path('', include('apps.core.urls')),
     path('specialties/', include('apps.specialty.urls')),
     path('contacts/', include('apps.feedback.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
+    prefix_default_language=False,
 )
 
 if settings.DEBUG:

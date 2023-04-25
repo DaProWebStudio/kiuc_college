@@ -17,11 +17,22 @@ def news_news_img(instance, filename):
     return f'news/{instance.news.slug[0:35]}/{instance.news.slug[0:35]}.{list_file[-1]}'
 
 
-def upload_to_file(instance, filename):
+def cooperation_files(instance, filename):
     list_file = filename.split('.')
-    return f'teams/{get_slug(instance.position.name)}/{get_slug(instance.slug)}.{list_file[-1]}'
+    title = get_slug(instance.title)
+    return f'cooperation/{title}/{title}.{list_file[-1]}'
 
 
-def upload_to_recaptcha(instance, filename):
+def document_files(instance, filename):
     list_file = filename.split('.')
-    return f'reCaptcha/{get_slug(list_file[0])}.{list_file[-1]}'
+    return f'documents/{get_slug(instance.document.title)}/{get_slug(instance.title)}.{list_file[-1]}'
+
+
+def recaptcha(instance, filename):
+    list_file = filename.split('.')
+    return f'recaptcha/{get_slug(list_file[0])}.{list_file[-1]}'
+
+
+def employee_file(instance, filename):
+    list_file = filename.split('.')
+    return f'employees/{instance.slug}/{instance.slug}.{list_file[-1]}'

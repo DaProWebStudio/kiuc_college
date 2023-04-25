@@ -6,7 +6,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
-from common.upload_to_files import upload_to_file
+from common.upload_to_files import employee_file
 from common.utils import get_english_translit as get_slug
 from common.managers import ActiveManager
 from common import constants as cons
@@ -65,7 +65,7 @@ class Employee(models.Model):
                                       choices=MARITAL_STATUS_CHOICES, default=cons.NOT_MARRIED_MEN)
     goal = models.TextField(_('Цель'), null=True, blank=True)
     work_skills = models.TextField(_('Навыки работы'))
-    image = ProcessedImageField(verbose_name=_('Фото сотрудника '), upload_to=upload_to_file, format='webp',
+    image = ProcessedImageField(verbose_name=_('Фото сотрудника '), upload_to=employee_file, format='webp',
                                 processors=[ResizeToFill(500, 500)], options={'quality': 90}, blank=True, null=True)
 
     email = models.EmailField('Email', blank=True, null=True)

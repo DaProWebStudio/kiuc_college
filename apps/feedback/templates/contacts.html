@@ -45,31 +45,43 @@
                     </div>
                     <div class="contacts-feedback">
                         <form action="#" method="post" class="contacts__form">
+                            {% csrf_token %}
                             <div class="contacts__form-field">
-                                <input required name="name" id="name" type="text" placeholder="{% trans 'Ваше имя' %}">
-                                <label for="name">{% trans 'Ваше имя' %}</label>
+                                {{ form.name }}
+                                <label for="id_name">{% trans 'Ваше имя' %}</label>
                             </div>
                             <div class="contacts__form-field">
-                                <input required name="email" id="email" type="email" placeholder="{% trans 'Ваша почта' %}">
-                                <label for="email">{% trans 'Ваша почта' %}</label>
+                                {{ form.email }}
+                                <label for="id_email">{% trans 'Ваша почта' %}</label>
                             </div>
                             <div class="contacts__form-field field-full">
-                                <textarea name="text" id="text" placeholder="{% trans 'Ваше сообщение' %}"></textarea>
-                                <label for="text">{% trans 'Ваше сообщение' %}</label>
+                                {{ form.message }}
+                                <label for="id_message">{% trans 'Ваше сообщение' %}</label>
                             </div>
                             <div class="contacts__form-field field-full field__agree">
                                 <input id="agree" required type="checkbox">
                                 <label for="agree" class="field__agree-label">{% trans 'Согласен на обработку персональных данных' %}</label>
                             </div>
                             <div class="contacts__form-field">
-                                <img src="https://btk.kg/media/reCaptcha/task-06.jpg" alt="">
+                                <img src="{{ recaptcha.image.url }}" alt="">
                             </div>
-                            <div class="contacts__form-field">
-                                <input required="required" name="answer" id="answer" type="number" placeholder="Напишите ответ">
-                                <label for="answer">{% trans 'Напишите ответ' %}</label>
+                            <div class="contacts__form-field {% if form.user_answer.errors %}field-invalid{% endif %}">
+                                {{ form.user_answer }}
+                                <label for="id_user_answer">
+                                    {% if form.user_answer.errors %}
+                                        {% for error in form.user_answer.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    {% else %}
+                                        {% trans 'Напишите ответ' %}
+                                    {% endif %}
+                                </label>
                             </div>
+                            <button type="submit" class="contacts__form-field field-full btn btn-primary py-3">
+                                {% trans 'Отправить сообщение' %}
+                            </button>
                         </form>
-                        <button class="contacts__form-btn btn btn-primary">{% trans 'Отправить сообщение' %}</button>
+
                     </div>
                 </div>
             </div>

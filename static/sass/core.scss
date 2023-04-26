@@ -40,9 +40,6 @@ html {
   background-color: $--bs-white !important;
   box-shadow: 0 0 35px -15px $--bs-blue;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
 }
 
 .container {

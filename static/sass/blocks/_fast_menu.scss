@@ -1,8 +1,10 @@
 .fast_menu {
+  margin: 10px 0 !important;
+  padding: 10px 0 !important;
   &-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 10px;
   }
   &-link {
     display: flex;

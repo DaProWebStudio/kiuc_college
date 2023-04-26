@@ -16,8 +16,9 @@
 
 @media (max-width: 578px) {
   .fast_menu {
-    &-row {
-      grid-template-columns: 1fr;
+    &-link {
+      font-size: 14px;
+      text-align: center;
     }
   }
 }

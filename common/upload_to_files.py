@@ -1,3 +1,5 @@
+import uuid
+
 from common.utils import get_english_translit as get_slug
 
 
@@ -28,9 +30,9 @@ def document_files(instance, filename):
     return f'documents/{get_slug(instance.document.title)}/{get_slug(instance.title)}.{list_file[-1]}'
 
 
-def recaptcha(instance, filename):
+def recaptcha_img(instance, filename):
     list_file = filename.split('.')
-    return f'recaptcha/{get_slug(list_file[0])}.{list_file[-1]}'
+    return f'recaptcha/{uuid.uuid4().hex[:12]}.{list_file[-1]}'
 
 
 def employee_file(instance, filename):

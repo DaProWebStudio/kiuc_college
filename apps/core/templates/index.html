@@ -55,18 +55,34 @@
         </div>
     </section>
 
-    <section class="section history">
+    <section class="section foreword">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 mb-3">
-                    <div class="video-banner">
-                        <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
-                        <a class="glightbox video" href="https://youtu.be/cJZGLJF3iPM">
-                            <i class="fa fa-play"></i>
-                        </a>
+                    <div class="foreword-img">
+                        <img src="{% static 'images/college/MY6H7263.webp' %}" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 pl-lg-5">
+                    <div class="title mb-3">
+                        <span>{% trans 'Приветственное слово' %}</span>
+                        <h3>{% trans 'Лю Бенг Ил' %}</h3>
+                        <p>{% trans 'Генерального директора КМУК, профессора, доктора филологических наук' %}</p>
+                        <p class="">{% trans 'Заслуженного работника образования  Республики Корея' %}</p>
+                    </div>
+                    <p class="desc-body">
+                        {% blocktranslate %}Приветствую Вас на официальном сайте Кыргызского международного универсального колледжа. Кыргызский международный универсальный колледж – это один из самых престижных международных колледжей нашей страны.{% endblocktranslate %}
+                    </p>
+                    <a href="{% url 'welcoming_remarks' %}" class="btn btn-primary">{% trans 'Почитать' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section history">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 pl-lg-5 mb-3">
                     <div class="title mb-3">
                         <span>{% trans 'История колледжа' %}</span>
                         <h3>{% trans 'История развития учебного заведения' %}</h3>
@@ -75,6 +91,14 @@
                         {% blocktranslate %}История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали популярными в Сокулукском районе, благодаря эффективному обучению и результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.{% endblocktranslate %}
                     </p>
                     <a href="#" class="btn btn-primary">Подробно</a>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 mb-3">
+                    <div class="video-banner">
+                        <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
+                        <a class="glightbox video" href="https://youtu.be/cJZGLJF3iPM">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

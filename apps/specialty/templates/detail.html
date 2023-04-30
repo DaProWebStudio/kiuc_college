@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
     {{ specialty.title }}
@@ -14,8 +14,9 @@
                         <img src="{{ specialty.image.url }}" alt="image" class="w-100">
                     </div>
                     <div class="title mt-3">
-                        <span>Специальность</span>
+                        <span>{% trans 'Специальность' %}</span>
                         <h1 class="font-weight-bold">{{ specialty.title }}</h1>
+                        <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ specialty.created|date }}</p>
                     </div>
                     <div class="content_dynamic_block">
                         {% autoescape off %}{{ specialty.description }}{% endautoescape %}

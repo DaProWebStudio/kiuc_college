@@ -19,20 +19,18 @@
             <div class="specialties__wrap">
             {% for specialty in specialties %}
                 <div class="card">
-                    <div class="card__front">
-                        <div class="card__front-images">
+                    <a href="{{ specialty.get_absolute_url }}" class="card-link">
+                        <div class="card-img">
                             {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
                         </div>
-                        <h4>{{ specialty.title|truncatechars:63 }}</h4>
-                        <div class="card__front-info">
-                            <span class="shape">{{ specialty.form_verbose }}</span>
-                            <span class="price">{{ specialty.contract }} сом</span>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
                         </div>
-                    </div>
-                    <div class="card__back">
-                        {% autoescape off %}{{ specialty.description }}{% endautoescape %}
-                        <a href="{{ specialty.get_absolute_url }}">Подробнее</a>
-                    </div>
+                        <div class="card-inner">
+                            <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
+                            <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
             </div>

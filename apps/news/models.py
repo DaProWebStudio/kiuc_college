@@ -16,7 +16,7 @@ class News(models.Model):
     description = RichTextField(_('Описание'), blank=True, null=True)
     youtube = models.URLField(_('Ссылка на видео'), null=True, blank=True)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=news_main_img, format='webp',
-                                processors=[ResizeToFill(756, 425)], options={'quality': 90})
+                                processors=[ResizeToFill(2268, 1296)], options={'quality': 90})
     is_active = models.BooleanField(_('Статус'), default=True)
 
     objects = models.Manager()
@@ -41,8 +41,8 @@ class News(models.Model):
 class NewsImages(models.Model):
     """Фотографии Новостях"""
     news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='images')
-    image = ProcessedImageField(verbose_name=_('Фотография'), upload_to=news_news_img, format='webp',
-                                options={'quality': 65})
+    image = ProcessedImageField(verbose_name=_('Фотография'), upload_to=news_news_img,
+                                format='webp', options={'quality': 80})
 
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now_add=True)

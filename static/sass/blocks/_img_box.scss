@@ -1,0 +1,18 @@
+.image_box {
+  width: 100%!important;
+  height: 300px!important;
+  position: relative;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}

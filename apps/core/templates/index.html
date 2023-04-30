@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% load static imagekit  i18n%}
+{% load static imagekit  i18n %}
 
 
 {% block links %}
@@ -13,7 +13,9 @@
                 <div class="col-12 col-lg-6 col-md-6 header__title">
                     <h2>{% trans 'Кыргызский международный универсальный колледж' %}</h2>
                     <p class="desc-body">
-                        {% blocktranslate %}Миссия колледжа: Подготовка специалистов, имеющих международный уровень теоретических и практических навыков, обладающих высокими личностными качествами и способных повысить уровень производственного потенциала и экономики Кыргызстана{% endblocktranslate %}
+                        {% blocktranslate %}Миссия колледжа: Подготовка специалистов, имеющих международный уровень
+                            теоретических и практических навыков, обладающих высокими личностными качествами и способных
+                            повысить уровень производственного потенциала и экономики Кыргызстана{% endblocktranslate %}
                     </p>
                     <a href="" class="btn btn-primary">{% trans 'Связаться с нами ' %}</a>
                 </div>
@@ -50,7 +52,33 @@
                 <a href="{% url 'specialties_list' %}" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
                 <a href="{% url 'documents_list' %}" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Новости' %}</a>
+                <a href="{% url 'news_list' %}" class="fast_menu-link">{% trans 'Новости' %}</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section foreword">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 mb-3">
+                    <div class="foreword-img">
+                        <img src="{% static 'images/college/MY6H7263.webp' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 pl-lg-5">
+                    <div class="title mb-3">
+                        <span>{% trans 'Приветственное слово' %}</span>
+                        <h3>{% trans 'Лю Бенг Ил' %}</h3>
+                        <p>{% trans 'Генерального директора КМУК, профессора, доктора филологических наук' %}</p>
+                        <p class="">{% trans 'Заслуженного работника образования  Республики Корея' %}</p>
+                    </div>
+                    <p class="desc-body">
+                        {% blocktranslate %}Приветствую Вас на официальном сайте Кыргызского международного
+                            универсального колледжа. Кыргызский международный универсальный колледж – это один из самых
+                            престижных международных колледжей нашей страны.{% endblocktranslate %}
+                    </p>
+                    <a href="{% url 'welcoming_remarks' %}" class="btn btn-primary">{% trans 'Почитать' %}</a>
+                </div>
             </div>
         </div>
     </section>
@@ -58,6 +86,21 @@
     <section class="section history">
         <div class="container">
             <div class="row">
+                <div class="col-12 col-lg-6 col-md-6 pl-lg-5 mb-3">
+                    <div class="title mb-3">
+                        <span>{% trans 'История колледжа' %}</span>
+                        <h3>{% trans 'История развития учебного заведения' %}</h3>
+                    </div>
+                    <p class="desc-body">
+                        {% blocktranslate %}История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые
+                            курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational
+                            centre стали популярными в Сокулукском районе, благодаря эффективному обучению и
+                            результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX.
+                            На курсах стали обучаться более 250 школьников из вблизи расположенных школ и
+                            гимназий.{% endblocktranslate %}
+                    </p>
+                    <a href="#" class="btn btn-primary">Подробно</a>
+                </div>
                 <div class="col-12 col-lg-6 col-md-6 mb-3">
                     <div class="video-banner">
                         <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
@@ -65,16 +108,6 @@
                             <i class="fa fa-play"></i>
                         </a>
                     </div>
-                </div>
-                <div class="col-12 col-lg-6 col-md-6 pl-lg-5">
-                    <div class="title mb-3">
-                        <span>{% trans 'История колледжа' %}</span>
-                        <h3>{% trans 'История развития учебного заведения' %}</h3>
-                    </div>
-                    <p class="desc-body">
-                        {% blocktranslate %}История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали популярными в Сокулукском районе, благодаря эффективному обучению и результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.{% endblocktranslate %}
-                    </p>
-                    <a href="#" class="btn btn-primary">Подробно</a>
                 </div>
             </div>
         </div>
@@ -84,18 +117,21 @@
         <div class="container">
             <div class="title">
                 <span>{% trans 'Новости колледжа' %}</span>
-                <h3><a href="">{% trans 'Новости' %}</a></h3>
+                <h3><a href="{% url 'news_list' %}">{% trans 'Новости' %}</a></h3>
             </div>
             <div class="slider_tree slider">
                 {% for item in news %}
-                    <div class="slider-item">
-                        <a href="" class="slider-link">
-                            <div class="slider__image">
+                    <div class="card">
+                        <a href="{{ item.get_absolute_url }}" class="card-link">
+                            <div class="card-img">
                                 {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
-                                <div class="slider__image-info-right">{{ item.created }}</div>
                             </div>
-                            <h4 class="slider-title">{{ item.title|truncatechars:63 }}</h4>
-                            <hr>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ item.title|truncatechars:63 }}</h4>
+                            </div>
+                            <div class="card-inner">
+                                <span class="card-inner_btn_right">{{ item.created|date }}</span>
+                            </div>
                         </a>
                     </div>
                 {% endfor %}
@@ -109,23 +145,21 @@
                 <span>{% trans 'Наши специальности' %}</span>
                 <h3><a href="#">{% trans 'Специальности' %}</a></h3>
             </div>
-            <div class="specialties__wrap">
+            <div class="">
                 {% for specialty in specialties %}
                     <div class="card">
-                        <div class="card__front">
-                            <div class="card__front-images">
+                        <a href="{{ specialty.get_absolute_url }}" class="card-link">
+                            <div class="card-img">
                                 {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
                             </div>
-                            <h4>{{ specialty.title|truncatechars:63 }}</h4>
-                            <div class="card__front-info">
-                                <span class="shape">{{ specialty.form_of_training }}</span>
-                                <span class="price">{{ specialty.contract }} сом</span>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
                             </div>
-                        </div>
-                        <div class="card__back">
-                            {% autoescape off %}{{ specialty.description }}{% endautoescape %}
-                            <a href="https://btk.kg/specialty/elektrosnabzhenie-po-otrasljam/">{% trans 'Подробнее' %}</a>
-                        </div>
+                            <div class="card-inner">
+                                <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
+                                <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
+                            </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

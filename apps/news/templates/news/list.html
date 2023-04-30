@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static i18n imagekit %}
+
+{% block title %}{% trans 'Новости колледжа' %}{% endblock %}
+
+{% block content %}
+    <section class="section news">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title mb-3">
+                        <span>{% trans 'Новости колледжа' %}</span>
+                        <h3>{% trans 'Новости' %}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-8">
+                    <div class="news-card-wrap row m-auto">
+                        {% for item in news %}
+                            <div class="card col-12 col-md-6 col-lg-6 m-3">
+                                <a href="{{ item.get_absolute_url }}" class="card-link">
+                                    <div class="card-img">
+                                        {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ item.title|truncatechars:63 }}</h4>
+                                    </div>
+                                    <div class="card-inner">
+                                        <span class="card-inner_btn_right">{{ item.created|date }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="news_paginates">
+
+                    </div>
+                </div>
+                <aside class="col-12 col-md-4 col-lg-4">
+                    {% include 'news/aside.html' %}
+                </aside>
+            </div>
+        </div>
+    </section>
+{% endblock %}

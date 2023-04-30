@@ -1,0 +1,66 @@
+.card {
+  position: relative;
+  max-width: 394px;
+  height: 370px;
+  box-shadow: 0 5px 17px -6px rgb(34, 60, 80, 20%);
+  border: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  .card-link {
+    text-decoration: none;
+  }
+  .card-img {
+    overflow: hidden;
+    border-radius: $--bs-radius-medium;
+    position: relative;
+    img {
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+      vertical-align: middle;
+    }
+  }
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    flex: 1 1 auto;
+    padding: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+    background-color: $--bs-white;
+    .card-title {
+      font-size: 20px;
+      line-height: 1.3;
+      color: $--bs-title;
+    }
+  }
+  .card-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: $--bs-white;
+    &_btn_left {
+      background: $--bs-blue-transparent;
+      border: 1px solid $--bs-blue;
+      border-radius: $--bs-radius-small;
+      color: $--bs-blue;
+      padding: 3px 10px;
+    }
+    &_btn_right {
+      background: $--bs-blue;
+      border-radius: $--bs-radius-small;
+      color: $--bs-white;
+      padding: 3px 10px;
+    }
+  }
+}

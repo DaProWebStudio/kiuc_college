@@ -8,6 +8,6 @@ urlpatterns = [
     # Documents
     path('documents/', views.DocumentListView.as_view(), name='documents_list'),
     path('documents/<int:pk>/', views.DocumentDetailView.as_view(), name='documents_detail'),
-
+    path('welcoming-remarks/', views.WelcomingRemarksView.as_view(), name='welcoming_remarks'),
     path('reception-applicants/', views.ReceptionApplicantsView.as_view(), name='reception'),
 ]

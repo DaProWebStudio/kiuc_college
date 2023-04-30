@@ -30,7 +30,7 @@ class Specialty(models.Model):
     form_of_training = models.CharField(_('Форма обучение'), max_length=20, choices=TRAINING, default=cons.FULL_TIME)
     basis_learning = models.CharField(_('Основа обучения'), max_length=100, choices=LEARNING, default=cons.CONTRACT)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=specialty_main_img, format='webp',
-                                processors=[ResizeToFill(756, 432)], options={'quality': 90})
+                                processors=[ResizeToFill(2268, 1296)], options={'quality': 90})
     is_active = models.BooleanField(_('Статус'), default=True)
 
     objects = models.Manager()

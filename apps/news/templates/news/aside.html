@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<div class="widget">
+    <h4 class="widget-title">{% trans 'Поиск новостей' %}</h4>
+    <form method="get" class="widget-form-search">
+        <label>
+            <input placeholder="{% trans 'Поиск по ключевому слову...' %}" type="text" name="q">
+        </label>
+        <button type="submit">{% trans 'Поиск' %}</button>
+    </form>
+</div>

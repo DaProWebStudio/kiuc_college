@@ -9,22 +9,22 @@
     <section class="section cooperation">
         <div class="container">
             <div class="row">
-                <div class="title col-lg-10 col-12 m-auto">
+                <div class="title">
                     <span>{% trans 'О Колледже' %}</span>
                     <h3>{% trans 'Сотрудничество' %}</h3>
                 </div>
-                <ul class="cooperation-list col-lg-10 col-12 m-auto">
+                <ul class="cooperation-list">
                     {% for item in cooperation %}
                         {% if not item.is_international %}
                             <li><a href="{{ item.file.url }}">{{ item.title }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
-                <div class="title col-lg-10 col-12 m-auto pt-4">
+                <div class="title pt-4">
                     <span>{% trans 'О Колледже' %}</span>
                     <h3>{% trans 'Международное сотрудничество' %}</h3>
                 </div>
-                <ul class="cooperation-list col-lg-10 col-12 m-auto">
+                <ul class="cooperation-list">
                     {% for item in cooperation %}
                         {% if item.is_international %}
                             <li><a href="{{ item.file.url }}">{{ item.title }}</a></li>

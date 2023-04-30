@@ -45,5 +45,9 @@ class CooperationView(ListView):
     template_name = 'cooperation.html'
 
 
+class WelcomingRemarksView(TemplateView):
+    template_name = 'welcoming-remarks.html'
+
+
 class ReceptionApplicantsView(TemplateView):
     template_name = 'reception.html'

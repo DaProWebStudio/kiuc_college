@@ -81,6 +81,7 @@ class Employee(models.Model):
     updated = models.DateTimeField(auto_now_add=True)
 
     def get_full_name(self):
+        """ Полное имя """
         if self.sur_name:
             return f'{self.last_name} {self.first_name} {self.sur_name}'
         return f'{self.last_name} {self.first_name}'

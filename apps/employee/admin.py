@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+
 from .models import (
     Position, Employee, EmployeeEducation, Group, EmployeeLanguages,
     EmployeeWorkExperience, EmployeeAwards, EmployeeSkillUp
@@ -45,31 +47,47 @@ class PositionAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class AdminEmployee(admin.ModelAdmin):
-    list_display = ('get_full_name', 'position', 'number', 'is_active', 'created')
+    list_display = ('get_full_name', 'position', 'number', 'is_active', 'created', 'get_photo')
     list_filter = ('position', 'is_active')
     search_fields = ['get_full_name', 'position']
-    fieldsets = (
-        ('Необходимые данные:', {
-            'fields': (('last_name', 'first_name', 'sur_name'), ('position', 'number', 'image',)),
-        }),
-        ('О себе:', {
-            'fields': (('nationality', 'marital_status', 'date_of_birth', 'gender'), 'goal', 'work_skills'),
-        }),
-        ('Соц. сети:', {
-            'fields': (('email', 'instagram', 'facebook'))
-        }),
-        ('Статус:', {
-            'fields': ('is_active',)
-        })
-    )
-    exclude = ('slug',)
-    inlines = [
-        EmployeeEducationInline,
-        EmployeeWorkExperienceInline,
-        EmployeeAwardsInline,
-        EmployeeLanguagesInline,
-        EmployeeSkillUpInline
-    ]
+    readonly_fields = ('get_photo',)
+
+    def get_full_name(self, obj):
+        """ Полное имя """
+        if obj.sur_name:
+            return f'{obj.last_name} {obj.first_name} {obj.sur_name}'
+        return f'{obj.last_name} {obj.first_name}'
+
+    get_full_name.short_description = "ФИО"
+
+    def get_photo(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" style="border-radius: 50%" width="75">')
+
+    get_photo.short_description = "Миниатюра"
+
+
+fieldsets = (
+    ('Необходимые данные:', {
+        'fields': (('last_name', 'first_name', 'sur_name'), ('position', 'number', 'image', 'get_photo',)),
+    }),
+    ('О себе:', {
+        'fields': (('nationality', 'marital_status', 'date_of_birth', 'gender'), 'goal', 'work_skills'),
+    }),
+    ('Соц. сети:', {
+        'fields': (('email', 'instagram', 'facebook'))
+    }),
+    ('Статус:', {
+        'fields': ('is_active',)
+    })
+)
+exclude = ('slug',)
+inlines = [
+    EmployeeEducationInline,
+    EmployeeWorkExperienceInline,
+    EmployeeAwardsInline,
+    EmployeeLanguagesInline,
+    EmployeeSkillUpInline
+]
 
 
 @admin.register(Group)

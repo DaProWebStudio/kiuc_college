@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from django.utils.translation import gettext_lazy as _
 from imagekit.models import ProcessedImageField
@@ -31,6 +32,9 @@ class News(models.Model):
     def save(self, *args, **kwargs):
         self.slug = get_slug(self.title)
         super(News, self).save(*args, **kwargs)
+
+    def get_absolute_url(self, **kwargs):
+        return reverse('news_detail', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ('-created',)

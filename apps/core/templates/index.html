@@ -52,7 +52,7 @@
                 <a href="{% url 'specialties_list' %}" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
                 <a href="{% url 'documents_list' %}" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
                 <a href="#" class="fast_menu-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Новости' %}</a>
+                <a href="{% url 'news_list' %}" class="fast_menu-link">{% trans 'Новости' %}</a>
             </div>
         </div>
     </section>
@@ -122,7 +122,7 @@
             <div class="slider_tree slider">
                 {% for item in news %}
                     <div class="card">
-                        <a href="#" class="card-link">
+                        <a href="{{ item.get_absolute_url }}" class="card-link">
                             <div class="card-img">
                                 {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
                             </div>

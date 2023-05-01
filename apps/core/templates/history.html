@@ -1,16 +1,14 @@
 {% extends 'base/base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}
-    История создания и развития учебного заведения
-{% endblock %}
+{% block title %}{% trans 'История создания и развития учебного заведения' %}{% endblock %}
 
 {% block content %}
     <section class="section history">
         <div class="container">
             <div class="title animate__animated animate__fadeInUp">
-                <span>О колледже</span>
-                <h3>История создания и развития учебного заведения</h3>
+                <span>{% trans 'О колледже' %}</span>
+                <h3>{% trans 'История создания и развития учебного заведения' %}</h3>
             </div>
             <div class="history-text animate__animated animate__fadeInUp">
                 <p>История колледжа зародилась в 2013 году – в г.Шопоков были открыты языковые курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали популярными в Сокулукском районе, благодаря эффективному обучению и результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.</p>

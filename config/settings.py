@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'common.context_processors.getting_info',
             ],
         },
     },
@@ -131,6 +132,9 @@ STATIC_URL = 'static/'
 # STATIC_ROOT = BASE_DIR / 'static'
 STATIC_DIR = BASE_DIR / 'static'
 STATICFILES_DIRS = [STATIC_DIR]
+
+STYLE_CORE_VERSION = os.environ.get("STYLE_CORE_VERSION", "v1.0")
+STYLE_RESPONSIVE_VERSION = os.environ.get("STYLE_RESPONSIVE_VERSION", "v1.0")
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

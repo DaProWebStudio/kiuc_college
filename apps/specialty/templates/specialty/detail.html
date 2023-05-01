@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+    {{ specialty.title }}
+{% endblock %}
+
+{% block content %}
+    <section class="section detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-8 col-12">
+                    <div class="detail__img">
+                        <img src="{{ specialty.image.url }}" alt="image" class="w-100">
+                    </div>
+                    <div class="title mt-3">
+                        <span>{% trans 'Специальность' %}</span>
+                        <h1 class="font-weight-bold">{{ specialty.title }}</h1>
+                        <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ specialty.created|date }}</p>
+                    </div>
+                    <div class="content_dynamic_block">
+                        {% autoescape off %}{{ specialty.description }}{% endautoescape %}
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-12">
+                    <div class="detail__info">
+                        <h4>{% trans 'Полезные информации' %}</h4>
+                        <ul class="p-4">
+                            <li><span>{% trans 'Форма обучения' %}:</span> {% trans 'Очный' %}/{% trans 'Заочный' %}</li>
+                            <li><span>{% trans 'Основа обучения' %}:</span> {% trans 'Контракт' %}/{% trans 'Бюджет' %}</li>
+                            <li><span>{% trans 'Контракт' %}:</span> 27500 {% trans 'сом' %}</li>
+                            <li><h5 class="m-auto font-weight-bold text-center">{% trans 'Срок обучение' %}</h5></li>
+                            <li><span>{% trans 'На базе 9 класса' %}:</span> {% trans '2 года 10 месяцев' %}</li>
+                            <li><span>{% trans 'На базе 11 класса' %}:</span>  {% trans '1 год 10 месяцев' %}</li>
+                            <li><h5 class="m-auto font-weight-bold text-center">{% trans 'Часто задаваемые вопросы' %}</h5></li>
+                            <li><b><a href="#">{% trans 'Как поступить в колледж?' %}</a></b></li>
+                            <li><b><a href="#">{% trans 'Какие документы нужны для поступления?' %}</a></b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

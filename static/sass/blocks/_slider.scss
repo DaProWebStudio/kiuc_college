@@ -1,58 +1,8 @@
 .slider {
   position: relative;
-  &-item {
-    margin: .5rem;
-    padding: .7rem;
-    -webkit-box-shadow: 0 5px 17px -6px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0 5px 17px -6px rgba(34, 60, 80, 0.2);
-    box-shadow: 0 5px 17px -6px rgba(34, 60, 80, 0.2);
-    border-radius: $--bs-radius-small;
-    height: 350px !important;
+  & .slick-slide {
+    height: 380px;
   }
-  &-link {
-    text-decoration: none;
-    & h4 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1b1c57;
-    }
-    &:hover h4 {
-      color: $--bs-blue;
-    }
-  }
-  &__image {
-    position: relative;
-    overflow: hidden;
-    border-radius: $--bs-radius-small;
-    margin-bottom: 1rem;
-    & img {
-      width: 100%;
-      height: auto;
-    }
-    &-info-left,
-    &-info-right{
-      position: absolute;
-      bottom: 10px;
-      border-radius: $--bs-radius-small;
-      color: $--bs-white;
-      padding: .3rem .7rem;
-    }
-    &-info-left {
-      left: 10px;
-      border: 1px solid $--bs-blue;
-      background: #EDECFE;
-      color: $--bs-title;
-    }
-    &-info-right {
-      right: 10px;
-      background-color: $--bs-blue;
-    }
-  }
-  &-title {
-    font-size: 1.3rem;
-    color: $--bs-title;
-  }
-
   & .slick-arrow {
     position: absolute;
     top: -3rem;

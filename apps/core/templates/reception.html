@@ -2,7 +2,7 @@
 {% load static i18n%}
 
 {% block title %}
-    {% trans 'История создания и развития учебного заведения' %}
+    {% trans 'Абитуриентам' %}
 {% endblock %}
 
 {% block content %}
@@ -127,24 +127,24 @@
                 <aside class="col-12 col-lg-4 col-md-4">
                     <div class="reception__carousel">
                         <div class="mt-4">
-                            <h4 class="reception__border">Срок обучение</h4>
+                            <h4 class="reception__border">{% trans 'Срок обучение' %}</h4>
                             <ul class="p-4 mb-0 reception__info">
-                                <li><span>На базе 9 класса:</span> 2 года 10 месяцев</li>
-                                <li><span>На базе 11 класса:</span> 1 год 10 месяцев</li>
-                                <li><span>Заочная:</span> 2 года 6 месяцев</li>
+                                <li><span>{% trans 'На базе 9 класса' %}:</span> {% trans '2 года 10 месяцев' %}</li>
+                                <li><span>{% trans 'На базе 11 класса' %}:</span>  {% trans '1 год 10 месяцев' %}</li>
+                                <li><span>{% trans 'Заочная' %}:</span> {% trans '2 года 6 месяцев' %}</li>
                             </ul>
                         </div>
                         <div class="mt-2">
-                            <h4 class="reception__border">Контакты</h4>
+                            <h4 class="reception__border">{% trans 'Контакты' %}</h4>
                             <ul class="p-4 mb-0 reception__info">
-                                <li><span>Телефон:</span> <a href="tel:+996555106886" target="_blank">+996 (555) 10-68-86</a></li>
+                                <li><span>{% trans 'Телефон' %}:</span> <a href="tel:+996555106886" target="_blank">+996 (555) 10-68-86</a></li>
                                 <li>
                                     <span>WhatsApp:</span>
                                     <a href="https://api.whatsapp.com/send/?phone=996555106886&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0" target="_blank">
                                         +996 (555) 10-68-86
                                     </a>
                                 </li>
-                                <li><span>Сайт:</span> <a href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank">2020.edu.gov.kg</a></li>
+                                <li><span>{% trans 'Сайт' %}:</span> <a href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank">2020.edu.gov.kg</a></li>
                                 <li>
                                     <span>Email:</span>
                                     <a href="mailto:info@college.kiuc.kg" target="_blank">

@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% load static %}
+{% load static i18n%}
 
 {% block title %}
     Нормативные документы
@@ -9,8 +9,8 @@
     <section class="section documents">
         <div class="container">
             <div class="title">
-                <span>О Колледже</span>
-                <h3>Нормативные документы</h3>
+                <span>{% trans 'О Колледже' %}</span>
+                <h3>{% trans 'Нормативные документы' %}</h3>
             </div>
             <div class="documents__card">
                 {% for document in documents %}

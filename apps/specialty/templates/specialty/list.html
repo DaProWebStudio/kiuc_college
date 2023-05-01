@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% load static i18n imagekit %}
+
+{% block title %}{% trans 'Наши специальности' %}{% endblock %}
+
+{% block content %}
+    <section class="section specialization">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title mb-3">
+                        <span>{% trans 'Что мы вам предлагаем' %}</span>
+                        <h3>{% trans 'Наши специальности' %}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="specialties__wrap">
+            {% for specialty in specialties %}
+                <div class="card">
+                    <a href="{{ specialty.get_absolute_url }}" class="card-link">
+                        <div class="card-img">
+                            {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
+                        </div>
+                        <div class="card-inner">
+                            <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
+                            <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

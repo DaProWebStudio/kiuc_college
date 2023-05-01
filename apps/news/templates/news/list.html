@@ -15,10 +15,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-8">
-                    <div class="news-card-wrap row m-auto">
+                <div class="col-12 col-md-12 col-lg-8">
+                    <div class="news-card-wrap m-auto">
                         {% for item in news %}
-                            <div class="card col-12 col-md-6 col-lg-6 m-3">
+                            <div class="card">
                                 <a href="{{ item.get_absolute_url }}" class="card-link">
                                     <div class="card-img">
                                         {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
@@ -37,7 +37,7 @@
 
                     </div>
                 </div>
-                <aside class="col-12 col-md-4 col-lg-4">
+                <aside class="col-12 col-md-12 col-lg-4">
                     {% include 'news/aside.html' %}
                 </aside>
             </div>

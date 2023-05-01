@@ -57,3 +57,5 @@ static/debug_toolbar
 static/fontawesomefree
 static/rest_framework
 static/mptt
+static/css/core.min.css
+static/css/responsive.min.css

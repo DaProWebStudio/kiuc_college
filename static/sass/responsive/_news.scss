@@ -19,10 +19,12 @@
   .news-card-wrap {
     grid-template-columns: 1fr 1fr 1fr;
     .card {
-      height: 300px;
-      &:last-child {
-        margin-bottom: 20px;
-      }
+      height: 320px;
+    }
+  }
+  .widget-form-search {
+    input {
+      font-size: 16px;
     }
   }
 }
@@ -38,11 +40,18 @@
 @media (max-width: 768px) {
   .news-card-wrap {
     grid-template-columns: 1fr 1fr;
+    .card {
+      height: 350px;
+    }
   }
 }
 
 @media (max-width: 576px) {
   .news-card-wrap {
     grid-template-columns: 1fr;
+    .card {
+      height: 390px;
+      margin: 10px auto;
+    }
   }
 }

@@ -143,7 +143,7 @@
                 <span>{% trans 'Наши специальности' %}</span>
                 <h3><a href="#">{% trans 'Специальности' %}</a></h3>
             </div>
-            <div class="">
+            <div class="slider_tree slider">
                 {% for specialty in specialties %}
                     <div class="card">
                         <a href="{{ specialty.get_absolute_url }}" class="card-link">
@@ -154,8 +154,7 @@
                                 <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
                             </div>
                             <div class="card-inner">
-                                <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
-                                <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
+                                <span class="card-inner_btn_right">{{ item.created|date }}</span>
                             </div>
                         </a>
                     </div>

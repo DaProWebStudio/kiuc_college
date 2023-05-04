@@ -1,13 +1,16 @@
 .card {
   position: relative;
-  max-width: 394px;
-  height: 370px;
-  box-shadow: 0 5px 17px -6px rgb(34, 60, 80, 20%);
+  max-width: 100%;
+  height: 390px;
+  box-shadow: 0 5px 17px -6px rgb(34, 60, 80, 60%);
   border: none;
+  border-radius: $--bs-radius-medium;
+  overflow: hidden;
   padding: 10px;
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
+  margin: 10px;
   .card-link {
     text-decoration: none;
   }
@@ -63,4 +66,12 @@
       padding: 3px 10px;
     }
   }
+}
+
+/* News card */
+.news-card-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  //gap: 20px;
 }

@@ -49,5 +49,8 @@ class WelcomingRemarksView(TemplateView):
     template_name = 'welcoming-remarks.html'
 
 
-class ReceptionApplicantsView(TemplateView):
+class ReceptionApplicantsView(ListView):
+    model = Specialty
+    queryset = model.active.all()
+    context_object_name = 'specialties'
     template_name = 'reception.html'

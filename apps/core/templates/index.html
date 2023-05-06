@@ -97,12 +97,12 @@
                             На курсах стали обучаться более 250 школьников из вблизи расположенных школ и
                             гимназий.{% endblocktranslate %}
                     </p>
-                    <a href="#" class="btn btn-primary">{% trans 'Подробно' %}</a>
+                    <a href="{% url 'history' %}" class="btn btn-primary">{% trans 'Подробно' %}</a>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 mb-3">
                     <div class="video-banner">
                         <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
-                        <a class="glightbox video" href="https://youtu.be/cJZGLJF3iPM">
+                        <a class="glightbox video" href="https://www.youtube.com/watch?v=ClbZKRqv7mk">
                             <i class="fa fa-play"></i>
                         </a>
                     </div>
@@ -163,13 +163,35 @@
             </div>
         </div>
     </section>
+    <section class="section cooperation">
+        <div class="container">
+            <div class="title">
+                <span>{% trans 'Сотрудничество' %}</span>
+                <h3><a href="{% url 'internationals' %}">{% trans 'Международное сотрудничество' %}</a></h3>
+            </div>
+            <div class="slider_tree slider">
+                {% for international in internationals %}
+                    <div class="card international-card">
+                        <a href="{{ international.get_absolute_url }}" class="card-link">
+                            <div class="card-img">
+                                {% generateimage 'main:thumbnail' source=international.image -- class="mypicture" %}
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ international.title|truncatechars:63 }}</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block scripts %}
     <script src="{% static 'libs/glightbox/glightbox.min.js' %}"></script>
     <script type="text/javascript">
         GLightbox({
-            'href': 'https://youtu.be/cJZGLJF3iPM',
+            'href': 'https://www.youtube.com/watch?v=ClbZKRqv7mk',
             'type': 'video',
             'source': 'youtube', //vimeo, youtube or local
             'width': 900,

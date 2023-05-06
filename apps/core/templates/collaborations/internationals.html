@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load static i18n imagekit %}
+
+{% block title %}
+    {% trans 'Международное сотрудничество' %}
+{% endblock %}
+
+{% block content %}
+    <section class="section cooperation">
+        <div class="container">
+            <div class="row">
+                <div class="title">
+                    <span>{% trans 'Сотрудничество' %}</span>
+                    <h3>{% trans 'Международное сотрудничество' %}</h3>
+                </div>
+                <div class="cooperation__wrap">
+                    {% for international in internationals %}
+                        <div class="card international-card">
+                            <a href="{{ international.get_absolute_url }}" class="card-link">
+                                <div class="card-img">
+                                    {% generateimage 'main:thumbnail' source=international.image -- class="mypicture" %}
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ international.title|truncatechars:63 }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

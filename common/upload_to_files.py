@@ -21,8 +21,21 @@ def news_news_img(instance, filename):
 
 def cooperation_files(instance, filename):
     list_file = filename.split('.')
-    title = get_slug(instance.title)
+    title = get_slug(instance.title[:30])
     return f'cooperation/{title}/{title}.{list_file[-1]}'
+
+
+def international_main_img(instance, filename):
+    list_file = filename.split('.')
+    title = get_slug(instance.title[:30])
+    return f'cooperation/internationals/{title}/main-{title}.{list_file[-1]}'
+
+
+def international_images(instance, filename):
+    list_file = filename.split('.')
+    title = get_slug(instance.international.title[:30])
+    print(title)
+    return f'cooperation/internationals/{title}/{title}.{list_file[-1]}'
 
 
 def document_files(instance, filename):

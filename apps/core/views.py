@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView, ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 
-from apps.core.models import Cooperation, Document, DocumentFile
+from apps.core.models import Cooperation, Document, DocumentFile, InternationalCooperation, \
+    InternationalCooperationImages
 from apps.news.models import News
 from apps.specialty.models import Specialty
 
@@ -42,7 +43,23 @@ class CooperationView(ListView):
     model = Cooperation
     queryset = model.objects.all()
     context_object_name = 'cooperation'
-    template_name = 'cooperation.html'
+    template_name = 'collaborations/cooperation.html'
+
+
+class InternationalCooperationListView(ListView):
+    model = InternationalCooperation
+    context_object_name = 'internationals'
+    template_name = 'collaborations/internationals.html'
+
+
+class InternationalCooperationDetailView(DetailView):
+    model = InternationalCooperation
+    queryset = model.objects.prefetch_related(
+        Prefetch('images', InternationalCooperationImages.objects.only('image'))
+    )
+    slug_field = 'slug'
+    context_object_name = 'international'
+    template_name = 'collaborations/international-detail.html'
 
 
 class WelcomingRemarksView(TemplateView):

@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% load static i18n imagekit %}
+
+{% block title %}
+    {{ international.title }}
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'libs/magnific-popper/main.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <section class="section detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-12">
+                    <div class="detail__img">
+                        <img src="{{ international.image.url }}" alt="image" class="w-100">
+                    </div>
+                    <div class="title mt-3">
+                        <span>{% trans 'Международное сотрудничество' %}</span>
+                        <h1 class="font-weight-bold news-title">{{ international.title }}</h1>
+                    </div>
+                    <div class="content_dynamic_block">
+                        {% autoescape off %}{{ international.description }}{% endautoescape %}
+                    </div>
+                </div>
+                <aside class="col-lg-4 col-md-4 col-12">
+                    <div class="detail__images">
+                        {% if international.images.all %}
+                            <div class="title">
+                                <h3>{% trans 'Фотогалерея' %}</h3>
+                            </div>
+                            <div class="row gallery-list">
+                                {% for item in international.images.all %}
+                                    <div class="col-6 col-md-6 col-lg-6 p-1">
+                                        <a class="gallery-item" href="{{ item.image.url }}">
+                                            <span class="gallery-item-hover">{% trans 'Посмотреть' %}</span>
+                                            {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'libs/magnific-popper/main.min.js' %}"></script>
+    <script>
+        $(".gallery-list").magnificPopup({
+            delegate: "a",
+            type: "image",
+            gallery: {
+                enabled: true
+            }
+        });
+    </script>
+{% endblock scripts %}

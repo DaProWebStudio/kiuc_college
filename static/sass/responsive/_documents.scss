@@ -1,11 +1,7 @@
 @media (max-width: 1200px) {
   .documents {
     &__card {
-      &-item {
-        & a {
-          font-size: 14px;
-        }
-      }
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
@@ -13,23 +9,23 @@
 @media (max-width: 992px) {
   .documents {
      &__card {
-       display: grid;
        grid-template-columns: repeat(2, 1fr);
-       align-items: center;
-       gap: 20px 30px;
      }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 765px) {
   .documents {
     &__card {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
     }
-    &__title {
-      font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .documents {
+    &__card {
+      grid-template-columns: 1fr;
     }
   }
 }

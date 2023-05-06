@@ -2,7 +2,7 @@
 {% load static i18n imagekit %}
 
 {% block title %}
-    {{ item.title }}
+    {{ international.title }}
 {% endblock %}
 
 {% block links %}
@@ -13,38 +13,36 @@
     <section class="section detail">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-sm-7 col-12">
+                <div class="col-lg-8 col-md-8 col-12">
                     <div class="detail__img">
-                        <img src="{{ item.image.url }}" alt="image" class="w-100">
+                        <img src="{{ international.image.url }}" alt="image" class="w-100">
                     </div>
                     <div class="title mt-3">
-                        <span>{% trans 'Новости' %}</span>
-                        <h1 class="font-weight-bold news-title">{{ item.title }}</h1>
-                        <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ item.created|date }}</p>
+                        <span>{% trans 'Международное сотрудничество' %}</span>
+                        <h1 class="font-weight-bold news-title">{{ international.title }}</h1>
                     </div>
                     <div class="content_dynamic_block">
-                        {% autoescape off %}{{ item.description }}{% endautoescape %}
+                        {% autoescape off %}{{ international.description }}{% endautoescape %}
                     </div>
-                    <div class="detail__images mt-4">
-                        {% if item.images.all %}
+                </div>
+                <aside class="col-lg-4 col-md-4 col-12">
+                    <div class="detail__images">
+                        {% if international.images.all %}
                             <div class="title">
                                 <h3>{% trans 'Фотогалерея' %}</h3>
                             </div>
                             <div class="row gallery-list">
-                                {% for foo in item.images.all %}
-                                    <div class="col-6 col-md-6 col-lg-4 p-1">
-                                        <a class="gallery-item" href="{{ foo.image.url }}">
+                                {% for item in international.images.all %}
+                                    <div class="col-6 col-md-6 col-lg-6 p-1">
+                                        <a class="gallery-item" href="{{ item.image.url }}">
                                             <span class="gallery-item-hover">{% trans 'Посмотреть' %}</span>
-                                            {% generateimage 'main:thumbnail' source=foo.image -- class="mypicture" %}
+                                            {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
                                         </a>
                                     </div>
                                 {% endfor %}
                             </div>
                         {% endif %}
                     </div>
-                </div>
-                <aside class="col-lg-4 col-sm-5 col-12">
-                    {% include 'news/aside.html' %}
                 </aside>
             </div>
         </div>

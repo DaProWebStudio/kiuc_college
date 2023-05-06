@@ -16,6 +16,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["specialties"] = Specialty.active.all()
         context["news"] = News.active.all()[:9]
+        context["internationals"] = InternationalCooperation.objects.all()
         return context
 
 

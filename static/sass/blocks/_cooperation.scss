@@ -2,7 +2,7 @@
   &-list {
     & li {
       list-style-type: none;
-      margin: 10px 0px;
+      margin: 10px 0;
       & a {
         color: $--bs-text;
         font-weight: 700;
@@ -16,7 +16,7 @@
     grid-template-columns: repeat(3,1fr);
   }
   .international-card {
-    height: 350px;
+    height: 350px !important;
     .card-body {
       height: 66px;
       margin-bottom: 15px;

@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Паспорт колледжа' %}
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'libs/flipbook/flipbook.style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="section password_college">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">
+                        <span>{% trans 'О колледже' %}</span>
+                        <h3>{% trans 'Паспорт колледжа' %}</h3>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="flip_book" style="height: 600px; position: relative;">
+                        <input type="hidden" id="url_pdf" value="{% static 'documents/password-college.pdf' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'libs/flipbook/js/flipbook.min.js' %}"></script>
+    <script src="{% static 'libs/flipbook/js/book.js' %}"></script>
+{% endblock %}

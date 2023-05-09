@@ -24,6 +24,10 @@ class HistoryView(TemplateView):
     template_name = 'history.html'
 
 
+class PasswordCollegeView(TemplateView):
+    template_name = 'passport-college.html'
+
+
 class DocumentListView(ListView):
     model = Document
     queryset = model.objects.all()

@@ -15,4 +15,6 @@ urlpatterns = [
     # More
     path('welcoming-remarks/', views.WelcomingRemarksView.as_view(), name='welcoming_remarks'),
     path('reception-applicants/', views.ReceptionApplicantsView.as_view(), name='reception'),
+    # Education Process
+    path('education-processes/<int:pk>/', views.EduProcessDetailView.as_view(), name='edu_process_detail'),
 ]

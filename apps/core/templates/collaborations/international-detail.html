@@ -21,11 +21,15 @@
                         <span>{% trans 'Международное сотрудничество' %}</span>
                         <h1 class="font-weight-bold news-title">{{ international.title }}</h1>
                     </div>
+
                     <div class="content_dynamic_block">
                         {% autoescape off %}{{ international.description }}{% endautoescape %}
                     </div>
                 </div>
                 <aside class="col-lg-4 col-md-4 col-12">
+                    <div class="content_file">
+                        <a href="{{ international.file.url }}" class="btn btn-primary w-100 mb-4">{% trans 'Договор' %}</a>
+                    </div>
                     <div class="detail__images">
                         {% if international.images.all %}
                             <div class="title">

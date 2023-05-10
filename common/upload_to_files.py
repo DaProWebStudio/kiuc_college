@@ -43,6 +43,11 @@ def document_files(instance, filename):
     return f'documents/{get_slug(instance.document.title)}/{get_slug(instance.title)}.{list_file[-1]}'
 
 
+def edu_process_files(instance, filename):
+    list_file = filename.split('.')
+    return f'edu-processes/{get_slug(instance.process.title)}/{get_slug(instance.title)}.{list_file[-1]}'
+
+
 def recaptcha_img(instance, filename):
     list_file = filename.split('.')
     return f'recaptcha/{uuid.uuid4().hex[:12]}.{list_file[-1]}'

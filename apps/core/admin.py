@@ -7,7 +7,7 @@ from .models import (
     InternationalCooperation,
     InternationalCooperationImages,
     Document,
-    DocumentFile,
+    DocumentFile, EduProcessFile, EduProcess,
 )
 
 
@@ -51,3 +51,14 @@ class DocumentFileInlines(admin.TabularInline):
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ('title',)
     inlines = [DocumentFileInlines]
+
+
+class EduProcessFileInlines(admin.TabularInline):
+    model = EduProcessFile
+    extra = 1
+
+
+@admin.register(EduProcess)
+class EduProcessAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    inlines = [EduProcessFileInlines]

@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, FormView, ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import Cooperation, Document, DocumentFile, InternationalCooperation, \
-    InternationalCooperationImages
+    InternationalCooperationImages, EduProcess, EduProcessFile
 from apps.news.models import News
 from apps.specialty.models import Specialty
 
@@ -76,3 +76,13 @@ class ReceptionApplicantsView(ListView):
     queryset = model.active.all()
     context_object_name = 'specialties'
     template_name = 'reception.html'
+
+
+class EduProcessDetailView(DetailView):
+    model = EduProcess
+    queryset = model.objects.prefetch_related(
+        Prefetch('files', EduProcessFile.objects.all())
+    )
+    context_object_name = 'process'
+    template_name = 'edu_process_detail.html'
+

@@ -53,7 +53,19 @@
                                 <li><a href="{% url 'internationals' %}" class="nav__menu__sub-link">{% trans 'Международное сотрудничество' %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" class="nav__menu-link">{% trans 'Учебный процесс' %}</a></li>
+                        <li>
+                            <a href="#" class="nav__menu-link">
+                                {% trans 'Учебный процесс' %}
+                                <span class="nav__menu-arrow"></span>
+                            </a>
+                            <ul class="nav__menu__sub-list">
+                                {% for edu_process in edu_processes %}
+                                    <li>
+                                        <a href="{% url 'edu_process_detail' edu_process.pk %}" class="nav__menu__sub-link">{{ edu_process }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
                         <li>
                             <a href="#" class="nav__menu-link">
                                 {% trans 'Абитуриентам' %}

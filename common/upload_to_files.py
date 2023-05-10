@@ -31,12 +31,6 @@ def international_main_img(instance, filename):
     return f'cooperation/internationals/{title}/main-{title}.{list_file[-1]}'
 
 
-def international_pdf(instance, filename):
-    list_file = filename.split('.')
-    title = get_slug(instance.title[:30])
-    return f'cooperation/internationals/{title}/{title}.{list_file[-1]}'
-
-
 def international_images(instance, filename):
     list_file = filename.split('.')
     title = get_slug(instance.international.title[:30])
@@ -47,11 +41,6 @@ def international_images(instance, filename):
 def document_files(instance, filename):
     list_file = filename.split('.')
     return f'documents/{get_slug(instance.document.title)}/{get_slug(instance.title)}.{list_file[-1]}'
-
-
-def edu_process_files(instance, filename):
-    list_file = filename.split('.')
-    return f'edu-processes/{get_slug(instance.process.title)}/{get_slug(instance.title)}.{list_file[-1]}'
 
 
 def recaptcha_img(instance, filename):

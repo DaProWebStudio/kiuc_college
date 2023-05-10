@@ -31,6 +31,12 @@ def international_main_img(instance, filename):
     return f'cooperation/internationals/{title}/main-{title}.{list_file[-1]}'
 
 
+def international_pdf(instance, filename):
+    list_file = filename.split('.')
+    title = get_slug(instance.title[:30])
+    return f'cooperation/internationals/{title}/{title}.{list_file[-1]}'
+
+
 def international_images(instance, filename):
     list_file = filename.split('.')
     title = get_slug(instance.international.title[:30])

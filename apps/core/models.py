@@ -9,7 +9,7 @@ from ckeditor.fields import RichTextField
 
 from common.utils import get_english_translit as get_slug
 from common.upload_to_files import document_files, cooperation_files, international_images, international_main_img, \
-    edu_process_files
+    edu_process_files, international_pdf
 from common.managers import ActiveManager
 
 
@@ -33,6 +33,9 @@ class InternationalCooperation(models.Model):
     description = RichTextField(_('Описание'), blank=True, null=True)
     image = ProcessedImageField(verbose_name=_('Фото'), upload_to=international_main_img, format='webp',
                                 processors=[ResizeToFill(2268, 1296)], options={'quality': 90})
+
+    file = models.FileField(_("Договор (PDF)"), validators=[FileExtensionValidator(['pdf'])],
+                            upload_to=international_pdf, null=True, blank=True)
 
     objects = models.Manager()
 

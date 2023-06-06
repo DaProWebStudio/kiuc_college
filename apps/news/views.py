@@ -11,6 +11,12 @@ class NewsListView(ListView):
     context_object_name = 'news'
     template_name = 'news/list.html'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['title'] = _('Новости')
+        context['sub_title'] = _('Новости колледжа')
+        return context
+
 
 class NewsDetailView(DetailView):
     model = News
@@ -19,3 +25,8 @@ class NewsDetailView(DetailView):
     )
     context_object_name = 'item'
     template_name = 'news/detail.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Новости')
+        return context

@@ -31,7 +31,7 @@ class StudentLive(AbstractNews):
                                 processors=[ResizeToFill(2268, 1296)], options={'quality': 90})
 
     def get_absolute_url(self, **kwargs):
-        return reverse('news_detail', kwargs={'slug': self.slug})
+        return reverse('student_live_detail', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ('-created',)

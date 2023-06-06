@@ -160,6 +160,76 @@
     <section class="section cooperation">
         <div class="container">
             <div class="title">
+                <span>{% trans 'Студентам' %}</span>
+                <h3><a href="{% url 'student_live_list' %}">{% trans 'Студенческая жизнь' %}</a></h3>
+            </div>
+            <div class="slider_tree slider">
+                {% for live in lives %}
+                    <div class="card international-card">
+                        <a href="{{ live.get_absolute_url }}" class="card-link">
+                            <div class="card-img">
+                                {% generateimage 'main:thumbnail' source=live.image -- class="mypicture" %}
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ live.title|truncatechars:63 }}</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section cooperation">
+        <div class="container">
+            <div class="title">
+                <span>{% trans 'О колледже' %}</span>
+                <h3><a href="{% url 'employees' %}">{% trans 'Структура' %}</a></h3>
+            </div>
+            <div class="slider_employee slider list_employee">
+                {% for employee in employees %}
+                    <a href="{{ employee.get_absolute_url }}" class="card">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{ employee.image.url }}" class="card-img" alt="">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">{{ employee.get_full_name }}</h2>
+                            <p class="description">{{ employee.position }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section cooperation">
+        <div class="container">
+            <div class="title">
+                <span>{% trans 'Студентам' %}</span>
+                <h3><a href="{% url 'students' %}">{% trans 'Члены студенческого совета' %}</a></h3>
+            </div>
+            <div class="slider_employee slider list_employee">
+                {% for student in students %}
+                    <a href="{{ student.get_absolute_url }}" class="card">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{{ student.image.url }}" class="card-img" alt="">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">{{ student.get_full_name }}</h2>
+                            <p class="description">{{ student.position }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section cooperation">
+        <div class="container">
+            <div class="title">
                 <span>{% trans 'Сотрудничество' %}</span>
                 <h3><a href="{% url 'internationals' %}">{% trans 'Международное сотрудничество' %}</a></h3>
             </div>

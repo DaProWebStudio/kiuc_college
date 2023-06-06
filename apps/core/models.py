@@ -8,9 +8,16 @@ from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
 from common.utils import get_english_translit as get_slug
-from common.upload_to_files import document_files, cooperation_files, international_images, international_main_img, \
-    edu_process_files, international_pdf
+from common.upload_to_files import (
+    document_files,
+    cooperation_files,
+    international_images,
+    international_main_img,
+    edu_process_files,
+    international_pdf
+)
 from common.managers import ActiveManager
+from common import constants as cons
 
 
 class Cooperation(models.Model):
@@ -129,3 +136,46 @@ class EduProcessFile(models.Model):
     class Meta:
         verbose_name = _('Файл учебного процесса')
         verbose_name_plural = _('Файлы учебных процессов')
+
+
+class AbstractResume(models.Model):
+    GENDER_CHOICES = (
+        (cons.MEN, _('Мужской')),
+        (cons.WOMEN, _('Женский'))
+    )
+
+    number = models.IntegerField(_('Порядковый номер'), null=True, blank=True, default=100)
+    last_name = models.CharField(_('Фамилия'), max_length=50)
+    first_name = models.CharField(_('Имя'), max_length=50)
+    sur_name = models.CharField(_('Отчество'), max_length=50, null=True, blank=True)
+    slug = models.SlugField(max_length=250, null=True, blank=True)
+    gender = models.CharField(_('Пол'), max_length=10, choices=GENDER_CHOICES, default=cons.MEN)
+    date_of_birth = models.DateField(_('День рождения'))
+    description = RichTextField(verbose_name='Резюме')
+    email = models.EmailField('Email', blank=True, null=True)
+    instagram = models.URLField('instagram', blank=True, null=True)
+    facebook = models.URLField('facebook', blank=True, null=True)
+
+    is_active = models.BooleanField("Активный", default=True)
+
+    objects = models.Manager()
+    active = ActiveManager()
+
+    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+    def get_full_name(self):
+        """ Полное имя """
+        if self.sur_name:
+            return f'{self.last_name} {self.first_name} {self.sur_name}'
+        return f'{self.last_name} {self.first_name}'
+
+    def save(self, *args, **kwargs):
+        self.slug = get_slug(self.get_full_name())
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.sur_name if self.sur_name else ""}'

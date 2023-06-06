@@ -45,7 +45,7 @@
                             <ul class="nav__menu__sub-list">
                                 <li><a href="{% url 'history' %}" class="nav__menu__sub-link">{% trans 'История' %}</a></li>
                                 <li><a href="{% url 'password_college' %}" class="nav__menu__sub-link">{% trans 'Паспорт колледжа' %}</a></li>
-                                <li><a href="#" class="nav__menu__sub-link">{% trans 'Структура' %}</a></li>
+                                <li><a href="{% url 'employees' %}" class="nav__menu__sub-link">{% trans 'Структура' %}</a></li>
                                 <li><a href="{% url 'news_list' %}" class="nav__menu__sub-link">{% trans 'Новости' %}</a></li>
                                 <li><a href="{% url 'documents_list' %}" class="nav__menu__sub-link">{% trans 'Нормативные документы' %}</a></li>
                                 <li><a href="#" class="nav__menu__sub-link">{% trans 'Библиотека' %}</a></li>
@@ -91,7 +91,7 @@
                                     <a href="#" class="nav__menu__sub-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav__menu__sub-link">{% trans 'Студенческий совет' %}</a>
+                                    <a href="{% url 'students' %}" class="nav__menu__sub-link">{% trans 'Студенческий совет' %}</a>
                                 </li>
                             </ul>
                         </li>

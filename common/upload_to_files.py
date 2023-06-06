@@ -62,3 +62,8 @@ def recaptcha_img(instance, filename):
 def employee_file(instance, filename):
     list_file = filename.split('.')
     return f'employees/{instance.slug}/{instance.slug}.{list_file[-1]}'
+
+
+def student_file(instance, filename):
+    list_file = filename.split('.')
+    return f'students/{instance.slug}/{instance.slug}.{list_file[-1]}'

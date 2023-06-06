@@ -31,6 +31,7 @@ urlpatterns += i18n_patterns(
     path('specialties/', include('apps.specialty.urls')),
     path('contacts/', include('apps.feedback.urls')),
     path('employee/', include('apps.employee.urls')),
+    path('students/', include('apps.student.urls')),
     path('news/', include('apps.news.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     prefix_default_language=False,

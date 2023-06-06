@@ -18,7 +18,7 @@
                         <img src="{{ item.image.url }}" alt="image" class="w-100">
                     </div>
                     <div class="title mt-3">
-                        <span>{% trans 'Новости' %}</span>
+                        <span>{{ title }}</span>
                         <h1 class="font-weight-bold news-title">{{ item.title }}</h1>
                         <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ item.created|date }}</p>
                     </div>

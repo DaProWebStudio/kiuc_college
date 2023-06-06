@@ -1,20 +1,12 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Position, Employee
-from common.utils import get_english_translit as get_slug
+from .models import StudentCouncil
 
 
-@admin.register(Position)
-class PositionAdmin(admin.ModelAdmin):
-    """ Должность """
-    list_display = ('title', 'short_title', 'created')
-
-
-@admin.register(Employee)
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('get_full_name', 'position', 'number', 'is_active', 'created', 'get_photo')
-    list_filter = ('position', 'is_active')
+@admin.register(StudentCouncil)
+class StudentCouncilAdmin(admin.ModelAdmin):
+    list_display = ('get_full_name', 'position', 'number', 'created', 'get_photo')
     search_fields = ['get_full_name', 'position']
     readonly_fields = ('get_photo',)
 
@@ -24,8 +16,8 @@ class EmployeeAdmin(admin.ModelAdmin):
                 'number',
                 ('last_name', 'first_name', 'sur_name'),
                 ('position', 'image', 'get_photo',),
-                ('nationality', 'date_of_birth', 'gender'),
-                'work_skills', 'description',
+                ('date_of_birth', 'gender'),
+                'description',
             ),
         }),
         ('Соц. сети:', {
@@ -49,5 +41,4 @@ class EmployeeAdmin(admin.ModelAdmin):
         return mark_safe(f'<img src="{obj.image.url}" style="border-radius: 50%" width="75">')
 
     get_photo.short_description = "Миниатюра"
-
 

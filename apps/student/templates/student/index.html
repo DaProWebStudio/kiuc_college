@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Студентский совет' %}{% endblock %}
+
+{% block content %}
+<section class="section team">
+    <div class="container">
+        <div class="title animate__animated animate__fadeInUp">
+            <span>{% trans 'Студентам' %}</span>
+            <h3>{% trans 'Студенческий совет' %}</h3>
+        </div>
+        <div class="history-text animate__animated animate__fadeInUp">
+            <p>Для студента, Кыргызский международный универсальный колледж - это не только современные учебные программы, лекции и семинары преподавателей, сессии, но и многообразная студенческая жизнь!</p>
+            <p>Сделать студенческую жизнь ярче и разнообразнее, сплотить учащихся на основе общих интересов, призван Студенческий Совет. Инициатива и вера в свои силы, лидерство и умение работать в команде – эти основополагающие для наших студентов качества развивает не только учеба, но и студенческое сообщество колледжа.</p>
+            <p>Студенческий совет – орган студенческого самоуправления, организатор всех академических мероприятий для студентов.</p>
+            <p>Студенческий совет колледжа осуществляет работу по следующим направлениям:</p>
+            <ul class="students_ul">
+                <li>взаимодействие с другими учреждениями и организациями студенческой среды;</li>
+                <li>развитие инициатив студентов, направленных на улучшение условий учебы и вне учебной жизни;</li>
+                <li>активное участие студентов в организационно-технической работе: выставки, конференции, научных семинаров</li>
+                <li>организация досуга и отдыха успешно обучающихся студентов;</li>
+                <li>разработка и реализация мероприятий по повышению ответственности студентов за своевременное выполнение ими учебных планов, учебной дисциплины и правил поведения </li>
+                <li>представление интересов студентов на всех уровнях руководства</li>
+                <li>активизация процессов управления студенческими коллективами и вовлечение их в общественную жизнь колледжа;</li>
+                <li>создание единого информационного пространства для студентов и администраций;</li>
+                <li>участие в распределении стипендиального фонда и оказания материальной помощи нуждающимся студентам.</li>
+            </ul>
+        </div>
+        <div class="list_students animate__animated animate__fadeInUp">
+            {% for student in students %}
+                <a href="{{ student.get_absolute_url }}" class="card">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            {% if student.image %}
+                                <img src="{{ student.image.url }}" class="card-img" alt="{{ student.get_full_name }}">
+                            {% elif student.gender == 'men' %}
+                                <img src="{% static 'images/more/avatar_men.webp' %}" class="card-img-top" alt="Avatar men">
+                            {% else %}
+                                <img src="{% static 'images/more/avatar_women.webp' %}" class="card-img-top" alt="Avatar women">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">{{ student.get_full_name }}</h2>
+                        <p class="description">{{ student.position }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

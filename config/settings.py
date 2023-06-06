@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'apps.specialty.apps.SpecialtyConfig',
     'apps.employee.apps.EmployeeConfig',
     'apps.feedback.apps.FeedbackConfig',
-
+    'apps.student.apps.StudentConfig',
 ]
 
 MIDDLEWARE = [

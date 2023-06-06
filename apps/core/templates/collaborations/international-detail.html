@@ -27,9 +27,11 @@
                     </div>
                 </div>
                 <aside class="col-lg-4 col-md-4 col-12">
+                {% if international.file %}
                     <div class="content_file">
                         <a href="{{ international.file.url }}" class="btn btn-primary w-100 mb-4">{% trans 'Договор' %}</a>
                     </div>
+                {% endif %}
                     <div class="detail__images">
                         {% if international.images.all %}
                             <div class="title">

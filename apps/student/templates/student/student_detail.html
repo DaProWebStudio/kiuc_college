@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ student.get_full_name }}{% endblock %}
+
+{% block content %}
+<section class="team">
+    <div class="container">
+        <div class="resume_wrapper">
+            <div class="resume_left">
+                <div class="resume_image">
+                    {% if student.image %}
+                        <img src="{{ student.image.url }}" class="card-img-top" alt="{{ student.get_full_name }}">
+                    {% elif student.gender == 'men' %}
+                        <img src="{% static 'images/more/avatar_men.webp' %}" class="card-img-top" alt="Avatar men">
+                    {% else %}
+                        <img src="{% static 'images/more/avatar_women.webp' %}" class="card-img-top" alt="Avatar women">
+                    {% endif %}
+                </div>
+                <div class="resume_bottom">
+                    <div class="resume_item resume_full_name">
+                        <div class="name">{{ student.get_full_name }}</div>
+                        <div class="role">{{ student.position }}</div>
+                    </div>
+                    <div class="resume_item resume_profile">
+                        <div class="resume_title">О себе</div>
+                        <div class="resume_info" style='color: #fff !important'>
+                            <p class="about_p"><b>День рождения:</b> {{ student.date_of_birth }} </p>
+                        </div>
+                    </div>
+                    {% if student.email or student.instagram or student.facebook %}
+                        <div class="resume_item resume_contact">
+                            <div class="resume_title">Контакты</div>
+                            <div class="resume_info">
+                                {% if student.email %}
+                                    <div class="resume_subtitle">Email:</div>
+                                    <div class="resume_subinfo">{{ student.email }}</div>
+                                {% endif %}
+                                <div class="social">
+                                    {% if student.instagram %}
+                                        <a href="{{ student.instagram }}" target="_blank" class="instagram">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    {% endif %}
+                                    {% if student.facebook %}
+                                         <a href="{{ student.instagram }}" target="_blank" class="facebook">
+                                            <i class="fa fa-facebook"></i>
+                                         </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="resume_right pr-0">
+                <div class="resume_item resume_name pt-0">
+                    <div class="name mb-3">{{ student.get_full_name }}</div>
+                    <div class="role">{{ student.position }}</div>
+                </div>
+                <div class="resume_item resume_education">
+                    <div class="resume_info">
+                        {% autoescape off %}{{ student.description }}{% endautoescape %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

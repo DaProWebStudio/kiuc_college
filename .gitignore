@@ -46,6 +46,8 @@ home.rst
 make.bat
 Makefile
 
+poetry.lock
+
 doc-dev
 
 **/Logging/

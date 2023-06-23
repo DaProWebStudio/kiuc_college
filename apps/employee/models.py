@@ -34,6 +34,7 @@ class Employee(AbstractResume):
         (cons.KYRGYZSTAN, _('Кыргыз')),
         (cons.RUSSIA, _('Русский')),
         (cons.KAZAKHSTAN, _('Казах')),
+        (cons.KAZAKHSTAN, _('Кореец')),
     )
     position = models.ForeignKey(Position, verbose_name=_('Должность'), on_delete=models.PROTECT, related_name='resume')
     nationality = models.CharField(_('Национальность'), max_length=10,

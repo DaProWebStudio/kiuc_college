@@ -54,7 +54,6 @@ doc-dev
 **/dev_templates/
 
 static/admin
-static/ckeditor
 static/debug_toolbar
 static/fontawesomefree
 static/rest_framework

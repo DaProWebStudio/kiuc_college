@@ -14,7 +14,7 @@ class StudentCouncil(AbstractResume):
     """ Студентский совет """
     position = models.CharField(verbose_name=_('Должность'), max_length=255)
     image = ProcessedImageField(verbose_name=_('Фото студента'), upload_to=student_file, format='webp',
-                                processors=[ResizeToFill(500, 500)], options={'quality': 90}, blank=True, null=True)
+                                processors=[ResizeToFill(500, 500)], options={'quality': 90})
 
     def get_absolute_url(self):
         return reverse('students_detail', kwargs={'slug': self.slug})

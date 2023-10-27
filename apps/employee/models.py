@@ -41,7 +41,7 @@ class Employee(AbstractResume):
                                    choices=NATIONALITY_CHOICES, default=cons.KYRGYZSTAN)
     work_skills = models.TextField(_('Навыки работы'))
     image = ProcessedImageField(verbose_name=_('Фото сотрудника'), upload_to=employee_file, format='webp',
-                                processors=[ResizeToFill(500, 500)], options={'quality': 90}, blank=True, null=True)
+                                processors=[ResizeToFill(500, 500)], options={'quality': 90})
 
     class Meta:
         ordering = ('number',)

@@ -7,7 +7,6 @@ from imagekit.processors import ResizeToFill
 
 from apps.core.models import AbstractResume
 from common.upload_to_files import employee_file
-from common import constants as cons
 
 
 class Position(models.Model):
@@ -28,17 +27,21 @@ class Position(models.Model):
         return self.title
 
 
+class Nationality(models.Model):
+    """ Национальность """
+    title = models.CharField(_('Название'), max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = _('Национальность')
+        verbose_name_plural = _('Национальности')
+
+    def __str__(self):
+        return self.title
+
+
 class Employee(AbstractResume):
     """ Работник """
-    NATIONALITY_CHOICES = (
-        (cons.KYRGYZSTAN, _('Кыргыз')),
-        (cons.RUSSIA, _('Русский')),
-        (cons.KAZAKHSTAN, _('Казах')),
-        (cons.KAZAKHSTAN, _('Кореец')),
-    )
     position = models.ForeignKey(Position, verbose_name=_('Должность'), on_delete=models.PROTECT, related_name='resume')
-    nationality = models.CharField(_('Национальность'), max_length=10,
-                                   choices=NATIONALITY_CHOICES, default=cons.KYRGYZSTAN)
     work_skills = models.TextField(_('Навыки работы'))
     image = ProcessedImageField(verbose_name=_('Фото сотрудника'), upload_to=employee_file, format='webp',
                                 processors=[ResizeToFill(500, 500)], options={'quality': 90})
@@ -50,7 +53,3 @@ class Employee(AbstractResume):
 
     def get_absolute_url(self):
         return reverse('employees_detail', kwargs={'slug': self.slug})
-
-    def nationality_v(self):
-        return dict(self.NATIONALITY_CHOICES)[self.nationality]
-

@@ -1,14 +1,19 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Position, Employee
-from common.utils import get_english_translit as get_slug
+from .models import Position, Nationality, Employee
 
 
 @admin.register(Position)
 class PositionAdmin(admin.ModelAdmin):
     """ Должность """
     list_display = ('title', 'short_title', 'created')
+
+
+@admin.register(Nationality)
+class NationalityAdmin(admin.ModelAdmin):
+    """ Национальность """
+    list_display = ('title',)
 
 
 @admin.register(Employee)
@@ -49,5 +54,3 @@ class EmployeeAdmin(admin.ModelAdmin):
         return mark_safe(f'<img src="{obj.image.url}" style="border-radius: 50%" width="75">')
 
     get_photo.short_description = "Миниатюра"
-
-

@@ -42,6 +42,7 @@ class Nationality(models.Model):
 class Employee(AbstractResume):
     """ Работник """
     position = models.ForeignKey(Position, verbose_name=_('Должность'), on_delete=models.PROTECT, related_name='resume')
+    nationality = models.ForeignKey(Nationality, verbose_name=_('Национальность'), on_delete=models.PROTECT)
     work_skills = models.TextField(_('Навыки работы'))
     image = ProcessedImageField(verbose_name=_('Фото сотрудника'), upload_to=employee_file, format='webp',
                                 processors=[ResizeToFill(500, 500)], options={'quality': 90})

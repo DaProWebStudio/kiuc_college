@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 
-from .models import StudentCouncil, StudentLive, StudentLiveImages
+from .models import StudentCouncil, SaeJeon, SaeJeonImages
 
 
 class StudentCouncilView(ListView):
@@ -21,28 +21,28 @@ class StudentDetailView(DetailView):
     template_name = 'student/student_detail.html'
 
 
-class StudentLiveListView(ListView):
-    model = StudentLive
+class SaeJeonListView(ListView):
+    model = SaeJeon
     queryset = model.active.all()
     context_object_name = 'news'
     template_name = 'news/list.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['title'] = _('Студенческая жизнь')
+        context['title'] = _('Сокулук Сэджон')
         context['sub_title'] = _('Студентам')
         return context
 
 
-class StudentLiveDetailView(DetailView):
-    model = StudentLive
+class SaeJeonDetailView(DetailView):
+    model = SaeJeon
     queryset = model.active.prefetch_related(
-        Prefetch('images', StudentLiveImages.objects.only('image'))
+        Prefetch('images', SaeJeonImages.objects.only('image'))
     )
     context_object_name = 'item'
     template_name = 'news/detail.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = _('Студенческая жизнь')
+        context['title'] = _('Сокулук Сэджон')
         return context

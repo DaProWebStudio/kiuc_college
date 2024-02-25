@@ -46,7 +46,7 @@
             <div class="fast_menu-row">
                 <a href="{% url 'cooperation' %}" class="fast_menu-link">{% trans 'Сотрудничество' %}</a>
                 <a href="{% url 'internationals' %}" class="fast_menu-link">{% trans 'Международная деятельность' %}</a>
-                <a href="{% url 'student_live_list' %}" class="fast_menu-link">{% trans 'Студенческая жизнь' %}</a>
+                <a href="{% url 'saejeon_list' %}" class="fast_menu-link">{% trans 'Сокулук Сэджон' %}</a>
                 <a href="{% url 'reception' %}" class="fast_menu-link">{% trans 'Абитуриентам' %}</a>
                 <a href="{% url 'specialties_list' %}" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
                 <a href="{% url 'documents_list' %}" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
@@ -161,17 +161,17 @@
         <div class="container">
             <div class="title">
                 <span>{% trans 'Студентам' %}</span>
-                <h3><a href="{% url 'student_live_list' %}">{% trans 'Студенческая жизнь' %}</a></h3>
+                <h3><a href="{% url 'saejeon_list' %}">{% trans 'Сокулук Сэджон' %}</a></h3>
             </div>
             <div class="slider_tree slider">
-                {% for live in lives %}
+                {% for live in saejeons %}
                     <div class="card international-card">
-                        <a href="{{ live.get_absolute_url }}" class="card-link">
+                        <a href="{{ saejeon.get_absolute_url }}" class="card-link">
                             <div class="card-img">
-                                {% generateimage 'main:thumbnail' source=live.image -- class="mypicture" %}
+                                {% generateimage 'main:thumbnail' source=saejeon.image -- class="mypicture" %}
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title">{{ live.title|truncatechars:63 }}</h4>
+                                <h4 class="card-title">{{ saejeon.title|truncatechars:63 }}</h4>
                             </div>
                         </a>
                     </div>

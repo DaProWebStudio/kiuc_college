@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 from modeltranslation.admin import TabbedTranslationAdmin
 
-from .models import StudentCouncil, StudentLive, StudentLiveImages
+from .models import StudentCouncil, SaeJeon, SaeJeonImages
 
 
 @admin.register(StudentCouncil)
@@ -44,8 +44,8 @@ class StudentCouncilAdmin(admin.ModelAdmin):
     get_photo.short_description = "Миниатюра"
 
 
-class StudentLiveImagesInline(admin.TabularInline):
-    model = StudentLiveImages
+class SaeJeonImagesInline(admin.TabularInline):
+    model = SaeJeonImages
     readonly_fields = ('get_photo',)
     extra = 1
 
@@ -55,11 +55,11 @@ class StudentLiveImagesInline(admin.TabularInline):
     get_photo.short_description = "Миниатюра"
 
 
-@admin.register(StudentLive)
-class StudentLiveAdmin(TabbedTranslationAdmin):
-    model = StudentLive
+@admin.register(SaeJeon)
+class SaeJeonAdmin(TabbedTranslationAdmin):
+    model = SaeJeon
     list_display = ('title', 'is_active', 'get_photo')
-    inlines = [StudentLiveImagesInline]
+    inlines = [SaeJeonImagesInline]
     readonly_fields = ('get_photo',)
 
     exclude = ('slug',)

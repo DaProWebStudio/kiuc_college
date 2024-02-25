@@ -8,7 +8,7 @@ from apps.core.models import Cooperation, Document, DocumentFile, InternationalC
 from apps.news.models import News
 from apps.specialty.models import Specialty
 from apps.employee.models import Employee
-from apps.student.models import StudentCouncil, StudentLive
+from apps.student.models import StudentCouncil, SaeJeon
 
 
 class IndexView(TemplateView):
@@ -18,7 +18,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["specialties"] = Specialty.active.all()
         context["news"] = News.active.all()[:9]
-        context["lives"] = StudentLive.active.all()[:9]
+        context["saejeons"] = SaeJeon.active.all()[:9]
         context["employees"] = Employee.active.select_related('position')[:9]
         context["students"] = StudentCouncil.active.all()[:9]
         context["internationals"] = InternationalCooperation.objects.all()

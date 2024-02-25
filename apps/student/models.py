@@ -7,7 +7,7 @@ from imagekit.processors import ResizeToFill
 
 from apps.core.models import AbstractResume
 from apps.news.models import AbstractNews
-from common.upload_to_files import student_file, student_live, student_live_images
+from common.upload_to_files import student_file, saejeon_image, saejeon_images
 
 
 class StudentCouncil(AbstractResume):
@@ -25,31 +25,31 @@ class StudentCouncil(AbstractResume):
         verbose_name_plural = _('Студентский совет')
 
 
-class StudentLive(AbstractNews):
-    """Студентская жизнь"""
-    image = ProcessedImageField(verbose_name=_('Фото'), upload_to=student_live, format='webp',
+class SaeJeon(AbstractNews):
+    """Сокулук Сэджон"""
+    image = ProcessedImageField(verbose_name=_('Фото'), upload_to=saejeon_image, format='webp',
                                 processors=[ResizeToFill(2268, 1296)], options={'quality': 90})
 
     def get_absolute_url(self, **kwargs):
-        return reverse('student_live_detail', kwargs={'slug': self.slug})
+        return reverse('saejeon_detail', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ('-created',)
-        verbose_name = _('Студентская жизнь')
-        verbose_name_plural = _('Студентская жизнь')
+        verbose_name = _('Сокулук Сэджон')
+        verbose_name_plural = _('Сокулук Сэджон')
 
 
-class StudentLiveImages(models.Model):
+class SaeJeonImages(models.Model):
     """Фотографии live"""
-    live = models.ForeignKey(StudentLive, on_delete=models.CASCADE, related_name='images')
-    image = ProcessedImageField(verbose_name=_('Фотография'), upload_to=student_live_images,
+    saejeon = models.ForeignKey(SaeJeon, on_delete=models.CASCADE, related_name='images')
+    image = ProcessedImageField(verbose_name=_('Фотография'), upload_to=saejeon_images,
                                 format='webp', options={'quality': 80})
 
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.live.title
+        return self.saejeon.title
 
     class Meta:
         ordering = ('created',)

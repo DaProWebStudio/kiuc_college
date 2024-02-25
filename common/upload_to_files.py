@@ -69,11 +69,11 @@ def student_file(instance, filename):
     return f'students/{instance.slug}/{instance.slug}.{list_file[-1]}'
 
 
-def student_live(instance, filename):
+def saejeon_image(instance, filename):
     list_file = filename.split('.')
-    return f'students/live/{instance.slug[0:35]}/main.{list_file[-1]}'
+    return f'saejeons/{instance.slug[0:35]}/main.{list_file[-1]}'
 
 
-def student_live_images(instance, filename):
+def saejeon_images(instance, filename):
     list_file = filename.split('.')
-    return f'students/live/{instance.live.slug[0:35]}/images/{list_file[0]}.{list_file[-1]}'
+    return f'saejeons/{instance.saejeon.slug[0:35]}/images/{list_file[0]}.{list_file[-1]}'

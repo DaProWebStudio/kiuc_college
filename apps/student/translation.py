@@ -1,7 +1,7 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import StudentLive
+from .models import SaeJeon
 
 
-@register(StudentLive)
-class StudentLiveTranslation(TranslationOptions):
+@register(SaeJeon)
+class SaeJeonTranslation(TranslationOptions):
     fields = ('title', 'description',)

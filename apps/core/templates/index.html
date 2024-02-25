@@ -164,7 +164,7 @@
                 <h3><a href="{% url 'saejeon_list' %}">{% trans 'Сокулук Сэджон' %}</a></h3>
             </div>
             <div class="slider_tree slider">
-                {% for live in saejeons %}
+                {% for saejeon in saejeons %}
                     <div class="card international-card">
                         <a href="{{ saejeon.get_absolute_url }}" class="card-link">
                             <div class="card-img">

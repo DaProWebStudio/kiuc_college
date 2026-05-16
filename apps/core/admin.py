@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from modeltranslation.admin import TabbedTranslationAdmin
 
@@ -8,6 +10,7 @@ from .models import (
     InternationalCooperationImages,
     Document,
     DocumentFile, EduProcessFile, EduProcess,
+    ReceptionPage,
 )
 
 
@@ -62,3 +65,36 @@ class EduProcessFileInlines(admin.TabularInline):
 class EduProcessAdmin(admin.ModelAdmin):
     list_display = ('title',)
     inlines = [EduProcessFileInlines]
+
+
+@admin.register(ReceptionPage)
+class ReceptionPageAdmin(TabbedTranslationAdmin):
+    """Singleton-страница «Абитуриентам». Один экземпляр, открывается сразу
+    на редактирование без промежуточного changelist."""
+
+    fieldsets = (
+        ('Хиро (заголовок страницы)', {
+            'fields': ('heading', 'lead'),
+        }),
+        ('Основной текст', {
+            'fields': ('body',),
+            'description': 'Большой блок с правилами поступления, стоимостью, требованиями к документам и т.п. '
+                           'Поддерживает форматирование, списки, цитаты — всё через WYSIWYG.',
+        }),
+        ('Сайдбар «Контакты приёмной»', {
+            'fields': ('contacts_title', 'contact_phone', 'contact_whatsapp',
+                       'contact_email', 'contact_website_label', 'contact_website_url'),
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return not ReceptionPage.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = ReceptionPage.objects.first()
+        if obj:
+            return redirect(reverse('admin:core_receptionpage_change', args=[obj.pk]))
+        return super().changelist_view(request, extra_context)

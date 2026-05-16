@@ -1,7 +1,24 @@
 {% extends 'base/base.html' %}
-{% load static i18n %}
+{% load static i18n seo %}
 
 {% block title %}{% trans 'Абитуриентам' %}{% endblock %}
+{% block meta_description %}{{ page.lead|truncatewords:30 }}{% endblock %}
+
+{% block og_title %}{% trans 'Абитуриентам' %} | КМУК{% endblock %}
+{% block og_description %}{{ page.lead|truncatewords:30 }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Абитуриентам' %}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
@@ -9,10 +26,10 @@
     <div class="container-page">
         <span class="section-eyebrow !text-accent-400">{% trans 'Приёмная комиссия' %}</span>
         <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
-            {% trans 'Абитуриентам' %}
+            {{ page.heading|safe }}
         </h1>
         <p class="mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
-            {% trans 'Всё, что нужно знать о поступлении: специальности, документы, сроки и порядок зачисления.' %}
+            {{ page.lead }}
         </p>
     </div>
 </section>
@@ -20,16 +37,22 @@
 <section class="bg-white py-16 lg:py-20">
     <div class="container-page grid gap-12 lg:grid-cols-12">
 
-        <div class="lg:col-span-8 space-y-12">
+        <div class="lg:col-span-8 space-y-10">
 
+            {# Основной CMS-управляемый текст #}
+            <div class="prose prose-slate prose-lg max-w-none
+                        prose-headings:font-display prose-headings:font-bold
+                        prose-a:text-brand-700 prose-strong:text-slate-900
+                        prose-blockquote:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-accent-400
+                        prose-blockquote:bg-accent-300/20 prose-blockquote:not-italic prose-blockquote:py-4 prose-blockquote:px-5
+                        prose-img:rounded-2xl prose-ul:marker:text-brand-700 prose-ol:marker:text-brand-700">
+                {{ page.body|safe }}
+            </div>
+
+            {# Авто-список специальностей — обновляется при добавлении новой специальности через админ #}
+            {% if specialties %}
             <div>
-                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Уважаемые абитуриенты!' %}</h2>
-                <div class="prose prose-slate mt-4 max-w-none prose-strong:text-slate-900">
-                    <p>{% blocktrans %}Кыргызский международный универсальный колледж рад пригласить Вас в наше учебное заведение. Наш колледж предоставляет широкую возможность выбора специальностей, приносящих успех и стабильный доход в различных сферах деятельности! Наши специальности были, есть и будут перспективными, высокооплачиваемыми и интересными.{% endblocktrans %}</p>
-                </div>
-
-                <h3 class="display mt-8 text-lg font-bold text-slate-900">{% trans 'В настоящее время колледж ведёт подготовку по специальностям:' %}</h3>
-                {% if specialties %}
+                <h3 class="font-display text-xl font-bold text-slate-900">{% trans 'Специальности колледжа' %}</h3>
                 <ol class="mt-4 space-y-2">
                     {% for specialty in specialties %}
                         <li>
@@ -41,116 +64,45 @@
                         </li>
                     {% endfor %}
                 </ol>
-                {% else %}
-                <p class="mt-4 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">
-                    {% trans 'Список специальностей появится здесь после заполнения через админ-панель.' %}
-                </p>
-                {% endif %}
-
-                <div class="prose prose-slate mt-6 max-w-none">
-                    <p>{% blocktrans %}Образовательный процесс в колледже организуют квалифицированные преподаватели. Колледж располагает оборудованными кабинетами и компьютерными классами, позволяющими осуществлять подготовку специалистов на высоком уровне. Мы поддерживаем тесные контакты с нашими зарубежными партнёрами, можете обучаться в одном из лучших вузов Республики Корея.{% endblocktrans %}</p>
-                    <p>{% trans 'Годы учёбы в колледже запомнятся Вам яркими впечатлениями об интересной и насыщенной жизни. Каждый найдёт специальность по своему характеру, стилю жизни, темпераменту и складу ума.' %}</p>
-                </div>
             </div>
-
-            <div>
-                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Как поступить в наш колледж' %}</h2>
-
-                <h3 class="display mt-6 text-lg font-bold text-slate-900">{% trans 'Условия приёма' %}</h3>
-                <div class="prose prose-slate mt-3 max-w-none">
-                    <p>{% blocktrans %}Колледж принимает выпускников 9, 10 и 11 классов. Чтобы поступить, абитуриентам достаточно оставить заявку и предоставить аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится по среднему баллу аттестата.{% endblocktrans %}</p>
-                    <p>{% trans 'Если Вам необходима помощь в выборе, специалисты приёмной комиссии всегда готовы проконсультировать и дать ответы на все вопросы.' %} <a href="tel:+996706955677">+996 (706) 95-56-77</a> {% trans 'или e-mail' %} <a href="mailto:info@college.kiuc.kg">info@college.kiuc.kg</a>.</p>
-                </div>
-
-                <h3 class="display mt-8 text-lg font-bold text-slate-900">{% trans 'Основной список документов' %}</h3>
-                <ul class="mt-4 grid gap-3 sm:grid-cols-2">
-                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {% trans 'Оригинал аттестата и свидетельства об образовании' %}
-                    </li>
-                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {% trans 'Медицинская справка № 086-У' %}
-                    </li>
-                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {% trans 'Свидетельство о рождении или паспорт (копия)' %}
-                    </li>
-                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {% trans 'Фотографии 3×4 (6 штук)' %}
-                    </li>
-                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 sm:col-span-2">
-                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {% trans 'Скоросшиватель и конверт' %}
-                    </li>
-                </ul>
-
-                <div class="prose prose-slate mt-6 max-w-none">
-                    <p>{% blocktrans %}Подайте документы онлайн через информационную систему колледжа или посетите лично приёмную комиссию по адресу: Сокулукский район, г. Шопоков, ул. Машиностроительная, 13а.{% endblocktrans %}</p>
-                    <p>{% trans 'Списки рекомендованных к зачислению составляются по убыванию среднего балла аттестата. Будьте на связи в последний день тура.' %}</p>
-                </div>
-            </div>
-
-            <div>
-                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Как считается средний балл аттестата' %}</h2>
-                <div class="prose prose-slate mt-3 max-w-none">
-                    <p>{% blocktrans %}Подсчитайте общее количество оценок, сложите все оценки вместе (найдите сумму) и разделите эту сумму на общее количество оценок. Полученное число и будет средним баллом Вашего аттестата (с точностью до сотых долей).{% endblocktrans %}</p>
-                </div>
-
-                <div class="mt-5 rounded-2xl border-2 border-dashed border-accent-400 bg-accent-300/30 p-5">
-                    <p class="font-display text-sm font-bold uppercase tracking-wider text-slate-900">{% trans 'Пример' %}</p>
-                    <p class="mt-2 text-sm text-slate-700">
-                        {% blocktrans %}В Вашем аттестате 12 предметов: 5 пятёрок, 3 четвёрки и 4 тройки.{% endblocktrans %}
-                    </p>
-                    <p class="mt-2 font-mono text-sm text-slate-900">
-                        5×5 + 4×3 + 3×4 = 25 + 12 + 12 = 49 → 49 ÷ 12 = <strong>4.08</strong>
-                    </p>
-                </div>
-            </div>
+            {% endif %}
         </div>
 
         <aside class="lg:col-span-4">
             <div class="sticky top-28 space-y-5">
 
                 <div class="rounded-3xl bg-brand-950 p-6 text-white">
-                    <h3 class="font-display text-base font-bold uppercase tracking-wider text-accent-400">{% trans 'Срок обучения' %}</h3>
-                    <ul class="mt-4 divide-y divide-white/10 text-sm">
-                        <li class="flex justify-between gap-3 py-3">
-                            <span class="text-white/70">{% trans 'На базе 9 класса' %}</span>
-                            <span class="font-semibold text-white">{% trans '2 г. 10 мес.' %}</span>
-                        </li>
-                        <li class="flex justify-between gap-3 py-3">
-                            <span class="text-white/70">{% trans 'На базе 11 класса' %}</span>
-                            <span class="font-semibold text-white">{% trans '1 г. 10 мес.' %}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
-                    <h3 class="font-display text-base font-bold text-slate-900">{% trans 'Контакты' %}</h3>
-                    <ul class="mt-4 space-y-3 text-sm">
+                    <h3 class="font-display text-base font-bold uppercase tracking-wider text-accent-400">{{ page.contacts_title }}</h3>
+                    <ul class="mt-4 space-y-4 text-sm">
+                        {% if page.contact_phone %}
                         <li>
-                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">{% trans 'Телефон' %}</span>
-                            <a href="tel:+996706955677" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">+996 (706) 95-56-77</a>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-white/60">{% trans 'Телефон' %}</span>
+                            <a href="tel:{{ page.contact_phone|cut:' '|cut:'('|cut:')'|cut:'-' }}" class="mt-1 inline-block font-semibold text-white hover:text-accent-400">{{ page.contact_phone }}</a>
                         </li>
+                        {% endif %}
+                        {% if page.contact_whatsapp %}
                         <li>
-                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">WhatsApp</span>
-                            <a href="https://api.whatsapp.com/send/?phone=996706955677&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">+996 (706) 95-56-77</a>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-white/60">WhatsApp</span>
+                            <a href="https://api.whatsapp.com/send/?phone={{ page.contact_whatsapp|cut:' '|cut:'('|cut:')'|cut:'-'|cut:'+' }}&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-white hover:text-accent-400">{{ page.contact_whatsapp }}</a>
                         </li>
+                        {% endif %}
+                        {% if page.contact_email %}
                         <li>
-                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">Email</span>
-                            <a href="mailto:info@college.kiuc.kg" class="mt-1 inline-block font-semibold text-brand-700 hover:underline break-all">info@college.kiuc.kg</a>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-white/60">Email</span>
+                            <a href="mailto:{{ page.contact_email }}" class="mt-1 inline-block font-semibold text-white hover:text-accent-400 break-all">{{ page.contact_email }}</a>
                         </li>
+                        {% endif %}
+                        {% if page.contact_website_url %}
                         <li>
-                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">{% trans 'Реестр' %}</span>
-                            <a href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">2020.edu.gov.kg</a>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-white/60">{% trans 'Сайт' %}</span>
+                            <a href="{{ page.contact_website_url }}" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-white hover:text-accent-400">{{ page.contact_website_label }}</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
 
                 <a href="{% url 'contacts' %}" class="inline-flex w-full justify-center btn-pill-accent !pl-6">
-                    {% trans 'Связаться' %}
+                    {% trans 'Все контакты' %}
                     <span class="btn-pill-icon">
                         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                     </span>

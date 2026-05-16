@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, FormView, ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import Cooperation, Document, DocumentFile, InternationalCooperation, \
-    InternationalCooperationImages, EduProcess, EduProcessFile
+    InternationalCooperationImages, EduProcess, EduProcessFile, ReceptionPage
 from apps.news.models import News
 from apps.specialty.models import Specialty
 from apps.employee.models import Employee
@@ -76,11 +76,15 @@ class WelcomingRemarksView(TemplateView):
     template_name = 'welcoming-remarks.html'
 
 
-class ReceptionApplicantsView(ListView):
-    model = Specialty
-    queryset = model.active.all()
-    context_object_name = 'specialties'
+class ReceptionApplicantsView(TemplateView):
+    """Страница «Абитуриентам» — CMS-singleton + автоматический список специальностей."""
     template_name = 'reception.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['page'] = ReceptionPage.load()
+        ctx['specialties'] = Specialty.active.all()
+        return ctx
 
 
 class EduProcessDetailView(DetailView):

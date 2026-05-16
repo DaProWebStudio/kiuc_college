@@ -1,5 +1,6 @@
 /* tailwindcss установлен в static/build/node_modules — резолвим относительно. */
 @import "../build/node_modules/tailwindcss";
+@plugin "../build/node_modules/@tailwindcss/typography";
 
 /* Сканируем Django-шаблоны. */
 @source "../../templates/**/*.html";

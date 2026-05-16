@@ -1,0 +1,14 @@
+{
+  "name": "kiuc-college-web",
+  "version": "1.0.0",
+  "description": "Tailwind v4 build pipeline for KIUC College site.",
+  "scripts": {
+    "tw:build": "tailwindcss -i ../tailwind/input.css -o ../css/app.css --minify",
+    "tw:watch": "tailwindcss -i ../tailwind/input.css -o ../css/app.css --watch"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

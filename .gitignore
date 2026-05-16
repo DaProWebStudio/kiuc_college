@@ -34,7 +34,7 @@ media/*
 
 **/cmaps/**
 
-build
+/build
 doc
 home.rst
 make.bat

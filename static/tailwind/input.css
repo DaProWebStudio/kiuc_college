@@ -1,5 +1,5 @@
-/* tailwindcss установлен в static/gulp/node_modules — резолвим относительно. */
-@import "../gulp/node_modules/tailwindcss";
+/* tailwindcss установлен в static/build/node_modules — резолвим относительно. */
+@import "../build/node_modules/tailwindcss";
 
 /* Сканируем Django-шаблоны. */
 @source "../../templates/**/*.html";

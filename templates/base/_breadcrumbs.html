@@ -1,0 +1,25 @@
+{% load i18n %}
+{# Usage:
+   {% include 'base/_breadcrumbs.html' with items=breadcrumbs %}
+   where items = [{'title': 'X', 'url': '/x/'}, {'title': 'Y'}]   (last item without 'url' is current)
+#}
+<nav aria-label="{% trans 'Хлебные крошки' %}" class="text-sm text-white/70">
+    <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+        <li>
+            <a href="{% url 'index' %}" class="inline-flex items-center gap-1 hover:text-white">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H10v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span>{% trans 'Главная' %}</span>
+            </a>
+        </li>
+        {% for item in items %}
+            <li class="inline-flex items-center gap-1.5">
+                <svg class="h-3 w-3 text-white/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                {% if item.url %}
+                    <a href="{{ item.url }}" class="hover:text-white">{{ item.title }}</a>
+                {% else %}
+                    <span aria-current="page" class="text-white">{{ item.title }}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</nav>

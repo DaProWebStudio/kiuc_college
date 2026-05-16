@@ -1,4 +1,6 @@
-from django.views.generic import TemplateView, FormView
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views.generic import FormView
 from django.utils.translation import gettext_lazy as _
 
 from apps.feedback.forms import CreateFeedBackForm
@@ -11,21 +13,23 @@ class ContactsView(FormView):
     model = FeedBack
     form_class = CreateFeedBackForm
     template_name = 'contacts.html'
-    success_url = '/'
+    success_url = reverse_lazy('contacts')
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.recaptcha: Recaptcha = get_random_model(Recaptcha)
+    def get_recaptcha(self) -> Recaptcha | None:
+        if not hasattr(self, '_recaptcha'):
+            self._recaptcha = get_random_model(Recaptcha)
+        return self._recaptcha
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['recaptcha'] = self.recaptcha
+        context['recaptcha'] = self.get_recaptcha()
         return context
 
     def form_valid(self, form):
-        form.save(commit=False)
-        if int(form.cleaned_data.get('user_answer')) == int(self.recaptcha.answer):
-            form.save()
-            return super().form_valid(form)
-        form.add_error('user_answer', _('Не правильный ответ'))
-        return super().form_invalid(form)
+        recaptcha = self.get_recaptcha()
+        if recaptcha is not None and int(form.cleaned_data.get('user_answer')) != int(recaptcha.answer):
+            form.add_error('user_answer', _('Не правильный ответ'))
+            return self.form_invalid(form)
+        form.save()
+        messages.success(self.request, _('Спасибо! Ваше сообщение отправлено — мы свяжемся с вами в ближайшее время.'))
+        return super().form_valid(form)

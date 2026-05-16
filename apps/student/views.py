@@ -8,9 +8,12 @@ from .models import StudentCouncil, SaeJeon, SaeJeonImages
 
 class StudentCouncilView(ListView):
     model = StudentCouncil
-    queryset = model.active.all()
     context_object_name = 'students'
     template_name = 'student/index.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return StudentCouncil.active.all()
 
 
 class StudentDetailView(DetailView):
@@ -23,14 +26,23 @@ class StudentDetailView(DetailView):
 
 class SaeJeonListView(ListView):
     model = SaeJeon
-    queryset = model.active.all()
     context_object_name = 'news'
     template_name = 'news/list.html'
+    paginate_by = 12
+
+    def get_queryset(self):
+        qs = SaeJeon.active.all()
+        q = self.request.GET.get('q', '').strip()
+        if q:
+            from django.db.models import Q
+            qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
+        return qs
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['title'] = _('Сокулук Сэджон')
         context['sub_title'] = _('Студентам')
+        context['q'] = self.request.GET.get('q', '').strip()
         return context
 
 

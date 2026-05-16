@@ -1,0 +1,50 @@
+{% load i18n seo %}
+{% if is_paginated %}
+<nav class="mt-12 flex items-center justify-center gap-2" aria-label="{% trans 'Пагинация' %}">
+
+    {# Previous #}
+    {% if page_obj.has_previous %}
+        <a href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}"
+           class="inline-flex h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
+           aria-label="{% trans 'Назад' %}">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span class="hidden sm:inline">{% trans 'Назад' %}</span>
+        </a>
+    {% else %}
+        <span class="inline-flex h-10 items-center gap-1 rounded-full border border-slate-100 px-4 text-sm font-medium text-slate-300">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span class="hidden sm:inline">{% trans 'Назад' %}</span>
+        </span>
+    {% endif %}
+
+    {# Page numbers (truncated; ELLIPSIS = '…') #}
+    {% pagination_range page_obj paginator as page_range %}
+    {% for num in page_range %}
+        {% if num == paginator.ELLIPSIS %}
+            <span class="inline-flex h-10 w-10 items-center justify-center text-sm text-slate-400">{{ num }}</span>
+        {% elif num == page_obj.number %}
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-900 text-sm font-bold text-white" aria-current="page">{{ num }}</span>
+        {% else %}
+            <a href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ num }}"
+               class="inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-brand-700">
+                {{ num }}
+            </a>
+        {% endif %}
+    {% endfor %}
+
+    {# Next #}
+    {% if page_obj.has_next %}
+        <a href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ page_obj.next_page_number }}"
+           class="inline-flex h-10 items-center gap-1 rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
+           aria-label="{% trans 'Вперёд' %}">
+            <span class="hidden sm:inline">{% trans 'Вперёд' %}</span>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+    {% else %}
+        <span class="inline-flex h-10 items-center gap-1 rounded-full border border-slate-100 px-4 text-sm font-medium text-slate-300">
+            <span class="hidden sm:inline">{% trans 'Вперёд' %}</span>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+    {% endif %}
+</nav>
+{% endif %}

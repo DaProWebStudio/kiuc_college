@@ -6,9 +6,12 @@ from .models import Employee, Position
 
 class EmployeeListView(ListView):
     model = Employee
-    queryset = model.active.select_related('position')
     context_object_name = 'employees'
     template_name = 'employee/index.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return Employee.active.select_related('position')
 
 
 class EmployeeDetailView(DetailView):

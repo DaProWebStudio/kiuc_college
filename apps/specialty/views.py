@@ -8,6 +8,10 @@ class SpecialtyListView(ListView):
     model = Specialty
     context_object_name = 'specialties'
     template_name = 'specialty/list.html'
+    paginate_by = 12
+
+    def get_queryset(self):
+        return Specialty.active.all()
 
 
 class SpecialtyDetailView(DetailView):

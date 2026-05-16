@@ -1,6 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static imagekit i18n %}
 
+{% block preload %}
+    <link rel="preload" as="image" href="{% static 'images/college/MY6H7718.webp' %}" fetchpriority="high">
+{% endblock %}
+
 {% block jsonld %}
 <script type="application/ld+json">
 {
@@ -97,6 +101,7 @@
                 <img loading="eager" fetchpriority="high"
                      src="{% static 'images/college/MY6H7718.webp' %}"
                      alt="{% trans 'КМУК — Кыргызский международный универсальный колледж' %}"
+                     width="800" height="1000"
                      class="aspect-[4/5] w-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950/60 to-transparent"></div>
             </div>

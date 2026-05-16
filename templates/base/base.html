@@ -46,6 +46,11 @@
 
     <link rel="stylesheet" href="{% static 'css/app.css' %}?{{ style_core_version }}">
 
+    {% block preload %}{% endblock %}
+
+    <link rel="alternate" type="application/rss+xml" title="{% trans 'Новости КМУК (RSS)' %}" href="{% url 'news_rss' %}">
+    <link rel="alternate" type="application/atom+xml" title="{% trans 'Новости КМУК (Atom)' %}" href="{% url 'news_atom' %}">
+
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-icon-180x180.png' %}">
@@ -66,7 +71,7 @@
 <header class="nav-shell" data-nav data-state="top">
     <div class="container-page flex h-20 items-center justify-between gap-6">
         <a href="{% url 'index' %}" class="flex items-center gap-3">
-            <img loading="eager" fetchpriority="high" src="{% static 'images/logo/logo-min.webp' %}" alt="КМУК" class="h-10 w-10 lg:h-11 lg:w-11">
+            <img loading="eager" fetchpriority="high" src="{% static 'images/logo/logo-min.webp' %}" alt="КМУК" width="44" height="44" class="h-10 w-10 lg:h-11 lg:w-11">
             <div class="hidden flex-col leading-tight sm:flex">
                 <span class="nav-brand-text text-sm font-bold">КМУК</span>
                 <span class="nav-brand-sub text-[10px]">{% trans 'Международный колледж' %}</span>
@@ -75,9 +80,9 @@
 
         <nav class="hidden lg:block">
             <ul class="flex items-center gap-1">
-                <li><a href="{% url 'index' %}" class="nav-link">{% trans 'Главная' %}</a></li>
+                <li><a href="{% url 'index' %}" class="nav-link {% is_active 'index' %}">{% trans 'Главная' %}</a></li>
                 <li class="group relative">
-                    <button class="nav-link flex items-center gap-1">
+                    <button class="nav-link flex items-center gap-1 {% is_active 'history' 'password_college' 'employees' 'news_list' 'news_detail' 'documents_list' 'document_detail' 'cooperation' 'internationals' 'international_detail' %}">
                         {% trans 'О колледже' %}
                         <svg class="h-3 w-3 transition group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -94,7 +99,7 @@
                 </li>
                 {% if edu_processes %}
                 <li class="group relative">
-                    <button class="nav-link flex items-center gap-1">
+                    <button class="nav-link flex items-center gap-1 {% is_active 'edu_process_detail' %}">
                         {% trans 'Учебный процесс' %}
                         <svg class="h-3 w-3 transition group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -106,7 +111,7 @@
                 </li>
                 {% endif %}
                 <li class="group relative">
-                    <button class="nav-link flex items-center gap-1">
+                    <button class="nav-link flex items-center gap-1 {% is_active 'reception' 'specialties_list' 'specialty_detail' %}">
                         {% trans 'Абитуриентам' %}
                         <svg class="h-3 w-3 transition group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -116,7 +121,7 @@
                     </ul>
                 </li>
                 <li class="group relative">
-                    <button class="nav-link flex items-center gap-1">
+                    <button class="nav-link flex items-center gap-1 {% is_active 'students' 'student_detail' 'saejeon_list' 'saejeon_detail' %}">
                         {% trans 'Студентам' %}
                         <svg class="h-3 w-3 transition group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -126,7 +131,7 @@
                         <li><a href="{% url 'saejeon_list' %}" class="nav-dropdown-link">{% trans 'Сокулук Сэджон' %}</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url 'contacts' %}" class="nav-link">{% trans 'Контакты' %}</a></li>
+                <li><a href="{% url 'contacts' %}" class="nav-link {% is_active 'contacts' %}">{% trans 'Контакты' %}</a></li>
             </ul>
         </nav>
 
@@ -159,22 +164,58 @@
         </div>
     </div>
 
-    {# Mobile menu — слайд снизу хедера, белый фон всегда #}
+    {# Mobile menu — accordion with grouped sections #}
     <div data-mobile-menu class="hidden border-t border-slate-100 bg-white lg:hidden">
-        <nav class="container-page py-4">
+        <nav class="container-page py-3">
             <ul class="space-y-1 text-sm font-medium text-slate-800">
-                <li><a href="{% url 'index' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Главная' %}</a></li>
-                <li><a href="{% url 'history' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'О колледже' %}</a></li>
-                <li><a href="{% url 'specialties_list' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Специальности' %}</a></li>
-                <li><a href="{% url 'reception' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Абитуриентам' %}</a></li>
-                <li><a href="{% url 'news_list' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Новости' %}</a></li>
-                <li><a href="{% url 'employees' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Структура' %}</a></li>
-                <li><a href="{% url 'students' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Студенческий совет' %}</a></li>
-                <li><a href="{% url 'saejeon_list' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Сокулук Сэджон' %}</a></li>
-                <li><a href="{% url 'cooperation' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Сотрудничество' %}</a></li>
-                <li><a href="{% url 'internationals' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Международное сотрудничество' %}</a></li>
-                <li><a href="{% url 'documents_list' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Нормативные документы' %}</a></li>
-                <li><a href="{% url 'contacts' %}" class="block rounded-md px-3 py-2 hover:bg-brand-50 hover:text-brand-700">{% trans 'Контакты' %}</a></li>
+                <li><a href="{% url 'index' %}" class="mobile-link {% is_active 'index' css_class='mobile-link-active' %}">{% trans 'Главная' %}</a></li>
+
+                <li>
+                    <details class="mobile-group">
+                        <summary class="mobile-summary">
+                            <span>{% trans 'О колледже' %}</span>
+                            <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <ul class="ml-3 mt-1 space-y-1 border-l border-slate-100 pl-3">
+                            <li><a href="{% url 'history' %}" class="mobile-sublink">{% trans 'История' %}</a></li>
+                            <li><a href="{% url 'password_college' %}" class="mobile-sublink">{% trans 'Паспорт колледжа' %}</a></li>
+                            <li><a href="{% url 'employees' %}" class="mobile-sublink">{% trans 'Структура' %}</a></li>
+                            <li><a href="{% url 'news_list' %}" class="mobile-sublink">{% trans 'Новости' %}</a></li>
+                            <li><a href="{% url 'documents_list' %}" class="mobile-sublink">{% trans 'Нормативные документы' %}</a></li>
+                            <li><a href="https://www.ebs.el-kitep.kg/" target="_blank" rel="noopener" class="mobile-sublink">{% trans 'Библиотека' %}</a></li>
+                            <li><a href="{% url 'cooperation' %}" class="mobile-sublink">{% trans 'Сотрудничество' %}</a></li>
+                            <li><a href="{% url 'internationals' %}" class="mobile-sublink">{% trans 'Международное сотрудничество' %}</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-group">
+                        <summary class="mobile-summary">
+                            <span>{% trans 'Абитуриентам' %}</span>
+                            <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <ul class="ml-3 mt-1 space-y-1 border-l border-slate-100 pl-3">
+                            <li><a href="{% url 'reception' %}" class="mobile-sublink">{% trans 'Приемная комиссия' %}</a></li>
+                            <li><a href="{% url 'specialties_list' %}" class="mobile-sublink">{% trans 'Наши специальности' %}</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-group">
+                        <summary class="mobile-summary">
+                            <span>{% trans 'Студентам' %}</span>
+                            <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <ul class="ml-3 mt-1 space-y-1 border-l border-slate-100 pl-3">
+                            <li><a href="{% url 'students' %}" class="mobile-sublink">{% trans 'Студенческий совет' %}</a></li>
+                            <li><a href="{% url 'saejeon_list' %}" class="mobile-sublink">{% trans 'Сокулук Сэджон' %}</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li><a href="{% url 'contacts' %}" class="mobile-link {% is_active 'contacts' css_class='mobile-link-active' %}">{% trans 'Контакты' %}</a></li>
             </ul>
         </nav>
     </div>
@@ -187,7 +228,7 @@
     <div class="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div class="lg:col-span-2">
             <div class="flex items-center gap-3">
-                <img loading="lazy" src="{% static 'images/logo/logo-min.webp' %}" alt="" class="h-12 w-12">
+                <img loading="lazy" src="{% static 'images/logo/logo-min.webp' %}" alt="" width="48" height="48" class="h-12 w-12">
                 <div>
                     <p class="font-display text-lg font-bold text-white">КМУК</p>
                     <p class="text-xs text-slate-400">{% trans 'Кыргызский международный универсальный колледж' %}</p>
@@ -298,6 +339,48 @@
     // Current year
     const y = document.getElementById('current-year');
     if (y) y.textContent = new Date().getFullYear();
+
+    // Lightbox: для всех ссылок с data-lightbox внутри data-lightbox-gallery
+    (function () {
+        const links = Array.from(document.querySelectorAll('[data-lightbox-gallery] [data-lightbox]'));
+        if (!links.length) return;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.innerHTML = `
+            <button type="button" class="lightbox-close" aria-label="{% trans 'Закрыть' %}">&times;</button>
+            <button type="button" class="lightbox-prev" aria-label="{% trans 'Предыдущее' %}">&#8249;</button>
+            <img class="lightbox-img" alt="">
+            <button type="button" class="lightbox-next" aria-label="{% trans 'Следующее' %}">&#8250;</button>
+        `;
+        document.body.appendChild(overlay);
+        const img = overlay.querySelector('.lightbox-img');
+        let idx = 0;
+
+        function show(i) {
+            idx = (i + links.length) % links.length;
+            img.src = links[idx].getAttribute('href');
+            overlay.classList.add('is-open');
+            document.documentElement.style.overflow = 'hidden';
+        }
+        function hide() {
+            overlay.classList.remove('is-open');
+            img.src = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        links.forEach((a, i) => a.addEventListener('click', e => { e.preventDefault(); show(i); }));
+        overlay.querySelector('.lightbox-close').addEventListener('click', hide);
+        overlay.querySelector('.lightbox-prev').addEventListener('click', () => show(idx - 1));
+        overlay.querySelector('.lightbox-next').addEventListener('click', () => show(idx + 1));
+        overlay.addEventListener('click', e => { if (e.target === overlay) hide(); });
+        document.addEventListener('keydown', e => {
+            if (!overlay.classList.contains('is-open')) return;
+            if (e.key === 'Escape') hide();
+            if (e.key === 'ArrowLeft') show(idx - 1);
+            if (e.key === 'ArrowRight') show(idx + 1);
+        });
+    })();
 </script>
 
 {% block scripts %}{% endblock %}

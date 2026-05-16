@@ -44,14 +44,15 @@
 </script>
 {% endblock %}
 
+{% block preload %}
+    <link rel="preload" as="image" href="{{ item.image.url }}" fetchpriority="high">
+{% endblock %}
+
 {% block content %}
 
 <section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
     <div class="container-page">
-        <a href="{% url 'news_list' %}" class="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-            {% trans 'Все новости' %}
-        </a>
+        {% include 'base/_breadcrumbs.html' with items=breadcrumbs %}
         <h1 class="display mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-5xl">
             {{ item.title }}
         </h1>
@@ -77,9 +78,9 @@
             <div class="mt-12">
                 <span class="section-eyebrow">{% trans 'Фотогалерея' %}</span>
                 <h2 class="display mt-4 text-2xl text-slate-900 sm:text-3xl">{% trans 'Больше фотографий' %}</h2>
-                <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3" data-lightbox-gallery>
                     {% for foo in item.images.all %}
-                        <a href="{{ foo.image.url }}" target="_blank" rel="noopener" class="group relative block overflow-hidden rounded-2xl bg-slate-100">
+                        <a href="{{ foo.image.url }}" data-lightbox class="group relative block overflow-hidden rounded-2xl bg-slate-100">
                             {% generateimage 'main:thumbnail' source=foo.image -- class="aspect-square w-full object-cover transition duration-500 group-hover:scale-105" %}
                             <span class="absolute inset-0 flex items-center justify-center bg-brand-950/0 text-sm font-semibold text-white opacity-0 transition group-hover:bg-brand-950/50 group-hover:opacity-100">
                                 {% trans 'Открыть' %}

@@ -58,8 +58,10 @@ class CooperationView(ListView):
 
 class InternationalCooperationListView(ListView):
     model = InternationalCooperation
+    queryset = InternationalCooperation.objects.all()
     context_object_name = 'internationals'
     template_name = 'collaborations/internationals.html'
+    paginate_by = 12
 
 
 class InternationalCooperationDetailView(DetailView):

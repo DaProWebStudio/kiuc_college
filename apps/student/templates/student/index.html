@@ -45,13 +45,13 @@
                 {% for student in students %}
                     <a href="{{ student.get_absolute_url }}" class="photo-card group aspect-[3/4]">
                         {% if student.image %}
-                            <img src="{{ student.image.url }}" alt="{{ student.get_full_name }}"
+                            <img loading="lazy" src="{{ student.image.url }}" alt="{{ student.get_full_name }}"
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% elif student.gender == 'men' %}
-                            <img src="{% static 'images/more/avatar_men.webp' %}" alt=""
+                            <img loading="lazy" src="{% static 'images/more/avatar_men.webp' %}" alt=""
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% else %}
-                            <img src="{% static 'images/more/avatar_women.webp' %}" alt=""
+                            <img loading="lazy" src="{% static 'images/more/avatar_women.webp' %}" alt=""
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% endif %}
                         <div class="photo-card-overlay">

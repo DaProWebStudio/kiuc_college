@@ -17,12 +17,31 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
+from django.http import HttpResponse
 from django.urls import path, include
 
+from apps.core.sitemaps import sitemaps
 from config import settings
+
+
+def robots_txt(request):
+    """robots.txt — открыт всем, спрятан админ-uplod."""
+    lines = [
+        "User-agent: *",
+        "Disallow: /admin/",
+        "Disallow: /ckeditor/",
+        "",
+        f"Sitemap: {request.scheme}://{request.get_host()}/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    # sitemap.xml / robots.txt — вне i18n_patterns: один URL на все языки
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    path('robots.txt', robots_txt, name='robots_txt'),
 ]
 
 urlpatterns += i18n_patterns(

@@ -93,7 +93,7 @@
                     <div class="sm:col-span-2">
                         <label class="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500">{% trans 'Защита от роботов' %}</label>
                         <div class="flex flex-wrap items-center gap-4">
-                            <img src="{{ recaptcha.image.url }}" alt="" class="h-12 rounded-lg border border-slate-200 bg-white">
+                            <img loading="lazy" src="{{ recaptcha.image.url }}" alt="" class="h-12 rounded-lg border border-slate-200 bg-white">
                             <div class="contacts__form-field {% if form.user_answer.errors %}field-invalid{% endif %} flex-1 min-w-[10rem]">
                                 {{ form.user_answer }}
                                 {% if form.user_answer.errors %}

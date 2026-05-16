@@ -25,11 +25,11 @@
             <div class="sticky top-28 space-y-6">
                 <div class="overflow-hidden rounded-3xl shadow-xl">
                     {% if student.image %}
-                        <img src="{{ student.image.url }}" alt="{{ student.get_full_name }}" class="aspect-[4/5] w-full object-cover">
+                        <img loading="lazy" src="{{ student.image.url }}" alt="{{ student.get_full_name }}" class="aspect-[4/5] w-full object-cover">
                     {% elif student.gender == 'men' %}
-                        <img src="{% static 'images/more/avatar_men.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
+                        <img loading="lazy" src="{% static 'images/more/avatar_men.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
                     {% else %}
-                        <img src="{% static 'images/more/avatar_women.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
+                        <img loading="lazy" src="{% static 'images/more/avatar_women.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
                     {% endif %}
                 </div>
 

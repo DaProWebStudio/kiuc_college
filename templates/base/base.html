@@ -6,7 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# Default title — pages override via {% block title %} #}
     <title>{% block title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %} | КМУК</title>
+
+    {# SEO + social: defaults work for any page; key pages override blocks #}
+    <meta name="description" content="{% block meta_description %}{% trans 'Кыргызский международный универсальный колледж — образование международного уровня с 2013 года. Корея, Кыргызстан, программы на 3 языках.' %}{% endblock %}">
+    {% block meta_extra %}{% endblock %}
+
+    {# Open Graph #}
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="КМУК · KIUC">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+    <meta property="og:title" content="{% block og_title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% trans 'Образование международного уровня — КМУК с 2013 года.' %}{% endblock %}">
+    <meta property="og:url" content="{% if request %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endif %}">
+    <meta property="og:image" content="{% block og_image %}{% if request %}{{ request.scheme }}://{{ request.get_host }}{% endif %}{% static 'images/college/MY6H7718.webp' %}{% endblock %}">
+
+    {# Twitter #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% trans 'Образование международного уровня — КМУК с 2013 года.' %}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{% if request %}{{ request.scheme }}://{{ request.get_host }}{% endif %}{% static 'images/college/MY6H7718.webp' %}{% endblock %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +42,8 @@
     <link rel="manifest" href="{% static 'images/favicon/manifest.json' %}">
 
     <meta name="theme-color" content="#1e3a8a">
+
+    {% block jsonld %}{% endblock %}
     {% block links %}{% endblock %}
 </head>
 <body class="bg-white text-slate-900">
@@ -33,7 +56,7 @@
 <header class="nav-shell" data-nav data-state="top">
     <div class="container-page flex h-20 items-center justify-between gap-6">
         <a href="{% url 'index' %}" class="flex items-center gap-3">
-            <img src="{% static 'images/logo/logo-min.webp' %}" alt="КМУК" class="h-10 w-10 lg:h-11 lg:w-11">
+            <img loading="eager" fetchpriority="high" src="{% static 'images/logo/logo-min.webp' %}" alt="КМУК" class="h-10 w-10 lg:h-11 lg:w-11">
             <div class="hidden flex-col leading-tight sm:flex">
                 <span class="nav-brand-text text-sm font-bold">КМУК</span>
                 <span class="nav-brand-sub text-[10px]">{% trans 'Международный колледж' %}</span>
@@ -154,7 +177,7 @@
     <div class="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div class="lg:col-span-2">
             <div class="flex items-center gap-3">
-                <img src="{% static 'images/logo/logo-min.webp' %}" alt="" class="h-12 w-12">
+                <img loading="lazy" src="{% static 'images/logo/logo-min.webp' %}" alt="" class="h-12 w-12">
                 <div>
                     <p class="font-display text-lg font-bold text-white">КМУК</p>
                     <p class="text-xs text-slate-400">{% trans 'Кыргызский международный универсальный колледж' %}</p>

@@ -24,13 +24,13 @@
                 {% for employee in employees %}
                     <a href="{{ employee.get_absolute_url }}" class="photo-card group aspect-[3/4]">
                         {% if employee.image %}
-                            <img src="{{ employee.image.url }}" alt="{{ employee.get_full_name }}"
+                            <img loading="lazy" src="{{ employee.image.url }}" alt="{{ employee.get_full_name }}"
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% elif employee.gender == 'men' %}
-                            <img src="{% static 'images/more/avatar_men.webp' %}" alt=""
+                            <img loading="lazy" src="{% static 'images/more/avatar_men.webp' %}" alt=""
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% else %}
-                            <img src="{% static 'images/more/avatar_women.webp' %}" alt=""
+                            <img loading="lazy" src="{% static 'images/more/avatar_women.webp' %}" alt=""
                                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                         {% endif %}
                         <div class="photo-card-overlay">

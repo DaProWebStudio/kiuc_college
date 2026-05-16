@@ -1,6 +1,34 @@
 {% extends 'base/base.html' %}
 {% load static imagekit i18n %}
 
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Кыргызский международный универсальный колледж",
+  "alternateName": ["КМУК", "KIUC"],
+  "url": "{% if request %}{{ request.scheme }}://{{ request.get_host }}{% else %}https://college.kiuc.kg{% endif %}",
+  "logo": "{% if request %}{{ request.scheme }}://{{ request.get_host }}{% endif %}{% static 'images/logo/logo-min.webp' %}",
+  "telephone": "+996706955677",
+  "email": "info@college.kiuc.kg",
+  "foundingDate": "2013",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Машиностроительная, 25а",
+    "addressLocality": "Шопоков",
+    "addressRegion": "Сокулукский район, Чуйская область",
+    "addressCountry": "KG"
+  },
+  "sameAs": [
+    "https://www.instagram.com/kilc_university/",
+    "https://www.facebook.com/kiuckg",
+    "https://www.youtube.com/@KIUCUniversity"
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 {% comment %}============================================================
@@ -66,7 +94,8 @@
         {% comment %}Правая колонка — фото с небольшим accent-бейджем поверх{% endcomment %}
         <div class="relative lg:col-span-5">
             <div class="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-                <img src="{% static 'images/college/MY6H7718.webp' %}"
+                <img loading="eager" fetchpriority="high"
+                     src="{% static 'images/college/MY6H7718.webp' %}"
                      alt="{% trans 'КМУК — Кыргызский международный универсальный колледж' %}"
                      class="aspect-[4/5] w-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950/60 to-transparent"></div>
@@ -193,7 +222,7 @@
             {% comment %}Tile 4: фото — преподаватели{% endcomment %}
             <a href="{% url 'employees' %}" class="bento-tile p-0 lg:col-span-1">
                 <div class="relative h-full min-h-[14rem] w-full overflow-hidden rounded-3xl">
-                    <img src="{% static 'images/college/MY6H8076.webp' %}" alt="" class="h-full w-full object-cover transition duration-700 hover:scale-105">
+                    <img loading="lazy" src="{% static 'images/college/MY6H8076.webp' %}" alt="" class="h-full w-full object-cover transition duration-700 hover:scale-105">
                     <div class="photo-card-overlay">
                         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">04 / {% trans 'Faculty' %}</p>
                         <p class="mt-2 font-display text-lg font-bold">{% trans 'Преподаватели' %}</p>
@@ -236,7 +265,7 @@
         <a href="https://www.youtube.com/watch?v=ClbZKRqv7mk"
            target="_blank" rel="noopener"
            class="group relative block aspect-video overflow-hidden rounded-3xl shadow-xl lg:col-span-7">
-            <img src="{% static 'images/bg/univer-front.webp' %}"
+            <img loading="lazy" src="{% static 'images/bg/univer-front.webp' %}"
                  alt=""
                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-brand-950/20 to-transparent"></div>
@@ -269,7 +298,7 @@
         <div class="lg:col-span-5">
             <div class="relative">
                 <div class="overflow-hidden rounded-3xl">
-                    <img src="{% static 'images/college/Lee_Young_Kwon.webp' %}"
+                    <img loading="lazy" src="{% static 'images/college/Lee_Young_Kwon.webp' %}"
                          alt="{% trans 'Ли Ён Гвон' %}"
                          class="aspect-[4/5] w-full object-cover">
                 </div>
@@ -471,7 +500,7 @@
         <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {% for employee in employees %}
                 <a href="{{ employee.get_absolute_url }}" class="photo-card group aspect-[3/4]">
-                    <img src="{{ employee.image.url }}"
+                    <img loading="lazy" src="{{ employee.image.url }}"
                          alt="{{ employee.get_full_name }}"
                          class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                     <div class="photo-card-overlay">
@@ -507,7 +536,7 @@
         <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {% for student in students %}
                 <a href="{{ student.get_absolute_url }}" class="photo-card group aspect-[3/4]">
-                    <img src="{{ student.image.url }}"
+                    <img loading="lazy" src="{{ student.image.url }}"
                          alt="{{ student.get_full_name }}"
                          class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                     <div class="photo-card-overlay">

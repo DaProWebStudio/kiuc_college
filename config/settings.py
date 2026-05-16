@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'django_cleanup',
     'imagekit',
     'ckeditor',
@@ -134,8 +135,8 @@ STATIC_URL = 'static/'
 STATIC_DIR = BASE_DIR / 'static'
 STATICFILES_DIRS = [STATIC_DIR]
 
-STYLE_CORE_VERSION = os.environ.get("STYLE_CORE_VERSION", "v1.0")
-STYLE_RESPONSIVE_VERSION = os.environ.get("STYLE_RESPONSIVE_VERSION", "v1.0")
+STYLE_CORE_VERSION = os.environ.get("STYLE_CORE_VERSION", "v2.0")
+STYLE_RESPONSIVE_VERSION = os.environ.get("STYLE_RESPONSIVE_VERSION", "v2.0")
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,7 +1,9 @@
 {% extends 'base/base.html' %}
 {% load static i18n imagekit %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ title|default:_('Новости') }}{% endblock %}
+{% block meta_description %}{% trans 'Новости и события Кыргызского международного универсального колледжа — обновления, мероприятия, достижения студентов.' %}{% endblock %}
+{% block og_title %}{% trans 'Новости КМУК' %}{% endblock %}
 
 {% block content %}
 

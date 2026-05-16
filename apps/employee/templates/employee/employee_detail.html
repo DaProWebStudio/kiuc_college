@@ -1,7 +1,45 @@
 {% extends 'base/base.html' %}
-{% load static i18n %}
+{% load static i18n seo %}
 
-{% block title %}{{ employee.get_full_name }}{% endblock %}
+{% block title %}{{ employee.get_full_name }} — {{ employee.position }}{% endblock %}
+{% block meta_description %}{{ employee.get_full_name }} — {{ employee.position }} в КМУК. {{ employee.description|seo_text:120 }}{% endblock %}
+
+{% block og_type %}profile{% endblock %}
+{% block og_title %}{{ employee.get_full_name }} — {{ employee.position }} | КМУК{% endblock %}
+{% block og_description %}{{ employee.position }} в Кыргызском международном универсальном колледже.{% endblock %}
+{% block og_image %}{% if employee.image %}{% absolute_url employee.image.url %}{% endif %}{% endblock %}
+{% block twitter_title %}{{ employee.get_full_name }} — {{ employee.position }} | КМУК{% endblock %}
+{% block twitter_description %}{{ employee.position }} в Кыргызском международном универсальном колледже.{% endblock %}
+{% block twitter_image %}{% if employee.image %}{% absolute_url employee.image.url %}{% endif %}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ employee.get_full_name|escapejs }}",
+  "jobTitle": "{{ employee.position|escapejs }}",
+  {% if employee.image %}"image": "{% absolute_url employee.image.url %}",{% endif %}
+  {% if employee.email %}"email": "{{ employee.email }}",{% endif %}
+  "worksFor": {
+    "@type": "EducationalOrganization",
+    "name": "Кыргызский международный универсальный колледж",
+    "sameAs": "{% site_origin %}/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Структура' %}", "item": "{% site_origin %}{% url 'employees' %}"},
+    {"@type": "ListItem", "position": 3, "name": "{{ employee.get_full_name|escapejs }}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

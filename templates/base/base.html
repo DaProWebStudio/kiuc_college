@@ -1,6 +1,7 @@
 <!doctype html>
-{% load static i18n %}
+{% load static i18n seo %}
 {% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
 <html lang="{{ LANGUAGE_CODE }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,15 @@
     {# SEO + social: defaults work for any page; key pages override blocks #}
     <meta name="description" content="{% block meta_description %}{% trans 'Кыргызский международный универсальный колледж — образование международного уровня с 2013 года. Корея, Кыргызстан, программы на 3 языках.' %}{% endblock %}">
     {% block meta_extra %}{% endblock %}
+
+    {# Canonical и hreflang — для борьбы с дубликатами по языкам/query string #}
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    {% for lang_code, lang_name in LANGUAGES %}
+        {% alt_url lang_code as alt_path %}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{{ alt_path }}">
+    {% endfor %}
+    {% alt_url 'ru' as default_path %}
+    <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{{ default_path }}">
 
     {# Open Graph #}
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">

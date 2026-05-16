@@ -1,7 +1,49 @@
 {% extends 'base/base.html' %}
-{% load static i18n %}
+{% load static i18n seo %}
 
 {% block title %}{{ specialty.title }}{% endblock %}
+{% block meta_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом. {{ specialty.description|seo_text:140 }}{% endblock %}
+
+{% block og_title %}{{ specialty.title }} | КМУК{% endblock %}
+{% block og_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом.{% endblock %}
+{% block og_image %}{% absolute_url specialty.image.url %}{% endblock %}
+{% block twitter_title %}{{ specialty.title }} | КМУК{% endblock %}
+{% block twitter_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом.{% endblock %}
+{% block twitter_image %}{% absolute_url specialty.image.url %}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "{{ specialty.title|escapejs }}",
+  "description": "{{ specialty.description|seo_text:300|escapejs }}",
+  "image": "{% absolute_url specialty.image.url %}",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Кыргызский международный универсальный колледж",
+    "sameAs": "{% site_origin %}/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Tuition",
+    "price": "{{ specialty.contract }}",
+    "priceCurrency": "KGS"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Специальности' %}", "item": "{% site_origin %}{% url 'specialties_list' %}"},
+    {"@type": "ListItem", "position": 3, "name": "{{ specialty.title|escapejs }}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

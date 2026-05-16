@@ -1,7 +1,46 @@
 {% extends 'base/base.html' %}
-{% load static i18n imagekit %}
+{% load static i18n imagekit seo %}
 
 {% block title %}{{ international.title }}{% endblock %}
+{% block meta_description %}{{ international.description|seo_text:200 }}{% endblock %}
+
+{% block og_title %}{{ international.title }} | КМУК{% endblock %}
+{% block og_description %}{{ international.description|seo_text:200 }}{% endblock %}
+{% block og_image %}{% absolute_url international.image.url %}{% endblock %}
+{% block twitter_title %}{{ international.title }} | КМУК{% endblock %}
+{% block twitter_description %}{{ international.description|seo_text:200 }}{% endblock %}
+{% block twitter_image %}{% absolute_url international.image.url %}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ international.title|escapejs }}",
+  "image": "{% absolute_url international.image.url %}",
+  "datePublished": "{{ international.created|date:'c' }}",
+  "dateModified": "{{ international.updated|date:'c' }}",
+  "author": {"@type": "Organization", "name": "КМУК"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "КМУК",
+    "logo": {"@type": "ImageObject", "url": "{% site_origin %}{% static 'images/logo/logo-min.webp' %}"}
+  },
+  "description": "{{ international.description|seo_text:200|escapejs }}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Международное сотрудничество' %}", "item": "{% site_origin %}{% url 'internationals' %}"},
+    {"@type": "ListItem", "position": 3, "name": "{{ international.title|escapejs }}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

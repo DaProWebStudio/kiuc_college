@@ -1,7 +1,45 @@
 {% extends 'base/base.html' %}
-{% load static i18n %}
+{% load static i18n seo %}
 
-{% block title %}{{ student.get_full_name }}{% endblock %}
+{% block title %}{{ student.get_full_name }} — {{ student.position }}{% endblock %}
+{% block meta_description %}{{ student.get_full_name }} — {{ student.position }} студенческого совета КМУК.{% endblock %}
+
+{% block og_type %}profile{% endblock %}
+{% block og_title %}{{ student.get_full_name }} — {{ student.position }} | КМУК{% endblock %}
+{% block og_description %}{{ student.position }} студсовета Кыргызского международного универсального колледжа.{% endblock %}
+{% block og_image %}{% if student.image %}{% absolute_url student.image.url %}{% endif %}{% endblock %}
+{% block twitter_title %}{{ student.get_full_name }} — {{ student.position }} | КМУК{% endblock %}
+{% block twitter_description %}{{ student.position }} студсовета КМУК.{% endblock %}
+{% block twitter_image %}{% if student.image %}{% absolute_url student.image.url %}{% endif %}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ student.get_full_name|escapejs }}",
+  "jobTitle": "{{ student.position|escapejs }}",
+  {% if student.image %}"image": "{% absolute_url student.image.url %}",{% endif %}
+  {% if student.email %}"email": "{{ student.email }}",{% endif %}
+  "affiliation": {
+    "@type": "EducationalOrganization",
+    "name": "Кыргызский международный универсальный колледж",
+    "sameAs": "{% site_origin %}/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Студенческий совет' %}", "item": "{% site_origin %}{% url 'students' %}"},
+    {"@type": "ListItem", "position": 3, "name": "{{ student.get_full_name|escapejs }}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

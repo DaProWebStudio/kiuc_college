@@ -1,7 +1,50 @@
 {% extends 'base/base.html' %}
-{% load static i18n %}
+{% load static i18n seo %}
 
 {% block title %}{% trans 'Контакты' %}{% endblock %}
+{% block meta_description %}{% trans 'Контакты КМУК: телефон +996 (706) 95-56-77, email info@college.kiuc.kg, адрес — г. Шопоков, ул. Машиностроительная, 25а.' %}{% endblock %}
+
+{% block og_title %}{% trans 'Контакты КМУК' %}{% endblock %}
+{% block og_description %}{% trans 'Свяжитесь с приёмной комиссией КМУК — телефон, WhatsApp, email и адрес.' %}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "{% trans 'Контакты КМУК' %}",
+  "url": "{% site_origin %}{{ request.path }}",
+  "mainEntity": {
+    "@type": "EducationalOrganization",
+    "name": "Кыргызский международный универсальный колледж",
+    "telephone": "+996706955677",
+    "email": "info@college.kiuc.kg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Машиностроительная, 25а",
+      "addressLocality": "Шопоков",
+      "addressRegion": "Сокулукский район, Чуйская область",
+      "addressCountry": "KG"
+    },
+    "contactPoint": [
+      {"@type": "ContactPoint", "telephone": "+996704255080", "contactType": "Admissions", "name": "Сууханкул кызы Акмарал"},
+      {"@type": "ContactPoint", "telephone": "+996700022251", "contactType": "Admissions", "name": "Сыздыкова Айгерим"},
+      {"@type": "ContactPoint", "telephone": "+996706166668", "contactType": "Admissions", "name": "Абдыкеримова Аниса"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "{% trans 'Главная' %}", "item": "{% site_origin %}/"},
+    {"@type": "ListItem", "position": 2, "name": "{% trans 'Контакты' %}", "item": "{% site_origin %}{{ request.path }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

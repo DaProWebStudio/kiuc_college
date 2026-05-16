@@ -46,8 +46,6 @@ home.rst
 make.bat
 Makefile
 
-poetry.lock
-
 doc-dev
 
 **/Logging/
@@ -60,3 +58,11 @@ static/rest_framework
 static/mptt
 static/css/core.min.css
 static/css/responsive.min.css
+
+# collectstatic destination — наполняется на проде, в git не нужен
+staticfiles/
+
+.claude
+vault
+CLAUDE.md
+

@@ -1,0 +1,16 @@
+# Cron-задание для ежедневного бэкапа PostgreSQL КИУК-колледжа.
+#
+# Установка:
+#   sudo crontab -u kiuc -e
+# и вставить строку (без комментария):
+#
+# 0 3 * * * /var/www/kiuc_college/scripts/backup_db.sh >> /var/www/kiuc_college/backups/cron.log 2>&1
+#
+# Каждый день в 03:00 утра по серверному времени. Логи кронa отдельно
+# в backups/cron.log (вывод от самого крона: «mail to...» и т.п.),
+# логи самого скрипта — в backups/backup.log (timestamp, размер, ротация).
+#
+# Переменные:
+#   KEEP_DAYS=30   — сколько дней хранить (по умолчанию 30)
+#                    Чтобы переопределить — добавь перед строкой:
+# 0 3 * * * KEEP_DAYS=60 /var/www/kiuc_college/scripts/backup_db.sh >> /var/www/kiuc_college/backups/cron.log 2>&1

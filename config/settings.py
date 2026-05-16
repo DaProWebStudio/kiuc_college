@@ -1,20 +1,21 @@
 import os
 from pathlib import Path
 
-import environs
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environs.Env()
-env.read_env('.env')
+# Грузим .env в os.environ. Абсолютный путь — чтобы не зависеть от cwd
+# (manage.py запускают и из корня, и через uv/supervisor с разным cwd).
+load_dotenv(BASE_DIR / '.env')
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
-DEBUG = env('DEBUG')
+DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(' ')
 
-CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS').split(' ')
+CSRF_TRUSTED_ORIGINS = os.environ['CSRF_TRUSTED_ORIGINS'].split(' ')
 
 # Application definition
 

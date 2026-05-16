@@ -4,7 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tw:build": "tailwindcss -i ../tailwind/input.css -o ../css/app.css --minify",
+    "tw:watch": "tailwindcss -i ../tailwind/input.css -o ../css/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -14,13 +16,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/cli": "^4.3.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "tailwindcss": "^4.3.0"
   },
   "bugs": {
     "url": "https://github.com/Daniar02/Univer/issues"

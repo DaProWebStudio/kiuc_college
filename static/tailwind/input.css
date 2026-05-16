@@ -1,0 +1,208 @@
+/* tailwindcss установлен в static/gulp/node_modules — резолвим относительно. */
+@import "../gulp/node_modules/tailwindcss";
+
+/* Сканируем Django-шаблоны. */
+@source "../../templates/**/*.html";
+@source "../../apps/**/templates/**/*.html";
+
+@theme {
+  --font-sans: "Inter", "system-ui", -apple-system, "Segoe UI", "Roboto", sans-serif;
+  --font-display: "Manrope", "Inter", "system-ui", sans-serif;
+
+  /* Брендовая палитра — глубокий синий с логотипа КМУК. */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+  --color-brand-950: #142156;
+
+  /* Жёлтый акцент — энергия / "поступить сейчас". */
+  --color-accent-300: #fde68a;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+
+  /* Корейский красный акцент. */
+  --color-korean-500: #ef4444;
+  --color-korean-600: #dc2626;
+
+  /* Display-кегли. */
+  --text-display-sm: clamp(2.5rem, 5vw, 4rem);
+  --text-display-md: clamp(3rem, 7vw, 6rem);
+  --text-display-lg: clamp(3.5rem, 9vw, 8rem);
+  --text-display-xl: clamp(4rem, 14vw, 14rem);
+
+  /* Marquee. */
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    color: theme(colors.slate.900);
+    background: theme(colors.white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ===== Кнопки-пилюли (сохраняем как любимые). ===== */
+  .btn-pill {
+    @apply inline-flex items-center gap-2 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100;
+  }
+  .btn-pill-icon {
+    @apply flex h-9 w-9 items-center justify-center rounded-full bg-brand-900 text-white transition;
+  }
+  .btn-pill:hover .btn-pill-icon { @apply bg-brand-800; }
+
+  .btn-pill-dark {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-900 py-2 pl-6 pr-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-800;
+  }
+  .btn-pill-dark .btn-pill-icon { @apply bg-white text-slate-900; }
+  .btn-pill-dark:hover .btn-pill-icon { @apply bg-accent-400; }
+
+  .btn-pill-accent {
+    @apply inline-flex items-center gap-2 rounded-full bg-accent-400 py-2 pl-6 pr-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-accent-500;
+  }
+  .btn-pill-accent .btn-pill-icon { @apply bg-brand-900 text-white; }
+
+  .btn-outline-light {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/40 py-2 pl-6 pr-2 text-sm font-medium text-white transition hover:border-white hover:bg-white/10;
+  }
+  .btn-outline-light .btn-pill-icon { @apply bg-white/10 text-white; }
+  .btn-outline-light:hover .btn-pill-icon { @apply bg-white text-brand-900; }
+
+  /* ===== Eyebrow ===== */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-700;
+  }
+  .section-eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-brand-700;
+  }
+
+  /* ===== Лента горизонтальной прокрутки ===== */
+  .scroll-row {
+    @apply flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:thin];
+  }
+  .scroll-row > * { @apply snap-start shrink-0; }
+
+  /* ===== Фото-карточка с тёмным overlay ===== */
+  .photo-card {
+    @apply relative block overflow-hidden rounded-3xl bg-slate-200;
+  }
+  .photo-card-overlay {
+    @apply absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-950/90 via-brand-950/40 to-transparent p-5 text-white;
+  }
+
+  /* ===== Стат-бейдж ===== */
+  .stat-badge {
+    @apply absolute bottom-5 left-5 rounded-2xl bg-white px-4 py-3 shadow-lg;
+  }
+
+  /* ===== Marquee ===== */
+  .marquee {
+    @apply overflow-hidden;
+  }
+  .marquee-track {
+    @apply flex w-max items-center gap-8;
+    animation: var(--animate-marquee);
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* ===== Nav shell: прозрачная над hero, плотная на скролле ===== */
+  .nav-shell {
+    @apply fixed inset-x-0 top-0 z-40 transition-all duration-300;
+  }
+  .nav-shell[data-state="top"] {
+    @apply bg-transparent;
+  }
+  .nav-shell[data-state="scrolled"] {
+    @apply border-b border-slate-100 bg-white/95 backdrop-blur shadow-sm;
+  }
+  .nav-link {
+    @apply rounded-full px-3 py-2 text-sm font-medium transition;
+  }
+  .nav-shell[data-state="top"] .nav-link {
+    @apply text-white/85 hover:bg-white/10 hover:text-white;
+  }
+  .nav-shell[data-state="scrolled"] .nav-link {
+    @apply text-slate-700 hover:bg-slate-100 hover:text-brand-700;
+  }
+  .nav-dropdown {
+    @apply invisible absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-slate-100 bg-white p-2 opacity-0 shadow-2xl transition;
+  }
+  .nav-dropdown-link {
+    @apply block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-700;
+  }
+  .nav-shell[data-state="top"] .nav-brand-text { @apply text-white; }
+  .nav-shell[data-state="top"] .nav-brand-sub { @apply text-white/65; }
+  .nav-shell[data-state="scrolled"] .nav-brand-text { @apply text-brand-900; }
+  .nav-shell[data-state="scrolled"] .nav-brand-sub { @apply text-slate-500; }
+
+  /* ===== Language segmented-control ===== */
+  .lang-toggle {
+    @apply inline-flex items-center gap-0.5 rounded-full p-1;
+  }
+  .lang-btn {
+    @apply cursor-pointer rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider transition;
+  }
+  .lang-btn-active { @apply pointer-events-none shadow-sm; }
+  .nav-shell[data-state="top"] .lang-toggle      { @apply bg-white/10 backdrop-blur; }
+  .nav-shell[data-state="top"] .lang-btn         { @apply text-white/60 hover:text-white; }
+  .nav-shell[data-state="top"] .lang-btn-active  { @apply bg-white text-brand-900; }
+  .nav-shell[data-state="scrolled"] .lang-toggle     { @apply bg-slate-100; }
+  .nav-shell[data-state="scrolled"] .lang-btn        { @apply text-slate-500 hover:text-slate-900; }
+  .nav-shell[data-state="scrolled"] .lang-btn-active { @apply bg-white text-brand-900; }
+
+  /* ===== Bento-плитка ===== */
+  .bento-tile {
+    @apply relative flex flex-col overflow-hidden rounded-3xl p-8 transition;
+  }
+  .bento-tile-light {
+    @apply bg-slate-100 text-slate-900 hover:bg-slate-200;
+  }
+  .bento-tile-dark {
+    @apply bg-brand-950 text-white hover:bg-brand-950;
+  }
+  .bento-tile-brand {
+    @apply bg-brand-700 text-white hover:bg-brand-800;
+  }
+  .bento-tile-accent {
+    @apply bg-accent-400 text-slate-900 hover:bg-accent-500;
+  }
+}
+
+/* ===== Стилизованный outline-текст для гигантских заголовков. ===== */
+.text-outline {
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
+}

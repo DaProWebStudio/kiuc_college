@@ -4,34 +4,45 @@
 {% block title %}{% trans 'Наши специальности' %}{% endblock %}
 
 {% block content %}
-    <section class="section specialization">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="title mb-3">
-                        <span>{% trans 'Что мы вам предлагаем' %}</span>
-                        <h3>{% trans 'Наши специальности' %}</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="specialties__wrap">
-            {% for specialty in specialties %}
-                <div class="card">
-                    <a href="{{ specialty.get_absolute_url }}" class="card-link">
-                        <div class="card-img">
-                            {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'Что мы вам предлагаем' %}</span>
+        <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
+            {% trans 'Наши специальности' %}
+        </h1>
+        <p class="mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
+            {% trans 'Выберите своё направление. Все программы аккредитованы и сопровождаются стажировками.' %}
+        </p>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page">
+        {% if specialties %}
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {% for specialty in specialties %}
+                    <a href="{{ specialty.get_absolute_url }}" class="photo-card group">
+                        {% generateimage 'main:thumbnail' source=specialty.image -- class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" %}
+                        <div class="absolute right-4 top-4 rounded-full bg-accent-400 px-4 py-1.5 text-xs font-bold text-slate-900">
+                            {{ specialty.contract }} сом
                         </div>
-                        <div class="card-body">
-                            <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
-                        </div>
-                        <div class="card-inner">
-                            <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
-                            <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
+                        <div class="photo-card-overlay">
+                            <p class="text-xs font-medium uppercase tracking-wider text-white/70">{{ specialty.form_verbose }}</p>
+                            <p class="mt-2 font-display text-base font-bold leading-snug text-white">
+                                {{ specialty.title|truncatechars:100 }}
+                            </p>
                         </div>
                     </a>
-                </div>
-            {% endfor %}
+                {% endfor %}
             </div>
-        </div>
-    </section>
+        {% else %}
+            <div class="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 py-16 text-center">
+                <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Специальности скоро появятся' %}</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
 {% endblock %}

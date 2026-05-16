@@ -1,92 +1,162 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}
-   {% trans 'Контакты' %}
-{% endblock %}
+{% block title %}{% trans 'Контакты' %}{% endblock %}
 
 {% block content %}
-    <section class="section contacts">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-4 col-12">
-                    <div class="title">
-                        <span>{% trans 'Позвоните Нам' %}</span>
-                        <h3>{% trans 'Контактные данные' %}</h3>
-                    </div>
-                    <div class="contacts__link">
-                        <ul>
-                            <li>
-                                <b>{% trans 'Наш адрес: ' %}</b>
-                                {% trans 'Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а' %}
-                            </li>
-                            <hr>
-                            <li>
-                                <b>{% trans 'Менеджеры КМУК' %}</b>
-                                <ul>
-                                    <li class="mt-3">{% trans 'Сууханкул кызы Акмарал' %} <a href="tel:+996704255080">+996 (704) 25-50-80</a></li>
-                                    <li class="mt-3">{% trans 'Сыздыкова Айгерим Рысбековна' %} <a href="tel:+996700022251">+996 (700) 02-22-51</a></li>
-                                    <li class="mt-3">{% trans 'Абдыкеримова Аниса Меймановна' %} <a href="tel:+996706166668">+996 (706) 16-66-68</a></li>
-                                </ul>
-                            </li>
-                            <hr>
-                            <li>
-                                <b>{% trans 'Приемная' %}</b>
-                                <span>...... - <a href="#">.....</a></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-7 col-md-8 col-12">
-                    <div class="title">
-                        <span>{% trans 'Система Обратной Связи' %}</span>
-                        <h3>{% trans 'Есть идея' %}</h3>
-                    </div>
-                    <div class="contacts-feedback">
-                        <form action="#" method="post" class="contacts__form">
-                            {% csrf_token %}
-                            <div class="contacts__form-field">
-                                {{ form.name }}
-                                <label for="id_name">{% trans 'Ваше имя' %}</label>
-                            </div>
-                            <div class="contacts__form-field">
-                                {{ form.email }}
-                                <label for="id_email">{% trans 'Ваша почта' %}</label>
-                            </div>
-                            <div class="contacts__form-field field-full">
-                                {{ form.message }}
-                                <label for="id_message">{% trans 'Ваше сообщение' %}</label>
-                            </div>
-                            <div class="contacts__form-field field-full field__agree">
-                                <input id="agree" required type="checkbox">
-                                <label for="agree" class="field__agree-label">{% trans 'Согласен на обработку персональных данных' %}</label>
-                            </div>
-                            <div class="contacts__form-field">
-                                <img src="{{ recaptcha.image.url }}" alt="">
-                            </div>
-                            <div class="contacts__form-field {% if form.user_answer.errors %}field-invalid{% endif %}">
-                                {{ form.user_answer }}
-                                <label for="id_user_answer">
-                                    {% if form.user_answer.errors %}
-                                        {% for error in form.user_answer.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    {% else %}
-                                        {% trans 'Напишите ответ' %}
-                                    {% endif %}
-                                </label>
-                            </div>
-                            <button type="submit" class="contacts__form-field field-full btn btn-primary py-3">
-                                {% trans 'Отправить сообщение' %}
-                            </button>
-                        </form>
 
-                    </div>
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'Свяжитесь с нами' %}</span>
+        <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
+            {% trans 'Контакты' %}
+        </h1>
+        <p class="mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
+            {% trans 'Приёмная комиссия КМУК — звоните, пишите или приходите по адресу.' %}
+        </p>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        {# Контакты — слева #}
+        <div class="lg:col-span-5">
+            <span class="section-eyebrow">{% trans 'Позвоните нам' %}</span>
+            <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl">{% trans 'Контактные данные' %}</h2>
+
+            <dl class="mt-10 space-y-8">
+                <div>
+                    <dt class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        <svg class="h-4 w-4 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        {% trans 'Наш адрес' %}
+                    </dt>
+                    <dd class="mt-2 text-base text-slate-700">
+                        {% trans 'Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а' %}
+                    </dd>
                 </div>
+
+                <div>
+                    <dt class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        <svg class="h-4 w-4 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        {% trans 'Менеджеры КМУК' %}
+                    </dt>
+                    <dd class="mt-3 space-y-3 text-sm">
+                        <div class="flex items-baseline justify-between gap-3 border-b border-slate-100 pb-3">
+                            <span class="text-slate-700">{% trans 'Сууханкул кызы Акмарал' %}</span>
+                            <a href="tel:+996704255080" class="shrink-0 font-semibold text-brand-700 hover:underline">+996 (704) 25-50-80</a>
+                        </div>
+                        <div class="flex items-baseline justify-between gap-3 border-b border-slate-100 pb-3">
+                            <span class="text-slate-700">{% trans 'Сыздыкова Айгерим Рысбековна' %}</span>
+                            <a href="tel:+996700022251" class="shrink-0 font-semibold text-brand-700 hover:underline">+996 (700) 02-22-51</a>
+                        </div>
+                        <div class="flex items-baseline justify-between gap-3">
+                            <span class="text-slate-700">{% trans 'Абдыкеримова Аниса Меймановна' %}</span>
+                            <a href="tel:+996706166668" class="shrink-0 font-semibold text-brand-700 hover:underline">+996 (706) 16-66-68</a>
+                        </div>
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        <svg class="h-4 w-4 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        {% trans 'Email' %}
+                    </dt>
+                    <dd class="mt-2"><a href="mailto:info@college.kiuc.kg" class="text-base font-semibold text-brand-700 hover:underline">info@college.kiuc.kg</a></dd>
+                </div>
+            </dl>
+        </div>
+
+        {# Форма обратной связи — справа #}
+        <div class="lg:col-span-7">
+            <div class="rounded-3xl bg-slate-50 p-6 sm:p-10">
+                <span class="section-eyebrow">{% trans 'Система обратной связи' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl">{% trans 'Есть идея?' %}</h2>
+                <p class="mt-3 text-sm text-slate-600">{% trans 'Заполните форму — мы свяжемся с вами.' %}</p>
+
+                <form action="#" method="post" class="mt-8 grid gap-5 sm:grid-cols-2">
+                    {% csrf_token %}
+                    <div class="contacts__form-field">
+                        <label for="id_name" class="mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500">{% trans 'Ваше имя' %}</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="contacts__form-field">
+                        <label for="id_email" class="mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500">{% trans 'Ваша почта' %}</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="contacts__form-field sm:col-span-2">
+                        <label for="id_message" class="mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500">{% trans 'Ваше сообщение' %}</label>
+                        {{ form.message }}
+                    </div>
+
+                    {% if recaptcha %}
+                    <div class="sm:col-span-2">
+                        <label class="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500">{% trans 'Защита от роботов' %}</label>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <img src="{{ recaptcha.image.url }}" alt="" class="h-12 rounded-lg border border-slate-200 bg-white">
+                            <div class="contacts__form-field {% if form.user_answer.errors %}field-invalid{% endif %} flex-1 min-w-[10rem]">
+                                {{ form.user_answer }}
+                                {% if form.user_answer.errors %}
+                                    <p class="mt-1 text-xs text-red-600">{{ form.user_answer.errors.0 }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <label class="flex items-start gap-2 text-sm text-slate-600 sm:col-span-2">
+                        <input type="checkbox" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500">
+                        <span>{% trans 'Согласен на обработку персональных данных' %}</span>
+                    </label>
+
+                    <button type="submit" class="btn-pill-dark sm:col-span-2 justify-self-start">
+                        {% trans 'Отправить сообщение' %}
+                        <span class="btn-pill-icon">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </span>
+                    </button>
+                </form>
             </div>
         </div>
-    </section>
-    <div class="contacts-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.5517421664722!2d74.33675432651926!3d42.86404867698774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ed965acdeec3b%3A0xa3d3a2bafb4618e1!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0KPQvdC40LLQtdGA0YHQsNC70YzQvdGL0Lkg0JrQvtC70LvQtdC00LYgKNCa0JzQo9CaKQ!5e1!3m2!1sru!2skg!4v1682148536639!5m2!1sru!2skg" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+</section>
+
+{# Карта на всю ширину #}
+<div class="overflow-hidden">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.5517421664722!2d74.33675432651926!3d42.86404867698774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ed965acdeec3b%3A0xa3d3a2bafb4618e1!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0KPQvdC40LLQtdGA0YHQsNC70YzQvdGL0Lkg0JrQvtC70LvQtdC00LYgKNCa0JzQo9CaKQ!5e1!3m2!1sru!2skg!4v1682148536639!5m2!1sru!2skg"
+            width="100%" height="500" style="border:0;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+{% endblock %}
+
+{% block links %}
+    {# Стилизуем Django form-поля под общую палитру #}
+    <style>
+        .contacts__form-field input[type="text"],
+        .contacts__form-field input[type="email"],
+        .contacts__form-field input[type="number"],
+        .contacts__form-field textarea {
+            display: block;
+            width: 100%;
+            border-radius: 0.75rem;
+            border: 1px solid theme(colors.slate.200);
+            background: theme(colors.white);
+            padding: 0.625rem 1rem;
+            font-size: 0.875rem;
+            color: theme(colors.slate.900);
+            transition: border-color .15s, box-shadow .15s;
+        }
+        .contacts__form-field textarea {
+            min-height: 8rem;
+            resize: vertical;
+        }
+        .contacts__form-field input:focus,
+        .contacts__form-field textarea:focus {
+            outline: none;
+            border-color: theme(colors.brand.500);
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, .25);
+        }
+        .field-invalid input { border-color: theme(colors.red.500); }
+    </style>
 {% endblock %}

@@ -1,125 +1,163 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}
-    {% trans 'Абитуриентам' %}
-{% endblock %}
+{% block title %}{% trans 'Абитуриентам' %}{% endblock %}
 
 {% block content %}
-    <section class="section reception">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8 col-md-8">
-                    <div class="title">
-                        <span>{% trans 'Абитуриентам' %}</span>
-                        <h3>{% trans 'Уважаемые абитуриенты!' %}</h3>
-                    </div>
-                    <div class="my-3">
-                        <p class="reception__description">
-                            {% blocktrans %}Кыргызский международный универсальный колледж, рад пригласить Вас на наше учебное заведение. Наш колледж предоставляет широкую возможность выбора специальностей, приносящих успех и стабильный доход в различных сферах деятельности! Наши специальности были, есть и будут перспективными, высокооплачиваемыми и интересными!{% endblocktrans %}
-                        </p>
-                        <h5 class="reception__title">{% trans 'В настоящее время колледж ведет подготовку по специальностям:' %}</h5>
-                        <ul class="ml-4 mb-3 pl-0 mb-0">
-                            {% for specialty in specialties %}
-                                <li class="mt-2">
-                                    <a class="reception__link" href="#"><span
-                                            class="forloop">{{ forloop.counter }}.</span> {{ specialty.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                        <p class="reception__description">
-                            {% blocktrans %}Образовательный процесс в колледже организуют квалифицированные преподаватели. Колледж располагает оборудованными кабинетами и компьютерными классами, позволяющими осуществлять подготовку специалистов на высоком уровне. Мы поддерживаем тесные контакты с нашими зарубежными партнерами, можете обучаться в одном из лучших вузов Республики Корея.{% endblocktrans %}
-                        </p>
-                        <p class="reception__description">
-                            {% trans 'Годы учебы в колледже запомнятся Вам яркими впечатлениями об интересной и насыщенной жизни.' %}
-                        </p>
-                        <p class="reception__description">
-                            {% trans 'Каждый для себя найдет специальность, профессию по своему характеру, стилю жизни, темпераменту, складу ума.' %}
-                        </p>
-                    </div>
-                    <div class="title">
-                        <br>
-                        <span>{% trans 'Абитуриентам' %}</span>
-                        <h3>{% trans 'Как поступить в наш колледж' %}</h3>
-                    </div>
-                    <div class="my-3">
-                        <h5 class="reception__title">{% trans 'Условия приема' %}</h5>
-                        <p class="reception__description">
-                            {% blocktrans %}Колледж принимают выпускников 9, 10 и 11 классов. Чтобы поступить в наш колледж, абитуриентам достаточно оставить заявку на и предоставить аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится по среднему баллу аттестата. Чем лучше школьник учился последний год в школе (9 или 11 класс), тем выше его шансы быть зачисленным.{% endblocktrans %}
-                        </p>
-                        <p class="reception__description">
-                            {% blocktrans %}Если Вам необходима помощь в выборе, специалисты приемной комиссии всегда готовы проконсультировать и дать ответы на все интересующие вопросы. Позвоните по телефону{% endblocktrans %}
-                            <a href=""></a>
-                            {% trans 'или напишите на e-mail' %}
-                            <a href="mailto:info@college.kiuc.kg">info@college.kiuc.kg</a>.
-                        </p>
-                    </div>
-                    <div class="my-3">
-                        <h5 class="reception__title">{% trans 'Основной список документов для поступающих в колледж:' %}</h5>
-                        <ul class="reception__list">
-                            <li class="my-3">- {% trans 'Оригинал Аттестата и Оригинал Свидетельство об образовании;' %}</li>
-                            <li class="my-3">- {% trans 'Медицинская справка №086-У;' %}</li>
-                            <li class="my-3">- {% trans 'Свидетельства о рождении или паспорт (копия);' %}</li>
-                            <li class="my-3">- {% trans 'Фотографии 3х4 (6 штук);' %}</li>
-                            <li>- {% trans 'Скоросшиватель и конверт' %}</li>
-                        </ul>
-                    </div>
-                    <div class="my-3">
-                        <p class="reception__description">
-                            {% blocktrans %}Подайте документы онлайн через информационную систему колледжа или посетите лично приемную комиссию для подачи заявления и документов. Адрес: Сокулукский район., г.Шопоков., ул. Машиностроительная 13а.{% endblocktrans %}
-                        </p>
-                        <p class="reception__description">
-                            {% trans 'Последний день тура формируются списки рекомендованных к зачислению в колледж, поэтому будьте на связи.' %}
-                        </p>
-                        <p class="reception__description">
-                            {% trans 'Списки рекомендованных к зачислению составляются по убыванию среднего балла аттестата.' %}
-                        </p>
-                    </div>
-                    <div class="my-3">
-                        <h5 class="my-4 reception__title">{% trans 'Как считается средний балл аттестата' %}</h5>
-                        <p class="mt-2 reception__description">
-                            {% blocktrans %}Вам нужно подсчитать общее количество оценок, сложить все оценки вместе (найти сумму всех оценок) и разделить эту сумму на общее количество оценок. Полученное число и будет средним баллом Вашего аттестата. Средний балл ведется с точностью до сотых долей.{% endblocktrans %}
-                        </p>
-                        <p class="p-3 reception__description" style="border: 2px dotted red; text-indent: 0">
-                            <b>{% trans 'Например:' %}</b>
-                            {% blocktrans %}В Вашем аттестате стоят оценки по 12 предметам. Из них 5 пятерок, 3 четверки и 4 тройки. Найдем сумму всех оценок : 5*5 + 4*3 + 3*4 = 25 + 12 + 12= 49. Разделим сумму всех оценок на количество предметов: 49 : 12 = 4.08. Средний балл рассчитывается с точностью до сотых долей. Таким образом, средний балл Вашего аттестата – 4.08{% endblocktrans %}
-                        </p>
-                    </div>
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'Приёмная комиссия' %}</span>
+        <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
+            {% trans 'Абитуриентам' %}
+        </h1>
+        <p class="mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
+            {% trans 'Всё, что нужно знать о поступлении: специальности, документы, сроки и порядок зачисления.' %}
+        </p>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        <div class="lg:col-span-8 space-y-12">
+
+            <div>
+                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Уважаемые абитуриенты!' %}</h2>
+                <div class="prose prose-slate mt-4 max-w-none prose-strong:text-slate-900">
+                    <p>{% blocktrans %}Кыргызский международный универсальный колледж рад пригласить Вас в наше учебное заведение. Наш колледж предоставляет широкую возможность выбора специальностей, приносящих успех и стабильный доход в различных сферах деятельности! Наши специальности были, есть и будут перспективными, высокооплачиваемыми и интересными.{% endblocktrans %}</p>
                 </div>
-                <aside class="col-12 col-lg-4 col-md-4">
-                    <div class="reception__carousel">
-                        <div class="mt-4">
-                            <h4 class="reception__border">{% trans 'Срок обучение' %}</h4>
-                            <ul class="p-4 mb-0 reception__info">
-                                <li><span>{% trans 'На базе 9 класса' %}:</span> {% trans '2 года 10 месяцев' %}</li>
-                                <li><span>{% trans 'На базе 11 класса' %}:</span> {% trans '1 год 10 месяцев' %}</li>
-                            </ul>
-                        </div>
-                        <div class="mt-2">
-                            <h4 class="reception__border">{% trans 'Контакты' %}</h4>
-                            <ul class="p-4 mb-0 reception__info">
-                                <li><span>{% trans 'Телефон' %}:</span> <a href="tel:+996706955677" target="_blank">+996 (706) 95-56-77</a></li>
-                                <li>
-                                    <span>WhatsApp:</span>
-                                    <a href="https://api.whatsapp.com/send/?phone=996706955677&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0"
-                                       target="_blank">
-                                        +996 (706) 95-56-77
-                                    </a>
-                                </li>
-                                <li><span>{% trans 'Сайт' %}:</span> <a
-                                        href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank">2020.edu.gov.kg</a>
-                                </li>
-                                <li>
-                                    <span>Email:</span>
-                                    <a href="mailto:info@college.kiuc.kg" target="_blank">
-                                        info@college.kiuc.kg
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
+
+                <h3 class="display mt-8 text-lg font-bold text-slate-900">{% trans 'В настоящее время колледж ведёт подготовку по специальностям:' %}</h3>
+                {% if specialties %}
+                <ol class="mt-4 space-y-2">
+                    {% for specialty in specialties %}
+                        <li>
+                            <a href="{{ specialty.get_absolute_url }}" class="group flex items-baseline gap-3 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 transition hover:border-brand-300 hover:bg-white">
+                                <span class="font-display text-sm font-bold text-brand-700">{{ forloop.counter|stringformat:"02d" }}</span>
+                                <span class="flex-1 text-sm font-medium text-slate-800 group-hover:text-brand-700">{{ specialty.title }}</span>
+                                <span class="text-xs text-slate-500">{{ specialty.contract }} сом</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+                {% else %}
+                <p class="mt-4 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">
+                    {% trans 'Список специальностей появится здесь после заполнения через админ-панель.' %}
+                </p>
+                {% endif %}
+
+                <div class="prose prose-slate mt-6 max-w-none">
+                    <p>{% blocktrans %}Образовательный процесс в колледже организуют квалифицированные преподаватели. Колледж располагает оборудованными кабинетами и компьютерными классами, позволяющими осуществлять подготовку специалистов на высоком уровне. Мы поддерживаем тесные контакты с нашими зарубежными партнёрами, можете обучаться в одном из лучших вузов Республики Корея.{% endblocktrans %}</p>
+                    <p>{% trans 'Годы учёбы в колледже запомнятся Вам яркими впечатлениями об интересной и насыщенной жизни. Каждый найдёт специальность по своему характеру, стилю жизни, темпераменту и складу ума.' %}</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Как поступить в наш колледж' %}</h2>
+
+                <h3 class="display mt-6 text-lg font-bold text-slate-900">{% trans 'Условия приёма' %}</h3>
+                <div class="prose prose-slate mt-3 max-w-none">
+                    <p>{% blocktrans %}Колледж принимает выпускников 9, 10 и 11 классов. Чтобы поступить, абитуриентам достаточно оставить заявку и предоставить аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится по среднему баллу аттестата.{% endblocktrans %}</p>
+                    <p>{% trans 'Если Вам необходима помощь в выборе, специалисты приёмной комиссии всегда готовы проконсультировать и дать ответы на все вопросы.' %} <a href="tel:+996706955677">+996 (706) 95-56-77</a> {% trans 'или e-mail' %} <a href="mailto:info@college.kiuc.kg">info@college.kiuc.kg</a>.</p>
+                </div>
+
+                <h3 class="display mt-8 text-lg font-bold text-slate-900">{% trans 'Основной список документов' %}</h3>
+                <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% trans 'Оригинал аттестата и свидетельства об образовании' %}
+                    </li>
+                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% trans 'Медицинская справка № 086-У' %}
+                    </li>
+                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% trans 'Свидетельство о рождении или паспорт (копия)' %}
+                    </li>
+                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% trans 'Фотографии 3×4 (6 штук)' %}
+                    </li>
+                    <li class="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 sm:col-span-2">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% trans 'Скоросшиватель и конверт' %}
+                    </li>
+                </ul>
+
+                <div class="prose prose-slate mt-6 max-w-none">
+                    <p>{% blocktrans %}Подайте документы онлайн через информационную систему колледжа или посетите лично приёмную комиссию по адресу: Сокулукский район, г. Шопоков, ул. Машиностроительная, 13а.{% endblocktrans %}</p>
+                    <p>{% trans 'Списки рекомендованных к зачислению составляются по убыванию среднего балла аттестата. Будьте на связи в последний день тура.' %}</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="display text-2xl text-slate-900 sm:text-3xl">{% trans 'Как считается средний балл аттестата' %}</h2>
+                <div class="prose prose-slate mt-3 max-w-none">
+                    <p>{% blocktrans %}Подсчитайте общее количество оценок, сложите все оценки вместе (найдите сумму) и разделите эту сумму на общее количество оценок. Полученное число и будет средним баллом Вашего аттестата (с точностью до сотых долей).{% endblocktrans %}</p>
+                </div>
+
+                <div class="mt-5 rounded-2xl border-2 border-dashed border-accent-400 bg-accent-300/30 p-5">
+                    <p class="font-display text-sm font-bold uppercase tracking-wider text-slate-900">{% trans 'Пример' %}</p>
+                    <p class="mt-2 text-sm text-slate-700">
+                        {% blocktrans %}В Вашем аттестате 12 предметов: 5 пятёрок, 3 четвёрки и 4 тройки.{% endblocktrans %}
+                    </p>
+                    <p class="mt-2 font-mono text-sm text-slate-900">
+                        5×5 + 4×3 + 3×4 = 25 + 12 + 12 = 49 → 49 ÷ 12 = <strong>4.08</strong>
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
+
+        <aside class="lg:col-span-4">
+            <div class="sticky top-28 space-y-5">
+
+                <div class="rounded-3xl bg-brand-950 p-6 text-white">
+                    <h3 class="font-display text-base font-bold uppercase tracking-wider text-accent-400">{% trans 'Срок обучения' %}</h3>
+                    <ul class="mt-4 divide-y divide-white/10 text-sm">
+                        <li class="flex justify-between gap-3 py-3">
+                            <span class="text-white/70">{% trans 'На базе 9 класса' %}</span>
+                            <span class="font-semibold text-white">{% trans '2 г. 10 мес.' %}</span>
+                        </li>
+                        <li class="flex justify-between gap-3 py-3">
+                            <span class="text-white/70">{% trans 'На базе 11 класса' %}</span>
+                            <span class="font-semibold text-white">{% trans '1 г. 10 мес.' %}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+                    <h3 class="font-display text-base font-bold text-slate-900">{% trans 'Контакты' %}</h3>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        <li>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">{% trans 'Телефон' %}</span>
+                            <a href="tel:+996706955677" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">+996 (706) 95-56-77</a>
+                        </li>
+                        <li>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">WhatsApp</span>
+                            <a href="https://api.whatsapp.com/send/?phone=996706955677&text=Здравствуйте%21%0A%0AПишу+из+вашего+сайта+www.college.kiuc.kg.%0A%0A&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">+996 (706) 95-56-77</a>
+                        </li>
+                        <li>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">Email</span>
+                            <a href="mailto:info@college.kiuc.kg" class="mt-1 inline-block font-semibold text-brand-700 hover:underline break-all">info@college.kiuc.kg</a>
+                        </li>
+                        <li>
+                            <span class="block text-xs font-medium uppercase tracking-wider text-slate-500">{% trans 'Реестр' %}</span>
+                            <a href="https://2020.edu.gov.kg/spuz/reports?id_university=168" target="_blank" rel="noopener" class="mt-1 inline-block font-semibold text-brand-700 hover:underline">2020.edu.gov.kg</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="{% url 'contacts' %}" class="inline-flex w-full justify-center btn-pill-accent !pl-6">
+                    {% trans 'Связаться' %}
+                    <span class="btn-pill-icon">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </span>
+                </a>
+            </div>
+        </aside>
+    </div>
+</section>
+
 {% endblock %}

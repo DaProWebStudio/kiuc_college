@@ -1,44 +1,87 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}
-    {{ specialty.title }}
-{% endblock %}
+{% block title %}{{ specialty.title }}{% endblock %}
 
 {% block content %}
-    <section class="section detail">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-sm-8 col-12">
-                    <div class="detail__img">
-                        <img src="{{ specialty.image.url }}" alt="image" class="w-100">
-                    </div>
-                    <div class="title mt-3">
-                        <span>{% trans 'Специальность' %}</span>
-                        <h1 class="font-weight-bold">{{ specialty.title }}</h1>
-                        <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ specialty.created|date }}</p>
-                    </div>
-                    <div class="content_dynamic_block">
-                        {% autoescape off %}{{ specialty.description }}{% endautoescape %}
-                    </div>
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <a href="{% url 'specialties_list' %}" class="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            {% trans 'Все специальности' %}
+        </a>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+            <span class="inline-flex items-center rounded-full bg-accent-400 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-900">
+                {{ specialty.form_verbose }}
+            </span>
+            <span class="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
+                {{ specialty.contract }} сом
+            </span>
+        </div>
+        <h1 class="display mt-5 max-w-4xl text-3xl sm:text-4xl lg:text-5xl">
+            {{ specialty.title }}
+        </h1>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        <article class="lg:col-span-8">
+            <div class="overflow-hidden rounded-3xl shadow-xl">
+                <img src="{{ specialty.image.url }}" alt="{{ specialty.title }}" class="w-full object-cover">
+            </div>
+
+            <div class="prose prose-slate mt-10 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-700 prose-img:rounded-2xl">
+                {% autoescape off %}{{ specialty.description }}{% endautoescape %}
+            </div>
+        </article>
+
+        <aside class="lg:col-span-4">
+            <div class="sticky top-28 space-y-6">
+
+                <div class="rounded-3xl bg-brand-950 p-6 text-white">
+                    <h3 class="font-display text-lg font-bold">{% trans 'О специальности' %}</h3>
+                    <dl class="mt-5 divide-y divide-white/10 text-sm">
+                        <div class="flex items-baseline justify-between gap-3 py-3">
+                            <dt class="text-white/60">{% trans 'Форма обучения' %}</dt>
+                            <dd class="font-semibold text-white">{{ specialty.form_verbose }}</dd>
+                        </div>
+                        <div class="flex items-baseline justify-between gap-3 py-3">
+                            <dt class="text-white/60">{% trans 'Основа обучения' %}</dt>
+                            <dd class="font-semibold text-white">{{ specialty.basis_verbose }}</dd>
+                        </div>
+                        <div class="flex items-baseline justify-between gap-3 py-3">
+                            <dt class="text-white/60">{% trans 'Контракт' %}</dt>
+                            <dd class="font-display text-lg font-bold text-accent-400">{{ specialty.contract }} {% trans 'сом' %}</dd>
+                        </div>
+                    </dl>
+
+                    <p class="mt-5 text-xs font-semibold uppercase tracking-wider text-white/60">{% trans 'Срок обучения' %}</p>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li class="flex justify-between"><span class="text-white/80">{% trans 'На базе 9 класса' %}</span><span class="text-white">{% trans '2 года 10 месяцев' %}</span></li>
+                        <li class="flex justify-between"><span class="text-white/80">{% trans 'На базе 11 класса' %}</span><span class="text-white">{% trans '1 год 10 месяцев' %}</span></li>
+                    </ul>
+
+                    <a href="{% url 'reception' %}" class="mt-6 inline-flex w-full justify-center btn-pill-accent !pl-6">
+                        {% trans 'Поступить' %}
+                        <span class="btn-pill-icon">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </span>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-sm-4 col-12">
-                    <div class="detail__info">
-                        <h4>{% trans 'Полезные информации' %}</h4>
-                        <ul class="p-4">
-                            <li><span>{% trans 'Форма обучения' %}:</span> {{ specialty.form_verbose }}</li>
-                            <li><span>{% trans 'Основа обучения' %}:</span> {{ specialty.basis_verbose }}</li>
-                            <li><span>{% trans 'Контракт' %}:</span> {{ specialty.contract }} {% trans 'сом' %}</li>
-                            <li><h5 class="m-auto font-weight-bold text-center">{% trans 'Срок обучение' %}</h5></li>
-                            <li><span>{% trans 'На базе 9 класса' %}:</span> {% trans '2 года 10 месяцев' %}</li>
-                            <li><span>{% trans 'На базе 11 класса' %}:</span>  {% trans '1 год 10 месяцев' %}</li>
-                            <li><h5 class="m-auto font-weight-bold text-center">{% trans 'Часто задаваемые вопросы' %}</h5></li>
-                            <li><b><a href="#">{% trans 'Как поступить в колледж?' %}</a></b></li>
-                            <li><b><a href="#">{% trans 'Какие документы нужны для поступления?' %}</a></b></li>
-                        </ul>
-                    </div>
+
+                <div class="rounded-3xl border border-slate-100 bg-white p-6">
+                    <h4 class="font-display text-base font-bold text-slate-900">{% trans 'Часто задаваемые вопросы' %}</h4>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        <li><a href="#" class="block text-slate-700 transition hover:text-brand-700">→ {% trans 'Как поступить в колледж?' %}</a></li>
+                        <li><a href="#" class="block text-slate-700 transition hover:text-brand-700">→ {% trans 'Какие документы нужны для поступления?' %}</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </aside>
+    </div>
+</section>
+
 {% endblock %}

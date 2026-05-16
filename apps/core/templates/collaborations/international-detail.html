@@ -1,69 +1,65 @@
 {% extends 'base/base.html' %}
 {% load static i18n imagekit %}
 
-{% block title %}
-    {{ international.title }}
-{% endblock %}
-
-{% block links %}
-    <link rel="stylesheet" href="{% static 'libs/magnific-popper/main.css' %}">
-{% endblock links %}
+{% block title %}{{ international.title }}{% endblock %}
 
 {% block content %}
-    <section class="section detail">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-12">
-                    <div class="detail__img">
-                        <img src="{{ international.image.url }}" alt="image" class="w-100">
-                    </div>
-                    <div class="title mt-3">
-                        <span>{% trans 'Международное сотрудничество' %}</span>
-                        <h1 class="font-weight-bold news-title">{{ international.title }}</h1>
-                    </div>
 
-                    <div class="content_dynamic_block">
-                        {% autoescape off %}{{ international.description }}{% endautoescape %}
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <a href="{% url 'internationals' %}" class="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            {% trans 'Международное сотрудничество' %}
+        </a>
+        <h1 class="display mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-5xl">
+            {{ international.title }}
+        </h1>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        <article class="lg:col-span-8">
+            <div class="overflow-hidden rounded-3xl shadow-xl">
+                <img src="{{ international.image.url }}" alt="{{ international.title }}" class="w-full object-cover">
+            </div>
+
+            <div class="prose prose-slate mt-10 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-700 prose-img:rounded-2xl">
+                {% autoescape off %}{{ international.description }}{% endautoescape %}
+            </div>
+        </article>
+
+        <aside class="lg:col-span-4">
+            <div class="sticky top-28 space-y-6">
+
+                {% if international.file %}
+                <a href="{{ international.file.url }}" target="_blank" rel="noopener" class="flex w-full items-center justify-center btn-pill-dark !pl-6">
+                    {% trans 'Скачать договор' %}
+                    <span class="btn-pill-icon">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </span>
+                </a>
+                {% endif %}
+
+                {% if international.images.all %}
+                <div class="rounded-3xl border border-slate-100 bg-white p-6">
+                    <h3 class="font-display text-base font-bold text-slate-900">{% trans 'Фотогалерея' %}</h3>
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        {% for item in international.images.all %}
+                            <a href="{{ item.image.url }}" target="_blank" rel="noopener" class="group relative block overflow-hidden rounded-xl bg-slate-100">
+                                {% generateimage 'main:thumbnail' source=item.image -- class="aspect-square w-full object-cover transition duration-500 group-hover:scale-105" %}
+                                <span class="absolute inset-0 flex items-center justify-center bg-brand-950/0 text-xs font-semibold text-white opacity-0 transition group-hover:bg-brand-950/50 group-hover:opacity-100">
+                                    {% trans 'Открыть' %}
+                                </span>
+                            </a>
+                        {% endfor %}
                     </div>
                 </div>
-                <aside class="col-lg-4 col-md-4 col-12">
-                {% if international.file %}
-                    <div class="content_file">
-                        <a href="{{ international.file.url }}" class="btn btn-primary w-100 mb-4">{% trans 'Договор' %}</a>
-                    </div>
                 {% endif %}
-                    <div class="detail__images">
-                        {% if international.images.all %}
-                            <div class="title">
-                                <h3>{% trans 'Фотогалерея' %}</h3>
-                            </div>
-                            <div class="row gallery-list">
-                                {% for item in international.images.all %}
-                                    <div class="col-6 col-md-6 col-lg-6 p-1">
-                                        <a class="gallery-item" href="{{ item.image.url }}">
-                                            <span class="gallery-item-hover">{% trans 'Посмотреть' %}</span>
-                                            {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
-                                        </a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                </aside>
             </div>
-        </div>
-    </section>
-{% endblock %}
+        </aside>
+    </div>
+</section>
 
-{% block scripts %}
-    <script src="{% static 'libs/magnific-popper/main.min.js' %}"></script>
-    <script>
-        $(".gallery-list").magnificPopup({
-            delegate: "a",
-            type: "image",
-            gallery: {
-                enabled: true
-            }
-        });
-    </script>
-{% endblock scripts %}
+{% endblock %}

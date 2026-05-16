@@ -1,265 +1,573 @@
 {% extends 'base/base.html' %}
-{% load static imagekit  i18n %}
-
-
-{% block links %}
-    <link rel="stylesheet" href="{% static 'libs/glightbox/glightbox.min.css' %}">
-{% endblock %}
+{% load static imagekit i18n %}
 
 {% block content %}
-    <section class="section header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-6 col-md-6 header__title">
-                    <h2>{% trans 'Кыргызский международный универсальный колледж' %}</h2>
-                    <p class="desc-body">
-                        {% trans 'Миссия колледжа' %}:
-                        {% blocktranslate %}Подготовка специалистов, имеющих международный уровень теоретических и практических навыков, обладающих высокими личностными качествами и способных повысить уровень производственного потенциала и экономики Кыргызстана{% endblocktranslate %}
-                    </p>
-                    <a href="{% url 'contacts' %}" class="btn btn-primary">{% trans 'Связаться с нами ' %}</a>
-                </div>
-                <div class="col-12 col-lg-6 col-md-6">
-                    <div class="header__slider">
-                        <div class="header__slider-item">
-                            <img src="{% static 'images/college/MY6H7718.webp' %}" alt="">
-                        </div>
-                        <div class="header__slider-item">
-                            <img src="{% static 'images/college/MY6H7776.webp' %}" alt="">
-                        </div>
-                        <div class="header__slider-item">
-                            <img src="{% static 'images/college/MY6H7772.webp' %}" alt="">
-                        </div>
-                        <div class="header__slider-item">
-                            <img src="{% static 'images/college/MY6H7726.webp' %}" alt="">
-                        </div>
-                        <div class="header__slider-item">
-                            <img src="{% static 'images/college/MY6H8076.webp' %}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section fast_menu">
-        <div class="container">
-            <div class="fast_menu-row">
-                <a href="{% url 'cooperation' %}" class="fast_menu-link">{% trans 'Сотрудничество' %}</a>
-                <a href="{% url 'internationals' %}" class="fast_menu-link">{% trans 'Международная деятельность' %}</a>
-                <a href="{% url 'saejeon_list' %}" class="fast_menu-link">{% trans 'Сокулук Сэджон' %}</a>
-                <a href="{% url 'reception' %}" class="fast_menu-link">{% trans 'Абитуриентам' %}</a>
-                <a href="{% url 'specialties_list' %}" class="fast_menu-link">{% trans 'Наши специальности' %}</a>
-                <a href="{% url 'documents_list' %}" class="fast_menu-link">{% trans 'Нормативные документы' %}</a>
-                <a href="#" class="fast_menu-link">{% trans 'Дистанционное обучение «AVN»' %}</a>
-                <a href="{% url 'news_list' %}" class="fast_menu-link">{% trans 'Новости' %}</a>
-            </div>
-        </div>
-    </section>
+{% comment %}============================================================
+    HERO — чистый split: bold-title слева, фото справа
+   ============================================================{% endcomment %}
+<section class="relative isolate overflow-hidden bg-brand-950 text-white">
 
-    <section class="section foreword">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 mb-3">
-                    <div class="foreword-img">
-                        <img src="{% static 'images/college/Lee_Young_Kwon.webp' %}" alt="">
+    {% comment %}Декоративные blur-блобы для глубины{% endcomment %}
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-brand-700/30 blur-3xl"></div>
+        <div class="absolute -bottom-40 left-1/4 h-[28rem] w-[28rem] rounded-full bg-accent-400/20 blur-3xl"></div>
+    </div>
+
+    <div class="container-page relative grid items-center gap-12 pb-24 pt-36 lg:grid-cols-12 lg:gap-16 lg:pb-32 lg:pt-40">
+
+        {% comment %}Левая колонка — текст{% endcomment %}
+        <div class="lg:col-span-7">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/85 backdrop-blur">
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-400"></span>
+                {% trans 'Приём 2026 открыт' %}
+            </span>
+
+            <h1 class="display mt-7 text-4xl sm:text-5xl lg:text-6xl">
+                {% trans 'Образование' %} <span class="text-accent-400">{% trans 'международного' %}</span> {% trans 'уровня.' %}
+            </h1>
+
+            <p class="mt-8 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                {% blocktranslate %}КМУК с 2013 года готовит специалистов с теоретическими и практическими навыками — для экономики Кыргызстана и мира.{% endblocktranslate %}
+            </p>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+                <a href="{% url 'reception' %}" class="btn-pill-accent">
+                    {% trans 'Поступить сейчас' %}
+                    <span class="btn-pill-icon">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </span>
+                </a>
+                <a href="{% url 'specialties_list' %}" class="btn-outline-light">
+                    {% trans 'Специальности' %}
+                    <span class="btn-pill-icon">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </span>
+                </a>
+            </div>
+
+            {% comment %}Inline-статистика — компактная, без glass-overlap{% endcomment %}
+            <dl class="mt-14 grid max-w-xl grid-cols-3 gap-8 border-t border-white/10 pt-8">
+                <div>
+                    <dt class="text-xs uppercase tracking-wider text-white/60">{% trans 'Лет опыта' %}</dt>
+                    <dd class="display mt-1 text-3xl text-white">10+</dd>
+                </div>
+                <div>
+                    <dt class="text-xs uppercase tracking-wider text-white/60">{% trans 'Выпускников' %}</dt>
+                    <dd class="display mt-1 text-3xl text-white">1000+</dd>
+                </div>
+                <div>
+                    <dt class="text-xs uppercase tracking-wider text-white/60">{% trans 'Языка' %}</dt>
+                    <dd class="display mt-1 text-3xl text-white">3</dd>
+                </div>
+            </dl>
+        </div>
+
+        {% comment %}Правая колонка — фото с небольшим accent-бейджем поверх{% endcomment %}
+        <div class="relative lg:col-span-5">
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
+                <img src="{% static 'images/college/MY6H7718.webp' %}"
+                     alt="{% trans 'КМУК — Кыргызский международный универсальный колледж' %}"
+                     class="aspect-[4/5] w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-950/60 to-transparent"></div>
+            </div>
+
+            {% comment %}Floating mini-card: Korea·Kyrgyzstan акцент{% endcomment %}
+            <div class="absolute -left-6 bottom-10 hidden rounded-2xl bg-white px-5 py-4 shadow-2xl sm:block">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-400 text-slate-900">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display text-sm font-bold leading-none text-slate-900">{% trans 'Корея' %} ✦ {% trans 'Кыргызстан' %}</p>
+                        <p class="mt-1 text-xs text-slate-500">{% trans 'Партнёрские программы' %}</p>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 col-md-6 pl-lg-5">
-                    <div class="title mb-3">
-                        <span>{% trans 'Приветственное слово' %}</span>
-                        <h3>{% trans 'Ли Ён Гвон' %}</h3>
-                        <p>{% trans 'Генеральный директор КМУК, профессор, доктор филологических наук' %}</p>
-                        <p class="">{% trans 'Президент Корейской ассоциации славянских языков' %}</p>
+            </div>
+
+            {% comment %}Floating mini-card: top-right rating{% endcomment %}
+            <div class="absolute -right-4 top-8 hidden rounded-2xl bg-white px-4 py-3 shadow-2xl sm:block">
+                <p class="display text-2xl text-slate-900">100%</p>
+                <p class="text-[10px] uppercase tracking-wider text-slate-500">{% trans 'Трудоустройство' %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %}============================================================
+    FAST MENU — быстрые ссылки сразу под hero
+   ============================================================{% endcomment %}
+<section class="border-b border-slate-100 bg-white">
+    <div class="container-page py-6">
+        <div class="scroll-row [&::-webkit-scrollbar]:hidden [scrollbar-width:none]">
+            <a href="{% url 'cooperation' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Сотрудничество' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'internationals' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Международная деятельность' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'saejeon_list' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Сокулук Сэджон' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'reception' %}" class="group inline-flex items-center gap-2 rounded-full bg-accent-400 px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-accent-500">
+                {% trans 'Абитуриентам' %}
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'specialties_list' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Наши специальности' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'documents_list' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Нормативные документы' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Дистанционное обучение «AVN»' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="{% url 'news_list' %}" class="group inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-brand-900 hover:text-white">
+                {% trans 'Новости' %}
+                <svg class="h-3.5 w-3.5 -rotate-45 opacity-0 transition group-hover:rotate-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% comment %}============================================================
+    BENTO — Почему КМУК
+   ============================================================{% endcomment %}
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Почему КМУК' %}</span>
+                <h2 class="display mt-4 max-w-2xl text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Колледж, который' %} <span class="text-brand-700">{% trans 'меняет правила' %}</span> {% trans 'образования.' %}
+                </h2>
+            </div>
+            <p class="max-w-sm text-sm text-slate-600">
+                {% trans 'Пять причин, почему студенты и родители выбирают КМУК с 2013 года.' %}
+            </p>
+        </div>
+
+        <div class="mt-14 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
+
+            {% comment %}Tile 1: большая брендовая — international{% endcomment %}
+            <div class="bento-tile bento-tile-brand lg:col-span-2 lg:row-span-2 min-h-[24rem]">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-200">01 / {% trans 'International' %}</span>
+                <h3 class="display mt-auto pt-12 text-4xl text-white sm:text-5xl">
+                    {% trans 'Образование международного уровня' %}
+                </h3>
+                <p class="mt-4 max-w-sm text-sm text-brand-100">
+                    {% trans 'Программы с партнёрскими ВУЗами Кореи и других стран. Реальная практика, реальные дипломы.' %}
+                </p>
+                <div class="mt-6">
+                    <a href="{% url 'internationals' %}" class="btn-pill">
+                        {% trans 'Партнёры' %}
+                        <span class="btn-pill-icon">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            {% comment %}Tile 2: accent — корейский язык{% endcomment %}
+            <div class="bento-tile bento-tile-accent">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">02 / {% trans 'Languages' %}</span>
+                <p class="display mt-auto pt-8 text-5xl text-slate-900">3</p>
+                <p class="mt-2 text-sm font-medium text-slate-700">
+                    {% trans 'Языка обучения: русский, корейский, английский' %}
+                </p>
+            </div>
+
+            {% comment %}Tile 3: dark — Сэджон{% endcomment %}
+            <a href="{% url 'saejeon_list' %}" class="bento-tile bento-tile-dark">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">03 / {% trans 'Culture' %}</span>
+                <h3 class="display mt-auto pt-8 text-2xl text-white">{% trans 'Сокулук Сэджон' %}</h3>
+                <p class="mt-2 text-sm text-white/70">{% trans 'Корейский культурный центр на базе колледжа' %}</p>
+            </a>
+
+            {% comment %}Tile 4: фото — преподаватели{% endcomment %}
+            <a href="{% url 'employees' %}" class="bento-tile p-0 lg:col-span-1">
+                <div class="relative h-full min-h-[14rem] w-full overflow-hidden rounded-3xl">
+                    <img src="{% static 'images/college/MY6H8076.webp' %}" alt="" class="h-full w-full object-cover transition duration-700 hover:scale-105">
+                    <div class="photo-card-overlay">
+                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">04 / {% trans 'Faculty' %}</p>
+                        <p class="mt-2 font-display text-lg font-bold">{% trans 'Преподаватели' %}</p>
                     </div>
-                    <p class="desc-body">
-                        {% blocktranslate %}Приветствую Вас на официальном сайте Кыргызского международного универсального колледжа. Кыргызский международный универсальный колледж – это один из самых престижных международных колледжей нашей страны.{% endblocktranslate %}
-                    </p>
-                    <a href="{% url 'welcoming_remarks' %}" class="btn btn-primary">{% trans 'Почитать' %}</a>
+                </div>
+            </a>
+
+            {% comment %}Tile 5: light — Документы{% endcomment %}
+            <a href="{% url 'documents_list' %}" class="bento-tile bento-tile-light">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">05 / {% trans 'Trust' %}</span>
+                <h3 class="display mt-auto pt-8 text-2xl text-slate-900">{% trans 'Прозрачность' %}</h3>
+                <p class="mt-2 text-sm text-slate-600">{% trans 'Все нормативные документы открыты' %}</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% comment %}============================================================
+    HISTORY — текст + видео-карточка
+   ============================================================{% endcomment %}
+<section class="bg-slate-50 py-16 lg:py-20">
+    <div class="container-page grid items-center gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+            <span class="section-eyebrow">{% trans 'История колледжа' %}</span>
+            <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                {% trans 'История развития учебного заведения' %}
+            </h2>
+            <p class="mt-6 text-base leading-relaxed text-slate-600">
+                {% blocktranslate %}История колледжа зародилась в 2013 году — в г. Шопоков были открыты языковые курсы для школьников и взрослых: английского и корейского. Курсы SOSI Educational centre стали популярными в Сокулукском районе благодаря эффективному обучению. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах обучались более 250 школьников из близлежащих школ и гимназий.{% endblocktranslate %}
+            </p>
+            <a href="{% url 'history' %}" class="mt-8 inline-flex btn-pill-dark">
+                {% trans 'Подробно' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+
+        {% comment %}Видео-карточка — клик открывает YouTube в новой вкладке{% endcomment %}
+        <a href="https://www.youtube.com/watch?v=ClbZKRqv7mk"
+           target="_blank" rel="noopener"
+           class="group relative block aspect-video overflow-hidden rounded-3xl shadow-xl lg:col-span-7">
+            <img src="{% static 'images/bg/univer-front.webp' %}"
+                 alt=""
+                 class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-brand-950/20 to-transparent"></div>
+
+            {% comment %}Большая кнопка-play по центру{% endcomment %}
+            <span class="absolute inset-0 flex items-center justify-center">
+                <span class="relative flex h-20 w-20 items-center justify-center rounded-full bg-white text-slate-900 shadow-2xl transition group-hover:scale-110 group-hover:bg-accent-400">
+                    <span class="absolute inset-0 animate-ping rounded-full bg-white/40 group-hover:bg-accent-400/40"></span>
+                    <svg class="relative ml-1 h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </span>
+            </span>
+
+            <div class="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 backdrop-blur">
+                <svg class="h-3.5 w-3.5 text-korean-600" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                {% trans 'Видео о колледже' %}
+            </div>
+        </a>
+    </div>
+</section>
+
+{% comment %}============================================================
+    DIRECTOR — тёмная секция с гигантской цитатой
+   ============================================================{% endcomment %}
+<section class="relative overflow-hidden bg-brand-950 py-24 text-white lg:py-32">
+    <div aria-hidden="true" class="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 font-display text-[24rem] leading-none text-white/5">
+        “
+    </div>
+
+    <div class="container-page relative grid items-center gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+            <div class="relative">
+                <div class="overflow-hidden rounded-3xl">
+                    <img src="{% static 'images/college/Lee_Young_Kwon.webp' %}"
+                         alt="{% trans 'Ли Ён Гвон' %}"
+                         class="aspect-[4/5] w-full object-cover">
+                </div>
+                <div class="absolute -bottom-4 -right-4 rounded-2xl bg-accent-400 px-4 py-3 text-slate-900 shadow-xl">
+                    <p class="font-display text-base font-bold">{% trans 'Ли Ён Гвон' %}</p>
+                    <p class="text-xs">{% trans 'Генеральный директор' %}</p>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="lg:col-span-7">
+            <span class="section-eyebrow !text-accent-400">
+                {% trans 'Приветственное слово' %}
+            </span>
+            <p class="display mt-6 text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
+                {% blocktranslate %}«Кыргызский международный универсальный колледж — один из самых престижных международных колледжей нашей страны».{% endblocktranslate %}
+            </p>
+            <p class="mt-8 text-sm text-white/70">
+                {% trans 'Профессор, доктор филологических наук' %} · {% trans 'Президент Корейской ассоциации славянских языков' %}
+            </p>
+            <a href="{% url 'welcoming_remarks' %}" class="mt-10 inline-flex btn-pill">
+                {% trans 'Читать полностью' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
 
-    <section class="section history">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 pl-lg-5 mb-3">
-                    <div class="title mb-3">
-                        <span>{% trans 'История колледжа' %}</span>
-                        <h3>{% trans 'История развития учебного заведения' %}</h3>
-                    </div>
-                    <p class="desc-body">
-                            {% blocktranslate %}История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI Educational centre стали популярными в Сокулукском районе, благодаря эффективному обучению и результативности. Школьники, успешно завершившие курсы, стали победителями программы FLEX. На курсах стали обучаться более 250 школьников из вблизи расположенных школ и гимназий.{% endblocktranslate %}
-                    </p>
-                    <a href="{% url 'history' %}" class="btn btn-primary">{% trans 'Подробно' %}</a>
-                </div>
-                <div class="col-12 col-lg-6 col-md-6 mb-3">
-                    <div class="video-banner">
-                        <img src="{% static 'images/bg/univer-front.webp' %}" alt="">
-                        <a class="glightbox video" href="https://www.youtube.com/watch?v=ClbZKRqv7mk">
-                            <i class="fa fa-play"></i>
-                        </a>
-                    </div>
-                </div>
+{% comment %}============================================================
+    NEWS — 1 фичерная + сетка
+   ============================================================{% endcomment %}
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Новости' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Что нового в КМУК' %}
+                </h2>
             </div>
+            <a href="{% url 'news_list' %}" class="btn-pill-dark">
+                {% trans 'Все новости' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
         </div>
-    </section>
 
-    <section class="section news">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'Новости колледжа' %}</span>
-                <h3><a href="{% url 'news_list' %}">{% trans 'Новости' %}</a></h3>
-            </div>
-            <div class="slider_tree slider">
-                {% for item in news %}
-                    <div class="card">
-                        <a href="{{ item.get_absolute_url }}" class="card-link">
-                            <div class="card-img">
-                                {% generateimage 'main:thumbnail' source=item.image -- class="mypicture" %}
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{ item.title|truncatechars:63 }}</h4>
-                            </div>
-                            <div class="card-inner">
-                                <span class="card-inner_btn_right">{{ item.created|date }}</span>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-
-    <section class="section specialties">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'Наши специальности' %}</span>
-                <h3><a href="#">{% trans 'Специальности' %}</a></h3>
-            </div>
-            <div class="slider_tree slider">
-                {% for specialty in specialties %}
-                    <div class="card">
-                        <a href="{{ specialty.get_absolute_url }}" class="card-link">
-                            <div class="card-img">
-                                {% generateimage 'main:thumbnail' source=specialty.image -- class="mypicture" %}
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{ specialty.title|truncatechars:63 }}</h4>
-                            </div>
-                            <div class="card-inner">
-                                <span class="card-inner_btn_left">{{ specialty.form_verbose }}</span>
-                                <span class="card-inner_btn_right">{{ specialty.contract }} сом</span>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section class="section cooperation">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'Студентам' %}</span>
-                <h3><a href="{% url 'saejeon_list' %}">{% trans 'Сокулук Сэджон' %}</a></h3>
-            </div>
-            <div class="slider_tree slider">
-                {% for saejeon in saejeons %}
-                    <div class="card international-card">
-                        <a href="{{ saejeon.get_absolute_url }}" class="card-link">
-                            <div class="card-img">
-                                {% generateimage 'main:thumbnail' source=saejeon.image -- class="mypicture" %}
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{ saejeon.title|truncatechars:63 }}</h4>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section class="section cooperation">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'О колледже' %}</span>
-                <h3><a href="{% url 'employees' %}">{% trans 'Структура' %}</a></h3>
-            </div>
-            <div class="slider_employee slider list_employee">
-                {% for employee in employees %}
-                    <a href="{{ employee.get_absolute_url }}" class="card">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="{{ employee.image.url }}" class="card-img" alt="">
-                            </div>
+        {% if news %}
+        <div class="mt-12 grid gap-6 lg:grid-cols-12">
+            {% for item in news %}
+                {% if forloop.first %}
+                    <a href="{{ item.get_absolute_url }}" class="photo-card group lg:col-span-7 lg:row-span-3">
+                        {% generateimage 'main:thumbnail' source=item.image -- class="aspect-[16/12] w-full object-cover transition duration-700 group-hover:scale-105 lg:aspect-[16/14]" %}
+                        <div class="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-accent-400 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-900">
+                            {% trans 'Главное' %}
                         </div>
-                        <div class="card-content">
-                            <h2 class="name">{{ employee.get_full_name }}</h2>
-                            <p class="description">{{ employee.position }}</p>
+                        <div class="photo-card-overlay !p-8">
+                            <time class="text-xs font-medium uppercase tracking-wider text-white/75">{{ item.created|date:"d M Y" }}</time>
+                            <p class="mt-3 font-display text-2xl font-bold leading-tight text-white lg:text-3xl">
+                                {{ item.title|truncatechars:120 }}
+                            </p>
                         </div>
                     </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section class="section cooperation">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'Студентам' %}</span>
-                <h3><a href="{% url 'students' %}">{% trans 'Члены студенческого совета' %}</a></h3>
-            </div>
-            <div class="slider_employee slider list_employee">
-                {% for student in students %}
-                    <a href="{{ student.get_absolute_url }}" class="card">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="{{ student.image.url }}" class="card-img" alt="">
+                {% elif forloop.counter <= 4 %}
+                    <a href="{{ item.get_absolute_url }}" class="group block overflow-hidden rounded-3xl border border-slate-100 bg-white transition hover:border-slate-300 lg:col-span-5">
+                        <div class="flex gap-4 p-3">
+                            <div class="aspect-[4/3] w-32 shrink-0 overflow-hidden rounded-2xl bg-slate-100 sm:w-40">
+                                {% generateimage 'main:thumbnail' source=item.image -- class="h-full w-full object-cover transition duration-500 group-hover:scale-105" %}
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">{{ student.get_full_name }}</h2>
-                            <p class="description">{{ student.position }}</p>
+                            <div class="min-w-0 flex-1 py-1 pr-2">
+                                <time class="text-xs font-medium uppercase tracking-wider text-slate-500">{{ item.created|date:"d M Y" }}</time>
+                                <p class="mt-2 line-clamp-3 font-display text-sm font-semibold leading-snug text-slate-900 sm:text-base">
+                                    {{ item.title|truncatechars:100 }}
+                                </p>
+                            </div>
                         </div>
                     </a>
-                {% endfor %}
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
-    </section>
-    <section class="section cooperation">
-        <div class="container">
-            <div class="title">
-                <span>{% trans 'Сотрудничество' %}</span>
-                <h3><a href="{% url 'internationals' %}">{% trans 'Международное сотрудничество' %}</a></h3>
-            </div>
-            <div class="slider_tree slider">
-                {% for international in internationals %}
-                    <div class="card international-card">
-                        <a href="{{ international.get_absolute_url }}" class="card-link">
-                            <div class="card-img">
-                                {% generateimage 'main:thumbnail' source=international.image -- class="mypicture" %}
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{ international.title|truncatechars:63 }}</h4>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+        {% else %}
+        <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center">
+            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6z"/></svg>
+            <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Новостей пока нет' %}</p>
+            <p class="mt-1 max-w-sm text-sm text-slate-500">{% trans 'Добавьте первую новость через админ-панель — она сразу появится здесь.' %}</p>
         </div>
-    </section>
-{% endblock %}
+        {% endif %}
+    </div>
+</section>
 
-{% block scripts %}
-    <script src="{% static 'libs/glightbox/glightbox.min.js' %}"></script>
-    <script type="text/javascript">
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=ClbZKRqv7mk',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
-    </script>
+{% comment %}============================================================
+    SPECIALTIES — карточки с прайс-бейджем
+   ============================================================{% endcomment %}
+<section class="bg-slate-50 py-16 lg:py-20">
+    <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Образование' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Специальности' %}
+                </h2>
+                <p class="mt-3 max-w-md text-sm text-slate-600">
+                    {% trans 'Выберите своё направление. Все программы аккредитованы и сопровождаются стажировками.' %}
+                </p>
+            </div>
+            <a href="{% url 'specialties_list' %}" class="btn-pill-dark">
+                {% trans 'Все специальности' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+        {% if specialties %}
+        <div class="mt-12 scroll-row">
+            {% for specialty in specialties %}
+                <a href="{{ specialty.get_absolute_url }}" class="photo-card group w-80 sm:w-96">
+                    {% generateimage 'main:thumbnail' source=specialty.image -- class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" %}
+                    <div class="absolute right-4 top-4 rounded-full bg-accent-400 px-4 py-1.5 text-xs font-bold text-slate-900">
+                        {{ specialty.contract }} сом
+                    </div>
+                    <div class="photo-card-overlay">
+                        <p class="text-xs font-medium uppercase tracking-wider text-white/70">{{ specialty.form_verbose }}</p>
+                        <p class="mt-2 font-display text-base font-bold leading-snug text-white">
+                            {{ specialty.title|truncatechars:80 }}
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Специальности скоро появятся' %}</p>
+            <p class="mt-1 max-w-sm text-sm text-slate-500">{% trans 'Добавьте специальности через админ-панель — они сразу появятся здесь с фото и ценой.' %}</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% comment %}============================================================
+    SAEJEON — корейский культурный центр
+   ============================================================{% endcomment %}
+{% if saejeons %}
+<section class="bg-white py-24 lg:py-32">
+    <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Студентам' %}</span>
+                <h2 class="display mt-5 text-display-sm text-slate-900">
+                    {% trans 'Сокулук Сэджон' %} <span class="text-korean-600">✦</span>
+                </h2>
+            </div>
+            <a href="{% url 'saejeon_list' %}" class="btn-pill-dark">
+                {% trans 'Все материалы' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+        <div class="mt-12 scroll-row">
+            {% for saejeon in saejeons %}
+                <a href="{{ saejeon.get_absolute_url }}" class="photo-card group w-80 sm:w-96">
+                    {% generateimage 'main:thumbnail' source=saejeon.image -- class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" %}
+                    <div class="photo-card-overlay">
+                        <p class="font-display text-base font-bold leading-snug text-white">
+                            {{ saejeon.title|truncatechars:80 }}
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% comment %}============================================================
+    PEOPLE — преподаватели + студсовет в один блок
+   ============================================================{% endcomment %}
+<section class="bg-slate-50 py-16 lg:py-20">
+    <div class="container-page">
+
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'О колледже' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Преподаватели' %}
+                </h2>
+            </div>
+            <a href="{% url 'employees' %}" class="btn-pill-dark">
+                {% trans 'Вся структура' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+        {% if employees %}
+        <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {% for employee in employees %}
+                <a href="{{ employee.get_absolute_url }}" class="photo-card group aspect-[3/4]">
+                    <img src="{{ employee.image.url }}"
+                         alt="{{ employee.get_full_name }}"
+                         class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="photo-card-overlay">
+                        <p class="font-display text-sm font-bold text-white">{{ employee.get_full_name }}</p>
+                        <p class="mt-1 text-xs text-white/75">{{ employee.position }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Преподаватели скоро будут добавлены' %}</p>
+            <p class="mt-1 max-w-sm text-sm text-slate-500">{% trans 'Заполните карточки преподавателей через админ-панель — они появятся в виде фото-сетки.' %}</p>
+        </div>
+        {% endif %}
+
+        <div class="mt-20 flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Студентам' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Студенческий совет' %}
+                </h2>
+            </div>
+            <a href="{% url 'students' %}" class="btn-pill-dark">
+                {% trans 'Все участники' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+        {% if students %}
+        <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {% for student in students %}
+                <a href="{{ student.get_absolute_url }}" class="photo-card group aspect-[3/4]">
+                    <img src="{{ student.image.url }}"
+                         alt="{{ student.get_full_name }}"
+                         class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="photo-card-overlay">
+                        <p class="font-display text-sm font-bold text-white">{{ student.get_full_name }}</p>
+                        <p class="mt-1 text-xs text-white/75">{{ student.position }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Состав студсовета скоро появится' %}</p>
+            <p class="mt-1 max-w-sm text-sm text-slate-500">{% trans 'Добавьте участников совета через админ-панель — карточки появятся здесь.' %}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% comment %}============================================================
+    INTERNATIONALS
+   ============================================================{% endcomment %}
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <span class="section-eyebrow">{% trans 'Сотрудничество' %}</span>
+                <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+                    {% trans 'Международные партнёры' %}
+                </h2>
+            </div>
+            <a href="{% url 'internationals' %}" class="btn-pill-dark">
+                {% trans 'Все партнёры' %}
+                <span class="btn-pill-icon">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+            </a>
+        </div>
+        {% if internationals %}
+        <div class="mt-12 scroll-row">
+            {% for international in internationals %}
+                <a href="{{ international.get_absolute_url }}" class="photo-card group w-80 sm:w-96">
+                    {% generateimage 'main:thumbnail' source=international.image -- class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" %}
+                    <div class="photo-card-overlay">
+                        <p class="font-display text-base font-bold leading-snug text-white">
+                            {{ international.title|truncatechars:80 }}
+                        </p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center">
+            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Партнёры скоро появятся' %}</p>
+            <p class="mt-1 max-w-sm text-sm text-slate-500">{% trans 'Добавьте международных партнёров через админ-панель — карточки с фото появятся здесь.' %}</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
 {% endblock %}

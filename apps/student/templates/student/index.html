@@ -1,54 +1,73 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans 'Студентский совет' %}{% endblock %}
+{% block title %}{% trans 'Студенческий совет' %}{% endblock %}
 
 {% block content %}
-<section class="section team">
-    <div class="container">
-        <div class="title animate__animated animate__fadeInUp">
-            <span>{% trans 'Студентам' %}</span>
-            <h3>{% trans 'Студенческий совет' %}</h3>
-        </div>
-        <div class="history-text animate__animated animate__fadeInUp">
-            <p>Для студента, Кыргызский международный универсальный колледж - это не только современные учебные программы, лекции и семинары преподавателей, сессии, но и многообразная студенческая жизнь!</p>
-            <p>Сделать студенческую жизнь ярче и разнообразнее, сплотить учащихся на основе общих интересов, призван Студенческий Совет. Инициатива и вера в свои силы, лидерство и умение работать в команде – эти основополагающие для наших студентов качества развивает не только учеба, но и студенческое сообщество колледжа.</p>
-            <p>Студенческий совет – орган студенческого самоуправления, организатор всех академических мероприятий для студентов.</p>
-            <p>Студенческий совет колледжа осуществляет работу по следующим направлениям:</p>
-            <ul class="students_ul">
-                <li>взаимодействие с другими учреждениями и организациями студенческой среды;</li>
-                <li>развитие инициатив студентов, направленных на улучшение условий учебы и вне учебной жизни;</li>
-                <li>активное участие студентов в организационно-технической работе: выставки, конференции, научных семинаров</li>
-                <li>организация досуга и отдыха успешно обучающихся студентов;</li>
-                <li>разработка и реализация мероприятий по повышению ответственности студентов за своевременное выполнение ими учебных планов, учебной дисциплины и правил поведения </li>
-                <li>представление интересов студентов на всех уровнях руководства</li>
-                <li>активизация процессов управления студенческими коллективами и вовлечение их в общественную жизнь колледжа;</li>
-                <li>создание единого информационного пространства для студентов и администраций;</li>
-                <li>участие в распределении стипендиального фонда и оказания материальной помощи нуждающимся студентам.</li>
-            </ul>
-        </div>
-        <div class="list_students animate__animated animate__fadeInUp">
-            {% for student in students %}
-                <a href="{{ student.get_absolute_url }}" class="card">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            {% if student.image %}
-                                <img src="{{ student.image.url }}" class="card-img" alt="{{ student.get_full_name }}">
-                            {% elif student.gender == 'men' %}
-                                <img src="{% static 'images/more/avatar_men.webp' %}" class="card-img-top" alt="Avatar men">
-                            {% else %}
-                                <img src="{% static 'images/more/avatar_women.webp' %}" class="card-img-top" alt="Avatar women">
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">{{ student.get_full_name }}</h2>
-                        <p class="description">{{ student.position }}</p>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'Студентам' %}</span>
+        <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
+            {% trans 'Студенческий совет' %}
+        </h1>
     </div>
 </section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page max-w-4xl space-y-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+        <p>{% trans 'Для студента Кыргызский международный универсальный колледж — это не только современные учебные программы, лекции и семинары преподавателей, сессии, но и многообразная студенческая жизнь.' %}</p>
+        <p>{% trans 'Сделать студенческую жизнь ярче и разнообразнее, сплотить учащихся на основе общих интересов призван Студенческий Совет. Инициатива и вера в свои силы, лидерство и умение работать в команде — эти качества развивает не только учеба, но и студенческое сообщество колледжа.' %}</p>
+        <p>{% trans 'Студенческий совет — орган студенческого самоуправления, организатор всех академических мероприятий для студентов. Работа ведётся по следующим направлениям:' %}</p>
+        <ul class="list-disc space-y-2 pl-6 marker:text-brand-700">
+            <li>{% trans 'взаимодействие с другими учреждениями и организациями студенческой среды;' %}</li>
+            <li>{% trans 'развитие инициатив студентов, направленных на улучшение условий учёбы и внеучебной жизни;' %}</li>
+            <li>{% trans 'активное участие студентов в организационно-технической работе: выставки, конференции, научные семинары;' %}</li>
+            <li>{% trans 'организация досуга и отдыха успешно обучающихся студентов;' %}</li>
+            <li>{% trans 'разработка и реализация мероприятий по повышению ответственности студентов за выполнение учебных планов, учебной дисциплины и правил поведения;' %}</li>
+            <li>{% trans 'представление интересов студентов на всех уровнях руководства;' %}</li>
+            <li>{% trans 'активизация процессов управления студенческими коллективами и вовлечение их в общественную жизнь колледжа;' %}</li>
+            <li>{% trans 'создание единого информационного пространства для студентов и администрации;' %}</li>
+            <li>{% trans 'участие в распределении стипендиального фонда и оказании материальной помощи нуждающимся студентам.' %}</li>
+        </ul>
+    </div>
+</section>
+
+<section class="bg-slate-50 py-16 lg:py-20">
+    <div class="container-page">
+        <span class="section-eyebrow">{% trans 'Состав совета' %}</span>
+        <h2 class="display mt-4 text-3xl text-slate-900 sm:text-4xl lg:text-5xl">
+            {% trans 'Члены студенческого совета' %}
+        </h2>
+
+        {% if students %}
+            <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {% for student in students %}
+                    <a href="{{ student.get_absolute_url }}" class="photo-card group aspect-[3/4]">
+                        {% if student.image %}
+                            <img src="{{ student.image.url }}" alt="{{ student.get_full_name }}"
+                                 class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                        {% elif student.gender == 'men' %}
+                            <img src="{% static 'images/more/avatar_men.webp' %}" alt=""
+                                 class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                        {% else %}
+                            <img src="{% static 'images/more/avatar_women.webp' %}" alt=""
+                                 class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                        {% endif %}
+                        <div class="photo-card-overlay">
+                            <p class="font-display text-sm font-bold text-white">{{ student.get_full_name }}</p>
+                            <p class="mt-1 text-xs text-white/75">{{ student.position }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="mt-12 flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+                <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Состав студсовета скоро появится' %}</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
 {% endblock %}

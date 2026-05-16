@@ -52,6 +52,7 @@ static/rest_framework
 static/mptt
 static/css/core.min.css
 static/css/responsive.min.css
+static/css/app.css
 
 # collectstatic destination — наполняется на проде, в git не нужен
 staticfiles/

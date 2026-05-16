@@ -1,29 +1,47 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}
-    {{ process.title }}
-{% endblock %}
+{% block title %}{{ process.title }}{% endblock %}
 
 {% block content %}
-    <section class="section documents">
-        <div class="container">
-            <div class="row">
-                <div class="title col-12 m-auto">
-                    <span>{% trans 'Учебный процесс' %}</span>
-                    <h3>{{ process.title }}</h3>
-                </div>
-                <ul class="cooperation-list col-12 m-auto">
-                    {% for item in process.files.all %}
-                        <li>
-                            <a href="{{ item.file.url }}">
-                                <i class="fa fa-file mr-2"></i>
-                                {{ item.title }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'Учебный процесс' %}</span>
+        <h1 class="display mt-4 max-w-4xl text-4xl sm:text-5xl lg:text-6xl">
+            {{ process.title }}
+        </h1>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+        {% if process.files.all %}
+            <ul class="grid gap-3 sm:grid-cols-2">
+                {% for item in process.files.all %}
+                    <li>
+                        <a href="{{ item.file.url }}" target="_blank" rel="noopener"
+                           class="group flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition hover:border-brand-300 hover:bg-white hover:shadow-md">
+                            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white transition group-hover:bg-brand-800">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <span class="min-w-0 flex-1">
+                                <span class="block truncate font-display text-sm font-semibold text-slate-900 group-hover:text-brand-700">{{ item.title }}</span>
+                                <span class="text-xs text-slate-500">{% trans 'Открыть файл' %}</span>
+                            </span>
+                            <svg class="h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-brand-700 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-16 text-center">
+                <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <p class="mt-4 font-display text-lg font-semibold text-slate-700">{% trans 'Файлы пока не добавлены' %}</p>
+                <p class="mt-1 text-sm text-slate-500">{% trans 'Документы появятся здесь после добавления в админ-панели.' %}</p>
             </div>
-        </div>
-    </section>
+        {% endif %}
+    </div>
+</section>
+
 {% endblock %}

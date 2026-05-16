@@ -18,6 +18,8 @@ def get_english_translit(text: str, slug: bool = True):
 
 def get_random_model(model):
     max_id = model.objects.all().aggregate(max_id=Max("id"))['max_id']
+    if max_id is None:
+        return None
     while True:
         pk = randint(1, max_id)
         item = model.objects.filter(pk=pk).first()

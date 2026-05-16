@@ -4,67 +4,80 @@
 {% block title %}{{ student.get_full_name }}{% endblock %}
 
 {% block content %}
-<section class="team">
-    <div class="container">
-        <div class="resume_wrapper">
-            <div class="resume_left">
-                <div class="resume_image">
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <a href="{% url 'students' %}" class="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            {% trans 'Студенческий совет' %}
+        </a>
+        <span class="mt-6 inline-block section-eyebrow !text-accent-400">{{ student.position }}</span>
+        <h1 class="display mt-3 text-3xl sm:text-4xl lg:text-5xl">
+            {{ student.get_full_name }}
+        </h1>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        <aside class="lg:col-span-4">
+            <div class="sticky top-28 space-y-6">
+                <div class="overflow-hidden rounded-3xl shadow-xl">
                     {% if student.image %}
-                        <img src="{{ student.image.url }}" class="card-img-top" alt="{{ student.get_full_name }}">
+                        <img src="{{ student.image.url }}" alt="{{ student.get_full_name }}" class="aspect-[4/5] w-full object-cover">
                     {% elif student.gender == 'men' %}
-                        <img src="{% static 'images/more/avatar_men.webp' %}" class="card-img-top" alt="Avatar men">
+                        <img src="{% static 'images/more/avatar_men.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
                     {% else %}
-                        <img src="{% static 'images/more/avatar_women.webp' %}" class="card-img-top" alt="Avatar women">
+                        <img src="{% static 'images/more/avatar_women.webp' %}" alt="" class="aspect-[4/5] w-full object-cover">
                     {% endif %}
                 </div>
-                <div class="resume_bottom">
-                    <div class="resume_item resume_full_name">
-                        <div class="name">{{ student.get_full_name }}</div>
-                        <div class="role">{{ student.position }}</div>
-                    </div>
-                    <div class="resume_item resume_profile">
-                        <div class="resume_title">О себе</div>
-                        <div class="resume_info" style='color: #fff !important'>
-                            <p class="about_p"><b>День рождения:</b> {{ student.date_of_birth }} </p>
+
+                <div class="rounded-3xl bg-slate-50 p-6">
+                    <h3 class="font-display text-base font-bold text-slate-900">{% trans 'О себе' %}</h3>
+                    <dl class="mt-4 space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500">{% trans 'День рождения' %}</dt>
+                            <dd class="font-semibold text-slate-900">{{ student.date_of_birth|date:"d M Y" }}</dd>
                         </div>
-                    </div>
-                    {% if student.email or student.instagram or student.facebook %}
-                        <div class="resume_item resume_contact">
-                            <div class="resume_title">Контакты</div>
-                            <div class="resume_info">
-                                {% if student.email %}
-                                    <div class="resume_subtitle">Email:</div>
-                                    <div class="resume_subinfo">{{ student.email }}</div>
-                                {% endif %}
-                                <div class="social">
-                                    {% if student.instagram %}
-                                        <a href="{{ student.instagram }}" target="_blank" class="instagram">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    {% endif %}
-                                    {% if student.facebook %}
-                                         <a href="{{ student.instagram }}" target="_blank" class="facebook">
-                                            <i class="fa fa-facebook"></i>
-                                         </a>
-                                    {% endif %}
-                                </div>
-                            </div>
+                        {% if student.email %}
+                        <div class="flex justify-between gap-2">
+                            <dt class="text-slate-500">Email</dt>
+                            <dd><a href="mailto:{{ student.email }}" class="font-semibold text-brand-700 hover:underline">{{ student.email }}</a></dd>
                         </div>
+                        {% endif %}
+                    </dl>
+
+                    {% if student.instagram or student.facebook %}
+                    <div class="mt-5 flex items-center gap-2 border-t border-slate-200 pt-5">
+                        {% if student.instagram %}
+                            <a href="{{ student.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"
+                               class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-700 transition hover:bg-brand-700 hover:text-white">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </a>
+                        {% endif %}
+                        {% if student.facebook %}
+                            <a href="{{ student.facebook }}" target="_blank" rel="noopener" aria-label="Facebook"
+                               class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-700 transition hover:bg-brand-700 hover:text-white">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+                            </a>
+                        {% endif %}
+                    </div>
                     {% endif %}
                 </div>
             </div>
-            <div class="resume_right pr-0">
-                <div class="resume_item resume_name pt-0">
-                    <div class="name mb-3">{{ student.get_full_name }}</div>
-                    <div class="role">{{ student.position }}</div>
-                </div>
-                <div class="resume_item resume_education">
-                    <div class="resume_info">
-                        {% autoescape off %}{{ student.description }}{% endautoescape %}
-                    </div>
-                </div>
+        </aside>
+
+        <div class="lg:col-span-8">
+            <span class="section-eyebrow">{% trans 'Резюме' %}</span>
+            <h2 class="display mt-4 text-2xl text-slate-900 sm:text-3xl">{{ student.get_full_name }}</h2>
+            <p class="mt-2 text-sm text-slate-500">{{ student.position }}</p>
+
+            <div class="prose prose-slate mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-700">
+                {% autoescape off %}{{ student.description }}{% endautoescape %}
             </div>
         </div>
     </div>
 </section>
+
 {% endblock %}

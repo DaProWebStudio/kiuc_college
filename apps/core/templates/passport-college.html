@@ -1,32 +1,39 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 
-{% block title %}
-    {% trans 'Паспорт колледжа' %}
-{% endblock %}
+{% block title %}{% trans 'Паспорт колледжа' %}{% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'libs/flipbook/flipbook.style.css' %}">
 {% endblock %}
 
 {% block content %}
-    <section class="section password_college">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="title">
-                        <span>{% trans 'О колледже' %}</span>
-                        <h3>{% trans 'Паспорт колледжа' %}</h3>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="flip_book" style="height: 600px; position: relative;">
-                        <input type="hidden" id="url_pdf" value="{% static 'documents/password-college.pdf' %}">
-                    </div>
-                </div>
+
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <span class="section-eyebrow !text-accent-400">{% trans 'О колледже' %}</span>
+        <h1 class="display mt-4 text-4xl sm:text-5xl lg:text-6xl">
+            {% trans 'Паспорт колледжа' %}
+        </h1>
+        <p class="mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
+            {% trans 'Официальный документ — листайте страницы как настоящую книгу.' %}
+        </p>
+    </div>
+</section>
+
+<section class="bg-slate-50 py-16 lg:py-20">
+    <div class="container-page">
+        <div class="overflow-hidden rounded-3xl bg-white p-4 shadow-xl sm:p-6">
+            <div id="flip_book" style="height: 600px; position: relative;">
+                <input type="hidden" id="url_pdf" value="{% static 'documents/password-college.pdf' %}">
             </div>
         </div>
-    </section>
+        <p class="mt-4 text-center text-xs text-slate-500">
+            {% trans 'Если книга не загружается — попробуйте обновить страницу или скачать PDF.' %}
+        </p>
+    </div>
+</section>
+
 {% endblock %}
 
 {% block scripts %}

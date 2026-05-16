@@ -1,65 +1,59 @@
 {% extends 'base/base.html' %}
 {% load static i18n imagekit %}
 
-{% block title %}
-    {{ item.title }}
-{% endblock %}
-
-{% block links %}
-    <link rel="stylesheet" href="{% static 'libs/magnific-popper/main.css' %}">
-{% endblock links %}
+{% block title %}{{ item.title }}{% endblock %}
 
 {% block content %}
-    <section class="section detail">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-sm-7 col-12">
-                    <div class="detail__img">
-                        <img src="{{ item.image.url }}" alt="image" class="w-100">
-                    </div>
-                    <div class="title mt-3">
-                        <span>{{ title }}</span>
-                        <h1 class="font-weight-bold news-title">{{ item.title }}</h1>
-                        <p style="color: #0d6efd">{% trans 'Добавлено' %}: {{ item.created|date }}</p>
-                    </div>
-                    <div class="content_dynamic_block">
-                        {% autoescape off %}{{ item.description }}{% endautoescape %}
-                    </div>
-                    <div class="detail__images mt-4">
-                        {% if item.images.all %}
-                            <div class="title">
-                                <h3>{% trans 'Фотогалерея' %}</h3>
-                            </div>
-                            <div class="row gallery-list">
-                                {% for foo in item.images.all %}
-                                    <div class="col-6 col-md-6 col-lg-4 p-1">
-                                        <a class="gallery-item" href="{{ foo.image.url }}">
-                                            <span class="gallery-item-hover">{% trans 'Посмотреть' %}</span>
-                                            {% generateimage 'main:thumbnail' source=foo.image -- class="mypicture" %}
-                                        </a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <aside class="col-lg-4 col-sm-5 col-12">
-                    {% include 'news/aside.html' %}
-                </aside>
-            </div>
-        </div>
-    </section>
-{% endblock %}
 
-{% block scripts %}
-    <script src="{% static 'libs/magnific-popper/main.min.js' %}"></script>
-    <script>
-        $(".gallery-list").magnificPopup({
-            delegate: "a",
-            type: "image",
-            gallery: {
-                enabled: true
-            }
-        });
-    </script>
-{% endblock scripts %}
+<section class="bg-brand-950 pt-32 pb-12 text-white lg:pt-40 lg:pb-16">
+    <div class="container-page">
+        <a href="{% url 'news_list' %}" class="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            {% trans 'Все новости' %}
+        </a>
+        <h1 class="display mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-5xl">
+            {{ item.title }}
+        </h1>
+        <time class="mt-6 inline-block text-xs font-medium uppercase tracking-wider text-accent-400">
+            {{ item.created|date:"d F Y" }}
+        </time>
+    </div>
+</section>
+
+<section class="bg-white py-16 lg:py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-12">
+
+        <article class="lg:col-span-8">
+            <div class="overflow-hidden rounded-3xl shadow-xl">
+                <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-full object-cover">
+            </div>
+
+            <div class="prose prose-slate mt-10 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-700 prose-img:rounded-2xl">
+                {% autoescape off %}{{ item.description }}{% endautoescape %}
+            </div>
+
+            {% if item.images.all %}
+            <div class="mt-12">
+                <span class="section-eyebrow">{% trans 'Фотогалерея' %}</span>
+                <h2 class="display mt-4 text-2xl text-slate-900 sm:text-3xl">{% trans 'Больше фотографий' %}</h2>
+                <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {% for foo in item.images.all %}
+                        <a href="{{ foo.image.url }}" target="_blank" rel="noopener" class="group relative block overflow-hidden rounded-2xl bg-slate-100">
+                            {% generateimage 'main:thumbnail' source=foo.image -- class="aspect-square w-full object-cover transition duration-500 group-hover:scale-105" %}
+                            <span class="absolute inset-0 flex items-center justify-center bg-brand-950/0 text-sm font-semibold text-white opacity-0 transition group-hover:bg-brand-950/50 group-hover:opacity-100">
+                                {% trans 'Открыть' %}
+                            </span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </article>
+
+        <div class="lg:col-span-4">
+            {% include 'news/aside.html' %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 02:07+0600\n"
+"POT-Creation-Date: 2026-05-18 01:05+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,939 +18,526 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/core/models.py:18 apps/core/models.py:31 apps/core/models.py:75
-#: apps/core/models.py:102 apps/employee/models.py:17 apps/news/models.py:15
 msgid "Название"
 msgstr "Title"
 
-#: apps/core/models.py:19 apps/core/models.py:90 apps/core/models.py:123
 msgid "Файл"
 msgstr "File"
 
-#: apps/core/models.py:25 apps/core/models.py:26
-#: apps/core/templates/collaborations/cooperation.html:5
-#: apps/core/templates/collaborations/cooperation.html:14
-#: apps/core/templates/collaborations/internationals.html:13
-#: apps/core/templates/index.html:163 templates/base/footer.html:34
-#: templates/base/menu.html:52
 msgid "Сотрудничество"
 msgstr "Collaboration"
 
-#: apps/core/models.py:33 apps/news/models.py:17 apps/specialty/models.py:28
 msgid "Описание"
 msgstr "Description"
 
-#: apps/core/models.py:34 apps/news/models.py:19 apps/specialty/models.py:32
 msgid "Фото"
 msgstr "Photo"
 
-#: apps/core/models.py:37
 msgid "Договор (PDF)"
 msgstr "Contract (PDF)"
 
-#: apps/core/models.py:57
-#: apps/core/templates/collaborations/international-detail.html:21
-#: apps/core/templates/collaborations/internationals.html:5
-#: apps/core/templates/collaborations/internationals.html:14
-#: apps/core/templates/index.html:164 templates/base/menu.html:53
 msgid "Международное сотрудничество"
 msgstr "International cooperation"
 
-#: apps/core/models.py:58
-#, fuzzy
-#| msgid "Международное сотрудничество"
 msgid "Международные сотрудничество"
 msgstr "International cooperation"
 
-#: apps/core/models.py:64 apps/core/models.py:70 apps/news/models.py:48
-#: apps/news/models.py:59
 msgid "Фотография"
 msgstr "Photo by"
 
-#: apps/core/models.py:71 apps/news/models.py:60
 msgid "Фотографии"
 msgstr "Фотографии"
 
-#: apps/core/models.py:76 apps/core/models.py:103
 msgid "Активный"
 msgstr "Active"
 
-#: apps/core/models.py:82
 msgid "Нормативный документ"
 msgstr "Regulatory document"
 
-#: apps/core/models.py:83 apps/core/templates/documents/list.html:13
-#: apps/core/templates/index.html:52 templates/base/menu.html:50
 msgid "Нормативные документы"
 msgstr "Regulatory documents"
 
-#: apps/core/models.py:87 apps/core/models.py:120
 msgid "Документ"
 msgstr "Document"
 
-#: apps/core/models.py:88 apps/core/models.py:121
 msgid "Название файла"
 msgstr "File name"
 
-#: apps/core/models.py:97
 msgid "Файл документа"
 msgstr "Document file"
 
-#: apps/core/models.py:98
 msgid "Файлы документа"
 msgstr "Document files"
 
-#: apps/core/models.py:115 apps/core/templates/edu_process_detail.html:13
-#: templates/base/menu.html:58
 msgid "Учебный процесс"
 msgstr "Educational process"
 
-#: apps/core/models.py:116
-#, fuzzy
-#| msgid "Учебный процесс"
 msgid "Учебные процессы"
 msgstr "Educational process"
 
-#: apps/core/models.py:130
-#, fuzzy
-#| msgid "Учебный процесс"
 msgid "Файл учебного процесса"
 msgstr "Educational process"
 
-#: apps/core/models.py:131
-#, fuzzy
-#| msgid "Учебный процесс"
 msgid "Файлы учебных процессов"
 msgstr "Educational process"
 
-#: apps/core/templates/collaborations/cooperation.html:13
-#: apps/core/templates/documents/list.html:12
-msgid "О Колледже"
-msgstr "About the College"
+msgid "Заголовок"
+msgstr "Heading"
 
-#: apps/core/templates/collaborations/international-detail.html:31
-msgid "Договор"
-msgstr "Contract"
-
-#: apps/core/templates/collaborations/international-detail.html:36
-#: apps/news/templates/news/detail.html:31
-msgid "Фотогалерея"
-msgstr "Photo by"
-
-#: apps/core/templates/collaborations/international-detail.html:42
-#: apps/news/templates/news/detail.html:37
-msgid "Посмотреть"
-msgstr "View"
-
-#: apps/core/templates/history.html:4 apps/core/templates/history.html:11
-msgid "История создания и развития учебного заведения"
-msgstr "History of the establishment and development of the institution"
-
-#: apps/core/templates/history.html:10
-#: apps/core/templates/passport-college.html:18 templates/base/menu.html:42
-msgid "О колледже"
-msgstr "About college"
-
-#: apps/core/templates/index.html:14 templates/base/base.html:9
-#: templates/base/footer.html:8
-msgid "Кыргызский международный универсальный колледж"
-msgstr "Kyrgyz international universal college"
-
-#: apps/core/templates/index.html:16
-msgid "Миссия колледжа"
-msgstr "Mission of the College"
-
-#: apps/core/templates/index.html:17
 msgid ""
-"Подготовка специалистов, имеющих международный уровень теоретических и "
-"практических навыков, обладающих высокими личностными качествами и способных "
-"повысить уровень производственного потенциала и экономики Кыргызстана"
+"Можно вставить HTML — например, оберни слово в &lt;i&gt;...&lt;/i&gt; чтобы "
+"выделить курсивом."
 msgstr ""
-"To train professionals who have an international level of theoretical and "
-"practical skills, with high personal qualities and capable of increasing the "
-"level of productive capacity and the economy of Kyrgyzstan."
+"You can insert HTML — for example, wrap a word in &lt;i&gt;...&lt;/i&gt; to "
+"italicise it."
 
-#: apps/core/templates/index.html:19
-msgid "Связаться с нами "
-msgstr "Contact us"
+msgid "Подзаголовок"
+msgstr "Subheading"
 
-#: apps/core/templates/index.html:47
-msgid "Учебный процесс колледжа"
-msgstr "The college learning process"
+msgid "Основной текст"
+msgstr "Body text"
 
-#: apps/core/templates/index.html:48
-msgid "Международная деятельность"
-msgstr "International activities"
+msgid "Заголовок контактов"
+msgstr "Contacts heading"
 
-#: apps/core/templates/index.html:49
-msgid "Воспитательная деятельность"
-msgstr "Educational activities"
-
-#: apps/core/templates/index.html:50
-msgid "Цифровая трансформация"
-msgstr "Digital transformation"
-
-#: apps/core/templates/index.html:51 apps/core/templates/index.html:137
-#: apps/specialty/templates/specialty/list.html:4
-#: apps/specialty/templates/specialty/list.html:13
-#: templates/base/footer.html:32
-msgid "Наши специальности"
-msgstr "Our specialties"
-
-#: apps/core/templates/index.html:53 templates/base/menu.html:91
-msgid "Дистанционное обучение «AVN»"
-msgstr "Distance learning «AVN»"
-
-#: apps/core/templates/index.html:54 apps/core/templates/index.html:112
-#: apps/news/models.py:42 apps/news/templates/news/detail.html:21
-#: apps/news/templates/news/list.html:13 templates/base/footer.html:31
-#: templates/base/menu.html:49
-msgid "Новости"
-msgstr "News"
-
-#: apps/core/templates/index.html:69
-msgid "Приветственное слово"
-msgstr "Welcome speech"
-
-#: apps/core/templates/index.html:70
-#: apps/core/templates/welcoming-remarks.html:5
-#: apps/core/templates/welcoming-remarks.html:16
-msgid "Лю Бенг Ил"
-msgstr ""
-
-#: apps/core/templates/index.html:71
-#: apps/core/templates/welcoming-remarks.html:17
-msgid "Генерального директора КМУК, профессора, доктора филологических наук"
-msgstr "General Director of KMUK, Professor, Doctor of Philology"
-
-#: apps/core/templates/index.html:72
-#: apps/core/templates/welcoming-remarks.html:18
-msgid "Заслуженного работника образования  Республики Корея"
-msgstr "Honored Worker of Education of the Republic of Korea"
-
-#: apps/core/templates/index.html:75
-msgid ""
-"Приветствую Вас на официальном сайте Кыргызского международного "
-"универсального колледжа. Кыргызский международный универсальный колледж – "
-"это один из самых престижных международных колледжей нашей страны."
-msgstr ""
-"Welcome to the official website of the Kyrgyz International Universal "
-"College. Kyrgyz International Universal College – this is one of the most "
-"prestigious international colleges in our country."
-
-#: apps/core/templates/index.html:77
-msgid "Почитать"
-msgstr "Read"
-
-#: apps/core/templates/index.html:88
-msgid "История колледжа"
-msgstr "College History"
-
-#: apps/core/templates/index.html:89
-msgid "История развития учебного заведения"
-msgstr "History of the institution's development"
-
-#: apps/core/templates/index.html:92
-msgid ""
-"История колледжа зародилась в 2013 году – в г. Шопоков были открыты языковые "
-"курсы для школьников и взрослых: английского, корейского языков. Курсы SOSI "
-"Educational centre стали популярными в Сокулукском районе, благодаря "
-"эффективному обучению и результативности. Школьники, успешно завершившие "
-"курсы, стали победителями программы FLEX. На курсах стали обучаться более "
-"250 школьников из вблизи расположенных школ и гимназий."
-msgstr ""
-"The history of the college originated in 2013 - in Shopokov opened language  "
-"courses for schoolchildren and adults: English, Korean. The SOSI Educational "
-"center became popular in Sokuluk district, thanks to effective training and "
-"results. The schoolchildren who successfully completed courses became "
-"winners of the FLEX program. More than 250 students from nearby schools and "
-"gymnasiums."
-
-#: apps/core/templates/index.html:94
-msgid "Подробно"
-msgstr "Read more"
-
-#: apps/core/templates/index.html:111 apps/news/templates/news/list.html:4
-#: apps/news/templates/news/list.html:12
-msgid "Новости колледжа"
-msgstr "College news"
-
-#: apps/core/templates/index.html:138 apps/specialty/models.py:61
-msgid "Специальности"
-msgstr "Specialties"
-
-#: apps/core/templates/passport-college.html:5
-#: apps/core/templates/passport-college.html:19 templates/base/menu.html:47
-msgid "Паспорт колледжа"
-msgstr "College passport"
-
-#: apps/core/templates/reception.html:5 apps/core/templates/reception.html:14
-#: apps/core/templates/reception.html:42 templates/base/menu.html:71
-msgid "Абитуриентам"
-msgstr "For applicants"
-
-#: apps/core/templates/reception.html:15
-msgid "Уважаемые абитуриенты!"
-msgstr "Dear applicants!"
-
-#: apps/core/templates/reception.html:19
-msgid ""
-"Кыргызский международный универсальный колледж, рад пригласить Вас на наше "
-"учебное заведение. Наш колледж предоставляет широкую возможность выбора "
-"специальностей, приносящих успех и стабильный доход в различных сферах "
-"деятельности! Наши специальности были, есть и будут перспективными, "
-"высокооплачиваемыми и интересными!"
-msgstr ""
-"Kyrgyz International Universal College, I am glad to invite you to our "
-"educational institution. Our college provides a wide choice of specialties "
-"that bring success and stable income in various fields activities! Our "
-"specialties were, are and will be promising, highly paid and interesting!"
-
-#: apps/core/templates/reception.html:21
-msgid "В настоящее время колледж ведет подготовку по специальностям:"
-msgstr "Currently, the college conducts training in the following specialties:"
-
-#: apps/core/templates/reception.html:31
-msgid ""
-"Образовательный процесс в колледже организуют квалифицированные "
-"преподаватели. Колледж располагает оборудованными кабинетами и компьютерными "
-"классами, позволяющими осуществлять подготовку специалистов на высоком "
-"уровне. Мы поддерживаем тесные контакты с нашими зарубежными партнерами, "
-"можете обучаться в одном из лучших вузов Республики Корея."
-msgstr ""
-"The educational process at the college is organized by qualified teachers. "
-"The College has equipped classrooms and computer classes that allow for the "
-"training of specialists at a high  level. We maintain close contacts with "
-"our foreign partners, you can study at one of the best universities in the "
-"Republic of Korea."
-
-#: apps/core/templates/reception.html:34
-msgid ""
-"Годы учебы в колледже запомнятся Вам яркими впечатлениями об интересной и "
-"насыщенной жизни."
-msgstr ""
-"You will remember your college years with vivid impressions of an "
-"interesting and eventful life."
-
-#: apps/core/templates/reception.html:37
-msgid ""
-"Каждый для себя найдет специальность, профессию по своему характеру, стилю "
-"жизни, темпераменту, складу ума."
-msgstr ""
-"Everyone will find for themselves a specialty, a profession according to "
-"their character, style life, temperament, mindset."
-
-#: apps/core/templates/reception.html:43
-msgid "Как поступить в наш колледж"
-msgstr "How to enroll in our college"
-
-#: apps/core/templates/reception.html:46
-msgid "Условия приема"
-msgstr "Admission conditions"
-
-#: apps/core/templates/reception.html:48
-msgid ""
-"Колледж принимают выпускников 9, 10 и 11 классов. Чтобы поступить в наш "
-"колледж, абитуриентам достаточно оставить заявку на и предоставить аттестат "
-"об окончании 9 или 11 классов. Конкурсный отбор первокурсников проводится по "
-"среднему баллу аттестата. Чем лучше школьник учился последний год в школе (9 "
-"или 11 класс), тем выше его шансы быть зачисленным."
-msgstr ""
-"The college accepts graduates of grades 9, 10 and 11. To enroll in our  "
-"college, it is enough for applicants to submit an application for and "
-"provide a certificateof completion of grades 9 or 11. The competitive "
-"selection of first-year students is carried out according to the average "
-"score of the certificate. The better a student studied in the last year of "
-"school (9th  or 11th grade), the higher his chances of being enrolled."
-
-#: apps/core/templates/reception.html:51
-msgid ""
-"Если Вам необходима помощь в выборе, специалисты приемной комиссии всегда "
-"готовы проконсультировать и дать ответы на все интересующие вопросы. "
-"Позвоните по телефону"
-msgstr ""
-"If you need help in choosing, the specialists of the admissions committee "
-"are alwaysready to advise and give answers to all your questions.Call by "
-"phone"
-
-#: apps/core/templates/reception.html:53
-msgid "или напишите на e-mail"
-msgstr "or write to e-mail"
-
-#: apps/core/templates/reception.html:58
-msgid "Основной список документов для поступающих в колледж:"
-msgstr "What documents do I need for admission?"
-
-#: apps/core/templates/reception.html:60
-msgid "Оригинал Аттестата и Оригинал Свидетельство об образовании;"
-msgstr "The original Certificate and the Original Certificate of Education;"
-
-#: apps/core/templates/reception.html:61
-msgid "Медицинская справка №086-У;"
-msgstr "Medical certificate No. 086"
-
-#: apps/core/templates/reception.html:62
-msgid "Свидетельства о рождении или паспорт (копия);"
-msgstr "Birth certificate or passport (copy);"
-
-#: apps/core/templates/reception.html:63
-msgid "Фотографии 3х4 (6 штук);"
-msgstr "3x4 photos (6 pieces);"
-
-#: apps/core/templates/reception.html:64
-msgid "Скоросшиватель и конверт"
-msgstr "Folder and envelope"
-
-#: apps/core/templates/reception.html:69
-msgid ""
-"Подайте документы онлайн через информационную систему колледжа или посетите "
-"лично приемную комиссию для подачи заявления и документов. Адрес: "
-"Сокулукский район., г.Шопоков., ул. Машиностроительная 13а."
-msgstr ""
-"Apply online through the college's information system or visit the  "
-"admissions office in person to submit an application and documents. Address: "
-"Sokuluksky district., Shopokov., Mashinostroitelnaya str. 13a."
-
-#: apps/core/templates/reception.html:72
-msgid ""
-"Последний день тура формируются списки рекомендованных к зачислению в "
-"колледж, поэтому будьте на связи."
-msgstr ""
-"On the last day of the tour, lists of those recommended for admission tothe "
-"college are being formed, so stay in touch."
-
-#: apps/core/templates/reception.html:75
-msgid ""
-"Списки рекомендованных к зачислению составляются по убыванию среднего балла "
-"аттестата."
-msgstr ""
-"The lists of those recommended for enrollment are compiled in descending "
-"order of the average score of the certificate."
-
-#: apps/core/templates/reception.html:79
-msgid "Как считается средний балл аттестата"
-msgstr "How is the average score of the certificate considered"
-
-#: apps/core/templates/reception.html:81
-msgid ""
-"Вам нужно подсчитать общее количество оценок, сложить все оценки вместе "
-"(найти сумму всех оценок) и разделить эту сумму на общее количество оценок. "
-"Полученное число и будет средним баллом Вашего аттестата. Средний балл "
-"ведется с точностью до сотых долей."
-msgstr ""
-"You need to count the total number of grades, add all the grades together  "
-"(find the sum of all grades) and divide this amount by the total number of "
-"grades. The resulting number will be the average score of your certificate. "
-"The average score is kept to the hundredth of a fraction."
-
-#: apps/core/templates/reception.html:84
-msgid "Например:"
-msgstr "Direction:"
-
-#: apps/core/templates/reception.html:85
-msgid ""
-"В Вашем аттестате стоят оценки по 12 предметам. Из них 5 пятерок, 3 четверки "
-"и 4 тройки. Найдем сумму всех оценок : 5*5 + 4*3 + 3*4 = 25 + 12 + 12= 49. "
-"Разделим сумму всех оценок на количество предметов: 49 : 12 = 4.08. Средний "
-"балл рассчитывается с точностью до сотых долей. Таким образом, средний балл "
-"Вашего аттестата – 4.08"
-msgstr ""
-"There are grades in 12 subjects in your certificate. Of these, 5 fives, 3 "
-"fours  and 4 threes. Find the sum of all the estimates : 5*5 + 4*3 + 3*4 = "
-"25 + 12 + 12= 49. Divide the sum of all grades by the number of subjects: "
-"49 : 12 = 4.08. The average score is calculated with an accuracy of "
-"hundredths. Thus, the average score  of your certificate is 4.08"
-
-#: apps/core/templates/reception.html:92
-#: apps/specialty/templates/specialty/detail.html:32
-msgid "Срок обучение"
-msgstr "Form of training"
-
-#: apps/core/templates/reception.html:94
-#: apps/specialty/templates/specialty/detail.html:33
-msgid "На базе 9 класса"
-msgstr "Based on 9th grade"
-
-#: apps/core/templates/reception.html:94
-#: apps/specialty/templates/specialty/detail.html:33
-msgid "2 года 10 месяцев"
-msgstr "2 years 10 months"
-
-#: apps/core/templates/reception.html:95
-#: apps/specialty/templates/specialty/detail.html:34
-msgid "На базе 11 класса"
-msgstr "Based on 11th grade"
-
-#: apps/core/templates/reception.html:95
-#: apps/specialty/templates/specialty/detail.html:34
-msgid "1 год 10 месяцев"
-msgstr "1 year 10 months"
-
-#: apps/core/templates/reception.html:96
-msgid "Заочная"
-msgstr "Correspondence"
-
-#: apps/core/templates/reception.html:96
-msgid "2 года 6 месяцев"
-msgstr "2 years 6 months"
-
-#: apps/core/templates/reception.html:100
-#: apps/feedback/templates/contacts.html:5 templates/base/footer.html:38
-#: templates/base/menu.html:7 templates/base/menu.html:99
-msgid "Контакты"
-msgstr "Contacts"
-
-#: apps/core/templates/reception.html:102
 msgid "Телефон"
 msgstr "Phone"
 
-#: apps/core/templates/reception.html:111
-msgid "Сайт"
-msgstr "Website"
+msgid "WhatsApp (номер)"
+msgstr "WhatsApp (number)"
 
-#: apps/core/templates/welcoming-remarks.html:5
-#: apps/core/templates/welcoming-remarks.html:15
-msgid "Приветственное слово "
-msgstr "Welcome speech"
+msgid "Email"
+msgstr "Email"
 
-#: apps/employee/models.py:18
-msgid "Короткое название"
-msgstr "Short title"
+msgid "Подпись сайта"
+msgstr "Website caption"
 
-#: apps/employee/models.py:23 apps/employee/models.py:59
-#: apps/employee/models.py:134
-msgid "Должность"
-msgstr "Position"
+msgid "Ссылка на сайт"
+msgstr "Website link"
 
-#: apps/employee/models.py:24
-msgid "Должности"
-msgstr "Posts"
+msgid "Страница «Абитуриентам»"
+msgstr "“For Applicants” page"
 
-#: apps/employee/models.py:36
-msgid "Кыргыз"
-msgstr "Kyrgyz"
-
-#: apps/employee/models.py:37 apps/employee/models.py:166
-msgid "Русский"
-msgstr "Russian"
-
-#: apps/employee/models.py:38
-msgid "Казах"
-msgstr "Kazakh"
-
-#: apps/employee/models.py:42
-msgid "не женат"
-msgstr "unmarried"
-
-#: apps/employee/models.py:43
-msgid "женат"
-msgstr "married"
-
-#: apps/employee/models.py:44
-msgid "не замужем"
-msgstr "single"
-
-#: apps/employee/models.py:45
-msgid "замужем"
-msgstr "married"
-
-#: apps/employee/models.py:46
-msgid "разведен(а)"
-msgstr "divorced"
-
-#: apps/employee/models.py:50
 msgid "Мужской"
 msgstr "Men"
 
-#: apps/employee/models.py:51
 msgid "Женский"
 msgstr "Women"
 
-#: apps/employee/models.py:54
 msgid "Порядковый номер"
 msgstr "Sequential number"
 
-#: apps/employee/models.py:55
 msgid "Фамилия"
 msgstr "Last name"
 
-#: apps/employee/models.py:56
 msgid "Имя"
 msgstr "First Name"
 
-#: apps/employee/models.py:57
 msgid "Отчество"
 msgstr "Sur name"
 
-#: apps/employee/models.py:60
 msgid "Пол"
 msgstr "Gender"
 
-#: apps/employee/models.py:61
 msgid "День рождения"
 msgstr "Birthday"
 
-#: apps/employee/models.py:62
-msgid "Национальность"
-msgstr "Nationality"
+msgid "О колледже"
+msgstr "About college"
 
-#: apps/employee/models.py:64
-msgid "Семейное положение"
-msgstr "Marital status"
+msgid "Договоры о сотрудничестве с организациями и партнёрами КМУК."
+msgstr "Cooperation agreements with KIUC partner organisations."
 
-#: apps/employee/models.py:66
-msgid "Цель"
-msgstr "Target"
+msgid "Открыть договор"
+msgstr "Open contract"
 
-#: apps/employee/models.py:67
-msgid "Навыки работы"
-msgstr "Job skills"
+msgid "Договоры скоро появятся"
+msgstr "Agreements will appear soon"
 
-#: apps/employee/models.py:68
-msgid "Фото сотрудника "
-msgstr "Employee photo"
+msgid "Главная"
+msgstr "Home"
 
-#: apps/employee/models.py:107
-msgid "Преподаватель"
-msgstr "Teacher"
+msgid "Скачать договор"
+msgstr "Download contract"
 
-#: apps/employee/models.py:108
-msgid "Преподаватели"
-msgstr "Teachers"
+msgid "Фотогалерея"
+msgstr "Photo by"
 
-#: apps/employee/models.py:113 apps/employee/models.py:130
-#: apps/employee/models.py:147 apps/employee/models.py:171
-#: apps/employee/models.py:187
-msgid "Сотрудник"
-msgstr "Employee"
+msgid "Открыть"
+msgstr "Open"
 
-#: apps/employee/models.py:114 apps/employee/models.py:131
-msgid "Начальный год"
-msgstr "Entry year"
+msgid ""
+"Международные партнёры КМУК — университеты Кореи и других стран. Программы "
+"обмена, стажировки, совместные дипломы."
+msgstr ""
+"International partners of KIUC — universities in Korea and other countries. "
+"Exchange programmes, internships, joint degrees."
 
-#: apps/employee/models.py:115 apps/employee/models.py:132
-msgid "Год выпуска"
-msgstr "Year of issue"
+msgid "Международные партнёры КМУК"
+msgstr "International partners of KIUC"
 
-#: apps/employee/models.py:116
-msgid "Название ВУЗа или СПО"
-msgstr "Name of the institution of higher education or SPO"
+msgid ""
+"Партнёрские программы КМУК с университетами Кореи и других стран — реальная "
+"практика, реальные дипломы."
+msgstr ""
+"KIUC partner programmes with universities in Korea and other countries — "
+"real practice, real diplomas."
 
-#: apps/employee/models.py:117
-msgid "Направление"
-msgstr "Direction"
+msgid "Партнёры скоро появятся"
+msgstr "Partners will appear soon"
 
-#: apps/employee/models.py:124
+msgid "Все документы"
+msgstr "All documents"
+
+msgid "Открыть файл"
+msgstr "Open file"
+
+msgid "Файлы пока не добавлены"
+msgstr "No files added yet"
+
+msgid "Открытый доступ ко всем документам колледжа — выберите раздел."
+msgstr "Open access to all college documents — pick a section."
+
+msgid "Открыть раздел"
+msgstr "Open section"
+
+msgid "Документы скоро появятся"
+msgstr "Documents will appear soon"
+
+msgid "Документы появятся здесь после добавления в админ-панели."
+msgstr "Documents will appear here once added in the admin panel."
+
+msgid "История создания и развития учебного заведения"
+msgstr "History of the establishment and development of the institution"
+
+msgid "История развития учебного заведения"
+msgstr "History of the institution's development"
+
+msgid ""
+"От курсов SOSI Educational centre в 2013 году до международного колледжа "
+"сегодня."
+msgstr ""
+"From SOSI Educational centre courses in 2013 to today’s international "
+"college."
+
+msgid "Приём 2026 открыт"
+msgstr "Admissions 2026 open"
+
 msgid "Образование"
 msgstr "Education"
 
-#: apps/employee/models.py:125
-msgid "Образовании"
-msgstr "Education"
+msgid "международного"
+msgstr "international-level"
 
-#: apps/employee/models.py:133 apps/employee/models.py:149
-msgid "Название организации"
-msgstr "Name of organization"
+msgid "уровня."
+msgstr "education."
 
-#: apps/employee/models.py:141
-msgid "Опыт работы"
-msgstr "Work experience"
+msgid ""
+"КМУК с 2013 года готовит специалистов с теоретическими и практическими "
+"навыками — для экономики Кыргызстана и мира."
+msgstr ""
+"Since 2013, KIUC has been training specialists with both theoretical and "
+"practical skills — for the economy of Kyrgyzstan and the world."
 
-#: apps/employee/models.py:142
-msgid "Опыты работы"
-msgstr "Work experiences"
+msgid "Поступить сейчас"
+msgstr "Apply now"
 
-#: apps/employee/models.py:148 apps/employee/models.py:188
-msgid "Год"
-msgstr "Year"
+msgid "Специальности"
+msgstr "Specialties"
 
-#: apps/employee/models.py:150
-msgid "Описание награды"
-msgstr "Award description "
+msgid "Лет опыта"
+msgstr "Years of experience"
 
-#: apps/employee/models.py:157
-msgid "Награда"
-msgstr "Award"
+msgid "Выпускников"
+msgstr "Graduates"
 
-#: apps/employee/models.py:158
-msgid "Награды"
-msgstr "Awards"
-
-#: apps/employee/models.py:164
-msgid "Кыргызский"
-msgstr "Kyrgyz language"
-
-#: apps/employee/models.py:165
-msgid "Казахский"
-msgstr "Kazakh language"
-
-#: apps/employee/models.py:167
-msgid "Английский"
-msgstr "English language"
-
-#: apps/employee/models.py:168
-msgid "Немецкий"
-msgstr "German language"
-
-#: apps/employee/models.py:172 apps/employee/models.py:181
-msgid "Язык"
-msgstr "Language"
-
-#: apps/employee/models.py:182
-msgid "Языки"
+msgid "Языка"
 msgstr "Languages"
 
-#: apps/employee/models.py:189
-msgid "Описание по повышению квалификации"
-msgstr "Description of professional development"
+msgid "КМУК — Кыргызский международный универсальный колледж"
+msgstr "KIUC — Kyrgyz International Universal College"
 
-#: apps/employee/models.py:196
-msgid "Повышение квалификацию"
-msgstr "Upgrading qualifications"
+msgid "Корея"
+msgstr "Korea"
 
-#: apps/employee/models.py:197
-msgid "Повышение квалификации"
-msgstr "Upgrading qualifications"
+msgid "Кыргызстан"
+msgstr "Kyrgyzstan"
 
-#: apps/employee/models.py:202
-msgid "1-курс"
-msgstr "1-course"
+msgid "Партнёрские программы"
+msgstr "Partner programmes"
 
-#: apps/employee/models.py:203
-msgid "2-курс"
-msgstr "2-course"
+msgid "Трудоустройство"
+msgstr "Employment"
 
-#: apps/employee/models.py:204
-msgid "3-курс"
-msgstr "3-course"
+msgid "Международная деятельность"
+msgstr "International activities"
 
-#: apps/employee/models.py:205
-msgid "4-курс"
-msgstr "4-course"
+msgid "Сокулук Сэджон"
+msgstr "Sokuluk Sejong"
 
-#: apps/employee/models.py:208
-msgid "Имя группы"
-msgstr "Group name"
+msgid "Абитуриентам"
+msgstr "For applicants"
 
-#: apps/employee/models.py:210
-msgid "Курс"
-msgstr "Course"
+msgid "Наши специальности"
+msgstr "Our specialties"
 
-#: apps/employee/models.py:211 apps/specialty/models.py:60
-#: apps/specialty/templates/specialty/detail.html:17
-msgid "Специальность"
-msgstr "Specialty"
+msgid "Дистанционное обучение «AVN»"
+msgstr "Distance learning «AVN»"
 
-#: apps/employee/models.py:226
-msgid "Группа"
-msgstr "Group"
-
-#: apps/employee/models.py:227
-msgid "Группы"
-msgstr "Groups"
-
-#: apps/feedback/forms.py:13 apps/feedback/templates/contacts.html:75
-msgid "Напишите ответ"
-msgstr "Write back"
-
-#: apps/feedback/forms.py:21 apps/feedback/models.py:12
-#: apps/feedback/templates/contacts.html:50
-msgid "Ваше имя"
-msgstr "Your name"
-
-#: apps/feedback/forms.py:27 apps/feedback/models.py:13
-msgid "Ваша электронная почта"
-msgstr "Your email"
-
-#: apps/feedback/forms.py:31 apps/feedback/models.py:14
-#: apps/feedback/templates/contacts.html:58
-msgid "Ваше сообщение"
-msgstr "Your message"
-
-#: apps/feedback/models.py:22 apps/feedback/models.py:23
-msgid "Обратная связь"
-msgstr "Feedback"
-
-#: apps/feedback/models.py:28
-msgid "Изображение в Формате JPG 60X350"
-msgstr "Image in JPG format 60X350"
-
-#: apps/feedback/models.py:31
-msgid "Ответ"
-msgstr "Reply"
-
-#: apps/feedback/templates/contacts.html:14
-msgid "Позвоните Нам"
-msgstr "Call Us"
-
-#: apps/feedback/templates/contacts.html:15
-msgid "Контактные данные"
-msgstr "Contact information"
-
-#: apps/feedback/templates/contacts.html:20
-msgid "Наш адрес: "
-msgstr "Our address:"
-
-#: apps/feedback/templates/contacts.html:21 templates/base/footer.html:62
-msgid "Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а"
-msgstr "Chui region, Sokuluk district, Shopokov, 25a Mashinostroitelnaya str."
-
-#: apps/feedback/templates/contacts.html:25
-msgid "Менеджеры КМУК"
-msgstr "KMUK Managers"
-
-#: apps/feedback/templates/contacts.html:27
-msgid "Конурбаева Айгерим Бакытбековна"
-msgstr "Konurbayeva Aigerim Bakytbekovna"
-
-#: apps/feedback/templates/contacts.html:28
-msgid "Замирбек кызы Айгерим"
-msgstr "Zamirbekovna Aigerim"
-
-#: apps/feedback/templates/contacts.html:29
-msgid "Анарбек кызы Айкерим"
-msgstr "Anarbekovna Aikerim"
-
-#: apps/feedback/templates/contacts.html:34
-msgid "Приемная"
-msgstr "Reception"
-
-#: apps/feedback/templates/contacts.html:42
-msgid "Система Обратной Связи"
-msgstr "The feedback system"
-
-#: apps/feedback/templates/contacts.html:43
-msgid "Есть идея"
-msgstr "I have an idea."
-
-#: apps/feedback/templates/contacts.html:54
-msgid "Ваша почта"
-msgstr "Your mail"
-
-#: apps/feedback/templates/contacts.html:62
-msgid "Согласен на обработку персональных данных"
-msgstr "I agree to the processing of personal data"
-
-#: apps/feedback/templates/contacts.html:80
-msgid "Отправить сообщение"
-msgstr "Send message"
-
-#: apps/feedback/views.py:30
-msgid "Не правильный ответ"
-msgstr "Wrong answer"
-
-#: apps/news/models.py:18
-msgid "Ссылка на видео"
-msgstr "Video link"
-
-#: apps/news/models.py:21 apps/specialty/models.py:34
-msgid "Статус"
-msgstr "Status"
-
-#: apps/news/models.py:26
-msgid "Создано"
-msgstr "Created by"
-
-#: apps/news/models.py:41
-msgid "Новость"
+msgid "Новости"
 msgstr "News"
 
-#: apps/news/templates/news/aside.html:4
-msgid "Поиск новостей"
-msgstr "News Search"
+msgid "Почему КМУК"
+msgstr "Why KIUC"
 
-#: apps/news/templates/news/aside.html:6
-msgid "Поиск по ключевому слову..."
-msgstr "Keyword search..."
+msgid "Колледж, который"
+msgstr "A college that"
 
-#: apps/news/templates/news/aside.html:7
-msgid "Поиск"
-msgstr "Search"
+msgid "меняет правила"
+msgstr "changes the rules"
 
-#: apps/news/templates/news/detail.html:23
-#: apps/specialty/templates/specialty/detail.html:19
-msgid "Добавлено"
-msgstr "Direction"
+msgid "образования."
+msgstr "of education."
 
-#: apps/specialty/models.py:18
-msgid "Очный"
-msgstr "Full-time"
+msgid "Пять причин, почему студенты и родители выбирают КМУК с 2013 года."
+msgstr "Five reasons why students and parents have chosen KIUC since 2013."
 
-#: apps/specialty/models.py:19
-msgid "Очный/Заочный"
-msgstr "Full-time/Part-time"
+msgid "International"
+msgstr "International"
 
-#: apps/specialty/models.py:20
-msgid "Заочный"
-msgstr "Correspondence"
+msgid "Образование международного уровня"
+msgstr "International-level education"
 
-#: apps/specialty/models.py:23
-#: apps/specialty/templates/specialty/detail.html:31
-msgid "Контракт"
-msgstr "Contract"
-
-#: apps/specialty/models.py:24
-msgid "Контракт/Бюджет"
-msgstr "Contract/Budget"
-
-#: apps/specialty/models.py:26
-msgid "Наименование"
-msgstr "Name"
-
-#: apps/specialty/models.py:29
-msgid "Сумма контракта"
-msgstr "Contract amount"
-
-#: apps/specialty/models.py:30
-msgid "Форма обучение"
-msgstr "Form of training"
-
-#: apps/specialty/models.py:31
-#: apps/specialty/templates/specialty/detail.html:30
-msgid "Основа обучения"
-msgstr "The basis of training"
-
-#: apps/specialty/templates/specialty/detail.html:27
-msgid "Полезные информации"
-msgstr "Upgrading qualifications"
-
-#: apps/specialty/templates/specialty/detail.html:29
-msgid "Форма обучения"
-msgstr "Form of training"
-
-#: apps/specialty/templates/specialty/detail.html:31
-msgid "сом"
-msgstr "KGS"
-
-#: apps/specialty/templates/specialty/detail.html:35
-msgid "Часто задаваемые вопросы"
-msgstr "Frequently Asked Questions"
-
-#: apps/specialty/templates/specialty/detail.html:36
-msgid "Как поступить в колледж?"
-msgstr "How do I get into college?"
-
-#: apps/specialty/templates/specialty/detail.html:37
-msgid "Какие документы нужны для поступления?"
-msgstr "What documents do I need for admission?"
-
-#: apps/specialty/templates/specialty/list.html:12
-msgid "Что мы вам предлагаем"
-msgstr "What we offer you"
-
-#: config/settings.py:119
-msgid "Russia"
+msgid ""
+"Программы с партнёрскими ВУЗами Кореи и других стран. Реальная практика, "
+"реальные дипломы."
 msgstr ""
+"Programmes with partner universities in Korea and other countries. Real "
+"practice, real diplomas."
 
-#: config/settings.py:120
-msgid "English"
+msgid "Партнёры"
+msgstr "Partners"
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "Языка обучения: русский, корейский, английский"
+msgstr "Languages of instruction: Russian, Korean, English"
+
+msgid "Culture"
+msgstr "Culture"
+
+msgid "Корейский культурный центр на базе колледжа"
+msgstr "Korean cultural centre on the college campus"
+
+msgid "Faculty"
+msgstr "Faculty"
+
+msgid "Преподаватели"
+msgstr "Teachers"
+
+msgid "Trust"
+msgstr "Trust"
+
+msgid "Прозрачность"
+msgstr "Transparency"
+
+msgid "Все нормативные документы открыты"
+msgstr "All regulatory documents are open"
+
+msgid "История колледжа"
+msgstr "College History"
+
+msgid ""
+"История колледжа зародилась в 2013 году — в г. Шопоков были открыты "
+"языковые курсы для школьников и взрослых: английского и корейского. Курсы "
+"SOSI Educational centre стали популярными в Сокулукском районе благодаря "
+"эффективному обучению. Школьники, успешно завершившие курсы, стали "
+"победителями программы FLEX. На курсах обучались более 250 школьников из "
+"близлежащих школ и гимназий."
 msgstr ""
+"The history of the college originated in 2013 - in Shopokov opened language "
+" courses for schoolchildren and adults: English, Korean. The SOSI "
+"Educational center became popular in Sokuluk district, thanks to effective "
+"training and results. The schoolchildren who successfully completed courses "
+"became winners of the FLEX program. More than 250 students from nearby "
+"schools and gymnasiums."
 
-#: config/settings.py:121
-msgid "Kyrgyz"
+msgid "Подробно"
+msgstr "Read more"
+
+msgid "Видео о колледже"
+msgstr "College video"
+
+msgid "Ли Ён Гвон"
+msgstr "Lee Young Gwon"
+
+msgid "Генеральный директор"
+msgstr "General Director"
+
+msgid "Приветственное слово"
+msgstr "Welcome speech"
+
+msgid ""
+"«Кыргызский международный универсальный колледж — один из самых престижных "
+"международных колледжей нашей страны»."
 msgstr ""
+"“The Kyrgyz International Universal College is one of the most prestigious "
+"international colleges in our country.”"
 
-#: templates/base/footer.html:11
+msgid "Профессор, доктор филологических наук"
+msgstr "Professor, Doctor of Philology"
+
+msgid "Президент Корейской ассоциации славянских языков"
+msgstr "President of the Korean Association of Slavic Languages"
+
+msgid "Читать полностью"
+msgstr "Read in full"
+
+msgid "Что нового в КМУК"
+msgstr "What’s new at KIUC"
+
+msgid "Все новости"
+msgstr "All news"
+
+msgid "Главное"
+msgstr "Featured"
+
+msgid "Новостей пока нет"
+msgstr "No news yet"
+
+msgid ""
+"Добавьте первую новость через админ-панель — она сразу появится здесь."
+msgstr ""
+"Add the first news item via the admin panel — it will appear here "
+"immediately."
+
+msgid ""
+"Выберите своё направление. Все программы аккредитованы и сопровождаются "
+"стажировками."
+msgstr ""
+"Choose your field. All programmes are accredited and include internships."
+
+msgid "Все специальности"
+msgstr "All specialties"
+
+msgid "Специальности скоро появятся"
+msgstr "Specialties coming soon"
+
+msgid ""
+"Добавьте специальности через админ-панель — они сразу появятся здесь с фото "
+"и ценой."
+msgstr ""
+"Add specialties via the admin panel — they will appear here with photo and "
+"price."
+
+msgid "Студентам"
+msgstr "Students"
+
+msgid "Все материалы"
+msgstr "All materials"
+
+msgid "Вся структура"
+msgstr "Full structure"
+
+msgid "Преподаватели скоро будут добавлены"
+msgstr "Teachers will be added soon"
+
+msgid ""
+"Заполните карточки преподавателей через админ-панель — они появятся в виде "
+"фото-сетки."
+msgstr ""
+"Fill in teacher cards via the admin panel — they will appear as a photo "
+"grid."
+
+msgid "Студенческий совет"
+msgstr "Student council"
+
+msgid "Все участники"
+msgstr "All members"
+
+msgid "Состав студсовета скоро появится"
+msgstr "Student council roster coming soon"
+
+msgid ""
+"Добавьте участников совета через админ-панель — карточки появятся здесь."
+msgstr "Add council members via the admin panel — cards will appear here."
+
+msgid "Международные партнёры"
+msgstr "International partners"
+
+msgid "Все партнёры"
+msgstr "All partners"
+
+msgid ""
+"Добавьте международных партнёров через админ-панель — карточки с фото "
+"появятся здесь."
+msgstr ""
+"Add international partners via the admin panel — photo cards will appear "
+"here."
+
+msgid "Паспорт колледжа"
+msgstr "College passport"
+
+msgid "Официальный документ — листайте страницы как настоящую книгу."
+msgstr "Official document — flip through the pages like a real book."
+
+msgid ""
+"Если книга не загружается — попробуйте обновить страницу или скачать PDF."
+msgstr ""
+"If the book doesn’t load, try refreshing the page or download the PDF."
+
+msgid "Приёмная комиссия"
+msgstr "Admissions committee"
+
+msgid "Специальности колледжа"
+msgstr "College specialties"
+
+msgid "Сайт"
+msgstr "Website"
+
+msgid "Все контакты"
+msgstr "All contacts"
+
+msgid ""
+"Генеральный директор КМУК, профессор, доктор филологических наук, президент "
+"Корейской ассоциации славянских языков."
+msgstr ""
+"General Director of KIUC, Professor, Doctor of Philology, President of the "
+"Korean Association of Slavic Languages."
+
+msgid "Генеральный директор КМУК"
+msgstr "General Director of KIUC"
+
+msgid ""
+"Приветствую Вас на официальном сайте Кыргызского международного "
+"универсального колледжа."
+msgstr ""
+"Welcome to the official website of the Kyrgyz International Universal "
+"College."
+
+msgid ""
+"Кыргызский международный универсальный колледж — это один из самых "
+"престижных международных колледжей нашей страны."
+msgstr ""
+"The Kyrgyz International Universal College is one of the most prestigious "
+"international colleges in our country."
+
+msgid ""
+"Сотрудничает с более 10 ведущими университетами мира — ежегодные стажировки "
+"в США, КНР, Южной Корее, Турции и др."
+msgstr ""
+"We cooperate with more than 10 leading universities worldwide — annual "
+"internships in the USA, China, South Korea, Turkey and others."
+
+msgid ""
+"Обучение в колледже ведётся по нескольким образовательным программам "
+"среднего профессионального образования на 5 языках: кыргызский, русский, "
+"английский, корейский, испанский."
+msgstr ""
+"Tuition is offered across several vocational secondary-education programmes "
+"in 5 languages: Kyrgyz, Russian, English, Korean, Spanish."
+
 msgid ""
 "Жизнь студентов нашего колледжа насыщена яркими событиями, семинарами, "
 "дебатами, творчествами, экскурсиями, а также знакомством с интересными "
@@ -960,70 +547,895 @@ msgstr ""
 "debates, creativity, excursions, as well as acquaintance with interesting by "
 "people."
 
-#: templates/base/footer.html:13
-msgid "Наши социальные сети"
-msgstr "Our social networks"
+msgid ""
+"Разрабатывая сайт нашего колледжа, мы стремились сделать его максимально "
+"удобным для пользователей. На нашем сайте представлена информация для "
+"абитуриентов и их родителей, студентов и всех, кто желает быть в курсе "
+"жизни нашего учебного заведения. Уверен, что вы получите ответы на все "
+"интересующие Вас вопросы."
+msgstr ""
+"When designing our college website, we strove to make it as user-friendly "
+"as possible. The site provides information for applicants and their "
+"parents, current students, and everyone who wants to stay up-to-date with "
+"college life. I am confident you will find the answers to all your "
+"questions here."
 
-#: templates/base/footer.html:28
-msgid "Быстрое меню"
-msgstr "Quick Menu"
+msgid ""
+"Цель Кыргызского международного универсального колледжа — развивать и "
+"улучшать образовательную среду с помощью среднесрочного и долгосрочного "
+"плана работы."
+msgstr ""
+"The mission of the Kyrgyz International Universal College is to develop and "
+"improve the educational environment through medium- and long-term planning."
 
-#: templates/base/footer.html:30
-msgid "О Нас"
-msgstr "About us"
+msgid "Добро пожаловать на наш обновлённый сайт KIUC / КМУК."
+msgstr "Welcome to our refreshed KIUC website."
 
-#: templates/base/footer.html:33
-msgid "Наши достижении"
-msgstr "Our achievements"
+msgid "С уважением,"
+msgstr "Sincerely yours,"
 
-#: templates/base/footer.html:74
-msgid "«КМУК» - Все права защищены."
-msgstr "«KMUK» - All rights reserved."
+msgid "Профессор Ли Ён Гвон"
+msgstr "Professor Lee Young Gwon"
 
-#: templates/base/footer.html:77
-msgid "Наш институт"
-msgstr "Our Institute"
+msgid "Короткое название"
+msgstr "Short title"
 
-#: templates/base/menu.html:39
-msgid "Главная"
-msgstr "Home"
+msgid "Должность"
+msgstr "Position"
 
-#: templates/base/menu.html:46
-msgid "История"
-msgstr "History"
+msgid "Должности"
+msgstr "Posts"
 
-#: templates/base/menu.html:48
+msgid "Национальность"
+msgstr "Nationality"
+
+msgid "Национальности"
+msgstr "Nationality"
+
+msgid "Навыки работы"
+msgstr "Job skills"
+
+msgid "Фото сотрудника"
+msgstr "Employee photo"
+
+msgid "Преподаватель"
+msgstr "Teacher"
+
 msgid "Структура"
 msgstr "Structure"
 
-#: templates/base/menu.html:51
+msgid "О себе"
+msgstr "About"
+
+msgid "Резюме"
+msgstr "Résumé"
+
+msgid "Навыки"
+msgstr "Skills"
+
+msgid ""
+"Преподавательский состав КМУК — опытные специалисты с международной "
+"практикой. Сотрудники Кыргызского международного универсального колледжа."
+msgstr ""
+"KIUC faculty — experienced specialists with international practice. Staff "
+"of the Kyrgyz International Universal College."
+
+msgid "Преподаватели КМУК"
+msgstr "KIUC teachers"
+
+msgid "Преподавательский состав"
+msgstr "Teaching staff"
+
+msgid ""
+"Команда опытных специалистов КМУК, готовых поделиться знаниями и опытом."
+msgstr ""
+"A team of experienced KIUC specialists ready to share knowledge and "
+"experience."
+
+msgid "Напишите ответ"
+msgstr "Write back"
+
+msgid "Ваше имя"
+msgstr "Your name"
+
+msgid "Ваша электронная почта"
+msgstr "Your email"
+
+msgid "Ваше сообщение"
+msgstr "Your message"
+
+msgid "Обратная связь"
+msgstr "Feedback"
+
+msgid "Изображение в Формате JPG 60X350"
+msgstr "Image in JPG format 60X350"
+
+msgid "Ответ"
+msgstr "Reply"
+
+msgid "Контакты"
+msgstr "Contacts"
+
+msgid ""
+"Контакты КМУК: телефон +996 (706) 95-56-77, email info@college.kiuc.kg, "
+"адрес — г. Шопоков, ул. Машиностроительная, 25а."
+msgstr ""
+"KIUC contacts: phone +996 (706) 95-56-77, email info@college.kiuc.kg, "
+"address — Shopokov, 25a Mashinostroitelnaya st."
+
+msgid "Контакты КМУК"
+msgstr "KIUC contacts"
+
+msgid ""
+"Свяжитесь с приёмной комиссией КМУК — телефон, WhatsApp, email и адрес."
+msgstr ""
+"Get in touch with the KIUC admissions committee — phone, WhatsApp, email "
+"and address."
+
+msgid "Свяжитесь с нами"
+msgstr "Get in touch"
+
+msgid "Приёмная комиссия КМУК — звоните, пишите или приходите по адресу."
+msgstr "KIUC admissions committee — call, write or come visit us."
+
+msgid "Позвоните нам"
+msgstr "Call us"
+
+msgid "Контактные данные"
+msgstr "Contact information"
+
+msgid "Наш адрес"
+msgstr "Our address"
+
+msgid "Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а"
+msgstr "Chui region, Sokuluk district, Shopokov, 25a Mashinostroitelnaya str."
+
+msgid "Менеджеры КМУК"
+msgstr "KMUK Managers"
+
+msgid "Сууханкул кызы Акмарал"
+msgstr "Suukhankul kyzy Akmaral"
+
+msgid "Сыздыкова Айгерим Рысбековна"
+msgstr "Syzdykova Aigerim Rysbekovna"
+
+msgid "Абдыкеримова Аниса Меймановна"
+msgstr "Abdykerimova Anisa Meimanovna"
+
+msgid "Система обратной связи"
+msgstr "Feedback system"
+
+msgid "Есть идея?"
+msgstr "Got an idea?"
+
+msgid "Заполните форму — мы свяжемся с вами."
+msgstr "Fill in the form and we’ll get back to you."
+
+msgid "Ваша почта"
+msgstr "Your mail"
+
+msgid "Защита от роботов"
+msgstr "Anti-bot check"
+
+msgid "Согласен на обработку персональных данных"
+msgstr "I agree to the processing of personal data"
+
+msgid "Отправить сообщение"
+msgstr "Send message"
+
+msgid "Не правильный ответ"
+msgstr "Wrong answer"
+
+msgid ""
+"Спасибо! Ваше сообщение отправлено — мы свяжемся с вами в ближайшее время."
+msgstr "Thank you! Your message has been sent — we will be in touch shortly."
+
+msgid "Новости КМУК"
+msgstr "KIUC news"
+
+msgid ""
+"Последние новости и события Кыргызского международного универсального "
+"колледжа."
+msgstr ""
+"Latest news and events from the Kyrgyz International Universal College."
+
+msgid "Ссылка на видео"
+msgstr "Video link"
+
+msgid "Статус"
+msgstr "Status"
+
+msgid "Создано"
+msgstr "Created by"
+
+msgid "Новость"
+msgstr "News"
+
+msgid "Поиск новостей"
+msgstr "News Search"
+
+msgid "Поиск по ключевому слову"
+msgstr "Keyword search"
+
+msgid "Ключевое слово…"
+msgstr "Keyword…"
+
+msgid "Поиск"
+msgstr "Search"
+
+msgid "Больше фотографий"
+msgstr "More photos"
+
+msgid ""
+"Новости и события Кыргызского международного универсального колледжа — "
+"обновления, мероприятия, достижения студентов."
+msgstr ""
+"News and events from the Kyrgyz International Universal College — updates, "
+"events, student achievements."
+
+msgid "Новости колледжа"
+msgstr "College news"
+
+msgid "Поиск по новостям…"
+msgstr "Search news…"
+
+msgid "Очистить"
+msgstr "Clear"
+
+msgid "Найти"
+msgstr "Search"
+
+msgid "Найдено %(count)s по запросу «%(q)s»"
+msgstr "%(count)s found for “%(q)s”"
+
+msgid "сбросить"
+msgstr "reset"
+
+msgid "Ничего не найдено"
+msgstr "Nothing found"
+
+msgid "Попробуйте другой запрос или сбросьте поиск."
+msgstr "Try a different query or reset the search."
+
+msgid "Загляните позже — новые материалы скоро появятся."
+msgstr "Come back later — new material will appear soon."
+
+msgid "Очный"
+msgstr "Full-time"
+
+msgid "Очный/Заочный"
+msgstr "Full-time/Part-time"
+
+msgid "Заочный"
+msgstr "Correspondence"
+
+msgid "Контракт"
+msgstr "Contract"
+
+msgid "Контракт/Бюджет"
+msgstr "Contract/Budget"
+
+msgid "Наименование"
+msgstr "Name"
+
+msgid "Сумма контракта"
+msgstr "Contract amount"
+
+msgid "Форма обучение"
+msgstr "Form of training"
+
+msgid "Основа обучения"
+msgstr "The basis of training"
+
+msgid "Специальность"
+msgstr "Specialty"
+
+msgid "О специальности"
+msgstr "About the specialty"
+
+msgid "Форма обучения"
+msgstr "Form of training"
+
+msgid "сом"
+msgstr "KGS"
+
+msgid "Срок обучения"
+msgstr "Duration"
+
+msgid "На базе 9 класса"
+msgstr "Based on 9th grade"
+
+msgid "2 года 10 месяцев"
+msgstr "2 years 10 months"
+
+msgid "На базе 11 класса"
+msgstr "Based on 11th grade"
+
+msgid "1 год 10 месяцев"
+msgstr "1 year 10 months"
+
+msgid "Поступить"
+msgstr "Apply"
+
+msgid "Часто задаваемые вопросы"
+msgstr "Frequently Asked Questions"
+
+msgid "Как поступить в колледж?"
+msgstr "How do I get into college?"
+
+msgid "Какие документы нужны для поступления?"
+msgstr "What documents do I need for admission?"
+
+msgid ""
+"Все специальности КМУК — программы среднего профессионального образования с "
+"международной практикой. Цена контракта и форма обучения по каждому "
+"направлению."
+msgstr ""
+"All KIUC specialties — vocational secondary-education programmes with "
+"international practice. Contract price and study format for each programme."
+
+msgid "Специальности КМУК"
+msgstr "KIUC specialties"
+
+msgid "Что мы вам предлагаем"
+msgstr "What we offer you"
+
+msgid "Фото студента"
+msgstr "Student photo"
+
+msgid "Студентский совет"
+msgstr "Student council"
+
+msgid ""
+"Студенческий совет КМУК — орган самоуправления, инициативы, мероприятия. "
+"Список участников и направления работы."
+msgstr ""
+"KIUC Student Council — self-government body, initiatives and events. List "
+"of members and areas of work."
+
+msgid "Студенческий совет КМУК"
+msgstr "KIUC Student Council"
+
+msgid ""
+"Для студента Кыргызский международный универсальный колледж — это не только "
+"современные учебные программы, лекции и семинары преподавателей, сессии, но "
+"и многообразная студенческая жизнь."
+msgstr ""
+"For a student, the Kyrgyz International Universal College is not just "
+"modern study programmes, lectures, seminars and exams, but also a rich "
+"student life."
+
+msgid ""
+"Сделать студенческую жизнь ярче и разнообразнее, сплотить учащихся на "
+"основе общих интересов призван Студенческий Совет. Инициатива и вера в свои "
+"силы, лидерство и умение работать в команде — эти качества развивает не "
+"только учеба, но и студенческое сообщество колледжа."
+msgstr ""
+"The Student Council is here to make student life brighter and more varied, "
+"and to unite students around shared interests. Initiative, self-belief, "
+"leadership and teamwork — these qualities are developed not only by study "
+"but also by the college’s student community."
+
+msgid ""
+"Студенческий совет — орган студенческого самоуправления, организатор всех "
+"академических мероприятий для студентов. Работа ведётся по следующим "
+"направлениям:"
+msgstr ""
+"The Student Council is the student self-government body and organiser of "
+"all academic events for students. Its work spans the following areas:"
+
+msgid ""
+"взаимодействие с другими учреждениями и организациями студенческой среды;"
+msgstr "engagement with other student bodies and organisations;"
+
+msgid ""
+"развитие инициатив студентов, направленных на улучшение условий учёбы и "
+"внеучебной жизни;"
+msgstr ""
+"developing student initiatives aimed at improving study conditions and "
+"extracurricular life;"
+
+msgid ""
+"активное участие студентов в организационно-технической работе: выставки, "
+"конференции, научные семинары;"
+msgstr ""
+"active student participation in organisational and technical work: "
+"exhibitions, conferences, academic seminars;"
+
+msgid "организация досуга и отдыха успешно обучающихся студентов;"
+msgstr "organising leisure and recreation for top-performing students;"
+
+msgid ""
+"разработка и реализация мероприятий по повышению ответственности студентов "
+"за выполнение учебных планов, учебной дисциплины и правил поведения;"
+msgstr ""
+"designing and running activities that strengthen students’ responsibility "
+"for academic plans, discipline and conduct;"
+
+msgid "представление интересов студентов на всех уровнях руководства;"
+msgstr "representing student interests at all levels of management;"
+
+msgid ""
+"активизация процессов управления студенческими коллективами и вовлечение их "
+"в общественную жизнь колледжа;"
+msgstr ""
+"energising student-collective management and engaging students in the "
+"public life of the college;"
+
+msgid ""
+"создание единого информационного пространства для студентов и администрации;"
+msgstr "creating a unified information space for students and administration;"
+
+msgid ""
+"участие в распределении стипендиального фонда и оказании материальной "
+"помощи нуждающимся студентам."
+msgstr ""
+"taking part in allocating the scholarship fund and providing financial aid "
+"to students in need."
+
+msgid "Состав совета"
+msgstr "Council members"
+
+msgid "Члены студенческого совета"
+msgstr "Student Council members"
+
+msgid "Russia"
+msgstr "Russian"
+
+msgid "English"
+msgstr "English"
+
+msgid "Kyrgyz"
+msgstr "Kyrgyz"
+
+msgid "Страница не найдена"
+msgstr "Page not found"
+
+msgid ""
+"Запрошенная страница не найдена. Вернитесь на главную или перейдите в один "
+"из основных разделов сайта КМУК."
+msgstr ""
+"The requested page wasn’t found. Return to the home page or jump to one of "
+"the main sections of the KIUC site."
+
+msgid "Здесь пусто."
+msgstr "Nothing here."
+
+msgid ""
+"Возможно, страница переехала или была удалена. Не беда — выберите, куда "
+"отправиться дальше."
+msgstr ""
+"The page may have moved or been removed. No worries — pick where to go next."
+
+msgid "На главную"
+msgstr "To home"
+
+msgid "Что-то сломалось"
+msgstr "Something broke"
+
+msgid "Что-то сломалось."
+msgstr "Something broke."
+
+msgid ""
+"Внутренняя ошибка сервера. Мы уже разбираемся — попробуйте обновить "
+"страницу или вернуться позже."
+msgstr ""
+"Internal server error. We’re already on it — try refreshing the page or "
+"come back later."
+
+msgid "Если повторится"
+msgstr "If it happens again"
+
+msgid "Сообщите нам"
+msgstr "Let us know"
+
+msgid "Напишите или позвоните — поможем быстрее найти то, что искали."
+msgstr ""
+"Write or call and we’ll help you find what you were looking for faster."
+
+msgid "Хлебные крошки"
+msgstr "Breadcrumbs"
+
+msgid "Пагинация"
+msgstr "Pagination"
+
+msgid "Назад"
+msgstr "Previous"
+
+msgid "Вперёд"
+msgstr "Next"
+
+msgid "Кыргызский международный универсальный колледж"
+msgstr "Kyrgyz international universal college"
+
+msgid ""
+"Кыргызский международный универсальный колледж — образование международного "
+"уровня с 2013 года. Корея, Кыргызстан, программы на 3 языках."
+msgstr ""
+"Kyrgyz International Universal College — international-level education "
+"since 2013. Korea, Kyrgyzstan, programmes in 3 languages."
+
+msgid "Образование международного уровня — КМУК с 2013 года."
+msgstr "International-level education — KIUC since 2013."
+
+msgid "Новости КМУК (RSS)"
+msgstr "KIUC news (RSS)"
+
+msgid "Новости КМУК (Atom)"
+msgstr "KIUC news (Atom)"
+
+msgid "Перейти к содержимому"
+msgstr "Skip to content"
+
+msgid "Международный колледж"
+msgstr "International college"
+
+msgid "История"
+msgstr "History"
+
 msgid "Библиотека"
 msgstr "Library"
 
-#: templates/base/menu.html:76
 msgid "Приемная комиссия"
 msgstr "Admission committee"
 
-#: templates/base/menu.html:80
 msgid "Наши Специальности"
 msgstr "Our specialties"
 
-#: templates/base/menu.html:86
-msgid "Студентам"
-msgstr "Students"
+msgid "Язык"
+msgstr "Language"
 
-#: templates/base/menu.html:94
-msgid "Студенческий совет"
-msgstr "Student council"
+msgid "Меню"
+msgstr "Menu"
 
-#~ msgid "Является международным"
-#~ msgstr "It is an international"
+msgid "Быстрое меню"
+msgstr "Quick Menu"
+
+msgid "О Нас"
+msgstr "About us"
+
+msgid "г. Шопоков, ул. Машиностроительная, 25а"
+msgstr "Shopokov, 25a Mashinostroitelnaya st."
+
+msgid "«КМУК» — Все права защищены."
+msgstr "“KIUC” — All rights reserved."
+
+msgid "Наш институт"
+msgstr "Our Institute"
+
+msgid "Наверх"
+msgstr "Top"
+
+msgid "Закрыть"
+msgstr "Close"
+
+msgid "Предыдущее"
+msgstr "Previous"
+
+msgid "Следующее"
+msgstr "Next"
+
+#~ msgid "Посмотреть"
+#~ msgstr "View"
+
+#~ msgid "Миссия колледжа"
+#~ msgstr "Mission of the College"
+
+#~ msgid ""
+#~ "Подготовка специалистов, имеющих международный уровень теоретических и "
+#~ "практических навыков, обладающих высокими личностными качествами и "
+#~ "способных повысить уровень производственного потенциала и экономики "
+#~ "Кыргызстана"
+#~ msgstr ""
+#~ "To train professionals who have an international level of theoretical and "
+#~ "practical skills, with high personal qualities and capable of increasing "
+#~ "the level of productive capacity and the economy of Kyrgyzstan."
+
+#~ msgid "Учебный процесс колледжа"
+#~ msgstr "The college learning process"
+
+#~ msgid "Воспитательная деятельность"
+#~ msgstr "Educational activities"
+
+#~ msgid "Цифровая трансформация"
+#~ msgstr "Digital transformation"
+
+#~ msgid "Заслуженного работника образования  Республики Корея"
+#~ msgstr "Honored Worker of Education of the Republic of Korea"
+
+#~ msgid "Почитать"
+#~ msgstr "Read"
+
+#~ msgid "Уважаемые абитуриенты!"
+#~ msgstr "Dear applicants!"
+
+#~ msgid ""
+#~ "Кыргызский международный универсальный колледж, рад пригласить Вас на "
+#~ "наше учебное заведение. Наш колледж предоставляет широкую возможность "
+#~ "выбора специальностей, приносящих успех и стабильный доход в различных "
+#~ "сферах деятельности! Наши специальности были, есть и будут "
+#~ "перспективными, высокооплачиваемыми и интересными!"
+#~ msgstr ""
+#~ "Kyrgyz International Universal College, I am glad to invite you to our "
+#~ "educational institution. Our college provides a wide choice of "
+#~ "specialties that bring success and stable income in various fields "
+#~ "activities! Our specialties were, are and will be promising, highly paid "
+#~ "and interesting!"
+
+#~ msgid "В настоящее время колледж ведет подготовку по специальностям:"
+#~ msgstr ""
+#~ "Currently, the college conducts training in the following specialties:"
+
+#~ msgid ""
+#~ "Образовательный процесс в колледже организуют квалифицированные "
+#~ "преподаватели. Колледж располагает оборудованными кабинетами и "
+#~ "компьютерными классами, позволяющими осуществлять подготовку специалистов "
+#~ "на высоком уровне. Мы поддерживаем тесные контакты с нашими зарубежными "
+#~ "партнерами, можете обучаться в одном из лучших вузов Республики Корея."
+#~ msgstr ""
+#~ "The educational process at the college is organized by qualified "
+#~ "teachers. The College has equipped classrooms and computer classes that "
+#~ "allow for the training of specialists at a high  level. We maintain close "
+#~ "contacts with our foreign partners, you can study at one of the best "
+#~ "universities in the Republic of Korea."
+
+#~ msgid ""
+#~ "Годы учебы в колледже запомнятся Вам яркими впечатлениями об интересной и "
+#~ "насыщенной жизни."
+#~ msgstr ""
+#~ "You will remember your college years with vivid impressions of an "
+#~ "interesting and eventful life."
+
+#~ msgid ""
+#~ "Каждый для себя найдет специальность, профессию по своему характеру, "
+#~ "стилю жизни, темпераменту, складу ума."
+#~ msgstr ""
+#~ "Everyone will find for themselves a specialty, a profession according to "
+#~ "their character, style life, temperament, mindset."
+
+#~ msgid "Как поступить в наш колледж"
+#~ msgstr "How to enroll in our college"
+
+#~ msgid "Условия приема"
+#~ msgstr "Admission conditions"
+
+#~ msgid ""
+#~ "Колледж принимают выпускников 9, 10 и 11 классов. Чтобы поступить в наш "
+#~ "колледж, абитуриентам достаточно оставить заявку на и предоставить "
+#~ "аттестат об окончании 9 или 11 классов. Конкурсный отбор первокурсников "
+#~ "проводится по среднему баллу аттестата. Чем лучше школьник учился "
+#~ "последний год в школе (9 или 11 класс), тем выше его шансы быть "
+#~ "зачисленным."
+#~ msgstr ""
+#~ "The college accepts graduates of grades 9, 10 and 11. To enroll in our  "
+#~ "college, it is enough for applicants to submit an application for and "
+#~ "provide a certificateof completion of grades 9 or 11. The competitive "
+#~ "selection of first-year students is carried out according to the average "
+#~ "score of the certificate. The better a student studied in the last year "
+#~ "of school (9th  or 11th grade), the higher his chances of being enrolled."
+
+#~ msgid ""
+#~ "Если Вам необходима помощь в выборе, специалисты приемной комиссии всегда "
+#~ "готовы проконсультировать и дать ответы на все интересующие вопросы. "
+#~ "Позвоните по телефону"
+#~ msgstr ""
+#~ "If you need help in choosing, the specialists of the admissions committee "
+#~ "are alwaysready to advise and give answers to all your questions.Call by "
+#~ "phone"
+
+#~ msgid "или напишите на e-mail"
+#~ msgstr "or write to e-mail"
+
+#~ msgid "Основной список документов для поступающих в колледж:"
+#~ msgstr "What documents do I need for admission?"
+
+#~ msgid "Оригинал Аттестата и Оригинал Свидетельство об образовании;"
+#~ msgstr "The original Certificate and the Original Certificate of Education;"
+
+#~ msgid "Медицинская справка №086-У;"
+#~ msgstr "Medical certificate No. 086"
+
+#~ msgid "Свидетельства о рождении или паспорт (копия);"
+#~ msgstr "Birth certificate or passport (copy);"
+
+#~ msgid "Фотографии 3х4 (6 штук);"
+#~ msgstr "3x4 photos (6 pieces);"
+
+#~ msgid "Скоросшиватель и конверт"
+#~ msgstr "Folder and envelope"
+
+#~ msgid ""
+#~ "Подайте документы онлайн через информационную систему колледжа или "
+#~ "посетите лично приемную комиссию для подачи заявления и документов. "
+#~ "Адрес: Сокулукский район., г.Шопоков., ул. Машиностроительная 13а."
+#~ msgstr ""
+#~ "Apply online through the college's information system or visit the  "
+#~ "admissions office in person to submit an application and documents. "
+#~ "Address: Sokuluksky district., Shopokov., Mashinostroitelnaya str. 13a."
+
+#~ msgid ""
+#~ "Последний день тура формируются списки рекомендованных к зачислению в "
+#~ "колледж, поэтому будьте на связи."
+#~ msgstr ""
+#~ "On the last day of the tour, lists of those recommended for admission "
+#~ "tothe college are being formed, so stay in touch."
+
+#~ msgid ""
+#~ "Списки рекомендованных к зачислению составляются по убыванию среднего "
+#~ "балла аттестата."
+#~ msgstr ""
+#~ "The lists of those recommended for enrollment are compiled in descending "
+#~ "order of the average score of the certificate."
+
+#~ msgid "Как считается средний балл аттестата"
+#~ msgstr "How is the average score of the certificate considered"
+
+#~ msgid ""
+#~ "Вам нужно подсчитать общее количество оценок, сложить все оценки вместе "
+#~ "(найти сумму всех оценок) и разделить эту сумму на общее количество "
+#~ "оценок. Полученное число и будет средним баллом Вашего аттестата. Средний "
+#~ "балл ведется с точностью до сотых долей."
+#~ msgstr ""
+#~ "You need to count the total number of grades, add all the grades "
+#~ "together  (find the sum of all grades) and divide this amount by the "
+#~ "total number of grades. The resulting number will be the average score of "
+#~ "your certificate. The average score is kept to the hundredth of a "
+#~ "fraction."
+
+#~ msgid "Например:"
+#~ msgstr "Direction:"
+
+#~ msgid ""
+#~ "В Вашем аттестате стоят оценки по 12 предметам. Из них 5 пятерок, 3 "
+#~ "четверки и 4 тройки. Найдем сумму всех оценок : 5*5 + 4*3 + 3*4 = 25 + 12 "
+#~ "+ 12= 49. Разделим сумму всех оценок на количество предметов: 49 : 12 = "
+#~ "4.08. Средний балл рассчитывается с точностью до сотых долей. Таким "
+#~ "образом, средний балл Вашего аттестата – 4.08"
+#~ msgstr ""
+#~ "There are grades in 12 subjects in your certificate. Of these, 5 fives, 3 "
+#~ "fours  and 4 threes. Find the sum of all the estimates : 5*5 + 4*3 + 3*4 "
+#~ "= 25 + 12 + 12= 49. Divide the sum of all grades by the number of "
+#~ "subjects: 49 : 12 = 4.08. The average score is calculated with an "
+#~ "accuracy of hundredths. Thus, the average score  of your certificate is "
+#~ "4.08"
+
+#~ msgid "Заочная"
+#~ msgstr "Correspondence"
+
+#~ msgid "2 года 6 месяцев"
+#~ msgstr "2 years 6 months"
+
+#~ msgid "Приветственное слово "
+#~ msgstr "Welcome speech"
+
+#~ msgid "Кыргыз"
+#~ msgstr "Kyrgyz"
+
+#~ msgid "Русский"
+#~ msgstr "Russian"
+
+#~ msgid "Казах"
+#~ msgstr "Kazakh"
+
+#~ msgid "не женат"
+#~ msgstr "unmarried"
+
+#~ msgid "женат"
+#~ msgstr "married"
+
+#~ msgid "не замужем"
+#~ msgstr "single"
+
+#~ msgid "замужем"
+#~ msgstr "married"
+
+#~ msgid "разведен(а)"
+#~ msgstr "divorced"
+
+#~ msgid "Семейное положение"
+#~ msgstr "Marital status"
+
+#~ msgid "Цель"
+#~ msgstr "Target"
+
+#~ msgid "Сотрудник"
+#~ msgstr "Employee"
+
+#~ msgid "Начальный год"
+#~ msgstr "Entry year"
+
+#~ msgid "Год выпуска"
+#~ msgstr "Year of issue"
+
+#~ msgid "Название ВУЗа или СПО"
+#~ msgstr "Name of the institution of higher education or SPO"
+
+#~ msgid "Направление"
+#~ msgstr "Direction"
+
+#~ msgid "Образовании"
+#~ msgstr "Education"
+
+#~ msgid "Название организации"
+#~ msgstr "Name of organization"
+
+#~ msgid "Опыт работы"
+#~ msgstr "Work experience"
+
+#~ msgid "Опыты работы"
+#~ msgstr "Work experiences"
+
+#~ msgid "Год"
+#~ msgstr "Year"
+
+#~ msgid "Описание награды"
+#~ msgstr "Award description "
+
+#~ msgid "Награда"
+#~ msgstr "Award"
+
+#~ msgid "Награды"
+#~ msgstr "Awards"
+
+#~ msgid "Казахский"
+#~ msgstr "Kazakh language"
+
+#~ msgid "Английский"
+#~ msgstr "English language"
+
+#~ msgid "Немецкий"
+#~ msgstr "German language"
+
+#~ msgid "Описание по повышению квалификации"
+#~ msgstr "Description of professional development"
+
+#~ msgid "Повышение квалификацию"
+#~ msgstr "Upgrading qualifications"
+
+#~ msgid "Повышение квалификации"
+#~ msgstr "Upgrading qualifications"
+
+#~ msgid "1-курс"
+#~ msgstr "1-course"
+
+#~ msgid "2-курс"
+#~ msgstr "2-course"
+
+#~ msgid "3-курс"
+#~ msgstr "3-course"
+
+#~ msgid "4-курс"
+#~ msgstr "4-course"
+
+#~ msgid "Имя группы"
+#~ msgstr "Group name"
+
+#~ msgid "Курс"
+#~ msgstr "Course"
+
+#~ msgid "Группа"
+#~ msgstr "Group"
+
+#~ msgid "Группы"
+#~ msgstr "Groups"
+
+#~ msgid "Анарбек кызы Айкерим"
+#~ msgstr "Anarbekovna Aikerim"
+
+#~ msgid "Приемная"
+#~ msgstr "Reception"
+
+#~ msgid "Добавлено"
+#~ msgstr "Direction"
+
+#~ msgid "Наши социальные сети"
+#~ msgstr "Our social networks"
+
+#~ msgid "Наши достижении"
+#~ msgstr "Our achievements"
 
 #~ msgid "Директор"
 #~ msgstr "Director"
-
-#~ msgid "Заместитель директора по УР"
-#~ msgstr "Deputy Director of Academic Affairs"
 
 #~ msgid "Бюджет"
 #~ msgstr "Budget"

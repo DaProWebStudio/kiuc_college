@@ -65,6 +65,40 @@ nvm install 20
 nvm alias default 20
 ```
 
+### Траблшут: `setup_20.x` падает с `apt update` Exit Code != 0
+
+Симптом:
+
+```
+E: The repository 'https://deb.nodesource.com/node_18.x focal Release'
+   no longer has a Release file.
+Error: Failed to run 'apt update' (Exit Code: 0)
+```
+
+Причина: в `/etc/apt/sources.list.d/` остался старый репо `node_18.x`,
+NodeSource его уже снёс → `apt update` не проходит → setup-скрипт прерывается.
+
+Фикс — удалить старый репо и прогнать заново:
+
+```bash
+sudo rm /etc/apt/sources.list.d/nodesource.list
+sudo rm -f /etc/apt/keyrings/nodesource.gpg /usr/share/keyrings/nodesource.gpg
+sudo apt update     # должен пройти без ошибок про nodesource
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Если `apt update` ругается на просроченный nginx-ключ (`EXPKEYSIG`) —
+обновить ключ:
+
+```bash
+curl -fsSL https://nginx.org/keys/nginx_signing.key \
+  | sudo gpg --dearmor -o /usr/share/keyrings/nginx-archive-keyring.gpg
+sudo sed -i 's|deb http://nginx.org|deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org|' \
+  /etc/apt/sources.list.d/nginx.list
+sudo apt update
+```
+
 ### Сборка
 
 ```bash

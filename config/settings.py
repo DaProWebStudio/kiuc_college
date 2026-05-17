@@ -130,8 +130,10 @@ LOCALE_PATHS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / 'static'
+# DEV (DEBUG=True): runserver раздаёт из STATICFILES_DIRS / STATIC_DIR.
+# PROD: `collectstatic` собирает в STATIC_ROOT; nginx раздаёт alias /static/ → staticfiles/.
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_DIR = BASE_DIR / 'static'
 STATICFILES_DIRS = [STATIC_DIR]
 

@@ -167,6 +167,13 @@
   .nav-dropdown {
     @apply invisible absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-slate-100 bg-white p-2 opacity-0 shadow-2xl transition;
   }
+  /* Невидимый мостик через зазор mt-2: без него курсор по пути от кнопки к
+     выпадающему списку выходит за пределы li, group-hover слетает и меню
+     закрывается. Ширина мостика — от кнопки до всей ширины списка. */
+  .nav-dropdown::before {
+    content: '';
+    @apply absolute -top-2 left-0 right-0 h-2;
+  }
   .nav-dropdown-link {
     @apply block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-700;
   }

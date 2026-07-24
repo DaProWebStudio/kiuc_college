@@ -1,3 +1,5 @@
+import re
+
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -224,6 +226,123 @@ class ReceptionPage(models.Model):
     class Meta:
         verbose_name = _('Страница «Абитуриентам»')
         verbose_name_plural = _('Страница «Абитуриентам»')
+
+
+MAP_EMBED_DEFAULT = (
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.5517421664722!2d74.33675432651926'
+    '!3d42.86404867698774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ed965acdeec3b'
+    '%3A0xa3d3a2bafb4618e1!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0KPQ'
+    'vdC40LLQtdGA0YHQsNC70YzQvdGL0Lkg0JrQvtC70LvQtdC00LYgKNCa0JzQo9CaKQ!5e1!3m2!1sru!2skg'
+    '!4v1682148536639!5m2!1sru!2skg'
+)
+
+
+class SiteContact(models.Model):
+    """Singleton с контактами колледжа. Питает футер на всех страницах,
+    страницу «Контакты» и микроразметку schema.org."""
+
+    phone = models.CharField(_('Телефон'), max_length=40, blank=True, default='+996 (706) 95-56-77')
+    whatsapp = models.CharField(_('WhatsApp (номер)'), max_length=40, blank=True, default='+996 (706) 95-56-77')
+    email = models.EmailField('Email', blank=True, default='info@college.kiuc.kg')
+
+    address_short = models.CharField(
+        _('Адрес (кратко)'), max_length=200, blank=True,
+        default='г. Шопоков, ул. Машиностроительная, 25а',
+        help_text=_('Показывается в футере.'),
+    )
+    address_full = models.CharField(
+        _('Адрес (полностью)'), max_length=255, blank=True,
+        default='Чуйская обл., Сокулукский р., Шопоков, ул. Машиностроительная, 25а',
+        help_text=_('Показывается на странице «Контакты».'),
+    )
+    address_url = models.URLField(
+        _('Ссылка на карту'), blank=True, default='https://go.2gis.com/heri6',
+        help_text=_('Куда ведёт адрес в футере — например, ссылка 2ГИС.'),
+    )
+    map_embed_url = models.URLField(
+        _('Встроенная карта'), max_length=1000, blank=True, default=MAP_EMBED_DEFAULT,
+        help_text=_('Адрес из атрибута src кода Google Maps → «Поделиться» → «Встраивание карт».'),
+    )
+
+    street_address = models.CharField(_('Улица и дом'), max_length=150, blank=True,
+                                      default='ул. Машиностроительная, 25а')
+    locality = models.CharField(_('Город'), max_length=100, blank=True, default='Шопоков')
+    region = models.CharField(_('Область / район'), max_length=150, blank=True,
+                              default='Сокулукский район, Чуйская область')
+
+    instagram = models.URLField('Instagram', blank=True, default='https://www.instagram.com/kilc_university/')
+    facebook = models.URLField('Facebook', blank=True, default='https://www.facebook.com/kiuckg')
+    youtube = models.URLField('YouTube', blank=True, default='https://www.youtube.com/@KIUCUniversity')
+
+    institute_label = models.CharField(_('Подпись сайта института'), max_length=120, blank=True, default='www.kiuc.kg')
+    institute_url = models.URLField(_('Сайт института'), blank=True, default='https://kiuc.kg/')
+
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(_('Контакты колледжа'))
+
+    def save(self, *args, **kwargs):
+        # Singleton: всегда pk=1; вторая запись схлопывается в update первой.
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        # Singleton нельзя удалить через ORM.
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, _created = cls.objects.get_or_create(pk=1)
+        return obj
+
+    @staticmethod
+    def _digits(value, keep_plus=True):
+        cleaned = re.sub(r'[^\d+]', '', value or '')
+        return cleaned if keep_plus else cleaned.lstrip('+')
+
+    @property
+    def phone_link(self):
+        """Номер для href="tel:" — без скобок, пробелов и дефисов."""
+        return self._digits(self.phone)
+
+    @property
+    def whatsapp_link(self):
+        if not self.whatsapp:
+            return ''
+        return f'https://api.whatsapp.com/send/?phone={self._digits(self.whatsapp, keep_plus=False)}'
+
+    @property
+    def active_managers(self):
+        return self.managers.filter(is_active=True)
+
+    class Meta:
+        verbose_name = _('Контакты колледжа')
+        verbose_name_plural = _('Контакты колледжа')
+
+
+class ContactPerson(models.Model):
+    """Менеджер приёмной комиссии — блок «Менеджеры КМУК» на странице «Контакты»."""
+
+    contact = models.ForeignKey(SiteContact, verbose_name=_('Контакты'), on_delete=models.CASCADE,
+                               related_name='managers', default=1)
+    number = models.IntegerField(_('Порядковый номер'), default=100)
+    full_name = models.CharField(_('ФИО'), max_length=150)
+    position = models.CharField(_('Должность'), max_length=150, blank=True)
+    phone = models.CharField(_('Телефон'), max_length=40)
+    is_active = models.BooleanField(_('Активный'), default=True)
+
+    def __str__(self):
+        return self.full_name
+
+    @property
+    def phone_link(self):
+        return SiteContact._digits(self.phone)
+
+    class Meta:
+        ordering = ('number', 'id')
+        verbose_name = _('Менеджер приёмной комиссии')
+        verbose_name_plural = _('Менеджеры приёмной комиссии')
 
 
 class AbstractResume(models.Model):

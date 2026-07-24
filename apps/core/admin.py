@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from modeltranslation.admin import TabbedTranslationAdmin
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
 from .models import (
     Cooperation,
@@ -11,6 +11,7 @@ from .models import (
     Document,
     DocumentFile, EduProcessFile, EduProcess,
     ReceptionPage,
+    SiteContact, ContactPerson,
 )
 
 
@@ -97,4 +98,54 @@ class ReceptionPageAdmin(TabbedTranslationAdmin):
         obj = ReceptionPage.objects.first()
         if obj:
             return redirect(reverse('admin:core_receptionpage_change', args=[obj.pk]))
+        return super().changelist_view(request, extra_context)
+
+
+class ContactPersonInline(TranslationStackedInline):
+    model = ContactPerson
+    extra = 1
+    fields = ('number', 'full_name', 'position', 'phone', 'is_active')
+
+
+@admin.register(SiteContact)
+class SiteContactAdmin(TabbedTranslationAdmin):
+    """Singleton с контактами колледжа: футер, страница «Контакты», микроразметка.
+    Как и «Абитуриентам», открывается сразу на редактирование."""
+
+    inlines = [ContactPersonInline]
+
+    fieldsets = (
+        ('Связь', {
+            'fields': ('phone', 'whatsapp', 'email'),
+            'description': 'Телефон и WhatsApp можно писать в любом формате — '
+                           'ссылки tel: и wa.me собираются автоматически.',
+        }),
+        ('Адрес', {
+            'fields': ('address_short', 'address_full', 'address_url', 'map_embed_url'),
+        }),
+        ('Адрес для поисковиков (schema.org)', {
+            'fields': ('street_address', 'locality', 'region'),
+            'description': 'Разбитый по частям адрес — попадает в микроразметку, '
+                           'на самом сайте не показывается.',
+            'classes': ('collapse',),
+        }),
+        ('Соцсети', {
+            'fields': ('instagram', 'facebook', 'youtube'),
+            'description': 'Пустое поле — иконка просто не выводится.',
+        }),
+        ('Сайт института', {
+            'fields': ('institute_label', 'institute_url'),
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return not SiteContact.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = SiteContact.objects.first()
+        if obj:
+            return redirect(reverse('admin:core_sitecontact_change', args=[obj.pk]))
         return super().changelist_view(request, extra_context)

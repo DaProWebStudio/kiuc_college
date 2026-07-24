@@ -1,4 +1,4 @@
-{% load i18n static %}<!doctype html>
+{% load i18n static contacts %}<!doctype html>
 {# Без extends — на 500 база может сама падать, поэтому шаблон self-contained. #}
 <html lang="ru">
 <head>
@@ -40,9 +40,11 @@
             <p class="text-xs font-medium uppercase tracking-wider text-accent-400">{% trans 'Если повторится' %}</p>
             <p class="mt-3 font-display text-lg font-bold text-white">{% trans 'Сообщите нам' %}</p>
             <p class="mt-2 text-sm text-white/80">{% trans 'Напишите или позвоните — поможем быстрее найти то, что искали.' %}</p>
+            {# 500.html рендерится без context processors — контакты тянем тегом. #}
+            {% site_contacts as contacts %}
             <ul class="mt-6 space-y-3 text-sm">
-                <li><a href="tel:+996706955677" class="text-white hover:text-accent-400">+996 (706) 95-56-77</a></li>
-                <li><a href="mailto:info@college.kiuc.kg" class="text-white hover:text-accent-400">info@college.kiuc.kg</a></li>
+                {% if contacts.phone %}<li><a href="tel:{{ contacts.phone_link }}" class="text-white hover:text-accent-400">{{ contacts.phone }}</a></li>{% endif %}
+                {% if contacts.email %}<li><a href="mailto:{{ contacts.email }}" class="text-white hover:text-accent-400">{{ contacts.email }}</a></li>{% endif %}
             </ul>
         </div>
     </div>

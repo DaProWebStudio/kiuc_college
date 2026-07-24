@@ -14,20 +14,20 @@
   "alternateName": ["КМУК", "KIUC"],
   "url": "{% if request %}{{ request.scheme }}://{{ request.get_host }}{% else %}https://college.kiuc.kg{% endif %}",
   "logo": "{% if request %}{{ request.scheme }}://{{ request.get_host }}{% endif %}{% static 'images/logo/logo-min.webp' %}",
-  "telephone": "+996706955677",
-  "email": "info@college.kiuc.kg",
+  "telephone": "{{ site_contacts.phone_link }}",
+  "email": "{{ site_contacts.email }}",
   "foundingDate": "2013",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "ул. Машиностроительная, 25а",
-    "addressLocality": "Шопоков",
-    "addressRegion": "Сокулукский район, Чуйская область",
+    "streetAddress": "{{ site_contacts.street_address|escapejs }}",
+    "addressLocality": "{{ site_contacts.locality|escapejs }}",
+    "addressRegion": "{{ site_contacts.region|escapejs }}",
     "addressCountry": "KG"
   },
   "sameAs": [
-    "https://www.instagram.com/kilc_university/",
-    "https://www.facebook.com/kiuckg",
-    "https://www.youtube.com/@KIUCUniversity"
+    {% if site_contacts.instagram %}"{{ site_contacts.instagram }}"{% if site_contacts.facebook or site_contacts.youtube %},{% endif %}{% endif %}
+    {% if site_contacts.facebook %}"{{ site_contacts.facebook }}"{% if site_contacts.youtube %},{% endif %}{% endif %}
+    {% if site_contacts.youtube %}"{{ site_contacts.youtube }}"{% endif %}
   ]
 }
 </script>

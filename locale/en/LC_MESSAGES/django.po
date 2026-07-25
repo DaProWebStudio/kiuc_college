@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-25 00:49+0600\n"
+"POT-Creation-Date: 2026-07-25 03:13+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "File"
 #: templates/base/base.html:96 templates/base/base.html:180
 #: templates/base/base.html:263
 msgid "Сотрудничество"
-msgstr "Collaboration"
+msgstr "Cooperation"
 
 #: apps/core/models.py:42 apps/news/models.py:17 apps/specialty/models.py:28
 msgid "Описание"
@@ -49,7 +49,7 @@ msgstr "Photo"
 
 #: apps/core/models.py:46
 msgid "Договор (PDF)"
-msgstr "Contract (PDF)"
+msgstr "Agreement (PDF)"
 
 #: apps/core/models.py:66
 #: apps/core/templates/collaborations/international-detail.html:38
@@ -67,11 +67,11 @@ msgstr "International cooperation"
 #: apps/core/models.py:73 apps/core/models.py:79 apps/news/models.py:56
 #: apps/news/models.py:67 apps/student/models.py:45 apps/student/models.py:56
 msgid "Фотография"
-msgstr "Photo by"
+msgstr "Photo"
 
 #: apps/core/models.py:80 apps/news/models.py:68 apps/student/models.py:57
 msgid "Фотографии"
-msgstr "Фотографии"
+msgstr "Photos"
 
 #: apps/core/models.py:85 apps/core/models.py:112 apps/core/models.py:333
 msgid "Активный"
@@ -111,15 +111,15 @@ msgstr "Educational process"
 
 #: apps/core/models.py:125
 msgid "Учебные процессы"
-msgstr "Educational process"
+msgstr "Educational processes"
 
 #: apps/core/models.py:139
 msgid "Файл учебного процесса"
-msgstr "Educational process"
+msgstr "Educational process file"
 
 #: apps/core/models.py:140
 msgid "Файлы учебных процессов"
-msgstr "Educational process"
+msgstr "Educational process files"
 
 #: apps/core/models.py:185
 msgid "Заголовок"
@@ -238,7 +238,7 @@ msgstr "Contacts"
 
 #: apps/core/models.py:329 apps/core/models.py:354
 msgid "Порядковый номер"
-msgstr "Sequential number"
+msgstr "Sort order"
 
 #: apps/core/models.py:330
 msgid "ФИО"
@@ -259,11 +259,11 @@ msgstr "Admissions managers"
 
 #: apps/core/models.py:350
 msgid "Мужской"
-msgstr "Men"
+msgstr "Male"
 
 #: apps/core/models.py:351
 msgid "Женский"
-msgstr "Women"
+msgstr "Female"
 
 #: apps/core/models.py:355
 msgid "Фамилия"
@@ -271,11 +271,11 @@ msgstr "Last name"
 
 #: apps/core/models.py:356
 msgid "Имя"
-msgstr "First Name"
+msgstr "First name"
 
 #: apps/core/models.py:357
 msgid "Отчество"
-msgstr "Sur name"
+msgstr "Middle name"
 
 #: apps/core/models.py:359
 msgid "Пол"
@@ -285,7 +285,7 @@ msgstr "Gender"
 #: apps/employee/templates/employee/employee_detail.html:78
 #: apps/student/templates/student/student_detail.html:78
 msgid "День рождения"
-msgstr "Birthday"
+msgstr "Date of birth"
 
 #: apps/core/templates/collaborations/cooperation.html:10
 #: apps/core/templates/documents/list.html:10
@@ -294,7 +294,7 @@ msgstr "Birthday"
 #: apps/employee/templates/employee/index.html:12 templates/404.html:55
 #: templates/base/base.html:86 templates/base/base.html:170
 msgid "О колледже"
-msgstr "About college"
+msgstr "About the college"
 
 #: apps/core/templates/collaborations/cooperation.html:15
 msgid "Договоры о сотрудничестве с организациями и партнёрами КМУК."
@@ -302,11 +302,25 @@ msgstr "Cooperation agreements with KIUC partner organisations."
 
 #: apps/core/templates/collaborations/cooperation.html:33
 msgid "Открыть договор"
-msgstr "Open contract"
+msgstr "Open agreement"
 
 #: apps/core/templates/collaborations/cooperation.html:43
 msgid "Договоры скоро появятся"
-msgstr "Agreements will appear soon"
+msgstr "Agreements coming soon"
+
+#: apps/core/templates/collaborations/international-detail.html:7
+#: apps/core/templates/collaborations/international-detail.html:10
+#: apps/core/templates/reception.html:7
+#: apps/employee/templates/employee/employee_detail.html:8
+#: apps/employee/templates/employee/employee_detail.html:11
+#: apps/specialty/templates/specialty/detail.html:7
+#: apps/specialty/templates/specialty/detail.html:10
+#: apps/student/templates/student/student_detail.html:8
+#: apps/student/templates/student/student_detail.html:11 templates/500.html:7
+#: templates/base/base.html:12 templates/base/base.html:74
+#: templates/base/base.html:76 templates/base/base.html:227
+msgid "КМУК"
+msgstr "KIUC"
 
 #: apps/core/templates/collaborations/international-detail.html:37
 #: apps/core/templates/reception.html:16
@@ -322,12 +336,12 @@ msgstr "Home"
 
 #: apps/core/templates/collaborations/international-detail.html:77
 msgid "Скачать договор"
-msgstr "Download contract"
+msgstr "Download agreement"
 
 #: apps/core/templates/collaborations/international-detail.html:86
 #: apps/news/templates/news/detail.html:79
 msgid "Фотогалерея"
-msgstr "Photo by"
+msgstr "Photo gallery"
 
 #: apps/core/templates/collaborations/international-detail.html:92
 #: apps/news/templates/news/detail.html:86
@@ -350,14 +364,12 @@ msgstr "International partners of KIUC"
 msgid ""
 "Партнёрские программы КМУК с университетами Кореи и других стран — реальная "
 "практика, реальные дипломы."
-msgstr ""
-"KIUC partner programmes with universities in Korea and other countries — "
-"real practice, real diplomas."
+msgstr "KIUC partner programmes with universities in Korea and other countries — real internships, real diplomas."
 
 #: apps/core/templates/collaborations/internationals.html:42
 #: apps/core/templates/index.html:623
 msgid "Партнёры скоро появятся"
-msgstr "Partners will appear soon"
+msgstr "Partners coming soon"
 
 #: apps/core/templates/documents/detail.html:12
 msgid "Все документы"
@@ -383,7 +395,7 @@ msgstr "Open section"
 
 #: apps/core/templates/documents/list.html:43
 msgid "Документы скоро появятся"
-msgstr "Documents will appear soon"
+msgstr "Documents coming soon"
 
 #: apps/core/templates/edu_process_detail.html:41
 msgid "Документы появятся здесь после добавления в админ-панели."
@@ -391,11 +403,11 @@ msgstr "Documents will appear here once added in the admin panel."
 
 #: apps/core/templates/history.html:4
 msgid "История создания и развития учебного заведения"
-msgstr "History of the establishment and development of the institution"
+msgstr "History and development of the college"
 
 #: apps/core/templates/history.html:12 apps/core/templates/index.html:271
 msgid "История развития учебного заведения"
-msgstr "History of the institution's development"
+msgstr "How the college has developed"
 
 #: apps/core/templates/history.html:15
 msgid ""
@@ -405,21 +417,150 @@ msgstr ""
 "From SOSI Educational centre courses in 2013 to today’s international "
 "college."
 
+#: apps/core/templates/history.html:23
+msgid ""
+"История колледжа зародилась в 2013 году — в г. Шопоков были открыты языковые "
+"курсы для школьников и взрослых: английского и корейского. Курсы SOSI "
+"Educational centre стали популярными в Сокулукском районе благодаря "
+"эффективному обучению и результативности. Школьники, успешно завершившие "
+"курсы, стали победителями программы FLEX. На курсах обучались более 250 "
+"школьников из близлежащих школ и гимназий."
+msgstr ""
+"The college's story began in 2013, when language courses in English and "
+"Korean opened in Shopokov for schoolchildren and adults. The SOSI "
+"Educational Centre courses became popular across the Sokuluk district thanks "
+"to their effective teaching and results. Students who completed them went on "
+"to win places on the FLEX programme. More than 250 schoolchildren from "
+"nearby schools and gymnasiums studied there."
+
+#: apps/core/templates/history.html:25
+msgid ""
+"Расположение колледжа в городе Шопоков (вблизи Бишкека) у главной "
+"республиканской магистрали Бишкек — Ош оказалось удобным для открытия "
+"учебного заведения. Для определения потребности в учебном заведении среднего "
+"профессионального образования были проведены встречи с представителями "
+"местных айыл окмоту и населением. Население близлежащих сёл во время встреч "
+"с руководством выражало заинтересованность в открытии нового учебного "
+"заведения, так как направлять на учёбу в Бишкек экономически нецелесообразно "
+"и затратно. Тогда у учредителей колледжа зародилась идея создать здесь "
+"студенческий кампус — учебное заведение, в котором студенты могли бы не "
+"только учиться по основной программе, но и посещать дополнительные курсы для "
+"развития творческих способностей."
+msgstr ""
+"The college's location in Shopokov, close to Bishkek and on the main Bishkek "
+"— Osh highway, proved convenient for an educational institution. To gauge "
+"the demand for a vocational secondary school, the founders held meetings "
+"with representatives of the local ayil okmotu and with residents. People "
+"from the surrounding villages said they wanted a new institution, since "
+"sending children to study in Bishkek was costly and impractical. That is "
+"when the founders conceived a student campus here — a place where students "
+"could follow the core programme and also take extra courses to develop their "
+"creative talents."
+
+#: apps/core/templates/history.html:27
+msgid ""
+"Уже через два года после открытия курсов — в июне 2015 года — был открыт "
+"Кыргызский международный универсальный колледж. Первые направления, которые "
+"были открыты — это «переводческое дело», «правоведение» и «менеджмент». Для "
+"обеспечения качества знаний были приглашены опытные преподаватели из "
+"бишкекских вузов — КНУ имени Ж. Баласагына, Юридической академии, БГУ имени "
+"К. Карасаева, Академии туризма и других. Для них стали предоставлять "
+"бесплатный транспорт, чтобы повысить заинтересованность в работе. Большое "
+"внимание уделяли динамичному развитию инфраструктуры — для удобства обучения "
+"студентов был построен большой современный спортивный комплекс с "
+"тренажёрами, теннисными столами, волейбольным снаряжением вместе с "
+"помещением для дополнительных занятий. Иностранным языкам стали обучать "
+"носители из США и преподаватели из Южной Кореи. В течение года стал "
+"действовать Talking club с носителями языка, что позволило студентам быстрее "
+"осваивать иностранные языки на практике."
+msgstr ""
+"Just two years after the courses opened — in June 2015 — the Kyrgyz "
+"International Universal College was founded. Its first programmes were "
+"translation studies, law and management. To secure the quality of teaching, "
+"experienced lecturers were invited from Bishkek universities — J. Balasagyn "
+"KNU, the Law Academy, K. Karasaev BSU, the Academy of Tourism and others — "
+"and were given free transport to make the work more attractive. Much "
+"attention went to developing the campus: a large modern sports complex was "
+"built for students, with exercise machines, table-tennis tables and "
+"volleyball equipment, along with a room for extracurricular classes. Foreign "
+"languages began to be taught by native speakers from the USA and lecturers "
+"from South Korea. During that year a Talking Club with native speakers "
+"started running, helping students master foreign languages faster in "
+"practice."
+
+#: apps/core/templates/history.html:29
+msgid ""
+"Заслуги колледжа были отмечены наградой от редакции газеты «Кыргыз туусу». "
+"По версии правительственной газеты колледж был признан «Брендом-2016»."
+msgstr ""
+"The college's achievements were recognised with an award from the editorial "
+"board of the Kyrgyz Tuusu newspaper. The government newspaper named the "
+"college “Brand of 2016”."
+
+#: apps/core/templates/history.html:31
+msgid ""
+"Каждый год руководство учебного заведения старается развивать инфраструктуру "
+"для удобства студентов. С ростом популярности в колледж стали поступать "
+"абитуриенты из регионов — из Таласской, Нарынской, Джалал-Абадской, Иссык-"
+"Кульской областей. В связи с этим возникла необходимость построить и открыть "
+"общежитие на 80 мест. Была открыта библиотека, в которой студенты могут "
+"брать литературу на английском и корейском языках, пользоваться учебниками "
+"по предметам для выполнения домашних заданий. Для удобства студентов "
+"обустроен специально отведённый читальный зал."
+msgstr ""
+"Every year the management develops the campus to make student life easier. "
+"As the college grew in popularity, applicants began arriving from other "
+"regions — Talas, Naryn, Jalal-Abad and Issyk-Kul. That created the need to "
+"build a hall of residence with 80 places. A library was opened where "
+"students can borrow books in English and Korean and use subject textbooks "
+"for their homework, along with a dedicated reading room."
+
+#: apps/core/templates/history.html:33
+msgid ""
+"С ростом числа студентов встала необходимость оказания своевременной "
+"медицинской помощи. В связи с этим в 2017 году была открыта «К-клиника» — "
+"медицинский пункт, в котором в начале учебного года проходят медосмотр вновь "
+"поступившие студенты, а также в течение учебного года ежедневно дежурит "
+"медицинский работник."
+msgstr ""
+"As the number of students grew, so did the need for timely medical care. In "
+"2017 the “K-clinic” opened — a medical station where newly enrolled students "
+"have their check-up at the start of the academic year and where a health "
+"worker is on duty every day throughout the year."
+
+#: apps/core/templates/history.html:35
+msgid ""
+"Начиная с 2015 года в колледже выпускается своя студенческая газета «Шопоков "
+"таймс», в которой освещаются новости как республиканского значения, так и "
+"местные, а также события и мероприятия, которые происходят в колледже и "
+"институте."
+msgstr ""
+"Since 2015 the college has published its own student newspaper, Shopokov "
+"Times, covering national and local news as well as the events held at the "
+"college and the institute."
+
+#: apps/core/templates/history.html:37
+msgid ""
+"В 2021–2022 учебном году в КМУК обучалось 360 студентов, в 2022–2023 году — "
+"410 студентов. Руководство ежегодно улучшает материально-техническую базу. В "
+"2020 году студенты выразили пожелание — открытое футбольное поле; за счёт "
+"спонсорских средств был построен футбольный корт на территории колледжа, что "
+"стало большим знаком в приоритетности здорового образа жизни студентов."
+msgstr ""
+"In the 2021–2022 academic year 360 students studied at KIUC, and 410 in 2022–"
+"2023. The management improves the facilities every year. In 2020 students "
+"asked for an open-air football pitch; a football court was built on the "
+"college grounds with sponsor funding — a clear sign of how much a healthy "
+"student lifestyle matters here."
+
 #: apps/core/templates/index.html:58
 msgid "Приём 2026 открыт"
-msgstr "Admissions 2026 open"
-
-#: apps/core/templates/index.html:62 apps/core/templates/index.html:426
-msgid "Образование"
-msgstr "Education"
+msgstr "2026 admissions now open"
 
 #: apps/core/templates/index.html:62
-msgid "международного"
-msgstr "international-level"
-
-#: apps/core/templates/index.html:62
-msgid "уровня."
-msgstr "education."
+msgid ""
+"Образование <span class=\"text-accent-400\">международного</span> уровня."
+msgstr "<span class=\"text-accent-400\">International-level</span> education."
 
 #: apps/core/templates/index.html:66
 msgid ""
@@ -469,7 +610,7 @@ msgstr "Partner programmes"
 
 #: apps/core/templates/index.html:132
 msgid "Трудоустройство"
-msgstr "Employment"
+msgstr "Job placement"
 
 #: apps/core/templates/index.html:150
 msgid "Международная деятельность"
@@ -498,7 +639,7 @@ msgstr "Our specialties"
 
 #: apps/core/templates/index.html:170 templates/base/base.html:129
 msgid "Дистанционное обучение «AVN»"
-msgstr "Distance learning «AVN»"
+msgstr "Distance learning “AVN”"
 
 #: apps/core/templates/index.html:174 apps/core/templates/index.html:362
 #: apps/news/models.py:50 apps/news/templates/news/detail.html:40
@@ -514,16 +655,12 @@ msgid "Почему КМУК"
 msgstr "Why KIUC"
 
 #: apps/core/templates/index.html:191
-msgid "Колледж, который"
-msgstr "A college that"
-
-#: apps/core/templates/index.html:191
-msgid "меняет правила"
-msgstr "changes the rules"
-
-#: apps/core/templates/index.html:191
-msgid "образования."
-msgstr "of education."
+msgid ""
+"Колледж, который <span class=\"text-brand-700\">меняет правила</span> "
+"образования."
+msgstr ""
+"A college that <span class=\"text-brand-700\">changes the rules</span> of "
+"education."
 
 #: apps/core/templates/index.html:195
 msgid "Пять причин, почему студенты и родители выбирают КМУК с 2013 года."
@@ -541,9 +678,7 @@ msgstr "International-level education"
 msgid ""
 "Программы с партнёрскими ВУЗами Кореи и других стран. Реальная практика, "
 "реальные дипломы."
-msgstr ""
-"Programmes with partner universities in Korea and other countries. Real "
-"practice, real diplomas."
+msgstr "Programmes with partner universities in Korea and other countries. Real internships, real diplomas."
 
 #: apps/core/templates/index.html:213
 msgid "Партнёры"
@@ -584,7 +719,7 @@ msgstr "Transparency"
 
 #: apps/core/templates/index.html:256
 msgid "Все нормативные документы открыты"
-msgstr "All regulatory documents are open"
+msgstr "All regulatory documents are publicly available"
 
 #: apps/core/templates/index.html:269
 msgid "История колледжа"
@@ -599,12 +734,12 @@ msgid ""
 "победителями программы FLEX. На курсах обучались более 250 школьников из "
 "близлежащих школ и гимназий."
 msgstr ""
-"The history of the college originated in 2013 - in Shopokov opened language  "
-"courses for schoolchildren and adults: English, Korean. The SOSI Educational "
-"center became popular in Sokuluk district, thanks to effective training and "
-"results. The schoolchildren who successfully completed courses became "
-"winners of the FLEX program. More than 250 students from nearby schools and "
-"gymnasiums."
+"The college began in 2013, when language courses in English and Korean "
+"opened in Shopokov for schoolchildren and adults. Run under the SOSI "
+"Educational Centre, the courses became popular across the Sokuluk district "
+"thanks to their effective teaching. Students who completed them went on to "
+"win places on the FLEX programme. More than 250 schoolchildren from nearby "
+"schools and gymnasiums studied there."
 
 #: apps/core/templates/index.html:277
 msgid "Подробно"
@@ -630,7 +765,7 @@ msgstr "General Director"
 #: apps/core/templates/welcoming-remarks.html:4
 #: apps/core/templates/welcoming-remarks.html:10
 msgid "Приветственное слово"
-msgstr "Welcome speech"
+msgstr "Welcome address"
 
 #: apps/core/templates/index.html:339
 msgid ""
@@ -676,6 +811,10 @@ msgstr ""
 "Add the first news item via the admin panel — it will appear here "
 "immediately."
 
+#: apps/core/templates/index.html:426
+msgid "Образование"
+msgstr "Education"
+
 #: apps/core/templates/index.html:431
 #: apps/specialty/templates/specialty/list.html:17
 msgid ""
@@ -698,9 +837,7 @@ msgstr "Specialties coming soon"
 msgid ""
 "Добавьте специальности через админ-панель — они сразу появятся здесь с фото "
 "и ценой."
-msgstr ""
-"Add specialties via the admin panel — they will appear here with photo and "
-"price."
+msgstr "Add specialties via the admin panel — they will appear here right away with a photo and price."
 
 #: apps/core/templates/index.html:477 apps/core/templates/index.html:550
 #: apps/student/templates/student/index.html:12 apps/student/views.py:44
@@ -780,11 +917,11 @@ msgstr "Official document — flip through the pages like a real book."
 #: apps/core/templates/passport-college.html:32
 msgid ""
 "Если книга не загружается — попробуйте обновить страницу или скачать PDF."
-msgstr "If the book doesn’t load, try refreshing the page or download the PDF."
+msgstr "If the book doesn’t load, try refreshing the page or downloading the PDF."
 
 #: apps/core/templates/reception.html:27
 msgid "Приёмная комиссия"
-msgstr "Admissions committee"
+msgstr "Admissions office"
 
 #: apps/core/templates/reception.html:55
 msgid "Специальности колледжа"
@@ -840,9 +977,7 @@ msgid ""
 "Обучение в колледже ведётся по нескольким образовательным программам "
 "среднего профессионального образования на 5 языках: кыргызский, русский, "
 "английский, корейский, испанский."
-msgstr ""
-"Tuition is offered across several vocational secondary-education programmes "
-"in 5 languages: Kyrgyz, Russian, English, Korean, Spanish."
+msgstr "The college teaches several secondary vocational education programmes in 5 languages: Kyrgyz, Russian, English, Korean and Spanish."
 
 #: apps/core/templates/welcoming-remarks.html:48 templates/base/base.html:232
 msgid ""
@@ -850,9 +985,8 @@ msgid ""
 "дебатами, творчествами, экскурсиями, а также знакомством с интересными "
 "людьми."
 msgstr ""
-"The life of our college students is full of bright events, seminars, "
-"debates, creativity, excursions, as well as acquaintance with interesting by "
-"people."
+"Life at our college is full of vivid events, seminars, debates, creative "
+"projects and excursions — and of meeting interesting people."
 
 #: apps/core/templates/welcoming-remarks.html:50
 msgid ""
@@ -894,7 +1028,7 @@ msgstr "Short title"
 
 #: apps/employee/models.py:21
 msgid "Должности"
-msgstr "Posts"
+msgstr "Positions"
 
 #: apps/employee/models.py:35 apps/employee/models.py:45
 msgid "Национальность"
@@ -902,7 +1036,7 @@ msgstr "Nationality"
 
 #: apps/employee/models.py:36
 msgid "Национальности"
-msgstr "Nationality"
+msgstr "Nationalities"
 
 #: apps/employee/models.py:46
 msgid "Навыки работы"
@@ -915,6 +1049,17 @@ msgstr "Employee photo"
 #: apps/employee/models.py:52
 msgid "Преподаватель"
 msgstr "Teacher"
+
+#: apps/employee/templates/employee/employee_detail.html:5
+#, python-format
+msgid "%(name)s — %(position)s в КМУК."
+msgstr "%(name)s — %(position)s at KIUC."
+
+#: apps/employee/templates/employee/employee_detail.html:9
+#: apps/employee/templates/employee/employee_detail.html:12
+#, python-format
+msgid "%(position)s в Кыргызском международном универсальном колледже."
+msgstr "%(position)s at the Kyrgyz International Universal College."
 
 #: apps/employee/templates/employee/employee_detail.html:37
 #: apps/employee/templates/employee/employee_detail.html:50
@@ -940,9 +1085,7 @@ msgstr "Skills"
 msgid ""
 "Преподавательский состав КМУК — опытные специалисты с международной "
 "практикой. Сотрудники Кыргызского международного универсального колледжа."
-msgstr ""
-"KIUC faculty — experienced specialists with international practice. Staff of "
-"the Kyrgyz International Universal College."
+msgstr "KIUC faculty — experienced professionals with international teaching experience. Staff of the Kyrgyz International Universal College."
 
 #: apps/employee/templates/employee/index.html:6
 msgid "Преподаватели КМУК"
@@ -961,7 +1104,7 @@ msgstr ""
 
 #: apps/feedback/forms.py:13
 msgid "Напишите ответ"
-msgstr "Write back"
+msgstr "Enter the answer"
 
 #: apps/feedback/forms.py:21 apps/feedback/models.py:12
 #: apps/feedback/templates/contacts.html:152
@@ -1027,7 +1170,7 @@ msgstr "Our address"
 
 #: apps/feedback/templates/contacts.html:98
 msgid "Менеджеры КМУК"
-msgstr "KMUK Managers"
+msgstr "KIUC managers"
 
 #: apps/feedback/templates/contacts.html:130
 msgid "Система обратной связи"
@@ -1043,7 +1186,7 @@ msgstr "Fill in the form and we’ll get back to you."
 
 #: apps/feedback/templates/contacts.html:157
 msgid "Ваша почта"
-msgstr "Your mail"
+msgstr "Your email"
 
 #: apps/feedback/templates/contacts.html:169
 msgid "Защита от роботов"
@@ -1059,7 +1202,7 @@ msgstr "Send message"
 
 #: apps/feedback/views.py:31
 msgid "Не правильный ответ"
-msgstr "Wrong answer"
+msgstr "Incorrect answer"
 
 #: apps/feedback/views.py:34
 msgid ""
@@ -1087,15 +1230,15 @@ msgstr "Status"
 
 #: apps/news/models.py:25
 msgid "Создано"
-msgstr "Created by"
+msgstr "Created"
 
 #: apps/news/models.py:49
 msgid "Новость"
-msgstr "News"
+msgstr "News item"
 
 #: apps/news/templates/news/aside.html:5
 msgid "Поиск новостей"
-msgstr "News Search"
+msgstr "News search"
 
 #: apps/news/templates/news/aside.html:7
 msgid "Поиск по ключевому слову"
@@ -1140,7 +1283,7 @@ msgstr "Search"
 #: apps/news/templates/news/list.html:39
 #, python-format
 msgid "Найдено %(count)s по запросу «%(q)s»"
-msgstr "%(count)s found for “%(q)s”"
+msgstr "%(count)s results for “%(q)s”"
 
 #: apps/news/templates/news/list.html:40
 msgid "сбросить"
@@ -1156,7 +1299,7 @@ msgstr "Try a different query or reset the search."
 
 #: apps/news/templates/news/list.html:67
 msgid "Загляните позже — новые материалы скоро появятся."
-msgstr "Come back later — new material will appear soon."
+msgstr "Check back later — new posts are coming soon."
 
 #: apps/specialty/models.py:18
 msgid "Очный"
@@ -1168,7 +1311,7 @@ msgstr "Full-time/Part-time"
 
 #: apps/specialty/models.py:20
 msgid "Заочный"
-msgstr "Correspondence"
+msgstr "Part-time"
 
 #: apps/specialty/models.py:23
 #: apps/specialty/templates/specialty/detail.html:98
@@ -1177,7 +1320,7 @@ msgstr "Contract"
 
 #: apps/specialty/models.py:24
 msgid "Контракт/Бюджет"
-msgstr "Contract/Budget"
+msgstr "Contract/State-funded"
 
 #: apps/specialty/models.py:26
 msgid "Наименование"
@@ -1189,16 +1332,23 @@ msgstr "Contract amount"
 
 #: apps/specialty/models.py:30
 msgid "Форма обучение"
-msgstr "Form of training"
+msgstr "Study format"
 
 #: apps/specialty/models.py:31
 #: apps/specialty/templates/specialty/detail.html:94
 msgid "Основа обучения"
-msgstr "The basis of training"
+msgstr "Tuition basis"
 
 #: apps/specialty/models.py:60
 msgid "Специальность"
 msgstr "Specialty"
+
+#: apps/specialty/templates/specialty/detail.html:5
+#: apps/specialty/templates/specialty/detail.html:8
+#: apps/specialty/templates/specialty/detail.html:11
+#, python-format
+msgid "%(title)s — %(form)s, %(price)s сом."
+msgstr "%(title)s — %(form)s, %(price)s KGS."
 
 #: apps/specialty/templates/specialty/detail.html:87
 msgid "О специальности"
@@ -1206,7 +1356,7 @@ msgstr "About the specialty"
 
 #: apps/specialty/templates/specialty/detail.html:90
 msgid "Форма обучения"
-msgstr "Form of training"
+msgstr "Study format"
 
 #: apps/specialty/templates/specialty/detail.html:99
 msgid "сом"
@@ -1218,7 +1368,7 @@ msgstr "Duration"
 
 #: apps/specialty/templates/specialty/detail.html:105
 msgid "На базе 9 класса"
-msgstr "Based on 9th grade"
+msgstr "After 9th grade"
 
 #: apps/specialty/templates/specialty/detail.html:105
 msgid "2 года 10 месяцев"
@@ -1226,7 +1376,7 @@ msgstr "2 years 10 months"
 
 #: apps/specialty/templates/specialty/detail.html:106
 msgid "На базе 11 класса"
-msgstr "Based on 11th grade"
+msgstr "After 11th grade"
 
 #: apps/specialty/templates/specialty/detail.html:106
 msgid "1 год 10 месяцев"
@@ -1242,7 +1392,7 @@ msgstr "Frequently Asked Questions"
 
 #: apps/specialty/templates/specialty/detail.html:120
 msgid "Как поступить в колледж?"
-msgstr "How do I get into college?"
+msgstr "How do I apply to the college?"
 
 #: apps/specialty/templates/specialty/detail.html:121
 msgid "Какие документы нужны для поступления?"
@@ -1253,9 +1403,7 @@ msgid ""
 "Все специальности КМУК — программы среднего профессионального образования с "
 "международной практикой. Цена контракта и форма обучения по каждому "
 "направлению."
-msgstr ""
-"All KIUC specialties — vocational secondary-education programmes with "
-"international practice. Contract price and study format for each programme."
+msgstr "All KIUC specialties — secondary vocational education programmes with international internships. Tuition fee and study format for each programme."
 
 #: apps/specialty/templates/specialty/list.html:6
 msgid "Специальности КМУК"
@@ -1344,9 +1492,7 @@ msgstr "organising leisure and recreation for top-performing students;"
 msgid ""
 "разработка и реализация мероприятий по повышению ответственности студентов "
 "за выполнение учебных планов, учебной дисциплины и правил поведения;"
-msgstr ""
-"designing and running activities that strengthen students’ responsibility "
-"for academic plans, discipline and conduct;"
+msgstr "designing and running activities that encourage students to complete their study plans and follow academic discipline and rules of conduct;"
 
 #: apps/student/templates/student/index.html:30
 msgid "представление интересов студентов на всех уровнях руководства;"
@@ -1356,14 +1502,12 @@ msgstr "representing student interests at all levels of management;"
 msgid ""
 "активизация процессов управления студенческими коллективами и вовлечение их "
 "в общественную жизнь колледжа;"
-msgstr ""
-"energising student-collective management and engaging students in the public "
-"life of the college;"
+msgstr "improving how student groups are run and involving them in the life of the college;"
 
 #: apps/student/templates/student/index.html:32
 msgid ""
 "создание единого информационного пространства для студентов и администрации;"
-msgstr "creating a unified information space for students and administration;"
+msgstr "creating a single communication channel between students and the administration;"
 
 #: apps/student/templates/student/index.html:33
 msgid ""
@@ -1380,6 +1524,25 @@ msgstr "Council members"
 #: apps/student/templates/student/index.html:42
 msgid "Члены студенческого совета"
 msgstr "Student Council members"
+
+#: apps/student/templates/student/student_detail.html:5
+#, python-format
+msgid "%(name)s — %(position)s студенческого совета КМУК."
+msgstr "%(name)s — %(position)s of the KIUC Student Council."
+
+#: apps/student/templates/student/student_detail.html:9
+#, python-format
+msgid ""
+"%(position)s студенческого совета Кыргызского международного универсального "
+"колледжа."
+msgstr ""
+"%(position)s of the Student Council of the Kyrgyz International Universal "
+"College."
+
+#: apps/student/templates/student/student_detail.html:12
+#, python-format
+msgid "%(position)s студенческого совета КМУК."
+msgstr "%(position)s of the KIUC Student Council."
 
 #: config/settings.py:121
 msgid "Russia"
@@ -1418,15 +1581,15 @@ msgstr ""
 
 #: templates/404.html:26 templates/500.html:31
 msgid "На главную"
-msgstr "To home"
+msgstr "Back to home"
 
 #: templates/500.html:7
 msgid "Что-то сломалось"
-msgstr "Something broke"
+msgstr "Something went wrong"
 
 #: templates/500.html:24
 msgid "Что-то сломалось."
-msgstr "Something broke."
+msgstr "Something went wrong."
 
 #: templates/500.html:27
 msgid ""
@@ -1446,8 +1609,7 @@ msgstr "Let us know"
 
 #: templates/500.html:42
 msgid "Напишите или позвоните — поможем быстрее найти то, что искали."
-msgstr ""
-"Write or call and we’ll help you find what you were looking for faster."
+msgstr "Email or call us — we’ll help you find what you were looking for faster."
 
 #: templates/base/_breadcrumbs.html:6
 msgid "Хлебные крошки"
@@ -1470,7 +1632,7 @@ msgstr "Next"
 #: templates/base/base.html:12 templates/base/base.html:31
 #: templates/base/base.html:38 templates/base/base.html:228
 msgid "Кыргызский международный универсальный колледж"
-msgstr "Kyrgyz international universal college"
+msgstr "Kyrgyz International Universal College"
 
 #: templates/base/base.html:15
 msgid ""
@@ -1510,7 +1672,7 @@ msgstr "Library"
 
 #: templates/base/base.html:119 templates/base/base.html:193
 msgid "Приемная комиссия"
-msgstr "Admission committee"
+msgstr "Admissions office"
 
 #: templates/base/base.html:120
 msgid "Наши Специальности"
@@ -1526,7 +1688,7 @@ msgstr "Menu"
 
 #: templates/base/base.html:257
 msgid "Быстрое меню"
-msgstr "Quick Menu"
+msgstr "Quick menu"
 
 #: templates/base/base.html:259
 msgid "О Нас"
@@ -1538,11 +1700,11 @@ msgstr "“KIUC” — All rights reserved."
 
 #: templates/base/base.html:310
 msgid "Наш институт"
-msgstr "Our Institute"
+msgstr "Our institute"
 
 #: templates/base/base.html:316
 msgid "Наверх"
-msgstr "Top"
+msgstr "Back to top"
 
 #: templates/base/base.html:361
 msgid "Закрыть"

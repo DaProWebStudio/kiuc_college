@@ -2,14 +2,14 @@
 {% load static i18n seo %}
 
 {% block title %}{{ student.get_full_name }} — {{ student.position }}{% endblock %}
-{% block meta_description %}{{ student.get_full_name }} — {{ student.position }} студенческого совета КМУК.{% endblock %}
+{% block meta_description %}{% blocktranslate with name=student.get_full_name position=student.position %}{{ name }} — {{ position }} студенческого совета КМУК.{% endblocktranslate %}{% endblock %}
 
 {% block og_type %}profile{% endblock %}
-{% block og_title %}{{ student.get_full_name }} — {{ student.position }} | КМУК{% endblock %}
-{% block og_description %}{{ student.position }} студсовета Кыргызского международного универсального колледжа.{% endblock %}
+{% block og_title %}{{ student.get_full_name }} — {{ student.position }} | {% trans 'КМУК' %}{% endblock %}
+{% block og_description %}{% blocktranslate with position=student.position %}{{ position }} студенческого совета Кыргызского международного универсального колледжа.{% endblocktranslate %}{% endblock %}
 {% block og_image %}{% if student.image %}{% absolute_url student.image.url %}{% endif %}{% endblock %}
-{% block twitter_title %}{{ student.get_full_name }} — {{ student.position }} | КМУК{% endblock %}
-{% block twitter_description %}{{ student.position }} студсовета КМУК.{% endblock %}
+{% block twitter_title %}{{ student.get_full_name }} — {{ student.position }} | {% trans 'КМУК' %}{% endblock %}
+{% block twitter_description %}{% blocktranslate with position=student.position %}{{ position }} студенческого совета КМУК.{% endblocktranslate %}{% endblock %}
 {% block twitter_image %}{% if student.image %}{% absolute_url student.image.url %}{% endif %}{% endblock %}
 
 {% block jsonld %}

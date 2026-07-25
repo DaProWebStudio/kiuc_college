@@ -2,14 +2,14 @@
 {% load static i18n seo %}
 
 {% block title %}{{ employee.get_full_name }} — {{ employee.position }}{% endblock %}
-{% block meta_description %}{{ employee.get_full_name }} — {{ employee.position }} в КМУК. {{ employee.description|seo_text:120 }}{% endblock %}
+{% block meta_description %}{% blocktranslate with name=employee.get_full_name position=employee.position %}{{ name }} — {{ position }} в КМУК.{% endblocktranslate %} {{ employee.description|seo_text:120 }}{% endblock %}
 
 {% block og_type %}profile{% endblock %}
-{% block og_title %}{{ employee.get_full_name }} — {{ employee.position }} | КМУК{% endblock %}
-{% block og_description %}{{ employee.position }} в Кыргызском международном универсальном колледже.{% endblock %}
+{% block og_title %}{{ employee.get_full_name }} — {{ employee.position }} | {% trans 'КМУК' %}{% endblock %}
+{% block og_description %}{% blocktranslate with position=employee.position %}{{ position }} в Кыргызском международном универсальном колледже.{% endblocktranslate %}{% endblock %}
 {% block og_image %}{% if employee.image %}{% absolute_url employee.image.url %}{% endif %}{% endblock %}
-{% block twitter_title %}{{ employee.get_full_name }} — {{ employee.position }} | КМУК{% endblock %}
-{% block twitter_description %}{{ employee.position }} в Кыргызском международном универсальном колледже.{% endblock %}
+{% block twitter_title %}{{ employee.get_full_name }} — {{ employee.position }} | {% trans 'КМУК' %}{% endblock %}
+{% block twitter_description %}{% blocktranslate with position=employee.position %}{{ position }} в Кыргызском международном универсальном колледже.{% endblocktranslate %}{% endblock %}
 {% block twitter_image %}{% if employee.image %}{% absolute_url employee.image.url %}{% endif %}{% endblock %}
 
 {% block jsonld %}

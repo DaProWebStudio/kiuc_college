@@ -4,10 +4,10 @@
 {% block title %}{{ international.title }}{% endblock %}
 {% block meta_description %}{{ international.description|seo_text:200 }}{% endblock %}
 
-{% block og_title %}{{ international.title }} | КМУК{% endblock %}
+{% block og_title %}{{ international.title }} | {% trans 'КМУК' %}{% endblock %}
 {% block og_description %}{{ international.description|seo_text:200 }}{% endblock %}
 {% block og_image %}{% absolute_url international.image.url %}{% endblock %}
-{% block twitter_title %}{{ international.title }} | КМУК{% endblock %}
+{% block twitter_title %}{{ international.title }} | {% trans 'КМУК' %}{% endblock %}
 {% block twitter_description %}{{ international.description|seo_text:200 }}{% endblock %}
 {% block twitter_image %}{% absolute_url international.image.url %}{% endblock %}
 

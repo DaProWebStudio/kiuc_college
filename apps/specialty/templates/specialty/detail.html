@@ -2,13 +2,13 @@
 {% load static i18n seo %}
 
 {% block title %}{{ specialty.title }}{% endblock %}
-{% block meta_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом. {{ specialty.description|seo_text:140 }}{% endblock %}
+{% block meta_description %}{% blocktranslate with title=specialty.title form=specialty.form_verbose price=specialty.contract %}{{ title }} — {{ form }}, {{ price }} сом.{% endblocktranslate %} {{ specialty.description|seo_text:140 }}{% endblock %}
 
-{% block og_title %}{{ specialty.title }} | КМУК{% endblock %}
-{% block og_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом.{% endblock %}
+{% block og_title %}{{ specialty.title }} | {% trans 'КМУК' %}{% endblock %}
+{% block og_description %}{% blocktranslate with title=specialty.title form=specialty.form_verbose price=specialty.contract %}{{ title }} — {{ form }}, {{ price }} сом.{% endblocktranslate %}{% endblock %}
 {% block og_image %}{% absolute_url specialty.image.url %}{% endblock %}
-{% block twitter_title %}{{ specialty.title }} | КМУК{% endblock %}
-{% block twitter_description %}{{ specialty.title }} — {{ specialty.form_verbose }}, {{ specialty.contract }} сом.{% endblock %}
+{% block twitter_title %}{{ specialty.title }} | {% trans 'КМУК' %}{% endblock %}
+{% block twitter_description %}{% blocktranslate with title=specialty.title form=specialty.form_verbose price=specialty.contract %}{{ title }} — {{ form }}, {{ price }} сом.{% endblocktranslate %}{% endblock %}
 {% block twitter_image %}{% absolute_url specialty.image.url %}{% endblock %}
 
 {% block jsonld %}

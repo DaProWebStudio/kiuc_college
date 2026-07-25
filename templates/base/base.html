@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     {# Default title — pages override via {% block title %} #}
-    <title>{% block title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %} | КМУК</title>
+    <title>{% block title %}{% trans 'Кыргызский международный универсальный колледж' %}{% endblock %} | {% trans 'КМУК' %}</title>
 
     {# SEO + social: defaults work for any page; key pages override blocks #}
     <meta name="description" content="{% block meta_description %}{% trans 'Кыргызский международный универсальный колледж — образование международного уровня с 2013 года. Корея, Кыргызстан, программы на 3 языках.' %}{% endblock %}">
@@ -71,9 +71,9 @@
 <header class="nav-shell" data-nav data-state="top">
     <div class="container-page flex h-20 items-center justify-between gap-6">
         <a href="{% url 'index' %}" class="flex items-center gap-3">
-            <img loading="eager" fetchpriority="high" src="{% static 'images/logo/logo-min.webp' %}" alt="КМУК" width="44" height="44" class="h-10 w-10 lg:h-11 lg:w-11">
+            <img loading="eager" fetchpriority="high" src="{% static 'images/logo/logo-min.webp' %}" alt="{% trans 'КМУК' %}" width="44" height="44" class="h-10 w-10 lg:h-11 lg:w-11">
             <div class="hidden flex-col leading-tight sm:flex">
-                <span class="nav-brand-text text-sm font-bold">КМУК</span>
+                <span class="nav-brand-text text-sm font-bold">{% trans 'КМУК' %}</span>
                 <span class="nav-brand-sub text-[10px]">{% trans 'Международный колледж' %}</span>
             </div>
         </a>
@@ -224,7 +224,7 @@
             <div class="flex items-center gap-3">
                 <img loading="lazy" src="{% static 'images/logo/logo-min.webp' %}" alt="" width="48" height="48" class="h-12 w-12">
                 <div>
-                    <p class="font-display text-lg font-bold text-white">КМУК</p>
+                    <p class="font-display text-lg font-bold text-white">{% trans 'КМУК' %}</p>
                     <p class="text-xs text-slate-400">{% trans 'Кыргызский международный универсальный колледж' %}</p>
                 </div>
             </div>

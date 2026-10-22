@@ -17,8 +17,20 @@ class ContactsView(FormView):
 
     def get_recaptcha(self) -> Recaptcha | None:
         if not hasattr(self, '_recaptcha'):
-            self._recaptcha = get_random_model(Recaptcha)
+            # POST сверяет ответ с той капчей, что показали на GET, а не с новой случайной
+            pk = self.request.session.get('recaptcha_id') if self.request.method == 'POST' else None
+            self._recaptcha = Recaptcha.objects.filter(pk=pk).first() if pk else None
+            if self._recaptcha is None:
+                self._recaptcha = get_random_model(Recaptcha)
+            if self._recaptcha is not None:
+                self.request.session['recaptcha_id'] = self._recaptcha.pk
         return self._recaptcha
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        # без капчи поле ответа не выводится — значит, и не обязательно
+        form.fields['user_answer'].required = self.get_recaptcha() is not None
+        return form
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

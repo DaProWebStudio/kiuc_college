@@ -1,8 +1,10 @@
 {% load i18n %}
-{# Usage:
+{% comment %}
+Usage:
    {% include 'base/_breadcrumbs.html' with items=breadcrumbs %}
    where items = [{'title': 'X', 'url': '/x/'}, {'title': 'Y'}]   (last item without 'url' is current)
-#}
+{# … #} is single-line only in Django: a multi-line one renders as text and this include recursed forever.
+{% endcomment %}
 <nav aria-label="{% trans 'Хлебные крошки' %}" class="text-sm text-white/70">
     <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
         <li>

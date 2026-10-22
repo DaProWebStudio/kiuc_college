@@ -20,7 +20,7 @@ class NationalityAdmin(admin.ModelAdmin):
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('get_full_name', 'position', 'number', 'is_active', 'created', 'get_photo')
     list_filter = ('position', 'is_active')
-    search_fields = ['get_full_name', 'position']
+    search_fields = ['last_name', 'first_name', 'sur_name', 'position__title']
     readonly_fields = ('get_photo',)
 
     fieldsets = (

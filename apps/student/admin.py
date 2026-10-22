@@ -8,7 +8,7 @@ from .models import StudentCouncil, SaeJeon, SaeJeonImages
 @admin.register(StudentCouncil)
 class StudentCouncilAdmin(admin.ModelAdmin):
     list_display = ('get_full_name', 'position', 'number', 'created', 'get_photo')
-    search_fields = ['get_full_name', 'position']
+    search_fields = ['last_name', 'first_name', 'sur_name', 'position']
     readonly_fields = ('get_photo',)
 
     fieldsets = (

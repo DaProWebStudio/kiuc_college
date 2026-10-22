@@ -40,7 +40,6 @@ def international_pdf(instance, filename):
 def international_images(instance, filename):
     list_file = filename.split('.')
     title = get_slug(instance.international.title[:30])
-    print(title)
     return f'cooperation/internationals/{title}/{title}.{list_file[-1]}'
 
 

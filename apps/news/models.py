@@ -6,7 +6,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
-from common.utils import get_english_translit as get_slug
+from common.utils import get_unique_slug
 from common.upload_to_files import news_main_img, news_news_img
 from common.managers import ActiveManager
 
@@ -32,7 +32,7 @@ class AbstractNews(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = get_slug(self.title)
+        self.slug = get_unique_slug(self, self.title)
         super().save(*args, **kwargs)
 
 

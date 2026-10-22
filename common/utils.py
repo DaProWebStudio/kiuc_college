@@ -25,3 +25,20 @@ def get_random_model(model):
         item = model.objects.filter(pk=pk).first()
         if item:
             return item
+
+
+def get_unique_slug(instance, text: str) -> str:
+    """Slug из text; занятый другой записью той же модели получает суффикс -2, -3, …
+
+    Detail-страницы ищут запись по slug: два одинаковых заголовка давали один slug
+    и MultipleObjectsReturned (500) на обеих страницах.
+    """
+    base = get_english_translit(text)
+    max_length = instance._meta.get_field('slug').max_length
+    others = type(instance)._base_manager.exclude(pk=instance.pk)
+    slug, n = base[:max_length], 2
+    while others.filter(slug=slug).exists():
+        suffix = f'-{n}'
+        slug = base[:max_length - len(suffix)] + suffix
+        n += 1
+    return slug

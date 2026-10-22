@@ -9,7 +9,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from ckeditor.fields import RichTextField
 
-from common.utils import get_english_translit as get_slug
+from common.utils import get_unique_slug
 from common.upload_to_files import (
     document_files,
     cooperation_files,
@@ -55,7 +55,7 @@ class InternationalCooperation(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = get_slug(self.title)
+        self.slug = get_unique_slug(self, self.title)
         super(InternationalCooperation, self).save(*args, **kwargs)
 
     def get_absolute_url(self, **kwargs):
@@ -381,7 +381,7 @@ class AbstractResume(models.Model):
         return f'{self.last_name} {self.first_name}'
 
     def save(self, *args, **kwargs):
-        self.slug = get_slug(self.get_full_name())
+        self.slug = get_unique_slug(self, self.get_full_name())
         super().save(*args, **kwargs)
 
     def __str__(self):
